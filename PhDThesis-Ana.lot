@@ -1,0 +1,15 @@
+\gdef \the@ipfilectr {@-1}
+\addvspace {10\p@ }
+\contentsline {xchapter}{Introduction}{1}{chapter.1}
+\gdef \the@ipfilectr {}
+\gdef \the@ipfilectr {@-2}
+\addvspace {10\p@ }
+\contentsline {xchapter}{Methods}{7}{chapter.2}
+\gdef \the@ipfilectr {}
+\gdef \the@ipfilectr {@-3}
+\addvspace {10\p@ }
+\contentsline {xchapter}{Heating of Gold Nanoparticles in an Optical Tweezers}{21}{chapter.3}
+\contentsline {table}{\numberline {3.1}{\ignorespaces Rate of heating of different nanoparticles}}{38}{table.caption.36}
+\gdef \the@ipfilectr {}
+\addvspace {10\p@ }
+\contentsline {xchapter}{Data Analysis of the Heating Rate of Gold Nanoparticles}{55}{appendix.A}

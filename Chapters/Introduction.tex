@@ -1,0 +1,42 @@
+\chapter{Introduction}
+\label{\thechapter}
+\label{Introduction}
+\addcontentsline{lof}{chapter}{\protect\numberline{\arabic{chapter}} {\nameref{\thechapter}}}
+
+%----------------------------------------------------------------------------------------
+
+\rule{\textwidth}{1.6pt}
+\minitoc
+\clearpage
+
+%----------------------------------------------------------------------------------------
+
+\section{Section title}
+\label{\thesection}
+
+Always put label{thesection} after each section so the page headers work. \cite{Selmeczi_07}
+
+This is a test. 
+
+\section{Compiling instructions}
+
+\begin{enumerate}
+\item make the main file the masted document: options -> make current file masted document
+
+\item Quick build from anywhere (because it quick builds from the master document
+
+\item BibTex from the chapter file (disable the master document option for this and do it from "normal mode")
+
+\item Quick build 3 times (from the master document): 1 for the text, 2 for the references and labels, 3 for the bibliography backreferencing.
+\end{enumerate}
+
+
+%----------------------------------------------------------------------------------------
+%\clearpage
+\section{References}
+\label{\thesection}
+\vspace{-1.5cm}
+\setstretch{1.0}
+\bibliographystyle{unsrt}
+\bibliography{Bibliography}
+\setstretch{1.3}
