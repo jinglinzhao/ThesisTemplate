@@ -7,18 +7,18 @@
 \addvspace {10\p@ }
 \contentsline {xchapter}{Fourier transform as measurement of radial velocity}{3}{chapter.2}
 \contentsline {chapter}{\numberline {2} {\nameref {2}}}{3}{chapter.2}
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Translation property of Fourier transform}}{6}{figure.caption.7}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Shifted line profile}}{7}{figure.caption.9}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Fourier transform of shifted line profile}}{7}{figure.caption.10}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Radial velocity recovery}}{8}{figure.caption.11}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Deformed line profile}}{10}{figure.caption.14}
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Fourier transform of deformed line profile}}{10}{figure.caption.15}
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Fourier transform in response to line deformation}}{11}{figure.caption.16}
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Jitter model}}{13}{figure.caption.17}
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Corner plots of MCMC}}{14}{figure.caption.18}
-\contentsline {figure}{\numberline {2.10}{\ignorespaces Planet recovery}}{15}{figure.caption.19}
-\contentsline {figure}{\numberline {2.11}{\ignorespaces Distribution of recovered parameters}}{16}{figure.caption.20}
-\contentsline {figure}{\numberline {2.12}{\ignorespaces Demo: Rossiter\IeC {\textendash }McLaughlin effect}}{17}{figure.caption.21}
-\contentsline {figure}{\numberline {2.13}{\ignorespaces From $RV_\text {Gaussian}$ and $RV_\text {FT}$ to $Delta RV$}}{18}{figure.caption.22}
-\contentsline {figure}{\numberline {2.14}{\ignorespaces Rossiter\IeC {\textendash }McLaughlin effect as jitter}}{18}{figure.caption.24}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Translation property of Fourier transform}}{5}{figure.caption.7}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces 100 shifted HARPS-like line profiles}}{8}{figure.caption.9}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Fourier transform of 100 shifted line profiles}}{9}{figure.caption.10}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Radial velocity recovery}}{9}{figure.caption.11}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Deformed line profile}}{11}{figure.caption.14}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Fourier transform of deformed line profile}}{11}{figure.caption.15}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Fourier transform in response to line deformation}}{13}{figure.caption.16}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Jitter model}}{15}{figure.caption.17}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Corner plots of MCMC}}{16}{figure.caption.18}
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Planet recovery}}{17}{figure.caption.19}
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Distribution of recovered parameters}}{18}{figure.caption.20}
+\contentsline {figure}{\numberline {2.12}{\ignorespaces Demo: Rossiter\IeC {\textendash }McLaughlin effect}}{19}{figure.caption.21}
+\contentsline {figure}{\numberline {2.13}{\ignorespaces From $RV_\text {Gaussian}$ and $RV_\text {FT}$ to $Delta RV$}}{19}{figure.caption.22}
+\contentsline {figure}{\numberline {2.14}{\ignorespaces Rossiter\IeC {\textendash }McLaughlin effect as jitter}}{20}{figure.caption.24}
 \gdef \the@ipfilectr {}

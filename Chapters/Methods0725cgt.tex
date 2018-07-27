@@ -411,46 +411,38 @@ where $\alpha = 1/(1-k)$ is a scaling factor.
 \subsection{Testing the recovery of Jitter}
 \label{sec:check}
 
-We again perform tests to see if we can correctly recover artificially generated model jitter
+We will again perform a sanity check to see if we can correctly recover artificially generated model jitter
 using our new technique (Eq.~\ref{eq:jitter_model}). 
 
-We generate 200 deformed line profiles (in the form of cross-correlation functions) using SOAP~2.0.
-All the configurations are the same as used in \S\ref{sec:Simulations}, except that they are evenly sampled throughout two
+To start with, we generate 200 deformed line profiles (in the form of cross-correlation functions) with SOAP~2.0.
+All the configurations are the same as \S\ref{sec:Simulations} except that they are evenly sampled throughout two
 rotation periods. The jitter amplitude is roughly 2 m/s. 
-In addition, each line profile is further shifted by an amount $RV_\text{planet}$ appropriate for
-a planet generating a Keplerian orbit in the star of  the amplitude
+In addition, each line profile is further shifted by an amount $RV_\text{planet}$, of which the amplitude
 \begin{equation*}
 	A_\text{planet} = 2~\text{m/s}
 \end{equation*}
-and a planetary orbital period to stellar rotation period ratio of 0.7;
+and the planetary orbital frequency to stellar rotation frequency ratio
 \begin{equation*}
 	\frac{\nu_\text{orb}}{\nu_\text{rot}} = \frac{P_\text{rot}}{P_\text{orb}} = 0.7.
 \end{equation*}
-In principle, the $RV_\text{planet}$ configuration shouldn't matter much 
-because it will be mostly cancelled out {\em CGT: cancelled? Or swamped?} in the jitter model. 
-
-We then obtain two sets of radial velocities for each simulated profile: 
-$RV_\text{Gaussian}$ and $RV_\text{FT}$, which are reproduced in the upper panel of Fig.~\ref{fig:PLANET_AND_JITTER}. 
+In fact, the $RV_\text{planet}$ configuration shouldn't matter much 
+because it will be mostly cancelled out in the jitter model. We then obtain two sets of radial velocities: 
+$RV_\text{Gaussian}$ and $RV_\text{FT}$, as seen in the upper panel of Fig.~\ref{fig:PLANET_AND_JITTER}. 
 As we know the amount of input jitter in our simulation, we simply scale up $\Delta RV$ by a parameter $\alpha$
-to match the input jitter (dashed line in middle panel). {\em CGT: You've lost me here ...}
+to match the input jitter (dashed line in middle panel). 
 The jitter model (black dots in middle panel) becomes more scattered as $\alpha \gg 1$.  
 As a result, a moving average modulated by a Gaussian kernel is implemented to smooth out the data (solid line 
 in middle panel).
 
-{\em CGT: I'm confused - whats the difference between input jitter and model jitter?}
-
-To examine the performance, we compare the rms of the input jitter $rms_\text{jitter}$
+To comment on the performance, we compare the rms of the input jitter $rms_\text{jitter}$
 and the rms of the residual between the input jitter and the model jitter $rms_\text{residual}$. 
 The former can be treated as the scatter after fitting the correct planet(s) without jitter correction, 
-while the latter can be treated as the scatter after the additional jitter is removed.
-The rms {\em CGT: of what? which one?} is reduced from $rms_\text{jitter} = 1.22$~m/s to $rms_\text{residual} = 0.70$~m/s,
+while the latter treated as the scatter after the additional jitter is removed.
+The rms is reduced from $rms_\text{jitter} = 1.22$~m/s to $rms_\text{residual} = 0.70$~m/s,
 which is crucial in enhancing the detection of planets with radial velocities of sub-m/s amplitudes. 
 However, we should also note that there are systematic differences between the input jitter and our model jitter
-(i.e. the residual sorts of repeats itself in the two stellar rotation periods). 
-
-We should be aware that 
+(i.e. the residual sorts of repeats itself in the two stellar rotation periods). We should be aware that 
 while removing the stellar variability contribution from the data, it may also add in some remnant features. 
-{\em CGT: I'm afraid this is a sort of meanngless statement}.
 
 %-------------
 \begin{figure}[tbp]
