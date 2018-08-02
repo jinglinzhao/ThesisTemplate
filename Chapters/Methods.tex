@@ -1,4 +1,4 @@
-\chapter{Fourier transform as measurement of radial velocity}
+\chapter{Using Fourier transform phase for the measurement of radial velocity}
 \label{\thechapter}
 \label{ch:Methods}
 \addcontentsline{lof}{chapter}{\protect\numberline{\arabic{chapter}} {\nameref{\thechapter}}}
@@ -17,13 +17,12 @@ I think the folloing does a slightly better job of that.}
 
 This chapter introduces a new method for measuring radial velocities. Specifically, it uses the Fourier transform
 of a line profile (or cross-correlation profile) to try and distinguish between the effects of a bulk shift in that profile
-(i.e. a radial velocity shift of the profile), and a change opposed to a change in the line profile shape which can produce an
-apparent radial velocity shift. We examine the impact on the Fourier transformed components of a line profile of both bulk line shifts,
-and line profile deformations, with the aim of developing tools to distinguish between these two cases.
+(i.e. a radial velocity shift of the profile), opposed to a change in the line profile shape which can produce an
+apparent radial velocity shift. We examine the impact on the Fourier transformed components of a line profile of both bulk line shifts, and line profile deformations, with the aim of developing tools to distinguish between these two cases.
 
 
 
-\section{Fourier transform as measurement of line shift}
+\section{Phase analysis of Fourier transform for the measurement of line shift}
 \label{\thesection}
 \label{ch:FT_line_shift}
 
@@ -33,9 +32,8 @@ and line profile deformations, with the aim of developing tools to distinguish b
 The translation of a function (in our case a spectral line profile) can be examined in both its original real
 space, and in its Fourier transformed space. Because Fourier techniques are often used to handle time domain data,
 this shift in real space can be variously considered described as either time shifting or translation. In this chapter 
-we will refer to '``time shifting'', ``translation'' and ``velocity shifting'' interchangeably to refer to a shift of a function
-in real space. We will refer to Fourier transformed functions as being in the ``frequency domain'' regardless of whether they have
-actual dimensions of 1/length or 1/velocity.
+we will use ``time shifting'', ``translation'' and ``velocity shifting'' interchangeably to refer to a shift of a function
+in real space. We will refer to Fourier transformed functions as being in the ``frequency domain'' regardless of whether they have actual dimensions of 1/time, 1/length or 1/velocity.
 
 %-------------
 \begin{figure}[tbp]
@@ -61,8 +59,8 @@ In the frequency domain, we will then have
 	\hat{h}(\xi) = e^{-2 \pi ix_0 \xi} \hat{f}(\xi),
 \label{eq:FT2}
 \end{equation}
-where the circumflex denotes the Fourier transform of a function.$\hat{h}(\xi)$ and $\hat{f}(\xi)$ 
-will therefore differ by a frequency dependent phase angle $\Delta\pi$
+where the circumflex denotes the Fourier transform of a function. $\hat{h}(\xi)$ and $\hat{f}(\xi)$ 
+will therefore differ by a frequency dependent phase angle: 
 \begin{equation}
 	\Delta \phi(\xi) = -2 \pi x_0 \xi,
 \label{eq:PhaseShift}
@@ -74,21 +72,19 @@ while the power spectral density will remain unchanged (as $\mid e^{-2 \pi ix_0 
 \subsection{Intuitive explanation}
 
 The translation property of the Fourier transform follows mathematically from the nature of the transform. 
-A (perhaps) more intuitive intuitive way to see this is that since the Fourier transform is defined 
+A (perhaps) more intuitive way to see this is that since the Fourier transform is defined 
 \begin{equation}
 	\hat{f}(\xi) = \int_{-\infty}^{\infty} f(x) e^{-2 \pi ix \xi} dx, 
 \label{eq:FT3}
 \end{equation}
-
-it decomposes the function $f(x)$ into a frequency representation $\hat{f}(\xi)$, such that the function is expressed  
-as the sum of \textit{all} over the orthogonal basis $e^{2 \pi ix \xi}$ of that basis times a set of components (i.e.
+it decomposes the function $f(x)$ into a frequency representation $\hat{f}(\xi)$, such that the function $f(x)$ is expressed  
+as the sum of \textit{all} the orthogonal basis $e^{2 \pi ix \xi}$ times a set of their components $\hat{f}(\xi)$ (i.e.
 by the inverse Fourier transform):
 \begin{equation}
 	f(x) = \int_{-\infty}^{\infty} \hat{f}(\xi) e^{2 \pi ix \xi} d\xi. 
 \end{equation}
 
-This means that shifting $f(x)$ by $x_0$ is equivalent to shifting \textit{all} the orthogonal basis functions by $x_0$, which becomes 
-$e^{2 \pi i(x-x_0) \xi}$. This is how the $e^{-2 \pi ix_0 \xi}$ term in equation 2.2 arises comes along -- it quantifies this phase difference. 
+This means that shifting $f(x)$ by $x_0$ is equivalent to shifting \textit{all} the orthogonal basis functions by $x_0$, which becomes $e^{2 \pi i(x-x_0) \xi} = e^{2 \pi i x \xi} \cdot e^{-2 \pi ix_0 \xi}$. This is how the $e^{-2 \pi ix_0 \xi}$ term in Eq.~\ref{eq:FT2} arises -- it quantifies this phase difference. 
 \footnote{For a simplified vision bridging a shift of the signal in the time domain and a phase difference in the frequency domain, imagine any real continuous function is a sum of sines and cosines. Changing the phase angle in the sines and cosines results in shifts in the function.}
 
 The fact that the power spectrum density remains the same can also intuitively seen, because shifting the signal as a whole 
@@ -98,15 +94,16 @@ doesn't add or remove any frequency information.
 \subsection{Practical Use}
 
 From Eq.~\ref{eq:PhaseShift}, we see that the phase shift $\Delta \phi(\xi)$ is proportional to the frequency $\xi$
-with a constant gradient or slope of $\dv{(\Delta \phi)}{\xi}$
+with a constant gradient or slope 
+\footnote{We use $\Delta$ to refer to the phase difference between a shifted line profile and a unshifted~/~referenced line profile, while the derivative to refer to the response of $\Delta \phi)$ to $\xi$.}
 \begin{equation}
 	\dv{(\Delta \phi)}{\xi} = -2 \pi x_0
 \label{eq:gradient}
 \end{equation}
-Obtaining this(in principle) straightforward via a simple linear regression model fit to a plot of $\Delta \phi(\xi)$ versus $\xi$ 
+Obtaining this (in principle) is straightforward via a simple linear regression model fit to a plot of $\Delta \phi(\xi)$ versus $\xi$ 
  (see e.g. Fig.~\ref{fig:FT}), so that
 \begin{equation}
-	x_0 = -\frac{\dv{(\Delta \phi)}{\xi}}{2 \pi}
+	x_0 = -\frac{1}{2 \pi}\dv{(\Delta \phi)}{\xi}
 \label{eq:line_shift}
 \end{equation}
 
@@ -114,14 +111,15 @@ By analogy with the definition of power spectral density, we describe $\phi(\xi)
 
 \paragraph{Concluding remarks}
 In principle then, an  analysis of the phase shift in the frequency domain of the Fourier components of
-a line profile will provide a means of measuring a bulk line shift in real space. More importantly,
-it may provide a means of separating  an apparent radial velocity shift into the components due to bulk line shift, 
-and line profile shape change.
+a line profile will provide a means of measuring a bulk line shift in real space. 
+% More importantly,
+% it may provide a means of separating  an apparent radial velocity shift into the components due to bulk line shift, 
+% and line profile shape change.
 
 
 %----------------------------------------------------------------------------------------	
 
-\subsection{Initial Tests check}
+\subsection{Initial tests}
 
 We performed an initial test to determine whether we can correctly recover known shifts of a line profile  
 from an analysis of the phase shift in the frequency domain of the Fourier transform of shifted line profiles.
@@ -130,42 +128,6 @@ We generated a spectral line profile based on the cross-correlation function of 
 with the software SOAP 2.0 {\em CGT: Referece}. This was replicated 100 times, with a very small amount of 
 noise (equivalent to a S/N=10,000 in the line profiles) injected. These profiles were then
 subjected to radial velocity shifts evenly spaced between 0 and 10\,m/s (Fig.~\ref{fig:line_profiles12}). 
-
-The Fourier transform of these 100 spectral line profiles divides n them the information into two parts: 
-(1) the power spectra (Fig.~\ref{fig:power_spectrum}) and (2) the phase spectra (shown in Fig.~\ref{fig:dps}
-as the differential phase spectra relative to the phase spectrum for the unshifted line profile). 
-
-{\em CGT: whereas the frequency ranges plotted in 2,.2a and 2.2b are the same [are they really? are you sure the axis on 2.2b should not be in m/s instead of km/s?]
-, the ranges plotted in 2.3a and 2.3b are different. You don't really say why. Until later when you make comments about "noise".
-I suggest you should make both the plots over the same range, and then *point out* the impact of noise,
-and why you have chosen to limit your fits to a smaller frequency range (and justify that choice),}
-
-Most of the information in the power spectrum is concentrated in the lower frequency range in the power spectrum.
-As expected, the differential phase spectra are (by eye) linear \footnote{The slight deviation from linearity may come from
-the noise that we injected.}. 
-
-The slope of each differential phase spectrum indicates the shift of each line profile relative to 
-the unshifted line profile.We therefore calculate the radial velocity shift for each shifted line profile
-using two methods: 
-(1) the $RV_\text{FT}$ from Eq.~\ref{eq:line_shift} and 
-(2) the $RV_\text{Gaussian}$ as traditionally measured from the line centroid by fitting a Gaussian to each line profileprofile.
-We can then compare with with the (known) input line shift (Fig.~\ref{fig:rv_recovery}) where we see the expected strong 1:1 correlation. 
-The root-mean-square (rms) of the residuals are $rms_\text{FT} = 0.13$ m/s and $rms_\text{Gaussian} = 0.09$ m/s, indicating 
-the expected radial velocities are cosistently reduced. {\em CGT: How do these comare which what you'd expect from the S/N and the intrinsic
-line width (should say at some int what the intrinsic line width is}.
-
-Note that $rms_\text{FT}$ is slightly larger than $rms_\text{Gaussian}$.
-This is because we only use part of the information from the original line profile -- both because we utilise a limited range of the
-differential phase spectra, and because we use only the phase spectra to measure this shift (ignoring the power spectra), while the total information in the original shifted line profile is contained in the combination of the power and phase spectra. 
-
-{\em CGT: This needs more work. You need to show the region you are not using to explain why you choose a more linited range, and
-then say why you chose that more limited range and justify it. Don't just say "higher frequency}.
-
-In fact, higher frequency range becomes useless 
-as the interpretation of Fourier transform in high frequencies is dominated by noise and does not represent the 
-intrinsic shift of the line profile any more. As a result, linearity of phase spectrum breaks down in higher frequencies. 
-The range of ``useful" frequencies will depend on the amount of noise (i.e. S/N). 
-
 
 %-------------
 \begin{figure}[tbp]
@@ -181,13 +143,15 @@ The range of ``useful" frequencies will depend on the amount of noise (i.e. S/N)
         \label{fig:differential_line_profiles}
     \end{subfigure}	
     
-    \caption[100 shifted HARPS-like line profiles]{(a) the shifted line profiles plotted on top of each other, showing how the $\pm$0-10\,m/s shifts are
-    very small compared to the line profile width. (b) the shifted line profiles with the unshifted line profile subtracted from each. 
-    Note that for clarity, noise is not included in  this differential line profile plot.}
+    \caption[100 shifted HARPS-like line profiles]{(a) the shifted line profiles plotted on top of each other, showing that 		the $\pm$0-10\,m/s shifts are very small compared to the line profile width. (b) the shifted line profiles with the 			unshifted line profile subtracted from each. Note that for demonstration clarity, noise is not included in this 				differential line profile plot and only 10 out of 100 profiles are presented.}
 \label{fig:line_profiles12}
 \end{figure}	
 %-------------
-	
+
+The Fourier transform of these 100 spectral line profiles divides the information into two parts: 
+(1) the power spectra (Fig.~\ref{fig:power_spectrum}) and (2) the phase spectra (shown in Fig.~\ref{fig:dps}
+as the differential phase spectra relative to the phase spectrum for the unshifted line profile). 
+
 %-------------
 \begin{figure}[tbp]	
     \begin{subfigure}[b]{0.49\textwidth}
@@ -203,23 +167,78 @@ The range of ``useful" frequencies will depend on the amount of noise (i.e. S/N)
     \end{subfigure}	
     
     \caption[Fourier transform of 100 shifted line profiles]{The Fourier transform of these shifted line profile divides the 
-    information in each into (a) their power spectra and (b) their phase spectrum (here plotted differential compared to that of
-    the unshifted profile). A line shift in the time domain produces an unchanged power spectrum in the frequency domain.
-    It does, however, produce phase shift which we see as linear trends in the (differential) phase spectra as a function of frequency.}
+    information in each into (a) their power spectra and (b) their phase spectra (here plotted differential compared to that 	of the unshifted profile). A line shift in the time domain produces an unchanged power spectrum in the frequency domain.
+    It does, however, produce phase shift which we see as linear trends in the differential phase spectra as a function of 		frequency. Note that for demonstration clarity, only 10 out of 100 differential phase spectra are presented.}
 \label{fig:FT_process}
 \end{figure}    
 %-------------
 
+{\em CGT: whereas the frequency ranges plotted in 2,.2a and 2.2b are the same [are they really? are you sure the axis on 2.2b should not be in m/s instead of km/s?]
+, the ranges plotted in 2.3a and 2.3b are different. You don't really say why. Until later when you make comments about "noise".
+I suggest you should make both the plots over the same range, and then *point out* the impact of noise,
+and why you have chosen to limit your fits to a smaller frequency range (and justify that choice),}
+
+We see that most Fourier transform information is concentrated in the lower frequency range in the power spectrum.
+The differential phase spectra are expected linear (as Fig.~\ref{fig:FT} demonstrated). Its deviation from linearity 
+comes from the noise that we injected, which will be discussed later. 
+
+The slope of each differential phase spectrum indicates the shift of each line profile relative to 
+the unshifted line profile. It should be weighted by the amplitude of the power, meaning the lower frequencies 
+are higher weighted. We therefore calculate the radial velocity shift for each shifted line profile
+using two methods: 
+\begin{enumerate}
+	\item the $RV_\text{FT}$ using Eq.~\ref{eq:line_shift}, weighted by the power spectrum
+	\item the $RV_\text{Gaussian}$ as traditionally measured from the line centroid by fitting a Gaussian to each line profile.
+\end{enumerate}
+We can then compare the results with the (known) input line shift where we see the expected strong 1:1 correlation (Fig.~\ref{fig:rv_recovery}). The root-mean-square (rms) of the residuals are both $rms_\text{FT} = rms_\text{Gaussian} = 0.08$ m/s, identical up to two decimal places, indicating the expected radial velocities are consistently reduced. In addition, the fact that the two methods are so coherently different from the input radial velocity (by a small amount), as shown in the residual of Fig.~\ref{fig:rv_recovery}, means that such deviation comes from the photon noise intrinsic to the line profile rather than the methods themselves. 
+
+{\em CGT: How do these comare which what you'd expect from the S/N and the intrinsic line width (should say at some int what the intrinsic line width is}.
+
 %-------------
-\begin{figure}[htbp]
+\begin{figure}[tbp]
 \centering
-\includegraphics[width = 0.8 \linewidth]
+\includegraphics[width = 0.7 \linewidth]
 {./Figures/Methods/5-LINE_SHIFT_ONLY.png}
 \caption[Radial velocity recovery]
-{Radial velocity recovery of line shifts}
+{Radial velocity recovery of line shifts with both methods: Fourier transform and Gaussian fit. Both results are highly consistent with each other.}
 \label{fig:rv_recovery}
 \end{figure} 
 %-------------
+
+\paragraph{Impact of noise}
+We briefly mentioned above that the deviation from linearity in the differential phase spectrum arises from the photon noise  injected in the simulated line profile. This can be explained with the Fourier transformed line profile $\hat{h}(\xi)$ in a complex plane (also known as the Argand plane; Fig.~\ref{fig:FT_compelx_plane}). What we see is $\hat{h}(\xi)$ literally plotted on the complex plane -- of each complex number $\hat{h}(\xi)$, the argument returns the phase angle and the square of the absolute value returns the power, for that particular frequency $\xi$. For larger powers ($\hat{h}(\xi)$ far from the origin), the presence of noise hardly alters the phase angle; for lower powers ($\hat{h}(\xi)$ distributed in the vicinity of the origin), a slight displacement of $\hat{h}(\xi)$ in the complex plane means a considerable change in the phase angle. It justifies using the Fourier transform spectral power to be the weight of each frequency, and introducing a cut-off frequency when making a linear fit of the differential phase spectrum. 
+
+%-------------
+\begin{figure}[tbp]	
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{./Figures/Methods/7-Phase_angle_in_complex_plane_1.png}
+%        \caption{Power spectrum (stacked)}
+        \label{fig:FT_compelx_plane_1}
+    \end{subfigure}
+	~
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{./Figures/Methods/7-Phase_angle_in_complex_plane_2.png}
+%        \caption{Differential phase spectrum}
+        \label{fig:FT_compelx_plane_1}
+    \end{subfigure}	
+    
+    \caption[Fourier transform of a line profile in a complex plane]
+    {The Fourier transform of a line profile in a complex plane. }
+\label{fig:FT_compelx_plane}
+\end{figure}    
+%-------------
+
+%This is because we only use part of the information from the original line profile -- both because we utilise a limited range of the differential phase spectra, and because we use only the phase spectra to measure this shift (ignoring the power spectra), while the total information in the original shifted line profile is contained in the combination of the power and phase spectra. 
+%
+%{\em CGT: This needs more work. You need to show the region you are not using to explain why you choose a more linited range, and
+%then say why you chose that more limited range and justify it. Don't just say "higher frequency}.
+%
+%In fact, higher frequency range becomes useless 
+%as the interpretation of Fourier transform in high frequencies is dominated by noise and does not represent the 
+%intrinsic shift of the line profile any more. As a result, linearity of phase spectrum breaks down in higher frequencies. 
+%The range of ``useful" frequencies will depend on the amount of noise (i.e. S/N). 
+
+
 
 \paragraph{Concluding remarks}
 These initial  tests confirm our expectation --  it is possible to measure a radial velocity from
@@ -310,7 +329,7 @@ Spot 3 & $51^\circ$  & $52^\circ$  & 0.50\% \\
     \end{subfigure}	
     
     \caption[Deformed line profile]{Deformed line profile. For the sake of clarity, noise is not included in  
-    this differential line profile plot.}
+    the differential line profile plot and only 10 out of 100 profiles are presented.}
 \label{fig:line_profiles_deformation}
 \end{figure}	
 %-------------
