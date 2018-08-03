@@ -14,12 +14,13 @@
 \contentsline {figure}{\numberline {2.5}{\ignorespaces Fourier transform of a line profile in a complex plane}}{11}{figure.caption.13}
 \contentsline {figure}{\numberline {2.6}{\ignorespaces Deformed line profile}}{12}{figure.caption.16}
 \contentsline {figure}{\numberline {2.7}{\ignorespaces Fourier transform of deformed line profile}}{13}{figure.caption.17}
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Fourier transform in response to line deformation}}{14}{figure.caption.18}
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Jitter model}}{16}{figure.caption.19}
-\contentsline {figure}{\numberline {2.10}{\ignorespaces Corner plots of MCMC}}{18}{figure.caption.20}
-\contentsline {figure}{\numberline {2.11}{\ignorespaces Planet recovery}}{18}{figure.caption.21}
-\contentsline {figure}{\numberline {2.12}{\ignorespaces Distribution of recovered parameters}}{19}{figure.caption.22}
-\contentsline {figure}{\numberline {2.13}{\ignorespaces Demo: Rossiter\IeC {\textendash }McLaughlin effect}}{20}{figure.caption.23}
-\contentsline {figure}{\numberline {2.14}{\ignorespaces From $RV_\text {Gaussian}$ and $RV_\text {FT}$ to $Delta RV$}}{21}{figure.caption.24}
-\contentsline {figure}{\numberline {2.15}{\ignorespaces Rossiter\IeC {\textendash }McLaughlin effect as jitter}}{22}{figure.caption.26}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Apparent RV of deformed line profile}}{13}{figure.caption.18}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Fourier transform in response to line deformation}}{15}{figure.caption.20}
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Jitter model}}{18}{figure.caption.21}
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Corner plots of MCMC}}{19}{figure.caption.22}
+\contentsline {figure}{\numberline {2.12}{\ignorespaces Planet recovery}}{20}{figure.caption.23}
+\contentsline {figure}{\numberline {2.13}{\ignorespaces Distribution of recovered parameters}}{20}{figure.caption.24}
+\contentsline {figure}{\numberline {2.14}{\ignorespaces Demo: Rossiter\IeC {\textendash }McLaughlin effect}}{21}{figure.caption.25}
+\contentsline {figure}{\numberline {2.15}{\ignorespaces From $RV_\text {Gaussian}$ and $RV_\text {FT}$ to $Delta RV$}}{22}{figure.caption.26}
+\contentsline {figure}{\numberline {2.16}{\ignorespaces Rossiter\IeC {\textendash }McLaughlin effect as jitter}}{23}{figure.caption.28}
 \gdef \the@ipfilectr {}

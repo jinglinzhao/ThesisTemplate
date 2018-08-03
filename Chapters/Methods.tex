@@ -126,7 +126,7 @@ from an analysis of the phase shift in the frequency domain of the Fourier trans
 
 We generated a spectral line profile based on the cross-correlation function of observed HARPS spectra
 with the software SOAP 2.0 {\em CGT: Referece}. This was replicated 100 times, with a very small amount of 
-noise (equivalent to a S/N=10,000 in the line profiles) injected. These profiles were then
+noise (equivalent to a S/N = 10,000 in the line profiles) injected. These profiles were then
 subjected to radial velocity shifts evenly spaced between 0 and 10\,m/s (Fig.~\ref{fig:line_profiles12}). 
 
 %-------------
@@ -166,9 +166,7 @@ as the differential phase spectra relative to the phase spectrum for the unshift
         \label{fig:dps}
     \end{subfigure}	
     
-    \caption[Fourier transform of 100 shifted line profiles]{The Fourier transform of these shifted line profile divides the 
-    information in each into (a) their power spectra and (b) their phase spectra (here plotted differential compared to that 	of the unshifted profile). A line shift in the time domain produces an unchanged power spectrum in the frequency domain.
-    It does, however, produce phase shift which we see as linear trends in the differential phase spectra as a function of 		frequency. Note that for demonstration clarity, only 10 out of 100 differential phase spectra are presented.}
+    \caption[Fourier transform of 100 shifted line profiles]{The Fourier transform of these shifted line 				profile divides the information in each into (a) their power spectra and (b) their phase spectra (here	 			plotted differential compared to that 	of the unshifted profile). A line shift in the time domain 				produces an unchanged power spectrum in the frequency domain. It does, however, produce phase shift which 			we see as linear trends in the differential phase spectra as a function of frequency. Note that for 				demonstration clarity, only 10 out of 100 differential phase spectra are presented.}
 \label{fig:FT_process}
 \end{figure}    
 %-------------
@@ -219,7 +217,7 @@ We briefly mentioned above that the deviation from linearity in the differential
     \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{./Figures/Methods/7-Phase_angle_in_complex_plane_2.png}
 %        \caption{Differential phase spectrum}
-        \label{fig:FT_compelx_plane_1}
+        \label{fig:FT_compelx_plane_2}
     \end{subfigure}	
     
     \caption[Fourier transform of a line profile in a complex plane]
@@ -245,8 +243,7 @@ These initial  tests confirm our expectation --  it is possible to measure a rad
 the Fourier phase spectrum, and this provides an alternative to the traditional 
 means of obtaining the radial velocities via centroiding the line profile in real space. 
 In a broader context, this method will be applicable to measuring shifts of any pattern, and  
-can be extended to higher dimensions. In this thesis, we primarily focus on its use to measure radial velocity shifts 
-in spectral line profiles, and especially whether the Fourier transform phase velocity is more
+can be extended to higher dimensions. In this thesis, we primarily focus on its use to measure radial velocity shifts in spectral line profiles, and especially whether the Fourier transform phase velocity is more
 robust against the influence of changes in line deformation than traditional techniques.
 
 %----------------------------------------------------------------------------------------	
@@ -292,9 +289,7 @@ converges back to Eq.~\ref{eq:gradient}.
 \label{sec:Simulations}
 
 
-With SOAP~2.0, we inject three spots with different longitudes, latitudes and sizes (Table~\ref{table:spot_configurations}) to model
-an emitting star, and generate 100 cross-correlation functions for the resulting  deformed line profiles evenly sampled throughout the rotation
-period of the star (Fig.~\ref{fig:line_profiles_deformation}). We then take the same approach as in  \S~\ref{ch:FT_line_shift}. 
+With SOAP~2.0, we injected three spots with different longitudes, latitudes and sizes (Table~\ref{table:spot_configurations}) to model an emitting star, and generate 100 cross-correlation functions for the resulting  deformed line profiles evenly sampled throughout the rotation period of the star (Fig.~\ref{fig:line_profiles_deformation}). A very small amount of noise (equivalent to a S/N = 10,000) was also added into the line profiles. We then take the same approach as in  \S~\ref{ch:FT_line_shift} to obtain the power spectrum and (differential) phase spectrum (Fig.~\ref{fig:FT_process_LPD}) to recover the radial velocities $RV_\text{FT}$. It notes, line deformation contributes to a skewed differential phase spectrum, as predicted in \S\ref{sec:LD_Theory}. 
 
 %-------------
 \begin{table}[htbp]
@@ -347,10 +342,32 @@ Spot 3 & $51^\circ$  & $52^\circ$  & 0.50\% \\
         \label{fig:dps_LPD}
     \end{subfigure}	
     
-    \caption[Fourier transform of deformed line profile]{Fourier transform of deformed line profile.}
+    \caption[Fourier transform of deformed line profile]
+    {Fourier transform of deformed line profile. Only 10 out of 100 differential phase spectra are presented.}
 \label{fig:FT_process_LPD}
 \end{figure}    
 %-------------
+
+In this case, the input radial velocities would be the apparent radial velocities of deformed line profiles. Both velocities $RV_\text{FT}$ and $RV_\text{Gaussian}$ are plotted against rotation phase (Fig.~\ref{fig:rv_recovery_deformed}). If we take the root-mean-squares of both $RV_\text{FT}$ and $RV_\text{Gaussian}$ to be the intrinsic noise level ($rms_\text{FT} = rms_\text{Gaussian} = 0.08$ m/s) corresponding S/N = 10,000, the uncertainty of $RV_\text{FT} - RV_\text{Gaussian}$ as residual would have an uncertainty of $\sqrt{rms_\text{FT}^2+rms_\text{Gaussian}^2}\approx0.11$ m/s, meaning that the residuals are 0 within uncertainty and showing that $RV_\text{FT}$ and $RV_\text{Gaussian}$ are indistinguishably consistent. 
+
+%-------------
+\begin{figure}[tbp]
+\centering
+\includegraphics[width = 0.7 \linewidth]
+{./Figures/Methods/5-JITTER_ONLY_3.png}
+\caption[Apparent RV of deformed line profile]
+{Apparent RV of deformed line profile calculated with Fourier transform and Gaussian fit. Both results are also highly consistent with each other.}
+\label{fig:rv_recovery_deformed}
+\end{figure} 
+%-------------
+
+\paragraph{Remark} Using (almost) all the information in the power spectrum and the phase spectrum will end up with the same radial velocity as acquiring the line centroid fitted by a Gaussian line profile. 
+
+Although the intrinsic line deformation (in the absence of any velocity shift in the host star) does mimic the radial velocity shift, we note the shape and scale differences in the differential phase spectrum between an actual line shift (Fig.~\ref{fig:FT_process}) and a line deformation (Fig.~\ref{fig:FT_process_LPD}) -- the latte becomes highly skewed as $\mid\Delta \phi\mid$ increases dramatically towards higher frequencies. Such differences provide key messages to differentiate the two circumstances. 
+
+For example, if we divide (arbitrarily) the frequencies into low frequency range ($\mid\xi\mid<0.06$ s/km; i.e. apply a low-pass filter) and high frequency range ($\mid\xi\mid>0.06$ s/km; i.e. apply a high-pass filter)\footnote{In this example, we limit the higher frequency range effective in 0.06 s/km $<\mid\xi\mid<0.15$ s/km, because frequencies higher than 0.15 s/km hardly contributes to the shape of the line profile (the power $\sim$ 0), and they are also heavily impacted by noise.}, and compute the equivalent Fourier transformed radial velocity $RV_\text{FT}$ for each, we would obtain two sets of radial velocities, one represents the radial velocity shifts (denoted as $RV_\text{FT,L}$) of the lower frequency components and the other (denoted as $RV_\text{FT,H}$) represents the higher. 
+
+---------
 
 If we compare the differential phase spectra in Fig.~\ref{fig:FT_process} and Fig.~\ref{fig:FT_process_LPD},
 it is quite obvious that the differential phase spectrum of a deformed line profile is no longer linear 
@@ -363,8 +380,7 @@ but you still haven't demonstrated this sufficiently}
 We find, to our surprise, that $RV_\text{FT}$ is linearly correlated with $RV_\text{Gaussian}$, 
 with a slope $k$ close to, but different from, unity -- $k \sim 0.84$ (Fig.~\ref{fig:FT_vs_Gaussian}). 
 {\em CGT: $k$ never defined anywhere}.
-The non-zero slope indicates that the intrinsic line deformation (in the absence of
-any velocity shift in the host star) does (as expected) mimic a the radial velocity shift.
+
 
 However, the differential phase shift at lower frequency is {\em less} sensitive to the
 influence of line profile deformation. 
