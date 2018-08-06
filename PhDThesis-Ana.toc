@@ -30,14 +30,15 @@
 \contentsline {section}{\numberline {2.2}Using the Fourier transform to probe line deformation}{11}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}Theory}{11}{subsection.2.2.1}
 \contentsline {subsection}{\numberline {2.2.2}SOAP Simulations}{12}{subsection.2.2.2}
-\contentsline {paragraph}{Remark}{13}{section*.19}
-\contentsline {subsection}{\numberline {2.2.3}Jitter model}{15}{subsection.2.2.3}
-\contentsline {subsection}{\numberline {2.2.4}Testing the recovery of Jitter}{16}{subsection.2.2.4}
-\contentsline {subsection}{\numberline {2.2.5}End-to-end Simulations}{17}{subsection.2.2.5}
-\contentsline {section}{\numberline {2.3}Fourier transform with real observations}{21}{section.2.3}
-\contentsline {subsection}{\numberline {2.3.1}HD189733: Rossiter\IeC {\textendash }McLaughlin effect as jitter}{21}{subsection.2.3.1}
-\contentsline {paragraph}{Remarks}{22}{section*.27}
-\contentsline {subsection}{\numberline {2.3.2}Examples 2}{23}{subsection.2.3.2}
-\contentsline {subsection}{\numberline {2.3.3}Example 3}{23}{subsection.2.3.3}
-\contentsline {section}{\numberline {2.4}References}{23}{section.2.4}
+\contentsline {paragraph}{Remark}{14}{section*.19}
+\contentsline {paragraph}{Remark}{15}{section*.23}
+\contentsline {subsection}{\numberline {2.2.3}Jitter model}{16}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.4}Testing the recovery of Jitter}{17}{subsection.2.2.4}
+\contentsline {subsection}{\numberline {2.2.5}End-to-end Simulations}{18}{subsection.2.2.5}
+\contentsline {section}{\numberline {2.3}Fourier transform with real observations}{22}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}HD189733: Rossiter\IeC {\textendash }McLaughlin effect as jitter}{22}{subsection.2.3.1}
+\contentsline {paragraph}{Remarks}{23}{section*.30}
+\contentsline {subsection}{\numberline {2.3.2}Examples 2}{24}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.3}Example 3}{24}{subsection.2.3.3}
+\contentsline {section}{\numberline {2.4}References}{24}{section.2.4}
 \gdef \the@ipfilectr {}
