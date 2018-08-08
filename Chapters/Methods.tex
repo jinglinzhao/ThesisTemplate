@@ -452,46 +452,31 @@ We can therefore write the following measurable quantities -- $RV_\text{FT,L/H}$
 as the sum of corresponding contributions from a bulk shift in the star (which
 we hereafter assume to be due to a planet or planets), and variability in the stellar line
 profile (hereafter lumped under the general name ``jitter''):
-\begin{equation}
-	RV_\text{Gaussian} = RV_\text{planet} + RV_\text{jitter},
-\label{eq:RV_Gaussian}
-\end{equation}
-\begin{equation}
-	RV_\text{FT,L} = RV_\text{planet} + k_L \cdot RV_\text{jitter},
-\label{eq:RV_FT,L}
-\end{equation}
-and 
-\begin{equation}
-	RV_\text{FT,H} = RV_\text{planet} + k_H \cdot RV_\text{jitter}.
-\label{eq:RV_FT,H}
-\end{equation}
+\begin{align*}
+	RV_\text{Gaussian} 	&= RV_\text{planet} + RV_\text{jitter}\\
+	RV_\text{FT,L} 		&= RV_\text{planet} + k_L \cdot RV_\text{jitter} 		\numberthis \label{eq:RV_FTL} \\
+	RV_\text{FT,H} 		&= RV_\text{planet} + k_H \cdot RV_\text{jitter}.		\numberthis \label{eq:RV_FTH}
+\end{align*}
 Subtracting one from the other to remove $RV_\text{planet}$ gives
-\begin{equation}
-	RV_\text{Gaussian} - RV_\text{FT,L} = (1-k_L) \cdot RV_\text{jitter}
-\end{equation}
-and 
-\begin{equation}
-	RV_\text{FT,H} - RV_\text{FT,L} = (k_H-k_L) \cdot RV_\text{jitter}.
-\end{equation}
-Rearranging yields 
-\begin{equation}
-	RV_\text{jitter} = \frac{RV_\text{Gaussian} - RV_\text{FT,L}}{1-k_L}
-\label{eq:jitter_model}
-\end{equation}
-and 
-\begin{equation}
-	RV_\text{jitter} = \frac{RV_\text{FT,H} - RV_\text{FT,L}}{k_H-k_L}
-\label{eq:jitter_model2}
-\end{equation}
-where $RV_\text{Gaussian}, RV_\text{FT,L}$ and $RV_\text{FT,H}$ are direct measurements, whereas $k_H$ and $k_H$ are unknowns but can be incorporated into the radial velocity models (Eq.~\ref{eq:RV_Gaussian} to Eq.~\ref{eq:RV_FT,H}) in the process of recovering planets.
+\begin{align}
+	RV_\text{Gaussian} - RV_\text{FT,L} 	&= (1-k_L) \cdot RV_\text{jitter}\\
+	RV_\text{Gaussian} - RV_\text{FT,H} 	&= (1-k_H) \cdot RV_\text{jitter}\\
+	RV_\text{FT,H} - RV_\text{FT,L} 		&= (k_H-k_L) \cdot RV_\text{jitter}.
+\end{align}
+Note that only (any) two of them are independent equations, as the any one can be derived from the other two. Rearranging yields 
+\begin{align*}
+	RV_\text{jitter} &= \frac{RV_\text{Gaussian} - RV_\text{FT,L}}{1-k_L} 	\numberthis \label{eq:jitter_model1} \\
+	RV_\text{jitter} &= \frac{RV_\text{Gaussian} - RV_\text{FT,H}}{1-k_H}		\numberthis \label{eq:jitter_model2} \\
+	RV_\text{jitter} &= \frac{RV_\text{FT,H} - RV_\text{FT,L}}{k_H-k_L}		\numberthis 	\label{eq:jitter_model3}
+\end{align*}
+where $RV_\text{Gaussian}, RV_\text{FT,L}$ and $RV_\text{FT,H}$ are direct measurements, whereas $k_L$ and $k_H$ are unknowns but can be incorporated into the radial velocity models (Eq.~\ref{eq:RV_FTL} and Eq.~\ref{eq:RV_FTH}) in the process of recovering planets. When there's no planet or the planetary radial velocity signal is negligible compared with the size of jitter, $RV_\text{FT,L}$ and $RV_\text{FT,H}$ will be proportional to $RV_\text{jitter}$ (Example: \S\ref{sec:HD189733}).
 
 
 
 \subsection{Testing the recovery of Jitter}
 \label{sec:check}
 
-We again performed tests to see if we can correctly recover artificially generated model jitter
-using our new technique (Eq.~\ref{eq:jitter_model} and Eq.~\ref{eq:jitter_model2}). 
+We again performed tests to see if we can correctly recover artificially generated model jitter using our new technique (Eq.~\ref{eq:jitter_model1} to Eq.~\ref{eq:jitter_model3}).
 
 We generated 200 deformed line profiles (in the form of cross-correlation functions) using SOAP~2.0. All the configurations are the same as used in \S\ref{sec:Simulations}, except that they are evenly sampled throughout two rotation periods. The jitter amplitude is roughly 2 m/s. In addition, each line profile is further shifted by an amount $RV_\text{planet}$ appropriate for a planet generating a Keplerian orbit in the star of  the amplitude
 \begin{equation*}
@@ -644,6 +629,7 @@ the results from these two fittings, we would need more tests to conclude.
 \label{sec:observation}
 
 \subsection{HD189733: Rossiter–McLaughlin effect as jitter}
+\label{sec:HD189733}
 
 HD189733 is a well studied binary star system. The main star HD189733~A is known to host a gas giant
 exoplanet HD189733~b, first detected by transits (reference...) and later by Doppler spectroscopy (references...). 
@@ -652,8 +638,8 @@ It was also the first exoplanet transit observed in X-ray (references...).
 We choose this target for the following reasons:
 \begin{itemize}
 	\item The exoplanet is well confirmed;
-	\item The host star is bright enough: $m_v=7.66$
-	\item The gas giant causes a prominent apparent radial velocity while it transits ($\sim 40$~m/s)
+	\item The host star is bright enough: $m_V=7.66$;
+	\item The gas giant exoplanet causes a prominent apparent radial velocity while it transits ($\sim 40$~m/s)
 	due to Rossiter–McLaughlin effect.
 \end{itemize}
 
@@ -674,31 +660,26 @@ We choose this target for the following reasons:
 
 We treat as if it were an ``active" star with one big dark starspot, as the Rossiter–McLaughlin effect 
 causes the line profile deformed in a similar manner that a starspot would do (Fig.~\ref{fig:rm-effect}). 
-We would see if our jitter model can account for the radial velocity variation from Rossiter–McLaughlin effect. 
+We aim to test if our jitter model can account for the radial velocity variation from Rossiter–McLaughlin effect. 
 
 The procedure is rather standardized. Both $RV_\text{Gaussian}$ and $RV_\text{FT}$ are calculated from the 
 HARPS cross-correlation functions of the spectra. $\Delta RV = RV_\text{Gaussian} - RV_\text{FT}$ are then 
-smoothed by a Gaussian filter (Fig.\ref{fig:hot_to_delta_rv}). The prototype of the Rossiter–McLaughlin
-radial velocity curve is already identifiable in $\Delta RV$ of the lower panel. 
+smoothed by a Gaussian filter. The prototype of the Rossiter–McLaughlin
+radial velocity curve is already identifiable ($\Delta RV$ of the lower panel of Fig.~\ref{fig:HD189733}). 
 
 %-------------
 \begin{figure}[tbp]
 \centering
-\includegraphics[width = 0.80 \linewidth]
-{./Figures/Methods/8-Proto_jitter2.png}
-\caption[From $RV_\text{Gaussian}$ and $RV_\text{FT}$ to $Delta RV$]
-{From $RV_\text{Gaussian}$ and $RV_\text{FT}$ to $\Delta RV$. The scattered $\Delta RV$ are smoothed by applying 
-a moving average with a Gaussian filter and  further weighted based on the size of errorbar.} 
-\label{fig:hot_to_delta_rv}
+\includegraphics[width = 1.0 \linewidth]
+{./Figures/Methods/HD189733.png}
+\caption[HD189733: removal of Rossiter–McLaughlin effect as jitter]
+		{HD189733: removal of Rossiter–McLaughlin effect as jitter. From $RV_\text{Gaussian}$ and $RV_\text{FT}$ to $\Delta RV$. The scattered $\Delta RV$ are smoothed by applying a moving average with a Gaussian filter and  further weighted according to the size of errorbar. It is then scaled by $\alpha$ to match the jitter (in this case the radial velocities of the observed Rossiter–McLaughlin effect). The residual is the difference between the smoothed jitter model and the observed Rossiter–McLaughlin effect. Errorbars are not plotted for the residuals for the reason that they will overwhelm the residual themselves.}
+\label{fig:HD189733}
 \end{figure} 
 %-------------
 
-To extract the Rossiter–McLaughlin radial velocity curve, a linear trend is fitted to account for the 
-other binary star. After the linear trend is removed, it is treated as jitter and modelled 
-by $\alpha \cdot \Delta RV$ (Fig.~\ref{fig:rm_as_jitter}). 
-Note that the errorbars of the jitter model also becomes a factor of $\alpha$ ($\alpha\gg 1$) larger; 
-however, the model itself shows a descent approximation 
-of the Rossiter–McLaughlin radial velocity curve. The peak of the ``jitter" is reduced from $\sim 40$~m/s to $\sim 10$~m/s. 
+During transit, as the parent star and the exoplanet are along the line of sight, there will be no contribution to radial velocity by the orbiting exoplanet. However, the radial velocity shows an inclined trend in this system. It is due to the other orbiting star in the binary star system. Considering the orbital period of the binary star estimated around 3,200 years (reference...), the radial velocity contribution from the other star during the timespan of transit ($\sim$ 0.08 days) can be treated linear. By removing such a linear trend, which is fitted for the non-transiting part, we can extract the observed Rossiter–McLaughlin radial velocity curve. It is treated as jitter and modelled by $\alpha \cdot \Delta RV$ (Fig.~\ref{fig:HD189733} upper right). Note that the errorbars of the jitter model also becomes a factor of $\alpha$ ($\alpha\gg 1$) larger; however, the model itself shows a descent approximation of the Rossiter–McLaughlin radial velocity curve. The difference between our modelled jitter and the observed Rossiter–McLaughlin effect peaks at $\sim 10$~m/s, a $\sim75\%$ removal of the jitter from $\sim 40$~m/s. 
+
 
 \paragraph{Remarks}
 The effective length of the smoothing kernel should be carefully chosen. In this case, it's chosen most effective within 
@@ -706,17 +687,17 @@ roughly one neighbouring data point on both size. While mitigating the effect of
 S/N data outside the transits), to which the Fourier transform is sensitive, it also smears the drastic velocity 
 change when the planet ingresses and egresses the stellar disk. To solve this awkward situation, an adaptive 
 (i.e. S/N dependent) effective length of the smoothing kernel may be used. 
-
-%-------------
-\begin{figure}[tbp]
-\centering
-\includegraphics[width = 0.80 \linewidth]
-{./Figures/Methods/9-RM_fit2.png}
-\caption[Rossiter–McLaughlin effect as jitter]
-{Rossiter–McLaughlin effect as jitter fitted with the jitter model.} 
-\label{fig:rm_as_jitter}
-\end{figure} 
-%-------------
+%
+%%-------------
+%\begin{figure}[tbp]
+%\centering
+%\includegraphics[width = 0.80 \linewidth]
+%{./Figures/Methods/9-RM_fit2.png}
+%\caption[Rossiter–McLaughlin effect as jitter]
+%{Rossiter–McLaughlin effect as jitter fitted with the jitter model.} 
+%\label{fig:rm_as_jitter}
+%\end{figure} 
+%%-------------
 
 \subsection{Examples 2}
 

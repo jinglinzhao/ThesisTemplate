@@ -37,7 +37,7 @@
 \contentsline {subsection}{\numberline {2.2.5}End-to-end Simulations}{18}{subsection.2.2.5}
 \contentsline {section}{\numberline {2.3}Fourier transform with real observations}{22}{section.2.3}
 \contentsline {subsection}{\numberline {2.3.1}HD189733: Rossiter\IeC {\textendash }McLaughlin effect as jitter}{22}{subsection.2.3.1}
-\contentsline {paragraph}{Remarks}{23}{section*.30}
+\contentsline {paragraph}{Remarks}{24}{section*.40}
 \contentsline {subsection}{\numberline {2.3.2}Examples 2}{24}{subsection.2.3.2}
 \contentsline {subsection}{\numberline {2.3.3}Example 3}{24}{subsection.2.3.3}
 \contentsline {section}{\numberline {2.4}References}{24}{section.2.4}
