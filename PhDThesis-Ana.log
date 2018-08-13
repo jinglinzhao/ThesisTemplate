@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.7.23)  8 AUG 2018 15:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.7.23)  10 AUG 2018 15:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2394,13 +2394,19 @@ Package pdftex.def Info: ./Figures/Methods/HD189733.png used on input line 674.
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 685.
 
-[23 <./Figures/Methods/HD189733.png>] (./Chapters/Methods.bbl
-(./PhDThesis-Ana.brf))) [24]
+[23 <./Figures/Methods/HD189733.png>]
+
+Package natbib Warning: Citation `Malaroda1975' on page 24 undefined on input l
+ine 704.
+
+(./Chapters/Methods.bbl (./PhDThesis-Ana.brf))) [24]
+
+Package natbib Warning: There were undefined citations.
+
 Package minitoc Info: I0009
 (minitoc)             Listing minitoc auxiliary files. 
 (minitoc)             Creating the PhDThesis-Ana.maf file.
 \openout4 = `PhDThesis-Ana.maf'.
-
 
 
 Package minitoc(hints) Warning: W0024
@@ -2423,10 +2429,10 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 164.
  ) 
 Here is how much of TeX's memory you used:
- 22569 strings out of 493089
- 359796 string characters out of 6134842
+ 22570 strings out of 493089
+ 359813 string characters out of 6134842
  436748 words of memory out of 5000000
- 25352 multiletter control sequences out of 15000+600000
+ 25353 multiletter control sequences out of 15000+600000
  16865 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  49i,12n,45p,10457b,588s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2449,7 +2455,7 @@ ive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive
 exmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2015/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on PhDThesis-Ana.pdf (42 pages, 3349821 bytes).
+Output written on PhDThesis-Ana.pdf (42 pages, 3350050 bytes).
 PDF statistics:
  793 PDF objects out of 1000 (max. 8388607)
  650 compressed objects within 7 object streams

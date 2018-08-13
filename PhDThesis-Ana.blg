@@ -1,54 +1,57 @@
-This is BibTeX, Version 0.99dThe top-level auxiliary file: PhDThesis-Ana.aux
-A level-1 auxiliary file: Chapters/Methods.aux
+This is BibTeX, Version 0.99d (TeX Live 2015)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: PhDThesis-Ana.aux
+A level-1 auxiliary file: Chapters/Introduction.aux
 The style file: unsrt.bst
-A level-1 auxiliary file: Chapters/Heating.aux
-Illegal, another \bibstyle command---line 150 of file Chapters/Heating.aux
+A level-1 auxiliary file: Chapters/Methods.aux
+Illegal, another \bibstyle command---line 107 of file Chapters/Methods.aux
  : \bibstyle
  :          {unsrt}
 I'm skipping whatever remains of this command
-Illegal, another \bibdata command---line 151 of file Chapters/Heating.aux
+Illegal, another \bibdata command---line 108 of file Chapters/Methods.aux
  : \bibdata
  :         {Bibliography}
 I'm skipping whatever remains of this command
-A level-1 auxiliary file: Appendices/AppendixHeating.aux
 Database file #1: Bibliography.bib
-Warning--I didn't find a database entry for "reece_review"
-Warning--I didn't find a database entry for "Neuman_Block_04"
-Warning--I didn't find a database entry for "dienerowitz_08"
-Warning--I didn't find a database entry for "Selmeczi_07"
-Warning--I didn't find a database entry for "pearce_11"
-Warning--I didn't find a database entry for "gittes_schmidt_98"
-Warning--I didn't find a database entry for "Pralle_99"
-Warning--I didn't find a database entry for "rohrbach_02"
-Warning--I didn't find a database entry for "rohrbach_12"
-Warning--I didn't find a database entry for "Lee_07"
-Warning--I didn't find a database entry for "Hayasaki_14"
-Warning--I didn't find a database entry for "kress_04"
-Warning--I didn't find a database entry for "koch_12"
-Warning--I didn't find a database entry for "spiedel_09"
-Warning--I didn't find a database entry for "ruh_11"
-Warning--I didn't find a database entry for "Simmons_96"
-Warning--I didn't find a database entry for "Tolic_06"
-Warning--I didn't find a database entry for "lspr_review_07"
-Warning--I didn't find a database entry for "Andres-Arroyo_15"
-Warning--I didn't find a database entry for "seol_06"
-Warning--I didn't find a database entry for "bendix_10"
-Warning--I didn't find a database entry for "kyrsting_11"
-Warning--I didn't find a database entry for "kawata_01"
-Warning--I didn't find a database entry for "link_99"
-Warning--I didn't find a database entry for "honda_11"
-Warning--I didn't find a database entry for "kiel_12"
-Warning--I didn't find a database entry for "read_13"
-Warning--I didn't find a database entry for "kreibig_95"
-Warning--I didn't find a database entry for "handbook_optical_materials"
-Warning--I didn't find a database entry for "bashkatov_02"
-Warning--I didn't find a database entry for "keblinski_06"
-Warning--I didn't find a database entry for "kotadis_06"
-Warning--I didn't find a database entry for "block_90"
-Warning--I didn't find a database entry for "Brzobohaty_15"
-Warning--I didn't find a database entry for "Torok1995"
-Warning--I didn't find a database entry for "svoboda_94"
-Warning--I didn't find a database entry for "hansen_05"
-Warning--I didn't find a database entry for "chaumet_00"
-Warning--I didn't find a database entry for "nugent_04"
+You've used 2 entries,
+            1791 wiz_defined-function locations,
+            465 strings with 4008 characters,
+and the built_in function-call counts, 564 in all, are:
+= -- 45
+> -- 30
+< -- 0
++ -- 11
+- -- 9
+* -- 50
+:= -- 100
+add.period$ -- 7
+call.type$ -- 2
+change.case$ -- 2
+chr.to.int$ -- 0
+cite$ -- 2
+duplicate$ -- 18
+empty$ -- 50
+format.name$ -- 9
+if$ -- 118
+int.to.chr$ -- 0
+int.to.str$ -- 2
+missing$ -- 2
+newline$ -- 14
+num.names$ -- 2
+pop$ -- 1
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 6
+stack$ -- 0
+substring$ -- 48
+swap$ -- 2
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 4
+width$ -- 3
+write$ -- 26
 (There were 2 error messages)
