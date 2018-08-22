@@ -23,21 +23,21 @@
 \contentsline {subsection}{\numberline {2.1.1}Translation property of Fourier transform}{5}{subsection.2.1.1}
 \contentsline {subsection}{\numberline {2.1.2}Intuitive explanation}{6}{subsection.2.1.2}
 \contentsline {subsection}{\numberline {2.1.3}Practical Use}{7}{subsection.2.1.3}
-\contentsline {paragraph}{Concluding remarks}{7}{section*.8}
+\contentsline {paragraph}{Concluding remarks}{7}{section*.7}
 \contentsline {subsection}{\numberline {2.1.4}Initial tests}{7}{subsection.2.1.4}
-\contentsline {paragraph}{Impact of noise}{9}{section*.12}
-\contentsline {paragraph}{Concluding remarks}{10}{section*.14}
+\contentsline {paragraph}{Impact of noise}{9}{section*.11}
+\contentsline {paragraph}{Concluding remarks}{10}{section*.13}
 \contentsline {section}{\numberline {2.2}Using the Fourier transform to probe line deformation}{11}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}Theory}{11}{subsection.2.2.1}
 \contentsline {subsection}{\numberline {2.2.2}SOAP Simulations}{12}{subsection.2.2.2}
-\contentsline {paragraph}{Remark}{14}{section*.19}
-\contentsline {paragraph}{Remark}{15}{section*.23}
+\contentsline {paragraph}{Remark}{14}{section*.18}
+\contentsline {paragraph}{Remark}{15}{section*.22}
 \contentsline {subsection}{\numberline {2.2.3}Jitter model}{16}{subsection.2.2.3}
 \contentsline {subsection}{\numberline {2.2.4}Testing the recovery of Jitter}{17}{subsection.2.2.4}
 \contentsline {subsection}{\numberline {2.2.5}End-to-end Simulations}{18}{subsection.2.2.5}
 \contentsline {section}{\numberline {2.3}Fourier transform with real observations}{22}{section.2.3}
 \contentsline {subsection}{\numberline {2.3.1}HD189733: Rossiter\IeC {\textendash }McLaughlin effect as jitter}{22}{subsection.2.3.1}
-\contentsline {paragraph}{Remarks}{24}{section*.40}
+\contentsline {paragraph}{Remarks}{24}{section*.39}
 \contentsline {subsection}{\numberline {2.3.2}Examples 2}{24}{subsection.2.3.2}
 \contentsline {subsection}{\numberline {2.3.3}Example 3}{24}{subsection.2.3.3}
 \contentsline {section}{\numberline {2.4}References}{24}{section.2.4}
