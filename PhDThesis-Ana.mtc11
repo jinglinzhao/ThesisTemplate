@@ -6,14 +6,15 @@
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.1.5}Further tests}{\reset@font\mtcSSfont 10}{subsection.2.1.5}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.1.6}Cut-off frequency}{\reset@font\mtcSSfont 12}{subsection.2.1.6}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.1.7}Conclusion}{\reset@font\mtcSSfont 13}{subsection.2.1.7}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.2}Using the Fourier transform to probe line deformation}{\reset@font\mtcSfont 13}{section.2.2}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.2}Using the Fourier transform to probe line deformation}{\reset@font\mtcSfont 14}{section.2.2}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.1}Theory}{\reset@font\mtcSSfont 14}{subsection.2.2.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.2}SOAP Simulations}{\reset@font\mtcSSfont 14}{subsection.2.2.2}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Remark}{\reset@font\mtcPfont 16}{section*.17}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Remark}{\reset@font\mtcPfont 19}{section*.21}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.3}Jitter model}{\reset@font\mtcSSfont 19}{subsection.2.2.3}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.4}Testing the recovery of Jitter}{\reset@font\mtcSSfont 20}{subsection.2.2.4}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.5}End-to-end Simulations}{\reset@font\mtcSSfont 21}{subsection.2.2.5}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.2}SOAP simulations}{\reset@font\mtcSSfont 15}{subsection.2.2.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.3}Fourier phase spectrum analysis}{\reset@font\mtcSSfont 15}{subsection.2.2.3}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Remark}{\reset@font\mtcPfont 15}{section*.17}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Remark}{\reset@font\mtcPfont 18}{section*.21}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.4}Jitter model}{\reset@font\mtcSSfont 19}{subsection.2.2.4}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.5}Testing the recovery of Jitter}{\reset@font\mtcSSfont 20}{subsection.2.2.5}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.6}End-to-end Simulations}{\reset@font\mtcSSfont 21}{subsection.2.2.6}}
 {\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.3}Fourier transform with real observations}{\reset@font\mtcSfont 25}{section.2.3}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.3.1}HD189733: Rossiter\IeC {\textendash }McLaughlin effect as jitter}{\reset@font\mtcSSfont 25}{subsection.2.3.1}}
 {\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Remarks}{\reset@font\mtcPfont 27}{section*.38}}

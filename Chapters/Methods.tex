@@ -20,7 +20,9 @@ of a line profile (or cross-correlation profile) to try and distinguish between 
 (i.e. a radial velocity shift of the profile), opposed to a change in the line profile shape which can produce an
 apparent radial velocity shift. We examine the impact on the Fourier transformed components of a line profile of both bulk line shifts, and line profile deformations, with the aim of developing tools to distinguish between these two cases.
 
-
+%%----------------------------------------------------------------------------------------	
+%\pagebreak
+%%----------------------------------------------------------------------------------------	
 
 \section{Phase analysis of Fourier transform for the measurement of line shift}
 \label{\thesection}
@@ -141,7 +143,7 @@ subjected to radial velocity shifts evenly spaced between 0 and 10\,m/s (Fig.~\r
         \label{fig:differential_line_profiles}
     \end{subfigure}	
     
-    \caption[100 shifted HARPS-like line profiles]{(a) the shifted line profiles plotted on top of each other, showing that the $\pm$0-10\,m/s shifts are very small compared to the line profile width. (b) the shifted line profiles with the unshifted line profile subtracted from each. Note that for demonstration clarity, noise is not included in this differential line profile plot and only 10 out of 100 profiles are presented.}
+    \caption[100 shifted HARPS-like line profiles]{(a) the shifted line profiles plotted on top of each other, showing that the $\pm$0-10\,m/s shifts are very small compared to the line profile width. (b) the shifted line profiles with the unshifted line profile subtracted from each. Note that for the sake of clarity, the differential line profiles are plotted noise-free and only 10 out of 100 profiles are presented.}
 \label{fig:line_profiles12}
 \end{figure}	
 %-------------
@@ -287,6 +289,7 @@ In this section, we have introduced a new method for measuring radial velocities
 
 In a broader context, this method will be applicable to measuring shifts of any pattern, and can be extended to higher dimensions. In this thesis, we primarily focus on its use to measure radial velocity shifts in spectral line profiles, and especially whether the Fourier transform phase velocity is more robust against the influence of changes in line deformation than traditional techniques.
 
+\pagebreak
 %----------------------------------------------------------------------------------------	
 
 \section{Using the Fourier transform to probe line deformation}
@@ -313,21 +316,21 @@ which reduces to Eq.~\ref{eq:gradient} when $x_0$ is a constant as in the case o
 Note that the dependency of $\xi$ has been taken out of $\Delta \phi(\xi)$ and 
 $x_0(\xi)$ in writing the differential equation above. 
 
-In principle, we could numerically solve this differential equation based on the measured local gradient d$(\Delta \phi)$/d$\xi$
-to obtain $x_0(\xi)$, but this local gradient measurement can be unreliable in the presence of noise. As a simplistic approach, we could use the \textit{averaged} shift $\overline{x_0(\xi)}$ of various frequency modes to describe different amounts of shift by rewriting Eq.~\ref{eq:PhaseShift2_LPD} as 
+In principle, we could numerically solve this differential equation based on the measured local gradient d$(\Delta \phi)$/d$\xi$ to obtain $x_0(\xi)$, but the local gradient measurement can be unreliable in the presence of noise. As a simplistic approach, we could use the \textit{averaged} shift $\overline{x_0(\xi)}$ of various frequency modes to describe different amounts of shift by rewriting Eq.~\ref{eq:PhaseShift2_LPD} as 
 \begin{equation}
 	\Delta \phi(\xi) = -2 \pi \overline{x_0(\xi)} \xi
 \end{equation}
-where $\overline{x_0(\xi)}$ is treated as a constant. This concept will be helpful in describing the effective shifts applying the low-pass and high-pass filters when it comes to line deformation.
+where $\overline{x_0(\xi)}$ is treated as a constant for the range of frequencies that we study. This concept will be helpful in describing the effective shifts applying the low-pass and high-pass filters when it comes to line deformation.
 %if $x_0(\xi)$ changes with $\xi$ slowly within a certain frequency range,
 %we can make the approximations that $x_0\sim$~const and d$x_0$/d$\xi\sim0$. With this, Eq.~\ref{eq:PhaseShift3_LPD} 
 %converges back to Eq.~\ref{eq:gradient}.
 
-\subsection{SOAP Simulations}
+\subsection{SOAP simulations}
 \label{sec:Simulations}
 
+In \S~\ref{ch:FT_line_shift}, we had used the SOAP simulator only to generate a line profile that resembles the HARPS observation. In this section, we would use the simulator SOAP~2.0 to study line deformations arising from starspots. 
 
-With SOAP~2.0, we injected three spots with different longitudes, latitudes and sizes (parameters specified in Table~\ref{table:spot_configurations}) to model an emitting star, and generated 100 cross-correlation functions for the resulting  deformed line profiles evenly sampled throughout the rotation period of the star (Fig.~\ref{fig:line_profiles_deformation}). A very small amount of noise (equivalent to a S/N = 10,000) was also added into the line profiles. We then take the same approach as in  \S~\ref{ch:FT_line_shift} to obtain the power spectrum and (differential) phase spectrum (Fig.~\ref{fig:FT_process_LPD}) to recover the radial velocities $RV_\text{FT}$. It notes, line deformation contributes to a skewed differential phase spectrum, as predicted in \S\ref{sec:LD_Theory}. 
+Without loss of generality, we injected three spots with different longitudes, latitudes and sizes (parameters specified in Table~\ref{table:spot_configurations}) to model an emitting star, and generated 100 cross-correlation functions for the resulting  deformed line profiles evenly sampled throughout the rotation period of the star (Fig.~\ref{fig:line_profiles_deformation}). A very small amount of noise (equivalent to a S/N = 10,000) was also added into the line profiles for simulation demonstration purposes. 
 
 %-------------
 \begin{table}[htbp]
@@ -348,6 +351,10 @@ Spot 3 & $51^\circ$  & $52^\circ$  & 0.50\% \\
 \end{table}
 %-------------
 
+\subsection{Fourier phase spectrum analysis}
+
+We then take the same approach as in  \S~\ref{ch:FT_line_shift} to obtain the power spectrum and (differential) phase spectrum (Fig.~\ref{fig:FT_process_LPD}) to recover the radial velocities $RV_\text{FT}$. It notes, line deformation contributes to a skewed differential phase spectrum, as predicted in \S\ref{sec:LD_Theory}. 
+
 %-------------
 \begin{figure}[tbp]
     \begin{subfigure}[b]{0.49\textwidth}
@@ -361,8 +368,7 @@ Spot 3 & $51^\circ$  & $52^\circ$  & 0.50\% \\
         \label{fig:ld_dlp}
     \end{subfigure}	
     
-    \caption[Deformed line profile]{Deformed line profile. For the sake of clarity, noise is not included in  
-    the differential line profile plot and only 10 out of 100 profiles are presented.}
+    \caption[Deformed line profile]{Deformed line profile. For the sake of clarity, the differential line profiles are plotted noise-free and only 10 out of 100 profiles are presented.}
 \label{fig:line_profiles_deformation}
 \end{figure}	
 %-------------
@@ -410,12 +416,12 @@ and compute the equivalent Fourier transformed radial velocity $RV_\text{FT}$ fo
 %-------------
 \begin{figure}[tbp]	
     \begin{subfigure}[b]{0.49\textwidth}
-        \includegraphics[width=\textwidth]{./Figures/Methods/4-Relative_phase_angle_L.png}
+        \includegraphics[width=\textwidth]{./Figures/Methods/LPD4-Relative_phase_angle_L.png}
 %        \caption{Power spectrum (stacked)}
     \end{subfigure}
 	~
     \begin{subfigure}[b]{0.49\textwidth}
-        \includegraphics[width=\textwidth]{./Figures/Methods/4-Relative_phase_angle_H.png}
+        \includegraphics[width=\textwidth]{./Figures/Methods/LPD4-Relative_phase_angle_H.png}
 %        \caption{Differential phase spectrum}
     \end{subfigure}	
     

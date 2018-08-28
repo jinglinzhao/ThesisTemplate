@@ -27,14 +27,15 @@
 \contentsline {subsection}{\numberline {2.1.5}Further tests}{10}{subsection.2.1.5}
 \contentsline {subsection}{\numberline {2.1.6}Cut-off frequency}{12}{subsection.2.1.6}
 \contentsline {subsection}{\numberline {2.1.7}Conclusion}{13}{subsection.2.1.7}
-\contentsline {section}{\numberline {2.2}Using the Fourier transform to probe line deformation}{13}{section.2.2}
+\contentsline {section}{\numberline {2.2}Using the Fourier transform to probe line deformation}{14}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}Theory}{14}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}SOAP Simulations}{14}{subsection.2.2.2}
-\contentsline {paragraph}{Remark}{16}{section*.17}
-\contentsline {paragraph}{Remark}{19}{section*.21}
-\contentsline {subsection}{\numberline {2.2.3}Jitter model}{19}{subsection.2.2.3}
-\contentsline {subsection}{\numberline {2.2.4}Testing the recovery of Jitter}{20}{subsection.2.2.4}
-\contentsline {subsection}{\numberline {2.2.5}End-to-end Simulations}{21}{subsection.2.2.5}
+\contentsline {subsection}{\numberline {2.2.2}SOAP simulations}{15}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Fourier phase spectrum analysis}{15}{subsection.2.2.3}
+\contentsline {paragraph}{Remark}{15}{section*.17}
+\contentsline {paragraph}{Remark}{18}{section*.21}
+\contentsline {subsection}{\numberline {2.2.4}Jitter model}{19}{subsection.2.2.4}
+\contentsline {subsection}{\numberline {2.2.5}Testing the recovery of Jitter}{20}{subsection.2.2.5}
+\contentsline {subsection}{\numberline {2.2.6}End-to-end Simulations}{21}{subsection.2.2.6}
 \contentsline {section}{\numberline {2.3}Fourier transform with real observations}{25}{section.2.3}
 \contentsline {subsection}{\numberline {2.3.1}HD189733: Rossiter\IeC {\textendash }McLaughlin effect as jitter}{25}{subsection.2.3.1}
 \contentsline {paragraph}{Remarks}{27}{section*.38}
