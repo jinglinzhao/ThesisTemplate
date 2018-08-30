@@ -30,16 +30,16 @@
 \contentsline {section}{\numberline {2.2}Using the Fourier transform to probe line deformation}{14}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}Theory}{14}{subsection.2.2.1}
 \contentsline {subsection}{\numberline {2.2.2}SOAP simulations}{15}{subsection.2.2.2}
-\contentsline {subsection}{\numberline {2.2.3}Fourier phase spectrum analysis}{15}{subsection.2.2.3}
-\contentsline {paragraph}{Remark}{15}{section*.17}
-\contentsline {paragraph}{Remark}{18}{section*.21}
-\contentsline {subsection}{\numberline {2.2.4}Jitter model}{19}{subsection.2.2.4}
-\contentsline {subsection}{\numberline {2.2.5}Testing the recovery of Jitter}{20}{subsection.2.2.5}
-\contentsline {subsection}{\numberline {2.2.6}End-to-end Simulations}{21}{subsection.2.2.6}
+\contentsline {subsection}{\numberline {2.2.3}Fourier phase spectrum analysis}{16}{subsection.2.2.3}
+\contentsline {subsubsection}{\numberline {2.2.3.1}$RV_\text {FT}$}{16}{subsubsection.2.2.3.1}
+\contentsline {subsubsection}{\numberline {2.2.3.2}$RV_\text {FT,H}$ and $RV_\text {FT,L}$}{17}{subsubsection.2.2.3.2}
+\contentsline {subsection}{\numberline {2.2.4}Jitter model}{20}{subsection.2.2.4}
+\contentsline {subsection}{\numberline {2.2.5}Testing the recovery of Jitter}{21}{subsection.2.2.5}
+\contentsline {subsection}{\numberline {2.2.6}End-to-end Simulations}{23}{subsection.2.2.6}
 \contentsline {section}{\numberline {2.3}Fourier transform with real observations}{25}{section.2.3}
 \contentsline {subsection}{\numberline {2.3.1}HD189733: Rossiter\IeC {\textendash }McLaughlin effect as jitter}{25}{subsection.2.3.1}
 \contentsline {paragraph}{Remarks}{27}{section*.38}
-\contentsline {subsection}{\numberline {2.3.2}Examples 2}{27}{subsection.2.3.2}
-\contentsline {subsection}{\numberline {2.3.3}Example 3}{27}{subsection.2.3.3}
-\contentsline {section}{\numberline {2.4}References}{27}{section.2.4}
+\contentsline {subsection}{\numberline {2.3.2}Examples 2}{28}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.3}Example 3}{28}{subsection.2.3.3}
+\contentsline {section}{\numberline {2.4}References}{28}{section.2.4}
 \gdef \the@ipfilectr {}
