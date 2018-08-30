@@ -35,10 +35,10 @@
 \contentsline {subsubsection}{\numberline {2.2.3.2}$RV_\text {FT,H}$ and $RV_\text {FT,L}$}{17}{subsubsection.2.2.3.2}
 \contentsline {subsection}{\numberline {2.2.4}Jitter model}{20}{subsection.2.2.4}
 \contentsline {subsection}{\numberline {2.2.5}Testing the recovery of Jitter}{21}{subsection.2.2.5}
-\contentsline {subsection}{\numberline {2.2.6}End-to-end Simulations}{23}{subsection.2.2.6}
-\contentsline {section}{\numberline {2.3}Fourier transform with real observations}{25}{section.2.3}
-\contentsline {subsection}{\numberline {2.3.1}HD189733: Rossiter\IeC {\textendash }McLaughlin effect as jitter}{25}{subsection.2.3.1}
-\contentsline {paragraph}{Remarks}{27}{section*.38}
+\contentsline {subsection}{\numberline {2.2.6}End-to-end Simulations}{22}{subsection.2.2.6}
+\contentsline {section}{\numberline {2.3}Fourier transform with real observations}{26}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}HD189733: Rossiter\IeC {\textendash }McLaughlin effect as jitter}{26}{subsection.2.3.1}
+\contentsline {paragraph}{Remarks}{28}{section*.28}
 \contentsline {subsection}{\numberline {2.3.2}Examples 2}{28}{subsection.2.3.2}
 \contentsline {subsection}{\numberline {2.3.3}Example 3}{28}{subsection.2.3.3}
 \contentsline {section}{\numberline {2.4}References}{28}{section.2.4}
