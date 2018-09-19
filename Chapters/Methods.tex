@@ -504,11 +504,9 @@ To conclude this subsection, the apparent radial velocity shift due to spectral 
 \subsection{Jitter model}
 \label{subsec:Jitter_model}
 
-We have found in \S~\ref{ch:FT_line_shift} that $RV_\text{FT}$ for the whole frequency range, $RV_\text{FT,H}$ presenting a higher frequency range, $RV_\text{FT,L}$ presenting a lower frequency range and $RV_\text{Gaussian}$ being the line centroid fitted by a Gaussian profile demonstrate basically the same response to pure line shifts. We have also found in the section (\S~\ref{sec:FT_ld}) so far, that both $RV_\text{FT,H}$ and $RV_\text{FT,L}$ are linearly correlated with the jitter, among which 
-$RV_\text{FT,H}$ is more sensitive ($k_\text{H}>1$) and $RV_\text{FT,L}$ is less sensitive ($k_\text{L}<1$). 
+We have found in \S~\ref{ch:FT_line_shift} that the following measurable quantities demonstrate basically the same response to pure line shifts: $RV_\text{FT}$ derived from the whole frequency range, $RV_\text{FT,H}$ from the higher frequency range, $RV_\text{FT,L}$ from the lower frequency range and $RV_\text{Gaussian}$ being the line centroid fitted by a Gaussian profile  We have also found in this section (\S~\ref{sec:FT_ld}) so far, that both $RV_\text{FT,H}$ and $RV_\text{FT,L}$ are linearly correlated with the jitter, to which $RV_\text{FT,H}$ is more sensitive ($k_\text{H}>1$) and $RV_\text{FT,L}$ is less sensitive ($k_\text{L}<1$). 
 
-We can therefore write the following measurable quantities -- $RV_\text{Gaussian}$, $RV_\text{FT,L}$ and $RV_\text{FT,H}$ --
-as the sum of corresponding contributions from a bulk shift in the star (which we hereafter assume to be due to a planet or planets), and variability in the stellar line profile (hereafter lumped under the general name ``jitter'')\footnote{For writing in elegance, a constant offset term for each of the equations is taken out in all of the following equations in this subsection.}:
+We can therefore write the following measurable quantities -- $RV_\text{Gaussian}$ (or $RV_\text{FT}$), $RV_\text{FT,L}$ and $RV_\text{FT,H}$ -- as the sum of corresponding contributions from a bulk shift in the star (which we hereafter assume to be due to a planet or planets), and variability in the stellar line profile (hereafter lumped under the general name ``jitter'')\footnote{For writing in elegance, a constant offset term for each of the equations is taken out in all of the following equations in this subsection.}:
 \begin{align}
 	RV_\text{Gaussian} 	&= RV_\text{planet} + RV_\text{jitter}				 \label{eq:RV_Gau} \\
 	RV_\text{FT,L} 		&= RV_\text{planet} + k_L \cdot RV_\text{jitter} 		 \label{eq:RV_FTL} \\
@@ -528,12 +526,15 @@ where $RV_\text{Gaussian}, RV_\text{FT,L}$ and $RV_\text{FT,H}$ are direct measu
 \begin{equation}
 	\frac{RV_\text{Gaussian}-RV_\text{FT,L}}{RV_\text{FT,H} - RV_\text{Gaussian}} = \frac{1-k_L}{k_H-1},
 \end{equation}
-which means $(1-k_L)/(1-k_H)$ can now be robustly obtained by fitting a linear regression model on $(RV_\text{Gaussian}-RV_\text{FT,L})$ against $(RV_\text{Gaussian} - RV_\text{FT,H})$. With this, we rewrite the jitter model in a unified form -- the weighted sum of the two expressions from Eq.~\ref{eq:jitter_model1} and Eq.~\ref{eq:jitter_model2}: 
+which means $(1-k_L)/(1-k_H)$ can now be robustly obtained by fitting a linear regression model on $(RV_\text{Gaussian}-RV_\text{FT,L})$ against $(RV_\text{Gaussian} - RV_\text{FT,H})$. With this, we rewrite the jitter model in a unified form -- the weighted sum of the two jitter expressions from Eq.~\ref{eq:jitter_model1} and Eq.~\ref{eq:jitter_model2}: 
 \begin{align*}
 	RV_\text{jitter} &= w_1 \frac{RV_\text{Gaussian} - RV_\text{FT,L}}{1-k_L} + w_2 \frac{RV_\text{FT,H}-RV_\text{Gaussian}}{k_H-1} \\
-	&= \frac{1}{{k_H-1}} \bigg[w_1 \frac{RV_\text{Gaussian} - RV_\text{FT,L}}{\frac{1-k_L}{k_H-1}} + w_2 (RV_\text{FT,H}-RV_\text{Gaussian})\bigg] \numberthis \label{eq:jitter_model_final}
+	&= \frac{1}{{k_H-1}} \bigg[w_1 \frac{RV_\text{Gaussian} - RV_\text{FT,L}}{\frac{1-k_L}{k_H-1}} + w_2 (RV_\text{FT,H}-RV_\text{Gaussian})\bigg] \\
+	&= \alpha \bigg[w_1 \frac{RV_\text{Gaussian} - RV_\text{FT,L}}{\frac{1-k_L}{k_H-1}} + w_2 (RV_\text{FT,H}-RV_\text{Gaussian})\bigg] \numberthis \label{eq:jitter_model_final}
 \end{align*}
-in which the weights satisfy $w_1+w_2=1$. Additionally, we can roughly estimate the uncertainty of $RV_\text{jitter}$ in Eq.~\ref{eq:jitter_model1} and Eq.~\ref{eq:jitter_model2} by treating $RV_\text{Gaussian}$, $RV_\text{FT,L}$ and $RV_\text{FT,H}$ are independent variables, and $k_{L/H}$ is a constant: 
+in which the weights satisfy $w_1+w_2=1$ and $1/(k_H-1)$ is replaced by the scaling factor $\alpha$ in the last step. 
+
+Additionally, we can roughly estimate the uncertainty of $RV_\text{jitter}$ in Eq.~\ref{eq:jitter_model1} and Eq.~\ref{eq:jitter_model2} by treating $RV_\text{Gaussian}$, $RV_\text{FT,L}$ and $RV_\text{FT,H}$ are independent variables, and $k_{L/H}$ is a constant: 
 \begin{align}
 	\Delta RV_\text{jitter,L} &\approx \frac{\sqrt{\sigma_\text{Gaussian}^2 + \sigma_\text{FT,L}^2}}{1-k_L} \\
 	\Delta RV_\text{jitter,H} &\approx \frac{\sqrt{\sigma_\text{Gaussian}^2 + \sigma_\text{FT,H}^2}}{k_H-1}.
@@ -546,147 +547,287 @@ Substituting the following values: $\sigma_\text{Gaussian} = 0.08$ m/s (\S\ref{s
 
 When there's no planet or the planetary radial velocity signal is negligible compared with the size of jitter, $RV_\text{FT,L}$ and $RV_\text{FT,H}$ will be proportional to $RV_\text{jitter}$ (Example: \S\ref{sec:HD189733}).
 
-
 %----------------------------------------------------------------------------------------	
 \subsection{Testing the recovery of jitter}
 \label{sec:check}
 
-We again performed tests to see if we can correctly recover artificially generated model jitter using our new technique (Eq.~\ref{eq:jitter_model_final}).
+We again performed tests to see if we can correctly recover artificially generated jitter using our new technique (Eq.~\ref{eq:jitter_model_final}).
 
 We generated 200 deformed line profiles (in the form of cross-correlation functions) using SOAP~2.0. All the configurations are the same as used in \S\ref{sec:Simulations}, except that the data are produced from two rotation periods instead of one. The jitter amplitude is roughly 2 m/s. In addition, each line profile is further shifted by an amount $RV_\text{planet}$ appropriate for a planet generating a Keplerian orbit in the star of the amplitude\footnote{In principle, the $RV_\text{planet}$ configuration shouldn't matter in producing the jitter model because it is cancelled out in the jitter model as derived in \S\ref{subsec:Jitter_model}.}: $A_\text{planet} = 2~\text{m/s}$. The planetary orbital period to stellar rotation period ratio is set to be 0.7 (i.e. $P_\text{rot}/P_\text{orb} =\nu_\text{orb}/\nu_\text{rot}= 0.7$). 
 
-We then obtain two sets of radial velocities for each simulated profile: 
-$RV_\text{Gaussian}$ and $RV_\text{FT}$, which are reproduced in the upper panel of Fig.~\ref{fig:PLANET_AND_JITTER}. 
-As we know the amount of input jitter in our simulation, we simply scale up $\Delta RV$ by a parameter $\alpha$
-to match the input jitter (dashed line in middle panel). {\em CGT: You've lost me here ...}
-The jitter model (black dots in middle panel) becomes more scattered as $\alpha \gg 1$.  
-As a result, a moving average modulated by a Gaussian kernel is implemented to smooth out the data (solid line 
-in middle panel).
+We then obtain three sets of radial velocities for each simulated profile: $RV_\text{Gaussian}$, $RV_\text{FT,H}$ and $RV_\text{FT,L}$ (Fig.~\ref{fig:PLANET_AND_JITTER} upper panel). We test three different combinations of $w_1$ and $w_2$ and apply a scaling factor $\alpha$ (fitted by linear regression to the known input jitter) to see how well it matches the input jitter: (1) $w_1=1, w_2=0$; (2) $w_1=0.5, w_2=0.5$; (3) $w_1=0, w_2=1$. To visually show the trends of these three test jitter models, a moving average modulated by a Gaussian kernel is implemented to smooth out the data (Fig.~\ref{fig:PLANET_AND_JITTER} middle panel). All these three sets of jitter model successfully recover adequate information of the input jitter, while presenting minor difference among each other. 
 
-{\em CGT: I'm confused - whats the difference between input jitter and model jitter?}
+To quantitatively examine their performance, we compare the scatter of the input jitter $\sigma_\text{jitter}$ and that of the difference between the input jitter and the jitter models $\sigma_\text{residual}$. The former can be treated as the scatter after fitting the correct planet(s) without jitter correction, while the latter can be treated as the scatter after the additional jitter is removed. Table~\ref{table:jitter_model_scatter} lays out the scatter $\sigma_\text{residual}$ for the raw jitter models and the smoothed jitter models. The smoothed jitter can be useful in reducing the larger scatter of radial velocities obtained directly from the Fourier transform, especially in lower S/N observations. In addition to the nearly noise-free (S/N=10,000) simulations, the corresponding results for real-world observations are presented in parallel. For example, S/N ranging from 2,000 to 4,000 is found in HARPS cross-correlation functions of spectral line profiles for a dwarf star HD~189733, whose apparent magnitude is $V=7.6$; S/N$\sim$1,000 is found for red dwarfs Gl~176 and Wolf~1061, of which $V\sim10$. We choose S/N=2,000 for demonstration in the table. 
 
-To examine the performance, we compare the rms of the input jitter $\sigma_\text{jitter}$
-and the rms of the residual between the input jitter and the model jitter $\sigma_\text{residual}$. 
-The former can be treated as the scatter after fitting the correct planet(s) without jitter correction, 
-while the latter can be treated as the scatter after the additional jitter is removed.
-The rms {\em CGT: of what? which one?} is reduced from $\sigma_\text{jitter} = 1.22$~m/s to $\sigma_\text{residual} = 0.70$~m/s,
-which is crucial in enhancing the detection of planets with radial velocities of sub-m/s amplitudes. 
-However, we should also note that there are systematic differences between the input jitter and our model jitter
-(i.e. the residual sorts of repeats itself in the two stellar rotation periods). 
+%-------------
+\begin{table}[htbp]
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\multirow{2}{*}{} 	& \multicolumn{2}{c|}{$\sigma_\text{residual}$ (raw) [m/s]}  & \multicolumn{2}{c|}{$\sigma_\text{residual}$ (smoothed) [m/s]}  \\ \cline{2-5} 
+                  	& \multicolumn{1}{l|}{S/N=10,000} & \multicolumn{1}{l|}{S/N=2,000} & \multicolumn{1}{l|}{S/N=10,000} & \multicolumn{1}{l|}{S/N=2,000} \\ \hline
+$w_1=1, w_2=0$  	 	& 0.69 		& 2.49 			& 0.54 			& 0.65                              \\ \hline
+$w_1=0.5, w_2=0.5$  & 0.78 		& 2.59			& 0.62			& 0.75                              \\ \hline
+$w_1=0, w_2=1$      & 0.72		& 2.42			& 0.51 			& 0.68                              \\ \hline
+\end{tabular}
+\caption{Scatter of jitter residual}
+\label{table:jitter_model_scatter}
+\end{table}
+%-------------
 
-We should be aware that 
-while removing the stellar variability contribution from the data, it may also add in some remnant features. 
-{\em CGT: I'm afraid this is a sort of meanngless statement}.
+The scatter of the input jitter is $\sigma_\text{jitter} = 1.22$~m/s, effectively reduced to $\sigma_\text{residual} = 0.70$~m/s for S/N=10,000 but conversely doubled for S/N=2,000. Applying proper smoothing \footnote{Specifically speaking, we take into account the correlations among data points close to each other, by applying a moving average modulated by a Gaussian kernel. Other smoothing techniques such as the use of the Python package PyMC3 that implements Gaussian process in smoothing the data also return similarly good results.} can reduce the input jitter scatter $\sigma_\text{jitter}$ by half in both cases. This is crucial in enhancing the detection of planets with radial velocities of sub-m/s amplitudes. However, we should also note that there can be systematic differences between the input jitter and our jitter models that occurs in the rotational period of the star.
 
 %-------------
 \begin{figure}[tbp]
 \centering
 \includegraphics[width = 0.99 \linewidth]
-{./Figures/Methods/5-PLANET_AND_JITTER.png}
+{./Figures/Methods/5-PLANET_AND_JITTER2.png}
 \caption[Jitter model]
 {Construct jitter model from simulation data.}
 \label{fig:PLANET_AND_JITTER}
 \end{figure} 
 %-------------
+\FloatBarrier
 
+%----------------------------------------------------------------------------------------
+\subsection{Planetary radial velocity recovery}
+Having obtained the jitter model (Eq.~\ref{eq:jitter_model_final}) and knowing $RV_\text{planet}$ follows a Keplerian orbital motion, we can turn our planetary radial velocity recovery into a model fitting problem, in which the parameters of the jitter model (such as the scaling factor) and that of the Keplerian orbit (such as amplitude, orbital period and phase) are to be determined. 
 
-\subsection{End-to-end Simulations}
-
-Unless we are sure of a null-planetary system where $RV_\text{planet} = 0$ and
-from Eq.~\ref{eq:RV_Gaussian} and Eq.~\ref{eq:RV_FT,L} we obtain
+Alternatively, we can bypass the jitter model. Revisiting the Equations \ref{eq:RV_Gau}-\ref{eq:RV_FTH}, we rewrite them by observation number $i (i=1,2,\ldots,N)$ and switch the notations to obtain the following $3N$ independent linear equations:
+\begin{align}
+	X_i 		&= P_i + J_i				\label{eq:XX} \\
+	Y_i 		&= P_i + k_y \cdot J_i	\label{eq:YY} \\
+	Z_i 		&= P_i + k_z \cdot J_i 	\label{eq:ZZ}
+\end{align}
+where $X_i, Y_i$ and $Z_i$ replace the three measurable radial velocities $RV_\text{Gaussian}$, $RV_\text{FT,L}$ and $RV_\text{FT,H}$; $P_i$ and $J_i$ are the planetary radial velocities and the jitter; $k_y$ and $k_z$ are the scaling factors $k_L$ and $k_H$. Substituting $J_i = X_i - P_i$ from Eq.~\ref{eq:XX}, we can simply the system to the following $2N$ independent linear equations:
+\begin{align}
+	Y_i 		&= k_y \cdot X_i + (1-k_y)P_i	\label{eq:YYY} \\
+	Z_i 		&= k_z \cdot X_i + (1-k_z)P_i	\label{eq:ZZZ}.
+\end{align}
+The number of unknowns is $(N+4)$, including $N$ from $P_i$, 2 from $k_y$ and $k_z$, and another 2 from the previously omitted constant offsets. Normally we have $N \gg 1$, so that the number of independent equations ($2N$) is larger than the number of degrees of freedom $(N+4)$ in the system, meaning the system can be uniquely solved by optimization, such as least square minimization of the objective function:
 \begin{equation}
-	k = RV_\text{jitter} / RV_\text{Gaussian},
-\end{equation} 
-normally $k$ cannot be directly calculated, so neither can $\alpha$ be.
-However, we could substitute the jitter model (Eq.~\ref{eq:jitter_model}) into Eq.~\ref{eq:RV_Gaussian}, such that
-\begin{equation}
-	RV_\text{Gaussian} = RV_\text{planet} + \alpha \cdot \Delta RV
-\label{eq:RV_fit}
+	\sum_{i=1}^{N} \Bigg[w_{y,i}\Big(k_y \cdot X_i + (1-k_y)P_i - Y_i \Big)^2 + w_{z,i}\Big(k_z \cdot X_i + (1-k_z)P_i- Z_i \Big)^2 \Bigg]
+\label{eq:objective_function}
 \end{equation}
-where $RV_\text{planet}$ is parametrised by Keplerian orbit(s) and both $RV_\text{Gaussian}$ and $\Delta RV$ 
-are measurable. 
+where $w_{y,i}$ and $w_{z,i}$ are pre-determined parameters (e.g. determined by the sizes of errorbars of the observed radial velocities) used to weight the linear systems. In addition, this approach becomes identical to constructing a jitter model (Eq.~\ref{eq:jitter_model_final}) in cases that (1) $w_{y,i}=1, w_{z,i}=0 (i=1,2,\ldots,N)$ and $w_1=1, w_2=0$; (2) $w_{y,i}=0, w_{z,i}=1 (i=1,2,\ldots,N)$ and $w_1=0, w_2=1$. 
 
-The tests are divided into two groups for comparison:
+%----------------------------------------------------------------------------------------
+\subsection{End-to-end simulations}
+
+In this subsection we will be testing three categories of determining a planet candidate in the presence of jitter through end-to-end simulations:
+\begin{enumerate}
+	\item In a system where the amplitude of jitter is comparable to that of the planetary radial velocities, can we recover the planet orbital parameters better with our Fourier phase analysis than without jitter correction? 
+	\item In a system where the planetary radial velocities dominate and jitter is negligible, does our method give at least equally good results as the traditional methods? 
+	\item In a system where jitter is the only source of radial velocities, can our method inform us about it?
+\end{enumerate}
+We will also answer the important question: how to classify these three categories in the first place? 
+
+The spectral line profile simulator setup is the same as previously, except setting S/N to be 2,000 to imitate a real-world cross-correlation function of a line profile from HARPS. The jitter amplitude is fixed at roughly 2~m/s, so we will adjust the planetary orbital amplitude to satisfy these three categories. We will run 200 trails, each trail with 60 randomly selected samples clustered in 12 groups, out of a total of 400 equally spaced samples from four stellar rotation periods. 
+
+The tests are divided into two main groups for comparison:
 \begin{enumerate}
 	\item Fit $RV_\text{Gaussian}$ by Keplerian orbit alone;
-	\item Fit $RV_\text{Gaussian}$ by Keplerian orbit + jitter model (i.e. $\alpha \cdot \Delta RV$).
+	\item Fit $RV_\text{Gaussian}$ by Keplerian orbit with jitter model correction. The following three variations of model fitting have been tested:
+   \begin{enumerate}
+     \item Jitter model constructed with $RV_\text{Gaussian}$ and $RV_\text{FT,L}$ only, i.e. $w_1=1$ and $w_2=0$;
+     \item Jitter model constructed with $RV_\text{Gaussian}$ and $RV_\text{FT,H}$ only, i.e. $w_1=0$ and $w_2=1$;
+     \item Jitter model constructed with $RV_\text{Gaussian}$, $RV_\text{FT,L}$ and $RV_\text{FT,H}$. We test with $w_1=0.5$ and $w_2=0.5$;
+   \end{enumerate}
 \end{enumerate}
+The parameters for the fitting is obtained by Markov chain Monte Carlo (MCMC) sampling. Each radial velocity data is equally weighted as they have the same S/N. We find that among the three variations of jitter correction treatments, the one left with the least rms statistically returns the best parameter fitting performance, so we will choose the one to represent the fitting from Group2. 
+
+%----------------------------------------------------------------------------------------
+\subsubsection{Stellar jitter as strong as planetary signal}
+
 The injected planet has the same parameter settings as in \S\ref{sec:check}, i.e. circular orbit with amplitude $A = 2$~m/s,
-orbital frequency ratio $\nu = 0.7$ and initial phase $\omega = 1$~rad. We will compare which group recovers the 
-planet parameters better. 
-
-To better simulate the real observations, 40 data samples out of 200 from the two rotation periods are randomly selected.  
-The fitting is achieved by running MCMC to maximise the log-likelihood function
-given the model. For the simulation, each radial velocity data is equally weighted (as they have the same S/N). 
-It is defined if the input parameter lies within $1\sigma$ errorbar of the output parameter, it counts as a 
-successful detection. 
-
-For demonstration, we show one of the outputs in corner plots (Fig.~\ref{fig:Corner}) and the corresponding 
-radial velocity fitting (Fig.~\ref{fig:Planet_recovery}). The corner plot visually shows the how the walkers explore the parameter 
-space and their distribution. The histogram gives an example explaining how a ``successful detection" is qualified. 
-The radial velocity fitting plot demonstrates an example that implementing the jitter model effectively 
-accounts for the spurious signals in the raw radial velocity data, reducing the rms from 1.14~m/s to 0.55~m/s. 
-
-%-------------
-\begin{figure}[tbp]
-\centering
-\includegraphics[width = 0.99 \linewidth]
-{./Figures/Methods/Corner.png}
-\caption[Corner plots of MCMC]
-{Corner plots of MCMC. Theses are two examples of the output of MCMC: no jitter correction on the left and 
-with jitter correction on the right. The input parameters are highlighted in the 
-blue solid line. The three dashed lines of each histogram indicate the median and $1\sigma$ on both sides. On the 
-left panel both blue lines of $A$ and $\nu$ are outside the $1\sigma$ region, therefore it counts as a ``failed detection";
-on the right panel, it counts as a successful detection within $1\sigma$.}
-\label{fig:Corner}
-\end{figure} 
-%-------------
-
-%-------------
-\begin{figure}[tbp]
-\centering
-\includegraphics[width = 0.99 \linewidth]
-{./Figures/Methods/Fitting.png}
-\caption[Planet recovery]
-{Radial velocity fitting. Theses are two fittings that comes out from the MCMC corner plots in Fig.~\ref{fig:Corner}. 
-On the left panel without jitter correction, we can see that the input jitter increases the scatter of the raw radial 
-velocities, resulting in an overestimated amplitude $A$; while on the right panel with jitter correction, the additional 
-input jitter is accounted for by the jitter model.}
-\label{fig:Planet_recovery}
-\end{figure} 
-%-------------
-
-In the end, we run 100 trails for the end-to-end simulation. The random differences among these 100 trails come from:
-\begin{itemize}
-	\item photon noise given the S/N;
-	\item randomly selected 40 samplings in the 200 line profiles.
-\end{itemize}
-It turns out that in $46\%$ of the 100 trails are successful detections for both $A$ and $\nu$ when we 
-apply the jitter correction model, while this percentage is only $11\%$ without jitter correction. 
-In more detail, Fig.~\ref{fig:FT_Statistics} shows that with jitter correction (in red), both of the amplitude and 
-orbital frequency ratio tend to be underestimated, which is shown opposite for the results without correction (in blue). 
-Moreover, the jitter corrected parameters are better constrained (i.e. with narrower distributions) and 
-performs much better in $\nu$ than without correction. While it is tempting to say the correct answer is more likely in between
-the results from these two fittings, we would need more tests to conclude. 
+orbital frequency ratio $\nu = \nu_\text{orb}/\nu_\text{rot}= 0.7$ and initial phase $\omega = 1$~rad. After running for 200 trails, we recover the parameters for each trail (Fig.~\ref{fig:Corner}) and obtain the histograms of the recovered orbital parameters, e.g. the amplitude and the orbital period (here the orbital frequency ratio) that we mostly concerned about (Fig.~\ref{fig:Histogram}). 
 
 %-------------
 \begin{figure}[tbp]	
     \begin{subfigure}[b]{0.49\textwidth}
-        \includegraphics[width=\textwidth]{./Figures/Methods/Histogram_1.png}
-        \caption{}
+        \includegraphics[width=\textwidth]{./Figures/Methods/Fitting_3-MCMC2.png}
+        \caption{No jitter correction}
     \end{subfigure}
 	~
     \begin{subfigure}[b]{0.49\textwidth}
-        \includegraphics[width=\textwidth]{./Figures/Methods/Histogram_2.png}
-        \caption{}
+        \includegraphics[width=\textwidth]{./Figures/Methods/Fitting_3-MCMC1_XY.png}
+        \caption{Jitter correction applied}
     \end{subfigure}	
-    
-    \caption[Distribution of recovered parameters]
-    {Distribution of recovered parameters. The red are results of jitter correction by Fourier transform; 
-    The blue are results of no jitter correction.}
-\label{fig:FT_Statistics}
+    \caption[Corner plots of MCMC]
+    {Examples of two corner plots showing the successfully recovered planetary orbital parameter with MCMC sampling. The blue solid lines indicate the true values of the input orbital parameters. The three dashed lines of each histogram indicate the median and $1\sigma$ on both sides.}
+\label{fig:Corner}
 \end{figure}    
 %-------------
+
+%-------------
+\begin{figure}[tbp]	
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{./Figures/Methods/Fitting_5-Fit2.png}
+    \end{subfigure}
+	~
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{./Figures/Methods/Fitting_5-Fit1_XY.png}
+    \end{subfigure}	
+    \caption[Planet recovery ($A = 2$~m/s)]
+    {Radial velocity fitting. Theses are two fittings that comes out from the MCMC corner plots in Fig.~\ref{fig:Corner} on the same set of simulated radial velocities. The discrepancy between the simulated radial velocities and the planet model is accounted for by the jitter model, and thus applying the jitter correction reduces the rms of the residual.}
+\label{fig:Planet_recovery}
+\end{figure}    
+%-------------
+
+%-------------
+\begin{figure}[tbp]	
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{./Figures/Methods/Histogram_new1.png}
+    \end{subfigure}
+	~
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{./Figures/Methods/Histogram_new2.png}
+    \end{subfigure}	
+    \caption[Histogram of recovered orbital parameters ($A = 2$~m/s)]
+    {Histogram of recovered orbital parameters with a Gaussian profile fitted on top. The results from jitter correction are labelled in red (left in the histogram and dark in the Gaussian profile) and that without correction are labelled in grey (right in the histogram and light the Gaussian profile).}
+\label{fig:Histogram}
+\end{figure}    
+%-------------
+
+To quantitatively describe their performances, we calculate the percentage of parameters successfully recovered within 5\% and 10\% of the true values as summarized in Table~\ref{table:a=2}. For example, 15\% of the 200 trails have both the amplitude ($A$) and orbital frequency ($\nu_\text{orb}/\nu_\text{rot}$) successfully recovered within 5\% of the true parameters with jitter correction applied, while only 8\% of them achieve such a precision without jitter correction. 
+
+%-------------
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\multirow{2}{*}{Percentage} 	& \multicolumn{2}{c|}{5\% limit}  & \multicolumn{2}{c|}{10\% limit}  \\ \cline{2-5} 
+                  	& \multicolumn{1}{l|}{$\dagger$} & \multicolumn{1}{l|}{$\ddagger$} & \multicolumn{1}{l|}{$\dagger$} & \multicolumn{1}{l|}{$\ddagger$} \\ \hline
+$A$  	 									& 16\% 		& 23\% 			& 32\% 			& 39\%             \\ \hline
+$\nu_\text{orb}/\nu_\text{rot}$  			& 40\% 		& 58\%			& 67\%			& 89\%             \\ \hline
+both $A$ and $\nu_\text{orb}/\nu_\text{rot}$ & 8\% 		& 15\%			& 23\%			& 37\%             \\ \hline
+\end{tabular}
+\caption{Proportion of recovered parameters within a 1\% or 5\% limit of $A = 2$~m/s and $\nu_\text{orb}/\nu_\text{rot} =0.7$. $\dagger$: no correction; $\ddagger$: jitter correction applied.}
+\label{table:a=2}
+\end{table}
+%-------------
+\FloatBarrier
+
+%----------------------------------------------------------------------------------------
+
+\subsubsection{Planetary signal dominates}
+
+In this case, we set the orbital amplitude roughly 10 times as strong as the jitter, i.e. $A = 20$~m/s (Fig.~\ref{fig:Planet_recovery_a20}). This scenario hardly has impact on obtaining high precision of the orbital parameters of the planets using both approaches (Fig.~\ref{fig:Histogram20}), but applying jitter correction slightly improves the performance with an overall more precise measurements of the orbital parameters (Table.~\ref{table:a=20}). 
+
+%-------------
+\begin{figure}[htbp]	
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{./Figures/Methods/Fitting_5-Fit2_a20.png}
+    \end{subfigure}
+	~
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{./Figures/Methods/Fitting_5-Fit1_XYZ_a20.png}
+    \end{subfigure}	
+    \caption[Planet recovery ($A = 20$~m/s)]
+    {Same with Fig.~\ref{fig:Planet_recovery} except the input orbital amplitude of the planet being $A = 20$~m/s.}
+\label{fig:Planet_recovery_a20}
+\end{figure}    
+%-------------
+
+%-------------
+\begin{figure}[htbp]	
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{./Figures/Methods/Histogram_new1_a20.png}
+    \end{subfigure}
+	~
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{./Figures/Methods/Histogram_new2_a20.png}
+    \end{subfigure}	
+    \caption[Histogram of recovered orbital parameters ($A = 20$~m/s)]
+    {Same with Fig.~\ref{fig:Histogram} except the input orbital amplitude of the planet being $A = 20$~m/s.}
+\label{fig:Histogram20}
+\end{figure}    
+%-------------
+
+%-------------
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\multirow{2}{*}{Percentage} 	& \multicolumn{2}{c|}{1\% limit}  & \multicolumn{2}{c|}{5\% limit}  \\ \cline{2-5} 
+                  	& \multicolumn{1}{l|}{$\dagger$} & \multicolumn{1}{l|}{$\ddagger$} & \multicolumn{1}{l|}{$\dagger$} & \multicolumn{1}{l|}{$\ddagger$} \\ \hline
+$A$  	 									& 41\% 		& 51\% 			& 98\% 			& 99\%             \\ \hline
+$\nu_\text{orb}/\nu_\text{rot}$  			& 91\% 		& 97\%			& 100\%			& 100\%             \\ \hline
+both $A$ and $\nu_\text{orb}/\nu_\text{rot}$ & 37\% 		& 49\%			& 98\%			& 99\%             \\ \hline
+\end{tabular}
+\caption{Proportion of recovered parameters within a 5\% or 10\% limit of $A = 20$~m/s and $\nu_\text{orb}/\nu_\text{rot} =0.7$. $\dagger$: no correction; $\ddagger$: jitter correction applied.}
+\label{table:a=20}
+\end{table}
+%-------------
+\FloatBarrier
+
+\subsubsection{Stellar jitter only}
+
+We set $A=0$~m/s so that the measured the radial velocity only comes from stellar variability. We implement the same approaches as above to see if the applying the jitter correction can return a null planet solution i.e. recovered amplitude smaller than the noise level.
+
+The input jitter is the same as used in Fig.~\ref{fig:scaling_RV_FT}, showing the presence of three starspots in turns, mimicking the radial velocities of orbiting exoplanets. This is indeed the case in the histogram of ``recovered" orbital parameters (Fig.~\ref{fig:Histogram_null}): $\nu_\text{orb}/\nu_\text{rot}$ pops up at around 1, 2 and 3, with 3 being the most prominent. 
+
+%-------------
+\begin{figure}[htbp]	
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{./Figures/Methods/Histogram_new1_null.png}
+    \end{subfigure}
+	~
+    \begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{./Figures/Methods/Histogram_new2_null.png}
+    \end{subfigure}	
+    \caption[Histogram of recovered orbital parameters of null planets]
+    {Histogram of ``recovered" orbital parameters of null planets.}
+\label{fig:Histogram_null}
+\end{figure}    
+%-------------
+
+
+
+%Unless we are sure of a null-planetary system where $RV_\text{planet} = 0$ and
+%from Eq.~\ref{eq:RV_Gaussian} and Eq.~\ref{eq:RV_FT,L} we obtain
+%\begin{equation}
+%	k = RV_\text{jitter} / RV_\text{Gaussian},
+%\end{equation} 
+%normally $k$ cannot be directly calculated, so neither can $\alpha$ be.
+%However, we could substitute the jitter model (Eq.~\ref{eq:jitter_model}) into Eq.~\ref{eq:RV_Gaussian}, such that
+%\begin{equation}
+%	RV_\text{Gaussian} = RV_\text{planet} + \alpha \cdot \Delta RV
+%\label{eq:RV_fit}
+%\end{equation}
+%where $RV_\text{planet}$ is parametrised by Keplerian orbit(s) and both $RV_\text{Gaussian}$ and $\Delta RV$ 
+%are measurable. 
+
+%
+%We will compare which group recovers the planet parameters better. 
+%
+%To better simulate the real observations, 40 data samples out of 200 from the two rotation periods are randomly selected.  
+%
+%It is defined if the input parameter lies within $1\sigma$ errorbar of the output parameter, it counts as a 
+%successful detection. 
+%
+%For demonstration, we show one of the outputs in corner plots (Fig.~\ref{fig:Corner}) and the corresponding 
+%radial velocity fitting (Fig.~\ref{fig:Planet_recovery}). The corner plot visually shows the how the walkers explore the parameter 
+%space and their distribution. The histogram gives an example explaining how a ``successful detection" is qualified. 
+%The radial velocity fitting plot demonstrates an example that implementing the jitter model effectively 
+%accounts for the spurious signals in the raw radial velocity data, reducing the rms from 1.14~m/s to 0.55~m/s. 
+%
+%
+%
+%
+%In the end, we run 100 trails for the end-to-end simulation. The random differences among these 100 trails come from:
+%\begin{itemize}
+%	\item photon noise given the S/N;
+%	\item randomly selected 40 samplings in the 200 line profiles.
+%\end{itemize}
+%It turns out that in $46\%$ of the 100 trails are successful detections for both $A$ and $\nu$ when we 
+%apply the jitter correction model, while this percentage is only $11\%$ without jitter correction. 
+%In more detail, Fig shows that with jitter correction (in red), both of the amplitude and 
+%orbital frequency ratio tend to be underestimated, which is shown opposite for the results without correction (in blue). 
+%Moreover, the jitter corrected parameters are better constrained (i.e. with narrower distributions) and 
+%performs much better in $\nu$ than without correction. While it is tempting to say the correct answer is more likely in between
+%the results from these two fittings, we would need more tests to conclude. 
+
 
 
 %----------------------------------------------------------------------------------------

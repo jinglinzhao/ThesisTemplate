@@ -20,10 +20,13 @@
 \contentsline {figure}{\numberline {2.11}{\ignorespaces Low-pass and high-pass filters}}{18}{figure.caption.17}
 \contentsline {figure}{\numberline {2.12}{\ignorespaces Fourier transform in response to line deformation}}{19}{figure.caption.18}
 \contentsline {figure}{\numberline {2.13}{\ignorespaces Scaling the low-pass and high-pass Fourier transformed radial velocities}}{19}{figure.caption.19}
-\contentsline {figure}{\numberline {2.14}{\ignorespaces Jitter model}}{23}{figure.caption.22}
-\contentsline {figure}{\numberline {2.15}{\ignorespaces Corner plots of MCMC}}{24}{figure.caption.23}
-\contentsline {figure}{\numberline {2.16}{\ignorespaces Planet recovery}}{25}{figure.caption.24}
-\contentsline {figure}{\numberline {2.17}{\ignorespaces Distribution of recovered parameters}}{25}{figure.caption.25}
-\contentsline {figure}{\numberline {2.18}{\ignorespaces Demo: Rossiter\IeC {\textendash }McLaughlin effect}}{26}{figure.caption.26}
-\contentsline {figure}{\numberline {2.19}{\ignorespaces HD189733: removal of Rossiter\IeC {\textendash }McLaughlin effect as jitter}}{27}{figure.caption.27}
+\contentsline {figure}{\numberline {2.14}{\ignorespaces Jitter model}}{23}{figure.caption.23}
+\contentsline {figure}{\numberline {2.15}{\ignorespaces Corner plots of MCMC}}{26}{figure.caption.24}
+\contentsline {figure}{\numberline {2.16}{\ignorespaces Planet recovery ($A = 2$\nobreakspace {}m/s)}}{27}{figure.caption.25}
+\contentsline {figure}{\numberline {2.17}{\ignorespaces Histogram of recovered orbital parameters ($A = 2$\nobreakspace {}m/s)}}{27}{figure.caption.26}
+\contentsline {figure}{\numberline {2.18}{\ignorespaces Planet recovery ($A = 20$\nobreakspace {}m/s)}}{28}{figure.caption.28}
+\contentsline {figure}{\numberline {2.19}{\ignorespaces Histogram of recovered orbital parameters ($A = 20$\nobreakspace {}m/s)}}{28}{figure.caption.29}
+\contentsline {figure}{\numberline {2.20}{\ignorespaces Histogram of recovered orbital parameters of null planets}}{29}{figure.caption.31}
+\contentsline {figure}{\numberline {2.21}{\ignorespaces Demo: Rossiter\IeC {\textendash }McLaughlin effect}}{30}{figure.caption.32}
+\contentsline {figure}{\numberline {2.22}{\ignorespaces HD189733: removal of Rossiter\IeC {\textendash }McLaughlin effect as jitter}}{31}{figure.caption.33}
 \gdef \the@ipfilectr {}
