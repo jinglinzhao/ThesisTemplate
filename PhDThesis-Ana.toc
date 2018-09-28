@@ -42,8 +42,7 @@
 \contentsline {subsubsection}{\numberline {2.2.7.3}Stellar jitter only}{29}{subsubsection.2.2.7.3}
 \contentsline {section}{\numberline {2.3}Fourier transform with real observations}{29}{section.2.3}
 \contentsline {subsection}{\numberline {2.3.1}HD189733: Rossiter\IeC {\textendash }McLaughlin effect as jitter}{29}{subsection.2.3.1}
-\contentsline {paragraph}{Remarks}{31}{section*.34}
-\contentsline {subsection}{\numberline {2.3.2}Examples 2}{32}{subsection.2.3.2}
-\contentsline {subsection}{\numberline {2.3.3}Example 3}{32}{subsection.2.3.3}
-\contentsline {section}{\numberline {2.4}References}{32}{section.2.4}
+\contentsline {subsection}{\numberline {2.3.2}Examples 2}{31}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.3}Example 3}{31}{subsection.2.3.3}
+\contentsline {section}{\numberline {2.4}References}{31}{section.2.4}
 \gdef \the@ipfilectr {}

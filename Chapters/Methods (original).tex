@@ -712,7 +712,7 @@ both $A$ and $\nu_\text{orb}/\nu_\text{rot}$ & 8\% 		& 15\%			& 23\%			& 37\%   
 
 \subsubsection{Planetary signal dominates}
 
-In this case, we set the orbital amplitude roughly 10 times as strong as the jitter, i.e. $A = 20$~m/s (Fig.~\ref{fig:Planet_recovery_a20}). This scenario hardly has impact on obtaining high precision of the orbital parameters of the planets using either approach (Fig.~\ref{fig:Histogram20}), but applying jitter correction slightly improves the performance with an overall more precise measurements of the orbital parameters (Table.~\ref{table:a=20}). 
+In this case, we set the orbital amplitude roughly 10 times as strong as the jitter, i.e. $A = 20$~m/s (Fig.~\ref{fig:Planet_recovery_a20}). This scenario hardly has impact on obtaining high precision of the orbital parameters of the planets using both approaches (Fig.~\ref{fig:Histogram20}), but applying jitter correction slightly improves the performance with an overall more precise measurements of the orbital parameters (Table.~\ref{table:a=20}). 
 
 %-------------
 \begin{figure}[htbp]	
@@ -838,8 +838,36 @@ The input jitter is the same as used in Fig.~\ref{fig:scaling_RV_FT}, showing th
 \subsection{HD189733: Rossiter–McLaughlin effect as jitter}
 \label{sec:HD189733}
 
+HD189733 is a well studied binary star system. The main star HD189733~A is known to host a gas giant
+exoplanet HD189733~b, first detected by transits (reference...) and later by Doppler spectroscopy (references...). 
+It was also the first exoplanet transit observed in X-ray (references...). 
 
+We choose this target for the following reasons:
+\begin{itemize}
+	\item The exoplanet is well confirmed;
+	\item The host star is bright enough: $m_V=7.66$;
+	\item The gas giant exoplanet causes a prominent apparent radial velocity while it transits ($\sim 40$~m/s)
+	due to Rossiter–McLaughlin effect.
+\end{itemize}
 
+%-------------
+\begin{figure}[tbp]
+\centering
+\includegraphics[width = 0.80 \linewidth]
+{./Figures/Methods/rmeffect.jpg}
+\caption[Demo: Rossiter–McLaughlin effect]
+{Demo: Rossiter–McLaughlin effect (reference...). It is a apparent radial velocity
+	change of the parent star due to an eclipsing binary (whether star or planet) that breaks the observed flux symmetry in the 
+	stellar photosphere, resulting in imbalanced redshift and blueshift. It shows in this plot three different star-planet 
+	alignments that causes three corresponding different shapes of radial velocity curve, and hence the radial velocity curve
+	sheds information on the geometry of the alignment.}
+\label{fig:rm-effect}
+\end{figure} 
+%-------------
+
+We treat as if it were an ``active" star with one big dark starspot, as the Rossiter–McLaughlin effect 
+causes the line profile deformed in a similar manner that a starspot would do (Fig.~\ref{fig:rm-effect}). 
+We aim to test if our jitter model can account for the radial velocity variation from Rossiter–McLaughlin effect. 
 
 The procedure is rather standardized. Both $RV_\text{Gaussian}$ and $RV_\text{FT}$ are calculated from the 
 HARPS cross-correlation functions of the spectra. $\Delta RV = RV_\text{Gaussian} - RV_\text{FT}$ are then 
@@ -859,7 +887,24 @@ radial velocity curve is already identifiable ($\Delta RV$ of the lower panel of
 
 During transit, as the parent star and the exoplanet are along the line of sight, there will be no contribution to radial velocity by the orbiting exoplanet. However, the radial velocity shows an inclined trend in this system. It is due to the other orbiting star in the binary star system. Considering the orbital period of the binary star estimated around 3,200 years (reference...), the radial velocity contribution from the other star during the timespan of transit ($\sim$ 0.08 days) can be treated linear. By removing such a linear trend, which is fitted for the non-transiting part, we can extract the observed Rossiter–McLaughlin radial velocity curve. It is treated as jitter and modelled by $\alpha \cdot \Delta RV$ (Fig.~\ref{fig:HD189733} upper right). Note that the errorbars of the jitter model also becomes a factor of $\alpha$ ($\alpha\gg 1$) larger; however, the model itself shows a descent approximation of the Rossiter–McLaughlin radial velocity curve. The difference between our modelled jitter and the observed Rossiter–McLaughlin effect peaks at $\sim 10$~m/s, a $\sim75\%$ removal of the jitter from $\sim 40$~m/s. 
 
-The effective length of the smoothing kernel should be carefully chosen. In most cases, it can be chosen roughly the same as the spacing between two consecutive exposures. It can be very useful in mitigating the effect of noise (especially for relatively lower S/N data, to which the Fourier phase analysis is sensitive, but in this particular Rossiter–McLaughlin effect during the transit, it also smears the drastic velocity change when the planet ingresses and egresses the stellar disk. In the future, an adaptive (e.g. S/N dependent) effective length of the smoothing kernel may be implemented to resolve this problem. 
+
+\paragraph{Remarks}
+The effective length of the smoothing kernel should be carefully chosen. In this case, it's chosen most effective within 
+roughly one neighbouring data point on both size. While mitigating the effect of noise (especially for relatively lower
+S/N data outside the transits), to which the Fourier transform is sensitive, it also smears the drastic velocity 
+change when the planet ingresses and egresses the stellar disk. To solve this awkward situation, an adaptive 
+(i.e. S/N dependent) effective length of the smoothing kernel may be used. 
+%
+%%-------------
+%\begin{figure}[tbp]
+%\centering
+%\includegraphics[width = 0.80 \linewidth]
+%{./Figures/Methods/9-RM_fit2.png}
+%\caption[Rossiter–McLaughlin effect as jitter]
+%{Rossiter–McLaughlin effect as jitter fitted with the jitter model.} 
+%\label{fig:rm_as_jitter}
+%\end{figure} 
+%%-------------
 
 \subsection{Examples 2}
 

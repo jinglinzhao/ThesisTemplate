@@ -9,21 +9,24 @@ I couldn't open database file Bibliography.bib
  :                      }
 I'm skipping whatever remains of this command
 A level-1 auxiliary file: Chapters/Methods.aux
-Illegal, another \bibstyle command---line 110 of file Chapters/Methods.aux
+Illegal, another \bibstyle command---line 147 of file Chapters/Methods.aux
  : \bibstyle
  :          {unsrt}
 I'm skipping whatever remains of this command
-Illegal, another \bibdata command---line 111 of file Chapters/Methods.aux
+Illegal, another \bibdata command---line 148 of file Chapters/Methods.aux
  : \bibdata
  :         {Bibliography}
 I'm skipping whatever remains of this command
 I found no database files---while reading file PhDThesis-Ana.aux
 Warning--I didn't find a database entry for "Selmeczi_07"
 Warning--I didn't find a database entry for "Dumusque2014SOAP"
+Warning--I didn't find a database entry for "Bouchy2005"
+Warning--I didn't find a database entry for "Cochran2006"
+Warning--I didn't find a database entry for "Triaud2009"
 Warning--I didn't find a database entry for "Malaroda1975"
 You've used 0 entries,
             1791 wiz_defined-function locations,
-            453 strings with 3659 characters,
+            459 strings with 3721 characters,
 and the built_in function-call counts, 18 in all, are:
 = -- 0
 > -- 0
