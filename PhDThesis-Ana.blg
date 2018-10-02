@@ -1,32 +1,36 @@
-This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2018)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: PhDThesis-Ana.aux
 A level-1 auxiliary file: Chapters/Introduction.aux
 The style file: unsrt.bst
 I couldn't open database file Bibliography.bib
----line 13 of file Chapters/Introduction.aux
+---line 12 of file Chapters/Introduction.aux
  : \bibdata{Bibliography
  :                      }
 I'm skipping whatever remains of this command
 A level-1 auxiliary file: Chapters/Methods.aux
-Illegal, another \bibstyle command---line 147 of file Chapters/Methods.aux
+Illegal, another \bibstyle command---line 149 of file Chapters/Methods.aux
  : \bibstyle
  :          {unsrt}
 I'm skipping whatever remains of this command
-Illegal, another \bibdata command---line 148 of file Chapters/Methods.aux
+Illegal, another \bibdata command---line 150 of file Chapters/Methods.aux
  : \bibdata
  :         {Bibliography}
 I'm skipping whatever remains of this command
 I found no database files---while reading file PhDThesis-Ana.aux
-Warning--I didn't find a database entry for "Selmeczi_07"
 Warning--I didn't find a database entry for "Dumusque2014SOAP"
-Warning--I didn't find a database entry for "Bouchy2005"
+Warning--I didn't find a database entry for "Bouchy2005ELODIE"
 Warning--I didn't find a database entry for "Cochran2006"
 Warning--I didn't find a database entry for "Triaud2009"
+Warning--I didn't find a database entry for "Gaudi2007"
+Warning--I didn't find a database entry for "Boisse189733"
+Warning--I didn't find a database entry for "Cauley2017"
+Warning--I didn't find a database entry for "SIMBAD189733"
+Warning--I didn't find a database entry for "Bakos2006"
 Warning--I didn't find a database entry for "Malaroda1975"
 You've used 0 entries,
             1791 wiz_defined-function locations,
-            459 strings with 3721 characters,
+            467 strings with 3815 characters,
 and the built_in function-call counts, 18 in all, are:
 = -- 0
 > -- 0

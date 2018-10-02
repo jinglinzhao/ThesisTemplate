@@ -28,14 +28,13 @@ apparent radial velocity shift. We examine the impact on the Fourier transformed
 \label{\thesection}
 \label{ch:FT_line_shift}
 
-
-\subsection{Translation property of Fourier transform}
-
 The translation of a function (in our case a spectral line profile) can be examined in both its original real
 space, and in its Fourier transformed space. Because Fourier techniques are often used to handle time domain data,
-this shift in real space can be variously considered described as either time shifting or translation. In this chapter 
+this shift in real space can be variously described as either time shifting or translation. In this chapter 
 we will use ``time shifting'', ``translation'' and ``velocity shifting'' interchangeably to refer to a shift of a function
 in real space. We will refer to Fourier transformed functions as being in the ``frequency domain'' regardless of whether they have actual dimensions of 1/time, 1/length or 1/velocity.
+
+\subsection{Translation property of Fourier transform}
 
 Let us consider a function $h(x)$ be a signal $f(x)$ delayed (or shifted) by an amount $x_0$:
 \begin{equation}
@@ -47,52 +46,39 @@ In the frequency domain, we will then have
 	\hat{h}(\xi) = e^{-2 \pi ix_0 \xi} \hat{f}(\xi),
 \label{eq:FT2}
 \end{equation}
-where the circumflex denotes the Fourier transform of a function. $\hat{h}(\xi)$ and $\hat{f}(\xi)$ 
-will therefore differ by a frequency dependent phase angle: 
+where the circumflex denotes the Fourier transform of a function, e.g.
+\begin{equation}
+	\hat{f}(\xi) = \int_{-\infty}^{\infty} f(x) e^{-2 \pi ix \xi} dx.
+\label{eq:FT3}
+\end{equation}
+This is saying (E.q.~\ref{eq:FT2}), $\hat{h}(\xi)$ and $\hat{f}(\xi)$ differ by a frequency dependent phase angle: 
 \begin{equation}
 	\Delta \phi(\xi) = -2 \pi x_0 \xi,
 \label{eq:PhaseShift}
 \end{equation}
-while the power spectral density will remain unchanged (as $\mid e^{-2 \pi ix_0 \xi}\mid ^2 = 1$).
-
+while the power spectral density will remain unchanged, i.e. $\mid \hat{h}(\xi)\mid ^2 = \mid\hat{f}(\xi)\mid^2$ as $\mid e^{-2 \pi ix_0 \xi}\mid ^2 = 1$.
 
 \subsection{Intuitive explanation}
 
-The translation property of the Fourier transform follows mathematically from the nature of the transform. 
-A (perhaps) more intuitive way to see this is that since the Fourier transform is defined 
-\begin{equation}
-	\hat{f}(\xi) = \int_{-\infty}^{\infty} f(x) e^{-2 \pi ix \xi} dx, 
-\label{eq:FT3}
-\end{equation}
-it decomposes the function $f(x)$ into a frequency representation $\hat{f}(\xi)$, such that the function $f(x)$ is expressed  
-as the sum of \textit{all} the orthogonal basis $e^{2 \pi ix \xi}$ times a set of their components $\hat{f}(\xi)$ (i.e.
-by the inverse Fourier transform):
+The translation property of the Fourier transform can be derived easily by the interested reader. A (perhaps) more intuitive but equally quantitative way to see this is as follows: the Fourier transform decomposes the function $f(x)$ into a frequency representation $\hat{f}(\xi)$, each frequency component accompanied by the orthogonal basis $e^{2 \pi ix \xi}$, as in the form of inverse Fourier transform: 
 \begin{equation}
 	f(x) = \int_{-\infty}^{\infty} \hat{f}(\xi) e^{2 \pi ix \xi} d\xi. 
 \end{equation}
+Shifting $f(x)$ by $x_0$ in the time domain is equivalent to shifting \textit{all} the orthogonal basis functions by $x_0$, which becomes $e^{2 \pi i(x-x_0) \xi} = e^{2 \pi i x \xi} \cdot e^{-2 \pi ix_0 \xi}$. This is how the $e^{-2 \pi ix_0 \xi}$ term in Eq.~\ref{eq:FT2} arises -- it quantifies the phase difference. 
 
-This means that shifting $f(x)$ by $x_0$ is equivalent to shifting \textit{all} the orthogonal basis functions by $x_0$, which becomes $e^{2 \pi i(x-x_0) \xi} = e^{2 \pi i x \xi} \cdot e^{-2 \pi ix_0 \xi}$. This is how the $e^{-2 \pi ix_0 \xi}$ term in Eq.~\ref{eq:FT2} arises -- it quantifies this phase difference. 
-\footnote{For a simplified vision bridging a shift of the signal in the time domain and a phase difference in the frequency domain, imagine any real continuous function is a sum of sines and cosines. Changing the phase angle in the sines and cosines results in shifts in the function.}
+A (probably) even more intuitive but less quantitative way to vision the relation between a shift of the signal and a phase difference is to imagine any real continuous function is a sum of sines and cosines. Changing the phase angle in the sines and cosines results in shifts in the function. 
 
-The fact that the power spectrum density remains the same can also intuitively seen, because shifting the signal as a whole 
-doesn't add or remove any frequency information. 
+Moreover, the fact that the power spectrum density remains the same is because shifting the signal as a whole doesn't add or remove any frequency components. 
 
 
 \subsection{Practical Use}
 
-From Eq.~\ref{eq:PhaseShift}, we see that the phase shift $\Delta \phi(\xi)$ is proportional to the frequency $\xi$
-with a constant gradient or slope 
-\footnote{We use $\Delta$ to refer to the phase difference between a shifted line profile and a unshifted~/~referenced line profile, while the derivative to refer to the response of $\Delta \phi)$ to $\xi$.}
+From Eq.~\ref{eq:PhaseShift}, we see that the phase shift $\Delta \phi(\xi)$ is proportional to the frequency $\xi$ with a constant gradient or slope
 \begin{equation}
 	\dv{(\Delta \phi)}{\xi} = -2 \pi x_0
 \label{eq:gradient}
 \end{equation}
-Obtaining this (in principle) is straightforward via a simple linear regression model fit to a plot of $\Delta \phi(\xi)$ versus $\xi$ 
- (see e.g. Fig.~\ref{fig:FT}), so that
-\begin{equation}
-	x_0 = -\frac{1}{2 \pi}\dv{(\Delta \phi)}{\xi}
-\label{eq:line_shift}
-\end{equation}
+where we use $\Delta$ to refer to the phase difference between a shifted line profile and a unshifted~/~referenced line profile, while the derivative to refer to the response of $\Delta \phi$ to $\xi$. $\phi(\xi)$ can be obtained by extracting the phase information from the Fourier transform of line profiles. After that, a simple linear regression model fit to a plot of $\Delta \phi(\xi)$ versus $\xi$ (Fig.~\ref{fig:FT}) will enable us to measure the bulk shift between two line profiles $x_0$. 
 
 %-------------
 \begin{figure}[tbp]
@@ -102,15 +88,12 @@ Obtaining this (in principle) is straightforward via a simple linear regression 
 \caption[Translation property of Fourier transform]
 {The left panel shows a signal (or a spectral line profile in the following context) shifted by an amount $x_0$. 
 The right panel is the differential phase spectral density diagram (i.e. differential phase spectrum). 
-The model shows a perfectly linear correlation 
-between $\Delta \phi(\xi)$ and $\xi$ with the constant slope $-2 \pi x_0$.}
+The model shows the phase difference between two shifted signals $\Delta \phi(\xi)$ and the frequency $\xi$ are linearly correlated. Its slope $-2 \pi x_0$ contains information of the amount of signal shift in time domain.}
 \label{fig:FT}
 \end{figure} 
 %-------------
 
-By analogy with the definition of power spectral density, we describe $\phi(\xi)$ the ``phase spectral density'' and hence $\Delta \phi(\xi)$ the ``differential phase spectral density''. 
-
-In principle then, an  analysis of the phase shift in the frequency domain of the Fourier components of a line profile will provide a means of measuring a bulk line shift in real space. 
+By analogy with the definition of power spectral density or power spectrum, we describe $\phi(\xi)$ the \textbf{phase spectral density} or \textbf{phase spectrum} and hence $\Delta \phi(\xi)$ the \textbf{differential phase spectral density} or \textbf{differential phase spectrum}. In this approach, an analysis of the phase shift in the frequency domain of the Fourier components of a line profile will provide a means of measuring a bulk line shift in real space. We therefore name our method \textbf{Fourier phase spectrum analysis}. 
 % More importantly,
 % it may provide a means of separating  an apparent radial velocity shift into the components due to bulk line shift, 
 % and line profile shape change.
@@ -121,11 +104,7 @@ In principle then, an  analysis of the phase shift in the frequency domain of th
 \subsection{Initial tests}
 \label{sec:Initial_tests}
 
-We performed an initial test to determine whether we can correctly recover known shifts of a line profile  
-from an analysis of the phase shift in the frequency domain of the Fourier transform of shifted line profiles.
-
-We generated a spectral line profile based on the cross-correlation function of observed HARPS spectra
-with the software SOAP 2.0 \cite{Dumusque2014SOAP}. This was replicated 100 times, with a very small amount of 
+We performed an initial test to determine that we can correctly recover known shifts of a line profile using the Fourier phase spectrum analysis. We generated a spectral line profile based on the cross-correlation function of observed HARPS spectra with the software SOAP 2.0 \cite{Dumusque2014SOAP}. This was replicated 100 times, with a very small amount of 
 noise (equivalent to a S/N = 10,000) injected in each of the line profiles. These profiles were then
 subjected to radial velocity shifts evenly spaced between 0 and 10\,m/s (Fig.~\ref{fig:line_profiles12}). 
 
@@ -143,14 +122,12 @@ subjected to radial velocity shifts evenly spaced between 0 and 10\,m/s (Fig.~\r
         \label{fig:differential_line_profiles}
     \end{subfigure}	
     
-    \caption[100 shifted HARPS-like line profiles]{(a) the shifted line profiles plotted on top of each other, showing that the $\pm$0-10\,m/s shifts are very small compared to the line profile width. (b) the shifted line profiles with the unshifted line profile subtracted from each. Note that for the sake of clarity, the differential line profiles are plotted noise-free and only 10 out of 100 profiles are presented.}
+    \caption[100 shifted HARPS-like line profiles]{(a) the shifted line profiles plotted on top of each other, showing that the 0-10\,m/s shifts are very small compared to the line profile width. (b) the shifted line profiles with the unshifted line profile subtracted from each. Note that for the sake of clarity, the differential line profiles are plotted noise-free and only 10 out of 100 profiles are presented.}
 \label{fig:line_profiles12}
 \end{figure}	
 %-------------
 
-The Fourier transform of these 100 spectral line profiles divides the information into two parts: 
-(1) the power spectra (Fig.~\ref{fig:power_spectrum}) and (2) the phase spectra (shown in Fig.~\ref{fig:dps}
-as the differential phase spectra relative to the phase spectrum for the unshifted line profile). 
+The Fourier transform of these 100 spectral line profiles divides the information into two parts: (1) the power spectra (Fig.~\ref{fig:power_spectrum}) and (2) the phase spectra (shown in Fig.~\ref{fig:dps} as the differential phase spectra relative to the phase spectrum of the unshifted line profile). We see that most information is concentrated towards the centre of the power spectrum (i.e. the lower frequency range), and as expected, the differential phase spectra are mostly linear (consistent with the theory demonstrated in Fig.~\ref{fig:FT}). Its deviation from linearity comes from the noise that we injected, which will be discussed later. 
 
 %-------------
 \begin{figure}[tbp]	
@@ -166,31 +143,16 @@ as the differential phase spectra relative to the phase spectrum for the unshift
         \label{fig:dps}
     \end{subfigure}	
     \caption[Fourier transform of 100 shifted line profiles]
-    {The Fourier transform of these shifted line profile divides the information in each into (a) their power spectra and (b) their phase spectra (here plotted differential compared to that of the unshifted profile). A line shift in the time domain produces an unchanged power spectrum in the frequency domain. It does, however, produce phase shift which we see as linear trends in the differential phase spectra as a function of frequency. Note that for demonstration clarity, only 10 out of 100 differential phase spectra are presented.}
+    {The Fourier transform of these shifted line profile divides the information in each into (a) their power spectra and (b) their phase spectra (here plotted differential compared to that of the unshifted profile). A line shift in the time domain produces an unchanged power spectrum in the frequency domain. It does, however, produce phase shifts which we see as linear trends in the differential phase spectra as a function of frequency. Note that for demonstration clarity, only 10 out of 100 differential phase spectra are presented.}
 \label{fig:FT_process}
 \end{figure}    
 %-------------
 
-%{\em CGT: whereas the frequency ranges plotted in 2,.2a and 2.2b are the same [are they really? are you sure the axis on 2.2b should not be in m/s instead of km/s?]
-%, the ranges plotted in 2.3a and 2.3b are different. You don't really say why. Until later when you make comments about "noise".
-%I suggest you should make both the plots over the same range, and then *point out* the impact of noise,
-%and why you have chosen to limit your fits to a smaller frequency range (and justify that choice),}
+The slope of each differential phase spectrum indicates the shift of each line profile relative to the unshifted one. For a linear regression fitting, each frequency sample on the differential phase spectrum is weighted by the amplitude of the power, meaning the lower frequencies are more weighted. We calculate the radial velocity shift for each shifted line profile using two methods: (1) Fourier phase spectrum analysis that delivers $RV_\text{FT}$; (2) traditionally measuring the line centroid by fitting a Gaussian function to each line profile that delivers $RV_\text{Gaussian}$. 
 
-We see that most Fourier transform information is concentrated towards the centre of the power spectrum (i.e. the lower frequency range). The differential phase spectra are expected linear (as Fig.~\ref{fig:FT} demonstrated). Its deviation from linearity comes from the noise that we injected, which will be discussed later. 
-
-The slope of each differential phase spectrum indicates the shift of each line profile relative to 
-the unshifted line profile. It should be weighted by the amplitude of the power, meaning the lower frequencies 
-are higher weighted. We therefore calculate the radial velocity shift for each shifted line profile
-using two methods: 
-\begin{enumerate}
-	\item the $RV_\text{FT}$ using Eq.~\ref{eq:line_shift}, weighted by the power spectrum
-	\item the $RV_\text{Gaussian}$ as traditionally measured from the line centroid by fitting a Gaussian to each line profile.
-\end{enumerate}
-We can then compare the results with the (known) input line shift where we see the expected strong 1:1 correlation (Fig.~\ref{fig:rv_recovery})\footnote{The line of best fit of a linear regression model presents a slope of $1.003\pm0.006$ with 95\% confidence bounds. 
+We then compare the both $RV_\text{FT}$ and $RV_\text{Gaussian}$ with the known input line shift. Fig.~\ref{fig:rv_recovery} sees the expected strong 1:1 correlation between the input radial velocity shift and the output -- the line of best fit of a linear regression model presents a slope of $1.003\pm0.006$ with 95\% confidence bounds for both $RV_\text{FT}$ and $RV_\text{Gaussian}$. 
 % The uncertainty of the slope is derived from the uncertainty of each measured $RV_\text{FT}$, which is further derived from the uncertainty of the phase measurement, described by the magnitude of the power spectrum.
-}. The root-mean-square (rms) of the residuals (or interchangeably used as standard deviation when the mean is zero) are both $\sigma_\text{FT} = \sigma_\text{Gaussian} = 0.08$ m/s, identical up to two decimal places, indicating the expected radial velocities are consistently reduced. In fact, the almost overlapping residual in Fig.~\ref{fig:rv_recovery} means that the two methods are so coherently different from the input radial velocity (by a small amount), concludes that such a deviation comes from the photon noise intrinsic to the line profile rather than the methods themselves. 
-
-{\em CGT: How do these comare which what you'd expect from the S/N and the intrinsic line width (should say at some int what the intrinsic line width is}.
+The root-mean-square (rms) of the residuals (or interchangeably used as standard deviation when the mean is zero) are both $\sigma_\text{FT} = \sigma_\text{Gaussian} = 0.08$ m/s, identical up to two decimal places, indicating the expected radial velocities are consistently obtained using both methods. In fact, the almost overlapping residual in Fig.~\ref{fig:rv_recovery} meaning that the two methods are so coherently different from the input radial velocity (by a small amount), leads us to conclude that such a deviation comes from the photon noise intrinsic to the line profile rather than the methods themselves. 
 
 %-------------
 \begin{figure}[tbp]
@@ -204,18 +166,21 @@ We can then compare the results with the (known) input line shift where we see t
 %-------------
 \FloatBarrier
 
+{\em CGT: How do these comare which what you'd expect from the S/N and the intrinsic line width (should say at some int what the intrinsic line width is}.
+
+
 %----------------------------------------------------------------------------------------	
 
 \subsection{Further tests}
 \label{sec:Further_tests}
 
-Let's recall the justification of measuring a line shift in its Fourier space -- the shifting of a line (or a function), when viewed as shifting the sum of its Fourier basis functions (or any other basis functions), has equally the same amount of shift on every basis function, which can be measured as a phase shift in the Fourier phase spectrum. That is to say, utilising only part of the phase spectrum will also return the correct amount of shift of a line profile, although it is more likely to be affected by noise. The motivation of this practice will be discussed in \S\ref{sec:FT_ld} when it comes to line profile deformations, while we simply lay out the tests in this subsection. 
+Let's recall the justification of measuring a line shift in its Fourier space -- the shifting of a line (or a function), when viewed as shifting the sum of its Fourier basis functions (or any other basis functions), has equally the same amount of shift on every basis function, which can be measured as a phase shift in the Fourier phase spectrum. That is to say, utilising only part of the phase spectrum will also return the correct amount of shift of a line profile, although it is more likely to be affected by noise. The motivation of this practice will be discussed in \S\ref{sec:FT_ld} when it comes to line profile deformations, whereas we simply lay out the tests in this subsection. 
 
-We choose to divide the whole frequency range into two parts (Fig.~\ref{fig:low-high-pass}) -- the lower frequency range (i.e. apply a low-pass filter) and the higher frequency range (i.e. apply a high-pass filter). The dividing frequency $\xi_{HL}$ is chosen such that both the lower and higher frequency ranges take up half of the power spectrum:\footnote{In practice, a cut-off frequency applies to the upper boundary of the high-pass filter. Frequencies higher than the cut-off frequency hardly contributes to the shape of the line profile as the power goes to 0, and they can be impacted by noise in a unpredictable way, although they are weighted by the nearly-zero power.}
+We choose to divide the whole frequency range into two parts (Fig.~\ref{fig:low-high-pass}) -- the lower frequency range (i.e. apply a low-pass filter) and the higher frequency range (i.e. apply a high-pass filter). The dividing frequency $\xi_{HL}$ is chosen such that both the lower and higher frequency ranges take up half of the power spectrum $P(\xi)$:
 \begin{equation}
-	\int_{0}^{\xi_{HL}} P(\xi) d\xi = \int_{\xi_{HL}}^{+\infty} P(\xi) d\xi, 
+	\int_{\xi_{L}=0}^{\xi_{HL}} P(\xi) d\xi = \int_{\xi_{HL}}^{\xi_{H}} P(\xi) d\xi. 
 \end{equation}
-assuming the integration of power spectrum is a measurement of the amount of ``information", so that in a noise-free circumstance, we would put equal trust on the radial velocities obtained from the lower and higher frequencies. In the following, we use $RV_\text{FT,L}$ and $RV_\text{FT,H}$ to represent these two radial velocities.
+We assume the integration of power spectrum is a measurement of the amount of ``information", so that in a noise-free circumstance, we would put equal trust on the radial velocities obtained from the lower and higher frequencies (namely $RV_\text{FT,L}$ and $RV_\text{FT,H}$, or $RV_\text{FT,H/L}$ for both), though this does not necessarily deliver equal credibility between them in practice. In addition, a cut-off frequency $\xi_{H}$ applies to the upper boundary of the high-pass filter. Frequencies higher than $\xi_{H}$ hardly contributes to the shape of the line profile as $P(\xi)$ converges to zero, and they can be impacted by noise in a unpredictable way. $\xi_{H}$ is chosen empirically where $P(\xi)$ drops to $0.1\%$ of the highest $P(\xi)$.
 
 %-------------
 \begin{figure}[tbp]	
@@ -232,7 +197,7 @@ assuming the integration of power spectrum is a measurement of the amount of ``i
 \label{fig:low-high-pass}
 \end{figure}    
 
-Similar to Fig.~\ref{fig:rv_recovery} where we make use of the full range of frequencies, Fig.~\ref{fig:rv_recovery_LH} also presents a good 1:1 alignment between $RV_\text{FT,L}$, $RV_\text{FT,H}$ and the input radial velocity\footnote{The line of best fit presents a slope of $1.002\pm0.007$ for $RV_\text{FT,L}$ and $0.977\pm0.029$ respectively, with 95\% confidence bounds.}. The scatter of the residuals are $\sigma_\text{FT,L} = 0.11$ m/s and $\sigma_\text{FT,H} = 0.43$ m/s, seemingly contradicting with the expectation that equal amount of ``information" from which $RV_\text{FT,L}$ and $RV_\text{FT,H}$ are derived should deliver the same amount of scatter. The answer lies in the impact of noise (\S\ref{sec:noise}) -- higher frequency modes are more likely to be subjected to line deformations arising from stochastic behaviours, such as photon noise, stellar variability...
+Fig.~\ref{fig:rv_recovery} presented an accurate recovery of the radial velocity shift given by $RV_\text{FT}$, for which we made use of the full range of frequencies; in Fig.~\ref{fig:rv_recovery_LH}, it still manages to deliver a good 1:1 alignment between $RV_\text{FT,H/L}$ and the input radial velocity. The line of best fit presents a slope of $1.002\pm0.007$ for $RV_\text{FT,L}$ and $0.977\pm0.029$ for $RV_\text{FT,H}$ respectively, with 95\% confidence bounds. The scatter of the residuals are $\sigma_\text{FT,L} = 0.11$ m/s and $\sigma_\text{FT,H} = 0.43$ m/s. Firstly, we note that $\sigma_\text{FT,H/L} > \sigma_\text{FT}$, this is because both $RV_\text{FT,H}$ and $RV_\text{FT,L}$ scarify part of frequency information in the Fourier space for the different response to line deformation. Secondly, we note that $RV_\text{FT,H} > RV_\text{FT,L}$, seemingly contradicting with the expectation that equal amount of ``information" from which they are derived should deliver the equivalent amount of scatter in the residuals. We think this may be because higher frequency modes are more likely to be subjected to stochastic behaviours other than the line deformation arising from stellar variability generated in the SOAP model. For example, the fluctuations of photon levels on the stellar spectrum are mainly described by high frequency modes. {\em jzhao: Have I made myself clear here?}
 
 %-------------
 \begin{figure}[tbp]
@@ -250,9 +215,9 @@ Similar to Fig.~\ref{fig:rv_recovery} where we make use of the full range of fre
 \subsection{Cut-off frequency}
 \label{sec:noise}
 
-We briefly mentioned in \S\ref{sec:Initial_tests} that the deviation from linearity in the differential phase spectrum arises from the photon noise injected in the simulated line profile, and in \S\ref{sec:Further_tests} that introducing a cut-off frequency in the upper boundary avoids dealing with excessive noise. This can be explained with the Fourier transformed line profile $\hat{h}(\xi)$ in a complex plane (also known as the Argand plane; Fig.~\ref{fig:FT_compelx_plane}). What we see is $\hat{h}(\xi)$ literally plotted on the complex plane -- of each complex number $\hat{h}(\xi)$, the argument returns the phase angle and the square of the absolute value returns the power, for that particular frequency $\xi$. For larger powers (i.e. $\hat{h}(\xi)$ far from the origin), the presence of noise hardly alters the phase angle; for lower powers (i.e. $\hat{h}(\xi)$ distributed in the vicinity of the origin), a slight displacement of $\hat{h}(\xi)$ in the complex plane means a considerable change in the phase angle. It justifies using the Fourier transform spectral power to be the weight of each frequency, and introducing a cut-off frequency when making a linear fit of the differential phase spectrum. 
+We briefly mentioned in \S\ref{sec:Initial_tests} that the deviation from linearity in the differential phase spectrum arises from the photon noise injected in the simulated line profiles, and in \S\ref{sec:Further_tests} that introducing a cut-off frequency in the upper boundary avoids dealing with excessive noise. This can be visually explained with the Fourier transformed line profile $\hat{h}(\xi)$ in a complex plane (also known as the Argand plane; Fig.~\ref{fig:FT_compelx_plane}). What we see is $\hat{h}(\xi)$ literally plotted on the complex plane, for the frequencies that are sampled. Of each complex number $\hat{h}(\xi)$, the argument returns the phase angle and the square of the absolute value returns the power. For larger powers (i.e. $\hat{h}(\xi)$ far from the origin as viewed in Fig.~\ref{fig:FT_compelx_plane} left), the presence of noise (S/N = 10,000) hardly alters the phase angle; for lower powers (i.e. $\hat{h}(\xi)$ distributed in the vicinity of the origin as viewed in Fig.~\ref{fig:FT_compelx_plane} right), a slight displacement of $\hat{h}(\xi)$ in the complex plane means a considerable change in the phase angle in the presence of even a tiniest amount of noise (S/N = 10,000). It justifies using the Fourier transform spectral power to be the weight of each frequency, and introducing a cut-off frequency when making a linear fit of the differential phase spectrum. 
 
-Another possible reason for introducing the cut-off frequency is the periodicity of the basis functions in a Fourier transform. The basis function $e^{-2 \pi ix_0 \xi}$ repeats itself at the period of $1/\xi$, making measuring the shift longer than the order of $1/\xi$ degenerate because $x_0+k/\xi$ for $k\in\mathbb{Z}$ will give the same results. However, this is very unlikely the case that we may encounter. In the test examples above, the cut-off frequency is $\xi = 0.15$ s/km, corresponding to the period of $1/\xi\sim6.7$ km/s, way larger than the radial velocities induced by planets at m/s amplitudes. 
+Another possible reason to introduce the cut-off frequency is the periodicity of the basis functions in a Fourier transform. The basis function $e^{-2 \pi ix_0 \xi}$ repeats itself at the period of $1/\xi$, making measuring the shift in the time domain larger than the order of $1/\xi$ degenerate (i.e. the shifts of $x_0+k/\xi$ for $k\in\mathbb{Z}$ become indistinguishable). Nevertheless, this is very unlikely the case that we may encounter. In the test examples above, the cut-off frequency is $\xi = 0.15$ s/km, corresponding to the period of $1/\xi\sim6.7$ km/s, which is way larger than the radial velocities induced by planets that we normally study at scales of m/s amplitudes. 
 
 %-------------
 \begin{figure}[tbp]	
@@ -288,7 +253,7 @@ Another possible reason for introducing the cut-off frequency is the periodicity
 %----------------------------------------------------------------------------------------	
 
 \subsection{Conclusion}
-In this section, we have introduced a new method for measuring radial velocities -- Fourier phase spectrum analysis. The tests that we have made based on shifting a simulated line profile confirm our expectation that using the differential Fourier phase spectrum, it is possible to measure a radial velocity to similarly high precision. This provides an alternative to the traditional means of obtaining the radial velocities via centroiding the line profile in real space. 
+In this section, we have introduced a new method for measuring radial velocities -- Fourier phase spectrum analysis. The tests that we have made based on shifting a simulated line profile confirm our proposal that using the differential Fourier phase spectrum, it is possible to measure a radial velocity to similarly high precision. This provides an alternative to the traditional means of obtaining the radial velocities via centroiding the line profile in real space. 
 
 In a broader context, this method will be applicable to measuring shifts of any pattern, and can be extended to higher dimensions. In this thesis, we primarily focus on its use to measure radial velocity shifts in spectral line profiles, and especially whether the Fourier transform phase velocity is more robust against the influence of changes in line deformation than traditional techniques.
 
@@ -307,29 +272,24 @@ In \S~\ref{ch:FT_line_shift}, we have tested that the Fourier phase spectrum ana
 \subsection{Theory}
 \label{sec:LD_Theory}
 
-For a shift of a line profile by a small amount $x_0$, the same shift $x_0$ applies to \textit{all} of its basis functions. As for line deformation due to stellar variability, $x_0$ becomes frequency dependent \footnote{excluding the case where the result of a line deformation is exactly the same as a line shift, as this becomes indistinguishable by any means of studying the shape of the line profile alone}. That is to say, basis functions at different frequencies would be shifted by different amounts, resulting in shape changes (e.g. skewness) in the line profile. 
-Therefore we modify the translation property of Fourier transform by rewriting $x_0$ as $x_0(\xi)$ in Eq.~\ref{eq:PhaseShift}:
+For a shift of a line profile by a small amount $x_0$, the same shift $x_0$ applies to \textit{all} of its basis functions. As for line deformation due to stellar variability, $x_0$ becomes frequency dependent (here we exclude the case where the result of a line deformation is exactly the same as a line shift, as this becomes indistinguishable by any means of studying the shape of the line profile alone). That is to say, basis functions at different frequencies would be shifted by different amounts, resulting in shape changes (e.g. skewness) in the line profile. Therefore we modify the translation property of Fourier transform by rewriting $x_0$ as $x_0(\xi)$ in Eq.~\ref{eq:PhaseShift}:
 \begin{equation}
 	\Delta \phi(\xi) = -2 \pi x_0(\xi) \xi.
 \label{eq:PhaseShift2_LPD}
 \end{equation}
-As a result, the local gradient of the differential phase spectrum becomes 
+As a result, the local gradient of the differential phase spectrum, instead of $-2 \pi x_0$ in the case of no line profile deformation, becomes 
 \begin{equation}
-	\dv{(\Delta \phi)}{\xi} = -2 \pi (x_0 + \dv{x_0}{\xi}),
+	\dv{(\Delta \phi)}{\xi} = -2 \pi (x_0 + \dv{x_0}{\xi}).
 \label{eq:PhaseShift3_LPD}
 \end{equation}
-which reduces to Eq.~\ref{eq:gradient} when $x_0$ is a constant as in the case of a bulk line shift.
 Note that the dependency of $\xi$ has been taken out of $\Delta \phi(\xi)$ and 
 $x_0(\xi)$ in writing the differential equation above. 
 
-In principle, we could numerically solve this differential equation based on the measured local gradient d$(\Delta \phi)$/d$\xi$ to obtain $x_0(\xi)$, but the local gradient measurement can be unreliable in the presence of noise. As a simplistic approach, we could use the \textit{averaged} shift $\overline{x_0(\xi)}$ of various frequency modes to describe different amounts of shift by rewriting Eq.~\ref{eq:PhaseShift2_LPD} as 
+In principle, we could numerically solve the differential equation (either Eq.~\ref{eq:PhaseShift2_LPD} or Eq.~\ref{eq:PhaseShift3_LPD}) based on the measured $\Delta \phi$ or local gradient d$(\Delta \phi)$/d$\xi$ to obtain $x_0(\xi)$, to further seek to understand which frequency modes are more related to stellar variability, on top of all frequency modes respond to a bulk shift of a line profile in the same way. As a simplistic approach, we could use an \textit{averaged} shift $\overline{x_0(\xi)}$ to describe an overall amount of shift of various frequency modes and rewrite Eq.~\ref{eq:PhaseShift2_LPD} as 
 \begin{equation}
 	\Delta \phi(\xi) = -2 \pi \overline{x_0(\xi)} \xi
 \end{equation}
-where $\overline{x_0(\xi)}$ is treated as a constant for the range of frequencies that we study. This concept will be helpful in describing the effective shifts applying the low-pass and high-pass filters when it comes to line deformation.
-%if $x_0(\xi)$ changes with $\xi$ slowly within a certain frequency range,
-%we can make the approximations that $x_0\sim$~const and d$x_0$/d$\xi\sim0$. With this, Eq.~\ref{eq:PhaseShift3_LPD} 
-%converges back to Eq.~\ref{eq:gradient}.
+where $\overline{x_0(\xi)}$ is treated as a constant for the range of frequencies that we study. For example, we can divide the frequency range into two to study the effective line shifts in the lower frequency range vs the higher frequency range (i.e. applying a low-pass and a high-pass filter). 
 
 %----------------------------------------------------------------------------------------	
 
@@ -338,7 +298,7 @@ where $\overline{x_0(\xi)}$ is treated as a constant for the range of frequencie
 
 In \S~\ref{ch:FT_line_shift}, we had used the SOAP simulator only to generate a line profile that resembles the HARPS observation. In this section, we would use the simulator SOAP~2.0 to study line deformations arising from starspots. 
 
-Without loss of generality, we injected three spots with different longitudes, latitudes and sizes (parameters specified in Table~\ref{table:spot_configurations}) to model an emitting star, and generated 100 cross-correlation functions for the resulting  deformed line profiles evenly sampled throughout the rotation period of the star (Fig.~\ref{fig:line_profiles_deformation}). A very small amount of noise (equivalent to a S/N = 10,000) was also added into the line profiles for simulation demonstration purposes. 
+Without loss of generality, we injected three spots with different longitudes, latitudes and sizes (parameters specified in Table~\ref{table:spot_configurations}) to model an emitting star, and generated 100 cross-correlation functions for the resulting  deformed line profiles evenly sampled throughout the rotation period of the star (Fig.~\ref{fig:line_profiles_deformation}). A very small amount of noise (equivalent to a S/N = 10,000) was also added into the line profiles in the simulation. 
 
 %-------------
 \begin{table}[htbp]
@@ -382,7 +342,7 @@ Spot 3 & $51^\circ$  & $52^\circ$  & 0.50\% \\
 \subsection{Fourier phase spectrum analysis}
 
 \subsubsection{$RV_\text{FT}$}
-We then take the same approach as in  \S~\ref{ch:FT_line_shift} to obtain the power spectrum and the differential phase spectrum (Fig.~\ref{fig:FT_process_LPD}) to recover the radial velocities $RV_\text{FT}$. It notes, line deformation contributes to a skewed differential phase spectrum, as predicted in \S\ref{sec:LD_Theory}. 
+We then take the same approach as in  \S~\ref{ch:FT_line_shift} to obtain the power spectrum and the differential phase spectrum (Fig.~\ref{fig:FT_process_LPD}) to recover the radial velocities $RV_\text{FT}$. It notes, line deformation contributes to a skewed differential phase spectrum, as the the shift $x_0(\xi)$, which is related to the local gradient of the differential phase spectrum, becomes frequency dependent. 
 
 %-------------
 \begin{figure}[tbp]	
@@ -397,36 +357,33 @@ We then take the same approach as in  \S~\ref{ch:FT_line_shift} to obtain the po
         \label{fig:dps_LPD}
     \end{subfigure}	
     
-    \caption[Fourier transform of deformed line profile]
-    {Fourier transform of deformed line profile. Only 10 out of 100 differential phase spectra are presented.}
+    \caption[Fourier transform of deformed line profiles]
+    {Fourier transform of deformed line profiles. Only 10 out of 100 differential phase spectra are presented.}
 \label{fig:FT_process_LPD}
 \end{figure}    
 %-------------
 
-In this case, the input radial velocities would be the apparent radial velocities of deformed line profiles (also known as jitter). Both velocities $RV_\text{FT}$ and $RV_\text{Gaussian}$ are plotted against rotation phase (Fig.~\ref{fig:rv_recovery_deformed}). If we take the root-mean-squares of both $RV_\text{FT}$ and $RV_\text{Gaussian}$ to be the intrinsic noise level ($\sigma_\text{FT} = \sigma_\text{Gaussian} = 0.08$ m/s) corresponding S/N = 10,000, the uncertainty of $RV_\text{FT} - RV_\text{Gaussian}$ as residual would have an uncertainty of 
-$\sqrt{\sigma_\text{FT}^2+\sigma_\text{Gaussian}^2}\approx0.11$ m/s. As $\mid RV_\text{difference}\mid = \mid RV_\text{FT} - RV_\text{Gaussian}\mid < 0.03$ m/s, we can agree that $RV_\text{FT}$ and $RV_\text{Gaussian}$ are indistinguishably consistent. 
+In this case, the input radial velocities would be the apparent radial velocities of deformed line profiles (also known as jitter). Both velocities $RV_\text{FT}$ and $RV_\text{Gaussian}$ are plotted against rotation phase (Fig.~\ref{fig:rv_recovery_deformed}). If we take $\sigma_\text{FT} = \sigma_\text{Gaussian} = 0.08$ m/s to be the intrinsic photon noise level corresponding to S/N = 10,000 as obtained in \S~\ref{sec:Initial_tests}, the difference between $RV_\text{FT}$ and $RV_\text{Gaussian}$ would have an uncertainty of $\sqrt{\sigma_\text{FT}^2+\sigma_\text{Gaussian}^2}\approx0.11$ m/s. What we measure here is $\mid RV_\text{difference}\mid = \mid RV_\text{FT} - RV_\text{Gaussian}\mid < 0.03$ m/s. Therefore, we can agree that $RV_\text{FT}$ and $RV_\text{Gaussian}$ are indistinguishably consistent in the measurement of the apparent radial velocities of a deformed line profile. 
 
 %-------------
 \begin{figure}[tbp]
 \centering
 \includegraphics[width = 0.7 \linewidth]
 {./Figures/Methods/5-JITTER_ONLY_3.png}
-\caption[Apparent RV of deformed line profile]
-{Apparent RV of deformed line profile calculated with Fourier transform and Gaussian fit. Both results are also highly consistent with each other. $RV_\text{difference} = RV_\text{FT} - RV_\text{Gaussian}$.}
+\caption[Apparent RV of deformed line profiles]
+{Apparent RV of deformed line profiles calculated with Fourier phase spectrum analysis and Gaussian fit. Both results are also highly consistent with each other. $RV_\text{difference} = RV_\text{FT} - RV_\text{Gaussian}$.}
 \label{fig:rv_recovery_deformed}
 \end{figure} 
 %-------------
 \FloatBarrier
 
-To conclude, the Fourier phase spectrum analysis, using (almost) all the information in the power spectrum and the phase spectrum, returns highly consistent radial velocities as the line centroid acquiring by fitted a Gaussian profile. This consistency applies both for measuring a direct line shift and an apparent shift of a deformed line profile. 
-
 %----------------------------------------------------------------------------------------	
 \subsubsection{$RV_\text{FT,H}$ and $RV_\text{FT,L}$}
 \label{subsec:FT,HL}
 
-Although the intrinsic line deformation (in the absence of any velocity shift in the host star) does mimic the radial velocity shift, we note the shape differences in the differential phase spectrum between an actual line shift (Fig.~\ref{fig:dps}) and a line deformation (Fig.~\ref{fig:dps_LPD}) -- the latte presents relatively flat features in lower frequencies and becomes more skewed towards higher frequencies. Such differences provide key messages to differentiate the two circumstances.
+Although an intrinsic line deformation (in the absence of any velocity shift in the host star) usually mimics a radial velocity shift, we note the shape differences in the differential phase spectrum between an actual line shift (Fig.~\ref{fig:dps}) and a line deformation (Fig.~\ref{fig:dps_LPD}) -- the latte presents slightly flatter features in lower frequencies and becomes more skewed towards higher frequencies. Such differences provide key messages to differentiate the two circumstances.
 
-According to \S\ref{sec:LD_Theory} where we introduced $\overline{x_0(\xi)}$ -- an averaged shift of a particular frequency range -- we can therefore compute the equivalent radial velocity shift for each of the lower and higher frequency ranges (Fig.~\ref{fig:low-high-pass_lpd}), denoted as $RV_\text{FT,L}$ and $RV_\text{FT,L}$ respectively. 
+According to \S\ref{sec:LD_Theory} where we introduced $\overline{x_0(\xi)}$ -- an averaged shift of a particular frequency range -- we compute the equivalent radial velocity shift for each of the lower and higher frequency ranges (Fig.~\ref{fig:low-high-pass_lpd}). We present our results by plotting the obtained $RV_\text{FT,H/L}$ against the jitter (line centroid fitted by a Gaussian profile) in Fig.~\ref{fig:FT_vs_Gaussian}. The $RV_\text{FT,H}$ and $RV_\text{FT,L}$ are clearly clustered into two groups, both linearly correlated with the jitter, and yet neither has a 1:1 correlation. $RV_\text{FT,H}$ demonstrates a higher response to jitter. Fitting with a linear regression model, it comes with a slope $k_\text{H} = 1.978\pm0.100$, meaning an apparent radial velocity shift of 1 m/s due to line deformation is detected as $1.978\pm0.100$ m/s shift on average using \textit{this} high-pass filter; whereas the slope for applying a low-pass filter is $k_\text{L} = 0.847\pm0.015$, meaning $RV_\text{FT,L}$ is less sensitive to the line profile deformation. It's also worth noting that the combined effect of these two filters would have resulted in $RV_\text{FT}$, a consistent measurement of the radial velocity as with the fitting a line centroid as previously showed.
 
 %-------------
 \begin{figure}[tbp]	
@@ -446,8 +403,6 @@ According to \S\ref{sec:LD_Theory} where we introduced $\overline{x_0(\xi)}$ -- 
 \end{figure}    
 %-------------
 
-To present our results, we plot the obtained $RV_\text{FT,L}$ and $RV_\text{FT,L}$ against the jitter (line centroid fitted by a Gaussian profile) in Fig.~\ref{fig:FT_vs_Gaussian}. The $RV_\text{FT,L}$ and $RV_\text{FT,L}$ can be clearly clustered into two groups, both linearly correlated with the jitter, and yet neither has a 1:1 correlation. $RV_\text{FT,H}$ demonstrates a higher response to jitter. Fitting with a linear regression model, it comes with a slope $k_\text{H} = 1.978\pm0.100$, meaning an apparent radial velocity shift of 1 m/s due to line deformation is detected as $1.978\pm0.100$ m/s shift on average using \textit{this} high-pass filter; whereas the slope for applying a low pass filter is $k_\text{L} = 0.847\pm0.015$, meaning $RV_\text{FT,L}$ is less sensitive to the line profile deformation. When combining both filters, we would have obtained $RV_\text{FT}$, the same response to jitter, as shown in Fig.~\ref{fig:rv_recovery_deformed}.
-
 %-------------
 \begin{figure}[tbp]
 \centering
@@ -459,7 +414,7 @@ To present our results, we plot the obtained $RV_\text{FT,L}$ and $RV_\text{FT,L
 \end{figure} 
 %-------------
 
-We could further investigate how well this linearity behaves for each filter by scaling the measured $RV_\text{FT,L}$ and $RV_\text{FT,H}$ by their corresponding factors $1/k_\text{L}$ and $1/k_\text{H}$ respectively, and compare them with the jitter ($RV_\text{Gaussian}$), as presented in Fig.~\ref{fig:scaling_RV_FT}. The root-mean-squares of the residuals ($RV_\text{FT,L/H}/k_{L/H} - RV_\text{Gaussian}$) are $\sigma_\text{FT,L} \approx 0.11$ m/s and $\sigma_\text{FT,H} \approx 0.31$ m/s respectively. The reason for $\sigma_\text{FT,H}>\sigma_\text{FT,L}$ is the same as mentioned in \S\ref{sec:Further_tests}, being higher frequency modes are more affected by noise. 
+We could further investigate how well this linearity behaves for each filter by scaling the measured $RV_\text{FT,L}$ and $RV_\text{FT,H}$ by their corresponding factors $1/k_\text{L}$ and $1/k_\text{H}$ respectively, and compare them with the jitter ($RV_\text{Gaussian}$), as presented in Fig.~\ref{fig:scaling_RV_FT}. The root-mean-squares of the residuals are $\sigma_\text{FT,L} \approx 0.11$ m/s and $\sigma_\text{FT,H} \approx 0.31$ m/s respectively. The reason for $\sigma_\text{FT,H}>\sigma_\text{FT,L}$ is the same as mentioned in \S\ref{sec:Further_tests}, being higher frequency modes are more sensitive to noise, but the fact that both $\sigma_\text{FT,H/L}$ increase (opposed to $\sigma_\text{FT,H/L}$ = 0.08~m/s in the case of a pure line shift) is because we think the linearity between $RV_\text{FT,H/L}$ and the input jitter is only empirically valid but not strictly followed. The deviation from linearity would affect how well we could recover the jitter by scaling $RV_\text{FT,H/L}$ and may also introduce systematics in the recovery of jitter. 
 
 %-------------
 \begin{figure}[tbp]
@@ -472,41 +427,13 @@ We could further investigate how well this linearity behaves for each filter by 
 \end{figure} 
 %-------------
 
-To conclude this subsection, the apparent radial velocity shift due to spectral line deformation (i.e. jitter) can be seen as a mingle of two radial velocities -- $RV_\text{FT,H}$ and $RV_\text{FT,L}$ -- one in higher frequency modes the other in lower frequency modes. They are both, as obtained from the simulated spectral line profiles, scaled linearly with jitter.
-
-%An intuitive way to understand why 
-%
-%If we compare the differential phase spectra in Fig.~\ref{fig:FT_process} and Fig.~\ref{fig:FT_process_LPD},
-%it is quite obvious that the differential phase spectrum of a deformed line profile is no longer linear 
-%due to the $x_0$ dependency on $\xi$, as we discussed in \S~\ref{sec:LD_Theory}. Nevertheless, applying the 
-%local linear approximation can provide a radial velocity shift for that frequency range. We will primarily 
-%use the lower frequency range (from -0.06 to 0.06~(km/s)$^{-1}$ in this case) for the reasons that 
-%it is where information is mostly concentrated and that it is less noise-sensitive. {\em CGT: Sorry, 
-%but you still haven't demonstrated this sufficiently}
-%
-%However, the differential phase shift at lower frequency is {\em less} sensitive to the
-%influence of line profile deformation. 
-%If we concentrate on frequencies in the range $\mid\xi\mid < 0.06$ (km/s)$^{-1}$ (sensitive to line profile
-%structure at  velocities $> 1/\mid\xi\mid = 16$ km/s) we find that these lower frequency modes are
-%less effectively modulated by the higher frequency line deformations, as shown in the 
-%differential line profile in Fig.~\ref{fig:ld_dlp}. 
-%
-%In addition, the slope $k$ will change depending on the 
-%frequency range in which the linear regression model is applied. 
-%For example, if we select the higher frequency range in the differential phase spectrum, we will 
-%expect larger $RV_\text{FT}$ and hence a larger $k$ in general. 
-%
-%{\em CGT: I tried to rewrite the above, but I'm not convinced either the text or the figures are
-%very clear! In partiuclar you need a clear and compelling demosntration why you've chosen the lower
-%frequency range you have}
-
 %----------------------------------------------------------------------------------------	
 \subsection{Jitter model}
 \label{subsec:Jitter_model}
 
-We have found in \S~\ref{ch:FT_line_shift} that the following measurable quantities demonstrate basically the same response to pure line shifts: $RV_\text{FT}$ derived from the whole frequency range, $RV_\text{FT,H}$ from the higher frequency range, $RV_\text{FT,L}$ from the lower frequency range and $RV_\text{Gaussian}$ being the line centroid fitted by a Gaussian profile  We have also found in this section (\S~\ref{sec:FT_ld}) so far, that both $RV_\text{FT,H}$ and $RV_\text{FT,L}$ are linearly correlated with the jitter, to which $RV_\text{FT,H}$ is more sensitive ($k_\text{H}>1$) and $RV_\text{FT,L}$ is less sensitive ($k_\text{L}<1$). 
+We have shown in \S~\ref{ch:FT_line_shift} that the following measurable quantities demonstrate basically the same response to pure line shifts: $RV_\text{FT}$, $RV_\text{FT,H/L}$ and $RV_\text{Gaussian}$. We have also shown in this section (\S~\ref{sec:FT_ld}) so far, that both $RV_\text{FT,H}$ and $RV_\text{FT,L}$ are linearly correlated with the jitter, to which $RV_\text{FT,H}$ is more sensitive ($k_\text{H}>1$) and $RV_\text{FT,L}$ is less sensitive ($k_\text{L}<1$). 
 
-We can therefore write the following measurable quantities -- $RV_\text{Gaussian}$ (or $RV_\text{FT}$), $RV_\text{FT,L}$ and $RV_\text{FT,H}$ -- as the sum of corresponding contributions from a bulk shift in the star (which we hereafter assume to be due to a planet or planets), and variability in the stellar line profile (hereafter lumped under the general name ``jitter'')\footnote{For writing in elegance, a constant offset term for each of the equations is taken out in all of the following equations in this subsection.}:
+We can therefore write the following measurable quantities -- $RV_\text{Gaussian}$ (or $RV_\text{FT}$), $RV_\text{FT,L}$ and $RV_\text{FT,H}$ -- in the from of three additive terms: (1) a bulk shift in the star (which we hereafter assume to be due to a planet or planets) as the superposition of Keplerian orbit(s), (2) variability in the stellar line profile (hereafter lumped under the general name ``jitter''), and (3) a constant radial velocity offset term that we choose it to be absorbed into the previous two terms for elegance.
 \begin{align}
 	RV_\text{Gaussian} 	&= RV_\text{planet} + RV_\text{jitter}				 \label{eq:RV_Gau} \\
 	RV_\text{FT,L} 		&= RV_\text{planet} + k_L \cdot RV_\text{jitter} 		 \label{eq:RV_FTL} \\
@@ -522,9 +449,10 @@ Rearranging yields two expressions of the jitter model
 	RV_\text{jitter} &= \frac{RV_\text{Gaussian} - RV_\text{FT,L}}{1-k_L} 	\label{eq:jitter_model1} \\
 	RV_\text{jitter} &= \frac{RV_\text{FT,H} - RV_\text{Gaussian}}{k_H-1}		\label{eq:jitter_model2} 
 \end{align}
-where $RV_\text{Gaussian}, RV_\text{FT,L}$ and $RV_\text{FT,H}$ are direct measurements, whereas $k_L$ and $k_H$ are unknowns\footnote{We could determine $k_L$ and $k_H$ in the demonstrated simulations only because we knew the jitter.}. Dividing the two equations above further cancels $RV_\text{jitter}$, leaving 
+where $RV_\text{Gaussian}, RV_\text{FT,L}$ and $RV_\text{FT,H}$ are direct measurements, whereas $k_L$ and $k_H$ are unknowns -- we could determine $k_L$ and $k_H$ in the previous demonstrated simulations only because we knew there was no other radial velocities than jitter in the system. Dividing the two equations above further cancels $RV_\text{jitter}$, leaving 
 \begin{equation}
 	\frac{RV_\text{Gaussian}-RV_\text{FT,L}}{RV_\text{FT,H} - RV_\text{Gaussian}} = \frac{1-k_L}{k_H-1},
+\label{eq:GHL} 
 \end{equation}
 which means $(1-k_L)/(1-k_H)$ can now be robustly obtained by fitting a linear regression model on $(RV_\text{Gaussian}-RV_\text{FT,L})$ against $(RV_\text{Gaussian} - RV_\text{FT,H})$. With this, we rewrite the jitter model in a unified form -- the weighted sum of the two jitter expressions from Eq.~\ref{eq:jitter_model1} and Eq.~\ref{eq:jitter_model2}: 
 \begin{align*}
@@ -534,30 +462,44 @@ which means $(1-k_L)/(1-k_H)$ can now be robustly obtained by fitting a linear r
 \end{align*}
 in which the weights satisfy $w_1+w_2=1$ and $1/(k_H-1)$ is replaced by the scaling factor $\alpha$ in the last step. 
 
-Additionally, we can roughly estimate the uncertainty of $RV_\text{jitter}$ in Eq.~\ref{eq:jitter_model1} and Eq.~\ref{eq:jitter_model2} by treating $RV_\text{Gaussian}$, $RV_\text{FT,L}$ and $RV_\text{FT,H}$ are independent variables, and $k_{L/H}$ is a constant: 
-\begin{align}
-	\Delta RV_\text{jitter,L} &\approx \frac{\sqrt{\sigma_\text{Gaussian}^2 + \sigma_\text{FT,L}^2}}{1-k_L} \\
-	\Delta RV_\text{jitter,H} &\approx \frac{\sqrt{\sigma_\text{Gaussian}^2 + \sigma_\text{FT,H}^2}}{k_H-1}.
-\end{align}
-Substituting the following values: $\sigma_\text{Gaussian} = 0.08$ m/s (\S\ref{sec:Initial_tests}), $\sigma_\text{FT,L} = 0.11$ m/s and $\sigma_\text{FT,H} = 0.43$ m/s (\S\ref{sec:Further_tests}), $k_L = 0.847$ and $k_H = 1.978$ (\S\ref{subsec:FT,HL}), we obtain $\Delta RV_\text{jitter,L} = 0.89$ m/s and $\Delta RV_\text{jitter,H} = 0.45$ m/s.
+%Additionally, we can roughly estimate the uncertainty of $RV_\text{jitter}$ in Eq.~\ref{eq:jitter_model1} and Eq.~\ref{eq:jitter_model2} by treating $RV_\text{Gaussian}$, $RV_\text{FT,L}$ and $RV_\text{FT,H}$ are independent variables, and $k_{L/H}$ is a constant: 
+%\begin{align}
+%	\Delta RV_\text{jitter,L} &\approx \frac{\sqrt{\sigma_\text{Gaussian}^2 + \sigma_\text{FT,L}^2}}{1-k_L} \\
+%	\Delta RV_\text{jitter,H} &\approx \frac{\sqrt{\sigma_\text{Gaussian}^2 + \sigma_\text{FT,H}^2}}{k_H-1}.
+%\end{align}
+%Substituting the following values: $\sigma_\text{Gaussian} = 0.08$ m/s (\S\ref{sec:Initial_tests}), $\sigma_\text{FT,L} = 0.11$ m/s and $\sigma_\text{FT,H} = 0.43$ m/s (\S\ref{sec:Further_tests}), $k_L = 0.847$ and $k_H = 1.978$ (\S\ref{subsec:FT,HL}), we obtain $\Delta RV_\text{jitter,L} = 0.89$ m/s and $\Delta RV_\text{jitter,H} = 0.45$ m/s.
 
-
-% but can be incorporated into the radial velocity models (i.e. substitute $RV_\text{jitter}$ in Eq.~\ref{eq:RV_Gau} by either Eq.~\ref{eq:jitter_model1} or Eq.~\ref{eq:jitter_model2}) in the process of recovering planets.
-
-
-When there's no planet or the planetary radial velocity signal is negligible compared with the size of jitter, $RV_\text{FT,L}$ and $RV_\text{FT,H}$ will be proportional to $RV_\text{jitter}$ (Example: \S\ref{sec:HD189733}).
+As a final remark, we strongly suggest check the correlation between $(RV_\text{Gaussian}-RV_\text{FT,L})$ and $(RV_\text{FT,H} - RV_\text{Gaussian})$ from Eq.~\ref{eq:GHL} before going ahead with the jitter model (Eq.~\ref{eq:jitter_model1} and Eq.~\ref{eq:jitter_model2}), because our jitter model is solely based on the empirically assumed linear response of $RV_\text{FT,H/L}$ to $RV_\text{jitter}$, either of which fails can be identified by plotting $(RV_\text{Gaussian}-RV_\text{FT,L})$ against $(RV_\text{FT,H} - RV_\text{Gaussian})$.
 
 %----------------------------------------------------------------------------------------	
 \subsection{Testing the recovery of jitter}
 \label{sec:check}
 
-We again performed tests to see if we can correctly recover artificially generated jitter using our new technique (Eq.~\ref{eq:jitter_model_final}).
+We again performed tests to demonstrate we could correctly recover artificially generated jitter using our new technique (Eq.~\ref{eq:jitter_model_final}). We generated 200 deformed line profiles (in the form of cross-correlation functions) using SOAP~2.0. All the configurations are the same as used in \S\ref{sec:Simulations}, except that the data are produced from two rotation periods instead of one. The jitter amplitude is roughly 2 m/s. In addition, each line profile is further shifted by an amount $RV_\text{planet}$ with an amplitude of the Keplerian orbit $A_\text{planet} = 2~\text{m/s}$ (although in principle the $RV_\text{planet}$ configuration shouldn't affect the jitter model because the term was cancelled out when we derived the jitter expression). The planetary orbital frequency to stellar rotation frequency ratio is set to be 0.7 (i.e. $\nu_\text{orb}/\nu_\text{rot} = P_\text{rot}/P_\text{orb} = 0.7$). 
 
-We generated 200 deformed line profiles (in the form of cross-correlation functions) using SOAP~2.0. All the configurations are the same as used in \S\ref{sec:Simulations}, except that the data are produced from two rotation periods instead of one. The jitter amplitude is roughly 2 m/s. In addition, each line profile is further shifted by an amount $RV_\text{planet}$ appropriate for a planet generating a Keplerian orbit in the star of the amplitude\footnote{In principle, the $RV_\text{planet}$ configuration shouldn't matter in producing the jitter model because it is cancelled out in the jitter model as derived in \S\ref{subsec:Jitter_model}.}: $A_\text{planet} = 2~\text{m/s}$. The planetary orbital period to stellar rotation period ratio is set to be 0.7 (i.e. $P_\text{rot}/P_\text{orb} =\nu_\text{orb}/\nu_\text{rot}= 0.7$). 
+We then obtain three sets of radial velocities for each simulated profile: $RV_\text{Gaussian}$, $RV_\text{FT,H}$ and $RV_\text{FT,L}$ (Fig.~\ref{fig:PLANET_AND_JITTER} upper panel). We test three different combinations of $w_1$ and $w_2$ and apply a scaling factor $\alpha$ (fitted by linear regression to the known input jitter) to see how well it matches the input jitter: (1) $w_1=1, w_2=0$; (2) $w_1=0.5, w_2=0.5$; (3) $w_1=0, w_2=1$. It shows in the middle panel, that all these three sets of jitter model successfully recover adequate information of the input jitter, while presenting minor difference among each other. 
 
-We then obtain three sets of radial velocities for each simulated profile: $RV_\text{Gaussian}$, $RV_\text{FT,H}$ and $RV_\text{FT,L}$ (Fig.~\ref{fig:PLANET_AND_JITTER} upper panel). We test three different combinations of $w_1$ and $w_2$ and apply a scaling factor $\alpha$ (fitted by linear regression to the known input jitter) to see how well it matches the input jitter: (1) $w_1=1, w_2=0$; (2) $w_1=0.5, w_2=0.5$; (3) $w_1=0, w_2=1$. To visually show the trends of these three test jitter models, a moving average modulated by a Gaussian kernel is implemented to smooth out the data (Fig.~\ref{fig:PLANET_AND_JITTER} middle panel). All these three sets of jitter model successfully recover adequate information of the input jitter, while presenting minor difference among each other. 
+%-------------
+\begin{figure}[tbp]
+\centering
+\includegraphics[width = 0.99 \linewidth]
+{./Figures/Methods/5-PLANET_AND_JITTER2.png}
+\caption[Jitter model]
+{Jitter recovery based on Eq.~\ref{eq:jitter_model_final} for the simulated data (S/N = 10,000). Top: time series of directly measured $RV_\text{Gaussian}$ and $RV_\text{FT,H/L}$. Middle: three forms of jitter expression scaled by their respective factor $\alpha$, smoothed by the weighted moving average (mostly overlapping grey solid line) with $\tau = 0.01 P_{rot}$. In comparison is the input jitter (orange dashed line). Bottom: difference between the jitter model and the input jitter, smoothed by the weighted moving average (mostly overlapping grey solid line).}
+\label{fig:PLANET_AND_JITTER}
+\end{figure} 
+%-------------
 
-To quantitatively examine their performance, we compare the scatter of the input jitter $\sigma_\text{jitter}$ and that of the difference between the input jitter and the jitter models $\sigma_\text{residual}$. The former can be treated as the scatter after fitting the correct planet(s) without jitter correction, while the latter can be treated as the scatter after the additional jitter is removed. Table~\ref{table:jitter_model_scatter} lays out the scatter $\sigma_\text{residual}$ for the raw jitter models and the smoothed jitter models. The smoothed jitter can be useful in reducing the larger scatter of radial velocities obtained directly from the Fourier transform, especially in lower S/N observations. In addition to the nearly noise-free (S/N=10,000) simulations, the corresponding results for real-world observations are presented in parallel. For example, S/N ranging from 2,000 to 4,000 is found in HARPS cross-correlation functions of spectral line profiles for a dwarf star HD~189733, whose apparent magnitude is $V=7.6$; S/N$\sim$1,000 is found for red dwarfs Gl~176 and Wolf~1061, of which $V\sim10$. We choose S/N=2,000 for demonstration in the table. 
+\paragraph{Weighted moving average} At this stage, we would implement a weighted moving average modulated by a Gaussian kernel to mitigate noise brought by $RV_\text{FT,H/L}$ (excessive noise due to the sacrifice of frequency information) and the subsequent arithmetic. For $N$ data points (e.g. radial velocities) $v_i$ with an uncertainty $\sigma_i$ observed at $t_i$ ($i=1,2,...N$), we define the contribution (i.e. weight) of a data point $(t_i, v_i\pm \sigma_i)$ towards the chosen position $t$ as the multiplication of two factors: (1) the weight of the data point itself, inversely proportional to the uncertainty squared: $W_i= \frac{1}{\sigma_i^2}$ and (2) a stationary kernel that describes the correlation between data, depending on the distance $\mid t-t_i \mid$ and a time-scale of correlation $\tau$: $K_i(t) = e^{-\frac{(t-t_i)^2}{2\tau^2}}$. With this, an evaluation of a data point $v(t)$ can be drawn by the average of all observed data, weighted by 
+\begin{equation}
+	\textbf{W}_i(t) = W_i \cdot K_i(t) = \frac{1}{\sigma_i^2} e^{-\frac{(t-t_i)^2}{2\tau^2}}
+\end{equation}
+from the data $(t_i, v_i\pm \sigma_i)$ respectively and then normalised by the sum of weights, so that 
+\begin{equation}
+	v(t) 	=  \frac{\sum\limits_{i=1}^{N} \bigg[x_i*\textbf{W}_i(t)\bigg]}{\sum\limits_{i=1}^{N} \textbf{W}_i(t)}
+\end{equation}
+
+To quantitatively examine their performance, we compare the scatter of the difference between the input jitter and the jitter models $\sigma_\text{residual}$ with the scatter of the input jitter $\sigma_\text{jitter} = 1.22$~m/s. The former can be treated as the scatter after the planets are correctly fitted and jitter is removed, whereas the latter the scatter after fitting the correct planet(s) without jitter correction. Table~\ref{table:jitter_model_scatter} lays out the scatter $\sigma_\text{residual}$ for the raw jitter models and the smoothed jitter models implemented with the weighted moving average. In addition to the nearly noise-free (S/N=10,000) simulations, the corresponding simulations appropriate for real-world observations are presented in parallel. For example, S/N ranging from 2,000 to 4,000 is found in HARPS cross-correlation functions of spectral line profiles for a dwarf star HD~189733, whose apparent magnitude is $V=7.6$; S/N$\sim$1,000 is found for red dwarfs Gl~176 and Wolf~1061, of which $V\sim10$. As for the smoothing, we choose the correlation time-scale for S/N=10,000 to be $\tau_{10000} = 0.01 P_{rot}$, the distance between two observations, and $\tau_{2000} = 5~\tau_{10000}$ for S/N=2,000 in order to further mitigate noise. 
 
 %-------------
 \begin{table}[htbp]
@@ -570,27 +512,18 @@ $w_1=1, w_2=0$  	 	& 0.69 		& 2.49 			& 0.54 			& 0.65                          
 $w_1=0.5, w_2=0.5$  & 0.78 		& 2.59			& 0.62			& 0.75                              \\ \hline
 $w_1=0, w_2=1$      & 0.72		& 2.42			& 0.51 			& 0.68                              \\ \hline
 \end{tabular}
-\caption{Scatter of jitter residual}
+\caption{Scatter of jitter residual (input $\sigma_\text{jitter} = 1.22$~m/s)}
 \label{table:jitter_model_scatter}
 \end{table}
 %-------------
 
-The scatter of the input jitter is $\sigma_\text{jitter} = 1.22$~m/s, effectively reduced to $\sigma_\text{residual} = 0.70$~m/s for S/N=10,000 but conversely doubled for S/N=2,000. Applying proper smoothing \footnote{Specifically speaking, we take into account the correlations among data points close to each other, by applying a moving average modulated by a Gaussian kernel. Other smoothing techniques such as the use of the Python package PyMC3 that implements Gaussian process in smoothing the data also return similarly good results.} can reduce the input jitter scatter $\sigma_\text{jitter}$ by half in both cases. This is crucial in enhancing the detection of planets with radial velocities of sub-m/s amplitudes. However, we should also note that there can be systematic differences between the input jitter and our jitter models that occurs in the rotational period of the star.
-
-%-------------
-\begin{figure}[tbp]
-\centering
-\includegraphics[width = 0.99 \linewidth]
-{./Figures/Methods/5-PLANET_AND_JITTER2.png}
-\caption[Jitter model]
-{Construct jitter model from simulation data.}
-\label{fig:PLANET_AND_JITTER}
-\end{figure} 
-%-------------
-\FloatBarrier
+We note from the table, that the scatter of the input jitter is effectively reduced from 1.22~m/s to $\sigma_\text{residual} = 0.70$~m/s for S/N=10,000 but conversely doubled for S/N=2,000. Implementing the weighted moving average with a proper correlation time-scale $\tau$ (e.g. depend on the detail of information to be extracted from the data and the extent of noise to be flattened) can reduce the input jitter scatter $\sigma_\text{jitter}$ by half in both cases (we have also tested other smoothing approaches, such as the use of the Python package PyMC3 that implements Gaussian process in smoothing the data, which also returns similarly results). This is crucial in enhancing the detection of planets with radial velocities of sub-m/s amplitudes. However, we should not ignore there can be systematic differences between the input jitter and our jitter models.
 
 %----------------------------------------------------------------------------------------
 \subsection{Planetary radial velocity recovery}
+
+In this subsection we discuss the possibilities to recover the radial velocity of the planet in a more direct way, though may not be as practical.
+
 Having obtained the jitter model (Eq.~\ref{eq:jitter_model_final}) and knowing $RV_\text{planet}$ follows a Keplerian orbital motion, we can turn our planetary radial velocity recovery into a model fitting problem, in which the parameters of the jitter model (such as the scaling factor) and that of the Keplerian orbit (such as amplitude, orbital period and phase) are to be determined. 
 
 Alternatively, we can bypass the jitter model. Revisiting the Equations \ref{eq:RV_Gau}-\ref{eq:RV_FTH}, we rewrite them by observation number $i (i=1,2,\ldots,N)$ and switch the notations to obtain the following $3N$ independent linear equations:
@@ -599,30 +532,40 @@ Alternatively, we can bypass the jitter model. Revisiting the Equations \ref{eq:
 	Y_i 		&= P_i + k_y \cdot J_i	\label{eq:YY} \\
 	Z_i 		&= P_i + k_z \cdot J_i 	\label{eq:ZZ}
 \end{align}
-where $X_i, Y_i$ and $Z_i$ replace the three measurable radial velocities $RV_\text{Gaussian}$, $RV_\text{FT,L}$ and $RV_\text{FT,H}$; $P_i$ and $J_i$ are the planetary radial velocities and the jitter; $k_y$ and $k_z$ are the scaling factors $k_L$ and $k_H$. Substituting $J_i = X_i - P_i$ from Eq.~\ref{eq:XX}, we can simply the system to the following $2N$ independent linear equations:
+where $X_i, Y_i$ and $Z_i$ replace the three measurable radial velocities $RV_\text{Gaussian}$, $RV_\text{FT,L}$ and $RV_\text{FT,H}$; $P_i$ and $J_i$ are the planetary radial velocities and the jitter; $k_y$ and $k_z$ are the scaling factors $k_L$ and $k_H$. Substituting $J_i = X_i - P_i$ from Eq.~\ref{eq:XX}, we can simplify the system to the following $2N$ independent linear equations:
 \begin{align}
 	Y_i 		&= k_y \cdot X_i + (1-k_y)P_i	\label{eq:YYY} \\
 	Z_i 		&= k_z \cdot X_i + (1-k_z)P_i	\label{eq:ZZZ}.
 \end{align}
-The number of unknowns is $(N+4)$, including $N$ from $P_i$, 2 from $k_y$ and $k_z$, and another 2 from the previously omitted constant offsets. Normally we have $N \gg 1$, so that the number of independent equations ($2N$) is larger than the number of degrees of freedom $(N+4)$ in the system, meaning the system can be uniquely solved by optimization, such as least square minimization of the objective function:
+The number of unknowns is $(N+4)$, including $N$ from $P_i$, 2 from $k_y$ and $k_z$, and another 2 from the previously absorbed constant offsets. Normally we have $N \gg 1$, so that the number of independent equations ($2N$) is larger than the number of degrees of freedom $(N+4)$ in the system, meaning the system can be uniquely solved by optimization, such as least square minimization of the objective function:
 \begin{equation}
 	\sum_{i=1}^{N} \Bigg[w_{y,i}\Big(k_y \cdot X_i + (1-k_y)P_i - Y_i \Big)^2 + w_{z,i}\Big(k_z \cdot X_i + (1-k_z)P_i- Z_i \Big)^2 \Bigg]
 \label{eq:objective_function}
 \end{equation}
 where $w_{y,i}$ and $w_{z,i}$ are pre-determined parameters (e.g. determined by the sizes of errorbars of the observed radial velocities) used to weight the linear systems. In addition, this approach becomes identical to constructing a jitter model (Eq.~\ref{eq:jitter_model_final}) in cases that (1) $w_{y,i}=1, w_{z,i}=0 (i=1,2,\ldots,N)$ and $w_1=1, w_2=0$; (2) $w_{y,i}=0, w_{z,i}=1 (i=1,2,\ldots,N)$ and $w_1=0, w_2=1$. 
 
-%----------------------------------------------------------------------------------------
-\subsection{End-to-end simulations}
+\subsection{Conclusion}
 
-In this subsection we will be testing three categories of determining a planet candidate in the presence of jitter through end-to-end simulations:
+The Fourier phase spectrum analysis, when using (almost) all the information in the power spectrum and the phase spectrum, returns highly consistent radial velocities as the line centroid acquired by fitting a Gaussian profile. This consistency applies both for measuring a direct line shift and an apparent shift of a deformed line profile. 
+
+We believe the frequency dependent $x_0(\xi)$ is the key asset to identifying line profile deformation and distinguishing it from a bulk shift of a line. As far as we have investigated for a deformed line profile, the apparent radial velocity shift (i.e. jitter) can be seen as a mingle of two radial velocities -- $RV_\text{FT,H}$ and $RV_\text{FT,L}$ -- one in higher frequency modes the other in lower frequency modes. They are both, as obtained from the simulated spectral line profiles, scaled linearly with jitter. 
+
+The different linear responses of $RV_\text{FT,H}$ and $RV_\text{FT,L}$ enable us to construct a jitter model, which has reasonably recovered the simulated radial velocity data with stellar variability, both in our almost noise-free and real-world simulations. 
+
+\pagebreak
+%----------------------------------------------------------------------------------------	
+%----------------------------------------------------------------------------------------	
+\section{End-to-end simulations}
+\label{\thesection}
+
+We run end-to-end simulations of recovering a planet candidate in the presence of jitter through to answer the following three questions:
 \begin{enumerate}
-	\item In a system where the amplitude of jitter is comparable to that of the planetary radial velocities, can we recover the planet orbital parameters better with our Fourier phase analysis than without jitter correction? 
-	\item In a system where the planetary radial velocities dominate and jitter is negligible, does our method give at least equally good results as the traditional methods? 
-	\item In a system where jitter is the only source of radial velocities, can our method inform us about it?
+	\item In a system where the amplitude of jitter is comparable to that of the planetary radial velocities, can we recover the planet orbital parameters better with our Fourier phase spectrum analysis than without jitter correction? 
+	\item In a system where the planetary radial velocities dominate and jitter is negligible, does the Fourier phase spectrum analysis give at least equally good results as the traditional methods? 
+	\item In a system where jitter is the only source of radial velocities, can it be classified by the Fourier phase spectrum analysis?
 \end{enumerate}
-We will also answer the important question: how to classify these three categories in the first place? 
 
-The spectral line profile simulator setup is the same as previously, except setting S/N to be 2,000 to imitate a real-world cross-correlation function of a line profile from HARPS. The jitter amplitude is fixed at roughly 2~m/s, so we will adjust the planetary orbital amplitude to satisfy these three categories. We will run 200 trails, each trail with 60 randomly selected samples clustered in 12 groups, out of a total of 400 equally spaced samples from four stellar rotation periods. 
+The spectral line profile simulator setup is the same as previously, except setting S/N to be 2,000 to imitate a real-world cross-correlation function of a line profile from HARPS. The jitter amplitude is fixed at roughly 2~m/s, so we will adjust the planetary orbital amplitude to satisfy the three categories of end-to-end simulations. We will run 200 trails, each trail with 60 randomly selected samples clustered in 12 groups, out of a total of 400 equally spaced samples from four stellar rotation periods. 
 
 The tests are divided into two main groups for comparison:
 \begin{enumerate}
@@ -631,16 +574,16 @@ The tests are divided into two main groups for comparison:
    \begin{enumerate}
      \item Jitter model constructed with $RV_\text{Gaussian}$ and $RV_\text{FT,L}$ only, i.e. $w_1=1$ and $w_2=0$;
      \item Jitter model constructed with $RV_\text{Gaussian}$ and $RV_\text{FT,H}$ only, i.e. $w_1=0$ and $w_2=1$;
-     \item Jitter model constructed with $RV_\text{Gaussian}$, $RV_\text{FT,L}$ and $RV_\text{FT,H}$. We test with $w_1=0.5$ and $w_2=0.5$;
+     \item Jitter model constructed with $RV_\text{Gaussian}$, $RV_\text{FT,L}$ and $RV_\text{FT,H}$. We test with $w_1=0.5$ and $w_2=0.5$.
    \end{enumerate}
 \end{enumerate}
-The parameters for the fitting is obtained by Markov chain Monte Carlo (MCMC) sampling. Each radial velocity data is equally weighted as they have the same S/N. We find that among the three variations of jitter correction treatments, the one left with the least rms statistically returns the best parameter fitting performance, so we will choose the one to represent the fitting from Group2. 
+The parameters for the fitting is obtained by Markov chain Monte Carlo (MCMC) sampling. Each radial velocity data is equally weighted as they have the same S/N. We find that among the three variations of jitter correction treatments, the one left with the least rms statistically returns the best fitting parameters, so we will choose the one to represent the fitting from Group~2. 
 
 %----------------------------------------------------------------------------------------
-\subsubsection{Stellar jitter as strong as planetary signal}
+\subsection{Stellar jitter as strong as planetary signal}
 
 The injected planet has the same parameter settings as in \S\ref{sec:check}, i.e. circular orbit with amplitude $A = 2$~m/s,
-orbital frequency ratio $\nu = \nu_\text{orb}/\nu_\text{rot}= 0.7$ and initial phase $\omega = 1$~rad. After running for 200 trails, we recover the parameters for each trail (Fig.~\ref{fig:Corner}) and obtain the histograms of the recovered orbital parameters, e.g. the amplitude and the orbital period (here the orbital frequency ratio) that we mostly concerned about (Fig.~\ref{fig:Histogram}). 
+orbital frequency ratio $\nu = \nu_\text{orb}/\nu_\text{rot}= 0.7$ and initial phase $\omega = 1$~rad. We recover the parameters for each trail (Fig.~\ref{fig:Corner}) for a total of 200 runs and obtain the histograms of the recovered orbital parameters, e.g. the amplitude and the orbital frequency ratio (inverse of the orbital period ratio) that we are mostly concerned about (Fig.~\ref{fig:Histogram}). 
 
 %-------------
 \begin{figure}[tbp]	
@@ -654,7 +597,7 @@ orbital frequency ratio $\nu = \nu_\text{orb}/\nu_\text{rot}= 0.7$ and initial p
         \caption{Jitter correction applied}
     \end{subfigure}	
     \caption[Corner plots of MCMC]
-    {Examples of two corner plots showing the successfully recovered planetary orbital parameter with MCMC sampling. The blue solid lines indicate the true values of the input orbital parameters. The three dashed lines of each histogram indicate the median and $1\sigma$ on both sides.}
+    {Examples of two corner plots showing the successfully recovered planetary orbital parameters (within 10\% of the true values) with MCMC sampling. The blue solid lines indicate the true values of the input orbital parameters. The three dashed lines of each histogram indicate the median and $1\sigma$ on both sides.}
 \label{fig:Corner}
 \end{figure}    
 %-------------
@@ -669,7 +612,7 @@ orbital frequency ratio $\nu = \nu_\text{orb}/\nu_\text{rot}= 0.7$ and initial p
         \includegraphics[width=\textwidth]{./Figures/Methods/Fitting_5-Fit1_XY.png}
     \end{subfigure}	
     \caption[Planet recovery ($A = 2$~m/s)]
-    {Radial velocity fitting. Theses are two fittings that comes out from the MCMC corner plots in Fig.~\ref{fig:Corner} on the same set of simulated radial velocities. The discrepancy between the simulated radial velocities and the planet model is accounted for by the jitter model, and thus applying the jitter correction reduces the rms of the residual.}
+    {Radial velocity fitting (S/N = 2,000). Theses are two fittings that comes out from the MCMC corner plots in Fig.~\ref{fig:Corner} on the same set of simulated radial velocities. The discrepancy between the simulated radial velocities and the planet model is accounted for by the jitter model, and thus applying the jitter correction reduces the rms of the residual.}
 \label{fig:Planet_recovery}
 \end{figure}    
 %-------------
@@ -702,7 +645,7 @@ $A$  	 									& 16\% 		& 23\% 			& 32\% 			& 39\%             \\ \hline
 $\nu_\text{orb}/\nu_\text{rot}$  			& 40\% 		& 58\%			& 67\%			& 89\%             \\ \hline
 both $A$ and $\nu_\text{orb}/\nu_\text{rot}$ & 8\% 		& 15\%			& 23\%			& 37\%             \\ \hline
 \end{tabular}
-\caption{Proportion of recovered parameters within a 1\% or 5\% limit of $A = 2$~m/s and $\nu_\text{orb}/\nu_\text{rot} =0.7$. $\dagger$: no correction; $\ddagger$: jitter correction applied.}
+\caption{Proportion of recovered parameters within 5\% and 10\% limit of $A = 2$~m/s and $\nu_\text{orb}/\nu_\text{rot} =0.7$. $\dagger$: no correction; $\ddagger$: jitter correction applied.}
 \label{table:a=2}
 \end{table}
 %-------------
@@ -710,9 +653,9 @@ both $A$ and $\nu_\text{orb}/\nu_\text{rot}$ & 8\% 		& 15\%			& 23\%			& 37\%   
 
 %----------------------------------------------------------------------------------------
 
-\subsubsection{Planetary signal dominates}
+\subsection{Planetary signal dominates}
 
-In this case, we set the orbital amplitude roughly 10 times as strong as the jitter, i.e. $A = 20$~m/s (Fig.~\ref{fig:Planet_recovery_a20}). This scenario hardly has impact on obtaining high precision of the orbital parameters of the planets using either approach (Fig.~\ref{fig:Histogram20}), but applying jitter correction slightly improves the performance with an overall more precise measurements of the orbital parameters (Table.~\ref{table:a=20}). 
+In this case, we set the orbital amplitude roughly 10 times as strong as the jitter, i.e. $A = 20$~m/s (Fig.~\ref{fig:Planet_recovery_a20}). This scenario hardly has impact on obtaining high precision of the orbital parameters of the planets using either approach (Fig.~\ref{fig:Histogram20}), but applying jitter correction slightly improves the performance with overall more precise measurements of the orbital parameters (Table.~\ref{table:a=20}). 
 
 %-------------
 \begin{figure}[htbp]	
@@ -755,17 +698,17 @@ $A$  	 									& 41\% 		& 51\% 			& 98\% 			& 99\%             \\ \hline
 $\nu_\text{orb}/\nu_\text{rot}$  			& 91\% 		& 97\%			& 100\%			& 100\%             \\ \hline
 both $A$ and $\nu_\text{orb}/\nu_\text{rot}$ & 37\% 		& 49\%			& 98\%			& 99\%             \\ \hline
 \end{tabular}
-\caption{Proportion of recovered parameters within a 5\% or 10\% limit of $A = 20$~m/s and $\nu_\text{orb}/\nu_\text{rot} =0.7$. $\dagger$: no correction; $\ddagger$: jitter correction applied.}
+\caption{Proportion of recovered parameters within 1\% and 5\% limit of $A = 20$~m/s and $\nu_\text{orb}/\nu_\text{rot} =0.7$. $\dagger$: no correction; $\ddagger$: jitter correction applied.}
 \label{table:a=20}
 \end{table}
 %-------------
 \FloatBarrier
 
-\subsubsection{Stellar jitter only}
+\subsection{Stellar jitter only}
 
 We set $A=0$~m/s so that the measured the radial velocity only comes from stellar variability. We implement the same approaches as above to see if the applying the jitter correction can return a null planet solution i.e. recovered amplitude smaller than the noise level.
 
-The input jitter is the same as used in Fig.~\ref{fig:scaling_RV_FT}, showing the presence of three starspots in turns, mimicking the radial velocities of orbiting exoplanets. This is indeed the case in the histogram of ``recovered" orbital parameters (Fig.~\ref{fig:Histogram_null}): $\nu_\text{orb}/\nu_\text{rot}$ pops up at around 1, 2 and 3, with 3 being the most prominent. 
+The spot configuration used in Table~\ref{table:spot_configurations} result in the presence of three starspots in turns (Fig.~\ref{fig:rv_recovery_deformed}), mimicking the radial velocities of orbiting exoplanets. This is indeed the case in the histogram of ``recovered" orbital parameters (Fig.~\ref{fig:Histogram_null}) -- three peaks occur at $\nu_\text{orb}/\nu_\text{rot} =$ 1, 2 and 3, with $\nu_\text{orb}/\nu_\text{rot} = 3$ being the most prominent. Applying the jitter correction reduces the amplitude of the candidate in general, making it less likely to be admitted as a true signal than without the use of jitter correction, but still fails to manage to rule out the possibility. 
 
 %-------------
 \begin{figure}[htbp]	
@@ -829,48 +772,60 @@ The input jitter is the same as used in Fig.~\ref{fig:scaling_RV_FT}, showing th
 %the results from these two fittings, we would need more tests to conclude. 
 
 
-
-%----------------------------------------------------------------------------------------
-\section{Fourier transform with real observations}
+\pagebreak
+%----------------------------------------------------------------------------------------	
+%----------------------------------------------------------------------------------------	
+\section{Fourier phase spectrum analysis on real observations}
 \label{\thesection}
 \label{sec:observation}
 
 \subsection{HD189733: Rossiter–McLaughlin effect as jitter}
 \label{sec:HD189733}
 
+HD189733 is a well studied binary star system. The main star HD189733~A is known to host a gas giant exoplanet HD189733~b, first detected by transits and followed by Doppler spectroscopy conformation \cite{Bouchy2005ELODIE}. Its Rossiter–McLaughlin effect (Fig.~\ref{fig:rm-effect}), as a change in radial velocities when the planet passes in front of its parent star, was studied by \cite{Cochran2006} and \cite{Triaud2009}. During the eclipse, the planet breaks the observed flux symmetry of the stellar photosphere, resulting in imbalanced redshift and blueshift, producing an asymmetric spectral line profile and apparent radial velocity shifts.
 
+%-------------
+\begin{figure}[htbp]
+\centering
+\includegraphics[width = 0.80 \linewidth]
+{./Figures/Methods/rmeffect.png}
+\caption[Demo: Rossiter–McLaughlin effect]
+{Demo: Rossiter–McLaughlin effect (figure taken from \cite{Gaudi2007}). It is an apparent radial velocity change of the parent star due to an eclipsing binary (whether star or planet) in front of the stellar photosphere. It shows in this plot three different star-planet alignments that cause three corresponding different forms of Rossiter–McLaughlin curves. Solid line is the model with limb darkening as opposed to dotted line without limb darkening.}
+\label{fig:rm-effect}
+\end{figure} 
+%-------------
 
+We aim to test if our jitter model generateed by the Fourier phase spectrum analysis can account for the apparent radial velocity shift as a result of Rossiter–McLaughlin effect. We choose this target as a case study for the following reasons: (1) HD189733~b is a confirmed transiting exoplanet, so that we know what to expect from the radial velocity shift during the eclipse. (2) The gas giant exoplanet causes a prominent apparent radial velocity shift while it transits (amplitude up to $\sim 40$~m/s) arising from Rossiter–McLaughlin effect, making it the dominant factor of the radial velocity shift, although the star itself exhibits signs of activity (\cite{Boisse189733}, \cite{Cauley2017}). (3) The system HD189733 has a visual magnitude of $V\sim7.65$ \cite{SIMBAD189733} (or $G=7.41$ from the Gaia archive), dominated by the primary host star HD189733~A, with a relatively high S/N in the HARPS cross-correlation profile, enabling decently good performance of the Fourier phase spectrum analysis in recovering radial velocities.
 
-The procedure is rather standardized. Both $RV_\text{Gaussian}$ and $RV_\text{FT}$ are calculated from the 
-HARPS cross-correlation functions of the spectra. $\Delta RV = RV_\text{Gaussian} - RV_\text{FT}$ are then 
-smoothed by a Gaussian filter. The prototype of the Rossiter–McLaughlin
-radial velocity curve is already identifiable ($\Delta RV$ of the lower panel of Fig.~\ref{fig:HD189733}). 
+Here we briefly recap the procedure of obtaining the ``jitter" model by Fourier phase spectrum analysis. Both $RV_\text{Gaussian}$, $RV_\text{FT,H}$ and $RV_\text{FT,L}$) are calculated from the HARPS cross-correlation of the spectral lines. Note that $RV_\text{Gaussian}$, $RV_\text{HARPS}$ and $RV_\text{FT}$ deliver consistent radial velocities, and thus in practice, it barely makes difference to adopt any of them as the radial velocity shift of the line profile. We calculate $\Delta RV = \mid RV_\text{Gaussian} - RV_\text{FT,H/L} \mid$ as the raw proto-jitter (Fig.~\ref{fig:HD189733} bottom left).
+We know that during transit, the orbital phase of the planet HD189733~b is zero and thus contributes no radial velocity, however, the inclined trend of the radial velocity curve is attributed to the exoplanet whose orbital period is estimated 11 days \cite{Bouchy2005ELODIE}, as well as the other star HD189733~B in the binary star system of which the orbital period is estimated around 3,200 years \cite{Bakos2006}, both being reasonably long enough as opposed to the time-scale of the planetary transit of hours, therefore a local linear approximation can be applied by fitting a linear trend onto the non-transiting part of the radial velocities as the orbital radial velocities, which is then removed and left with the Rossiter–McLaughlin curve (Fig.~\ref{fig:HD189733} top right). It can be now treated as ``jitter" and modelled by the raw proto-jitter multiplied by a scaling factor (Fig.~\ref{fig:HD189733} right). 
 
 %-------------
 \begin{figure}[tbp]
 \centering
 \includegraphics[width = 1.0 \linewidth]
 {./Figures/Methods/HD189733.png}
-\caption[HD189733: removal of Rossiter–McLaughlin effect as jitter]
-		{HD189733: removal of Rossiter–McLaughlin effect as jitter. From $RV_\text{Gaussian}$ and $RV_\text{FT}$ to $\Delta RV$. The scattered $\Delta RV$ are smoothed by applying a moving average with a Gaussian filter and  further weighted according to the size of errorbar. It is then scaled by $\alpha$ to match the jitter (in this case the radial velocities of the observed Rossiter–McLaughlin effect). The residual is the difference between the smoothed jitter model and the observed Rossiter–McLaughlin effect. Errorbars are not plotted for the residuals for the reason that they will overwhelm the residual themselves.}
+\caption[HD189733: modelling Rossiter–McLaughlin effect as jitter]
+		{Flowchart of modelling Rossiter–McLaughlin effect as jitter using Fourier phase spectrum analysis on HD189733. Note that the errorbars related to the radial velocities from Fourier phase spectrum analysis (e.g. the scaled raw jitter in the top right panel) are correct in scale relative to each other (as derived from the photon noise) but not evaluated in the absolute value.}
 \label{fig:HD189733}
 \end{figure} 
 %-------------
 
-During transit, as the parent star and the exoplanet are along the line of sight, there will be no contribution to radial velocity by the orbiting exoplanet. However, the radial velocity shows an inclined trend in this system. It is due to the other orbiting star in the binary star system. Considering the orbital period of the binary star estimated around 3,200 years (reference...), the radial velocity contribution from the other star during the timespan of transit ($\sim$ 0.08 days) can be treated linear. By removing such a linear trend, which is fitted for the non-transiting part, we can extract the observed Rossiter–McLaughlin radial velocity curve. It is treated as jitter and modelled by $\alpha \cdot \Delta RV$ (Fig.~\ref{fig:HD189733} upper right). Note that the errorbars of the jitter model also becomes a factor of $\alpha$ ($\alpha\gg 1$) larger; however, the model itself shows a descent approximation of the Rossiter–McLaughlin radial velocity curve. The difference between our modelled jitter and the observed Rossiter–McLaughlin effect peaks at $\sim 10$~m/s, a $\sim75\%$ removal of the jitter from $\sim 40$~m/s. 
+For this exercise, the scaled model is smoothed by the weighted moving average with $\tau~\sim0.2$ hour, twice of the spacing of two consecutive observations. Despite mitigating against additional noise brought by the Fourier phase spectrum analysis, it smears the drastic velocity change when the planet ingresses and egresses the stellar disk. Applying a correct Rossiter–McLaughlin curve model is expected to improve the fitting, we still adopt the smoothing approach the way we would normally (intend to) deal with stellar variability induced radial velocities instead, to demonstrate the sufficiently recovered radial velocities as a result of line profile deformation -- a $75\%$ removal of the ``jitter" from $\sim 40$~m/s to $\sim 10$~m/s. 
 
-The effective length of the smoothing kernel should be carefully chosen. In most cases, it can be chosen roughly the same as the spacing between two consecutive exposures. It can be very useful in mitigating the effect of noise (especially for relatively lower S/N data, to which the Fourier phase analysis is sensitive, but in this particular Rossiter–McLaughlin effect during the transit, it also smears the drastic velocity change when the planet ingresses and egresses the stellar disk. In the future, an adaptive (e.g. S/N dependent) effective length of the smoothing kernel may be implemented to resolve this problem. 
+%The effective length of the smoothing kernel should be carefully chosen. In most cases, it can be chosen roughly the same as the spacing between two consecutive exposures. It can be very useful in mitigating the effect of noise (especially for relatively lower S/N data, to which the Fourier phase spectrum analysis is sensitive, but in this particular Rossiter–McLaughlin effect during the transit, In the future, an adaptive (e.g. S/N dependent) effective length of the smoothing kernel may be implemented to resolve this problem. 
+%
+%
+%When there's no planet or the planetary radial velocity signal is negligible compared with the size of jitter, $RV_\text{FT,L}$ and $RV_\text{FT,H}$ will be proportional to $RV_\text{jitter}$ (Example: \S\ref{sec:HD189733}).
 
-\subsection{Examples 2}
 
-HD\,49933 is an F2 main sequence star with an apparent magnitude of $m_V=5.8$ (\cite{Malaroda1975}), 
+\subsection{Tau Ceti (HD 10700)}
 
-\subsection{Example 3}
+%HD\,49933 is an F2 main sequence star with an apparent magnitude of $m_V=5.8$ (\cite{Malaroda1975}), 
 
 
 
 \FloatBarrier
-A float barrier will stop figures from going beyond this point. They are handy to make sure they don't go into the next section.
 
 %----------------------------------------------------------------------------------------
 %\clearpage

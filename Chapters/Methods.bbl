@@ -6,9 +6,61 @@ X.~Dumusque, I.~Boisse, and N.~C. Santos.
   variations induced by stellar spots and plages.
 \newblock {\em The Astrophysical Journal}, 796(2):132, 2014.
 
-\bibitem{Malaroda1975}
-S.~{Malaroda}.
-\newblock {Study of the F-type stars. I. MK spectral types.}
-\newblock {\em aj}, 80:637--641, August 1975.
+\bibitem{Bouchy2005ELODIE}
+{Bouchy, F.}, {Udry, S.}, {Mayor, M.}, {Moutou, C.}, {Pont, F.}, {Iribarne,
+  N.}, {Da Silva, R.}, {Ilovaisky, S.}, {Queloz, D.}, {Santos, N. C.},
+  {S\'egransan, D.}, and {Zucker, S.}
+\newblock Elodie metallicity-biased search for transiting hot jupiters - ii. a
+  very hot jupiter transiting the bright k star hd189733.
+\newblock {\em A\&A}, 444(1):L15--L19, 2005.
+
+\bibitem{Cochran2006}
+W.~D. {Cochran}, M.~{Endl}, R.~A. {Wittenmyer}, and A.~P. {Hatzes}.
+\newblock {The Rossiter-McLaughlin Effect In Transits Of The Planet Hd189733b}.
+\newblock In {\em AAS/Division for Planetary Sciences Meeting Abstracts \#38},
+  volume~38 of {\em Bulletin of the American Astronomical Society}, page 481,
+  September 2006.
+
+\bibitem{Triaud2009}
+{Triaud, A. H. M. J.}, {Queloz, D.}, {Bouchy, F.}, {Moutou, C.}, {Cameron, A.
+  C.}, {Claret, A.}, {Barge, P.}, {Benz, W.}, {Deleuil, M.}, {Guillot, T.},
+  {H\'ebrard, G.}, {Lecavelier des \'Etangs, A.}, {Lovis, C.}, {Mayor, M.},
+  {Pepe, F.}, and {Udry, S.}
+\newblock The rossiter-mclaughlin effect of~corot-3b and hd189733b.
+\newblock {\em A\&A}, 506(1):377--384, 2009.
+
+\bibitem{Gaudi2007}
+B.~Scott Gaudi and Joshua~N. Winn.
+\newblock Prospects for the characterization and confirmation of transiting
+  exoplanets via the rossiter-mclaughlin effect.
+\newblock {\em The Astrophysical Journal}, 655(1):550, 2007.
+
+\bibitem{Boisse189733}
+{Boisse, I.}, {Moutou, C.}, {Vidal-Madjar, A.}, {Bouchy, F.}, {Pont, F.},
+  {H\'ebrard, G.}, {Bonfils, X.}, {Croll, B.}, {Delfosse, X.}, {Desort, M.},
+  {Forveille, T.}, {Lagrange, A.-M.}, {Loeillet, B.}, {Lovis, C.}, {Matthews,
+  J. M.}, {Mayor, M.}, {Pepe, F.}, {Perrier, C.}, {Queloz, D.}, {Rowe, J. F.},
+  {Santos, N. C.}, {S\'egransan, D.}, and {Udry, S.}
+\newblock Stellar activity of planetary host star hd~189733.
+\newblock {\em A\&A}, 495(3):959--966, 2009.
+
+\bibitem{Cauley2017}
+P.~Wilson Cauley, Seth Redfield, and Adam~G. Jensen.
+\newblock A decade of h alpha transits for hd 189733 b: Stellar activity versus
+  absorption in the extended atmosphere.
+\newblock {\em The Astronomical Journal}, 153(5):217, 2017.
+
+\bibitem{SIMBAD189733}
+C.~Koen, D.~Kilkenny, F.~van Wyk, and F.~Marang.
+\newblock Ubv(ri)cjhk observations of hipparcos-selected nearby stars.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  403(4):1949--1968, 2010.
+
+\bibitem{Bakos2006}
+Gáspár~Á. Bakos, András Pál, David~W. Latham, Robert~W. Noyes, and
+  Robert~P. Stefanik.
+\newblock A stellar companion in the hd 189733 system with a known transiting
+  extrasolar planet.
+\newblock {\em The Astrophysical Journal Letters}, 641(1):L57, 2006.
 
 \end{thebibliography}
