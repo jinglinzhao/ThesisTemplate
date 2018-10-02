@@ -27,6 +27,7 @@
 \contentsline {figure}{\numberline {2.18}{\ignorespaces Planet recovery ($A = 20$\nobreakspace {}m/s)}}{29}{figure.caption.29}
 \contentsline {figure}{\numberline {2.19}{\ignorespaces Histogram of recovered orbital parameters ($A = 20$\nobreakspace {}m/s)}}{29}{figure.caption.30}
 \contentsline {figure}{\numberline {2.20}{\ignorespaces Histogram of recovered orbital parameters of null planets}}{30}{figure.caption.32}
-\contentsline {figure}{\numberline {2.21}{\ignorespaces Demo: Rossiter\IeC {\textendash }McLaughlin effect}}{31}{figure.caption.33}
-\contentsline {figure}{\numberline {2.22}{\ignorespaces HD189733: modelling Rossiter\IeC {\textendash }McLaughlin effect as jitter}}{32}{figure.caption.34}
+\contentsline {figure}{\numberline {2.21}{\ignorespaces Periodogram combined with the Fourier phase spectrum analysis}}{31}{figure.caption.33}
+\contentsline {figure}{\numberline {2.22}{\ignorespaces Demo: Rossiter\IeC {\textendash }McLaughlin effect}}{32}{figure.caption.34}
+\contentsline {figure}{\numberline {2.23}{\ignorespaces HD189733: modelling Rossiter\IeC {\textendash }McLaughlin effect as jitter}}{33}{figure.caption.35}
 \gdef \the@ipfilectr {}

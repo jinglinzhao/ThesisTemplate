@@ -1,10 +1,16 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{Dumusque2014SOAP}
 X.~Dumusque, I.~Boisse, and N.~C. Santos.
 \newblock Soap 2.0: A tool to estimate the photometric and radial velocity
   variations induced by stellar spots and plages.
 \newblock {\em The Astrophysical Journal}, 796(2):132, 2014.
+
+\bibitem{Zechmeister2009}
+{Zechmeister, M.} and {Kürster, M.}
+\newblock The generalised lomb-scargle periodogram - a new formalism for the
+  floating-mean and keplerian periodograms.
+\newblock {\em A\&A}, 496(2):577--584, 2009.
 
 \bibitem{Bouchy2005ELODIE}
 {Bouchy, F.}, {Udry, S.}, {Mayor, M.}, {Moutou, C.}, {Pont, F.}, {Iribarne,
