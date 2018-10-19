@@ -490,16 +490,16 @@ We then obtain three sets of radial velocities for each simulated profile: $RV_\
 \end{figure} 
 %-------------
 
-\paragraph{Weighted moving average} At this stage, we would implement a weighted moving average modulated by a Gaussian kernel to mitigate noise brought by $RV_\text{FT,H/L}$ (excessive noise due to the sacrifice of frequency information) and the subsequent arithmetic. For $N$ data points (e.g. radial velocities) $v_i$ with an uncertainty $\sigma_i$ observed at $t_i$ ($i=1,2,...N$), we define the contribution (i.e. weight) of a data point $(t_i, v_i\pm \sigma_i)$ towards the chosen position $t$ as the multiplication of two factors: (1) the weight of the data point itself, inversely proportional to the uncertainty squared: $W_i= \frac{1}{\sigma_i^2}$ and (2) a stationary kernel that describes the correlation between data, depending on the distance $\mid t-t_i \mid$ and a time-scale of correlation $\tau$: $K_i(t) = e^{-\frac{(t-t_i)^2}{2\tau^2}}$. With this, an evaluation of a data point $v(t)$ can be drawn by the average of all observed data, weighted by 
+\paragraph{Weighted moving average} At this stage, we would implement a weighted moving average modulated by a Gaussian kernel to mitigate noise brought by $RV_\text{FT,H/L}$ (excessive noise due to the sacrifice of frequency information) and the subsequent arithmetic. For $N$ data points (e.g. radial velocities) $v_i$ with an uncertainty $\sigma_i$ observed at $t_i$ ($i=1,2,...N$), we define the contribution (i.e. weight) of a data point $(t_i, v_i\pm \sigma_i)$ towards the chosen position $t$ as the multiplication of two factors: (1) the weight of the data point itself, inversely proportional to the uncertainty squared: $W_i= \frac{1}{\sigma_i^2}$ and (2) a stationary kernel that describes the correlation between data, depending on the distance $\mid t-t_i \mid$ and a time-scale of correlation $\tau$: $K_i(t) = e^{-\frac{(t-t_i)^2}{2\tau^2}}$. With this, the evaluation of a data point $v(t)$ can be drawn by the weighted average of all observed data $(t_i, v_i\pm \sigma_i)$, with the weight 
 \begin{equation}
 	\textbf{W}_i(t) = W_i \cdot K_i(t) = \frac{1}{\sigma_i^2} e^{-\frac{(t-t_i)^2}{2\tau^2}}
 \end{equation}
-from the data $(t_i, v_i\pm \sigma_i)$ respectively and then normalised by the sum of weights, so that 
+respectively and then normalised by the sum of weights, so that 
 \begin{equation}
 	v(t) 	=  \frac{\sum\limits_{i=1}^{N} \bigg[x_i*\textbf{W}_i(t)\bigg]}{\sum\limits_{i=1}^{N} \textbf{W}_i(t)}
 \end{equation}
 
-To quantitatively examine their performance, we compare the scatter of the difference between the input jitter and the jitter models $\sigma_\text{residual}$ with the scatter of the input jitter $\sigma_\text{jitter} = 1.22$~m/s. The former can be treated as the scatter after the planets are correctly fitted and jitter is removed, whereas the latter the scatter after fitting the correct planet(s) without jitter correction. Table~\ref{table:jitter_model_scatter} lays out the scatter $\sigma_\text{residual}$ for the raw jitter models and the smoothed jitter models implemented with the weighted moving average. In addition to the nearly noise-free (S/N=10,000) simulations, the corresponding simulations appropriate for real-world observations are presented in parallel. For example, S/N ranging from 2,000 to 4,000 is found in HARPS cross-correlation functions of spectral line profiles for a dwarf star HD~189733, whose apparent magnitude is $V=7.6$; S/N$\sim$1,000 is found for red dwarfs Gl~176 and Wolf~1061, of which $V\sim10$. As for the smoothing, we choose the correlation time-scale for S/N=10,000 to be $\tau_{10000} = 0.01 P_{rot}$, the distance between two observations, and $\tau_{2000} = 5~\tau_{10000}$ for S/N=2,000 in order to further mitigate noise. 
+To quantitatively examine their performance, we compare the scatter of the difference between the input jitter and the jitter models -- $\sigma_\text{residual}$ -- with the scatter of the input jitter -- $\sigma_\text{jitter} = 1.22$~m/s. The former can be treated as the scatter after the planets are correctly fitted and jitter is removed, whereas the latter the scatter after fitting the correct planet(s) without jitter correction. Table~\ref{table:jitter_model_scatter} lays out the scatter $\sigma_\text{residual}$ for the raw jitter models and the smoothed jitter models implemented with the weighted moving average. In addition to the nearly noise-free (S/N=10,000) simulations, the corresponding simulations appropriate for real-world observations are presented in parallel. For example, S/N of the cross-correlation line profile close to 10,000 are found in $\alpha$ Cen B observations from HARPS; S/N ranging from 2,000 to 4,000 are found in a dwarf star HD~189733, whose apparent magnitude is $V=7.6$; S/N$\sim$1,000 is found for red dwarfs Gl~176 and Wolf~1061, of which $V\sim10$. 
 
 %-------------
 \begin{table}[htbp]
@@ -517,7 +517,9 @@ $w_1=0, w_2=1$      & 0.72		& 2.42			& 0.51 			& 0.68                           
 \end{table}
 %-------------
 
-We note from the table, that the scatter of the input jitter is effectively reduced from 1.22~m/s to $\sigma_\text{residual} = 0.70$~m/s for S/N=10,000 but conversely doubled for S/N=2,000. Implementing the weighted moving average with a proper correlation time-scale $\tau$ (e.g. depend on the detail of information to be extracted from the data and the extent of noise to be flattened) can reduce the input jitter scatter $\sigma_\text{jitter}$ by half in both cases (we have also tested other smoothing approaches, such as the use of the Python package PyMC3 that implements Gaussian process in smoothing the data, which also returns similarly results). This is crucial in enhancing the detection of planets with radial velocities of sub-m/s amplitudes. However, we should not ignore there can be systematic differences between the input jitter and our jitter models.
+We note from the table, that the scatter of the input jitter is effectively reduced from 1.22~m/s to $\sigma_\text{residual} = 0.70$~m/s for S/N=10,000 but conversely doubled for S/N=2,000. Implementing the weighted moving average with a proper correlation time-scale $\tau$ (e.g. depend on the detail of information to be extracted from the data and the extent of noise to be flattened) can reduce the input jitter scatter $\sigma_\text{jitter}$ by half in both cases. In this exercise, we choose the correlation time-scale for S/N=10,000 to be $\tau_{10000} = 0.01 P_{rot}$, the distance between two cadence of simulated observations, and $\tau_{2000} = 5~\tau_{10000}$ for S/N=2,000 in order to further mitigate noise. We have also tested other smoothing approaches, such as the use of the Python package PyMC3 that implements Gaussian process in smoothing the data, which also returns similarly results. 
+
+Reaching sub-m/s in the residuals of fitting the jitter indicate the our potential to enhance the detection of planets in sub-m precisions (as long as the instrument allows, stellar variability won't be a barrier) and reveal candidates with radial velocities of sub-m/s amplitudes. However, this would require good sampling and we should not ignore there can be systematic differences between the input jitter and our jitter models.
 
 %----------------------------------------------------------------------------------------
 \subsection{Planetary radial velocity recovery}
@@ -725,6 +727,41 @@ The spot configuration used in Table~\ref{table:spot_configurations} result in t
 \label{fig:Histogram_null}
 \end{figure}    
 %-------------
+%\FloatBarrier
+
+%----------------------------------------------------------------------------------------
+\subsection{Classification}
+
+We demonstrate the use of the difference in the correlations among $RV_\text{Gaussian}$, $RV_\text{FT,H,L}$ and their combinations as to classify the three scenarios of different relative sizes between the jitter and planetary signals. The discussions are within the captions of Fig.~\ref{fig:correlations}.
+
+%-------------
+\begin{figure}[htbp]	
+    \begin{subfigure}[b]{1.0\textwidth}
+        \includegraphics[width=\textwidth]{./Figures/Methods/Correlation_2pj.png}
+        \caption{Stellar jitter as strong as planetary signal: featured by (1) a decent correlation between $RV_\text{Gaussian}$ and $RV_\text{FT,L}$ and (2) no correlation between $RV_\text{Gaussian} - RV_\text{FT,H,L}$.}
+    \end{subfigure}
+	~
+    \begin{subfigure}[b]{1.0\textwidth}
+        \includegraphics[width=\textwidth]{./Figures/Methods/Correlation_20pj.png}
+        \caption{Planetary signal dominating: featured by (1) a tight correlation between $RV_\text{FT,L}$ and $RV_\text{Gaussian}$ and (2) no correlation between $RV_\text{Gaussian} - RV_\text{FT,H,L}$.}
+    \end{subfigure}	
+	~
+    \begin{subfigure}[b]{1.0\textwidth}
+        \includegraphics[width=\textwidth]{./Figures/Methods/Correlation_null.png}
+        \caption{Jitter only; no planet: featured by linear correlations in all the subplots, on which the Fourier phase spectrum analysis are based.}
+    \end{subfigure}	    
+	~
+    \begin{subfigure}[b]{1.0\textwidth}
+        \includegraphics[width=\textwidth]{./Figures/Methods/Correlation_0jitter.png}
+        \caption{Planet only; ``no" jitter. No apparent difference from (a) at first sight. This is because the Fourier phase spectrum analysis cannot tell whether the difference between line profiles are due to what we define as stellar jitter or the fluctuation from photon noise, but notice the scales of $RV_\text{FT,H,L}$ in (d) are different from (a), because $RV_\text{FT,H} \approx RV_\text{FT,L} \approx RV_\text{Gaussian}$ without the presence of jitter. }
+    \end{subfigure}	    
+    \caption[Classification of jitter dominated or planetary signal dominated]        
+    {Classification of a system whether it's jitter dominated or planetary signal dominated.}
+\label{fig:correlations}
+\end{figure}    
+%-------------
+\FloatBarrier
+
 
 %----------------------------------------------------------------------------------------
 \subsection{Periogodgram combined with the Fourier phase spectrum analysis}
@@ -752,53 +789,6 @@ Fig.~\ref{fig:Periodogram} demonstrates the application of periogodgram together
 \end{figure}    
 %-------------
 
-
-
-
-
-%Unless we are sure of a null-planetary system where $RV_\text{planet} = 0$ and
-%from Eq.~\ref{eq:RV_Gaussian} and Eq.~\ref{eq:RV_FT,L} we obtain
-%\begin{equation}
-%	k = RV_\text{jitter} / RV_\text{Gaussian},
-%\end{equation} 
-%normally $k$ cannot be directly calculated, so neither can $\alpha$ be.
-%However, we could substitute the jitter model (Eq.~\ref{eq:jitter_model}) into Eq.~\ref{eq:RV_Gaussian}, such that
-%\begin{equation}
-%	RV_\text{Gaussian} = RV_\text{planet} + \alpha \cdot \Delta RV
-%\label{eq:RV_fit}
-%\end{equation}
-%where $RV_\text{planet}$ is parametrised by Keplerian orbit(s) and both $RV_\text{Gaussian}$ and $\Delta RV$ 
-%are measurable. 
-
-%
-%We will compare which group recovers the planet parameters better. 
-%
-%To better simulate the real observations, 40 data samples out of 200 from the two rotation periods are randomly selected.  
-%
-%It is defined if the input parameter lies within $1\sigma$ errorbar of the output parameter, it counts as a 
-%successful detection. 
-%
-%For demonstration, we show one of the outputs in corner plots (Fig.~\ref{fig:Corner}) and the corresponding 
-%radial velocity fitting (Fig.~\ref{fig:Planet_recovery}). The corner plot visually shows the how the walkers explore the parameter 
-%space and their distribution. The histogram gives an example explaining how a ``successful detection" is qualified. 
-%The radial velocity fitting plot demonstrates an example that implementing the jitter model effectively 
-%accounts for the spurious signals in the raw radial velocity data, reducing the rms from 1.14~m/s to 0.55~m/s. 
-%
-%
-%
-%
-%In the end, we run 100 trails for the end-to-end simulation. The random differences among these 100 trails come from:
-%\begin{itemize}
-%	\item photon noise given the S/N;
-%	\item randomly selected 40 samplings in the 200 line profiles.
-%\end{itemize}
-%It turns out that in $46\%$ of the 100 trails are successful detections for both $A$ and $\nu$ when we 
-%apply the jitter correction model, while this percentage is only $11\%$ without jitter correction. 
-%In more detail, Fig shows that with jitter correction (in red), both of the amplitude and 
-%orbital frequency ratio tend to be underestimated, which is shown opposite for the results without correction (in blue). 
-%Moreover, the jitter corrected parameters are better constrained (i.e. with narrower distributions) and 
-%performs much better in $\nu$ than without correction. While it is tempting to say the correct answer is more likely in between
-%the results from these two fittings, we would need more tests to conclude. 
 
 
 \pagebreak
@@ -847,8 +837,11 @@ For this exercise, the scaled model is smoothed by the weighted moving average w
 %
 %When there's no planet or the planetary radial velocity signal is negligible compared with the size of jitter, $RV_\text{FT,L}$ and $RV_\text{FT,H}$ will be proportional to $RV_\text{jitter}$ (Example: \S\ref{sec:HD189733}).
 
+\subsection{$\alpha$ Centauri B (HD128621)}
 
-\subsection{Tau Ceti (HD 10700)}
+\subsection{$\epsilon$ Eridani (HD22049)}
+
+\subsection{$\tau$ Ceti (HD10700)}
 
 %HD\,49933 is an F2 main sequence star with an apparent magnitude of $m_V=5.8$ (\cite{Malaroda1975}), 
 
