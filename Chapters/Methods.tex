@@ -93,7 +93,7 @@ The model shows the phase difference between two shifted signals $\Delta \phi(\x
 \end{figure} 
 %-------------
 
-By analogy with the definition of power spectral density or power spectrum, we describe $\phi(\xi)$ the \textbf{phase spectral density} or \textbf{phase spectrum} and hence $\Delta \phi(\xi)$ the \textbf{differential phase spectral density} or \textbf{differential phase spectrum}. In this approach, an analysis of the phase shift in the frequency domain of the Fourier components of a line profile will provide a means of measuring a bulk line shift in real space. We therefore name our method \textbf{Fourier phase spectrum analysis}. 
+By analogy with the definition of power spectral density or power spectrum, we describe $\phi(\xi)$ the \textbf{phase spectral density} or \textbf{phase spectrum} and hence $\Delta \phi(\xi)$ the \textbf{differential phase spectral density} or \textbf{differential phase spectrum}. In this approach, an analysis of the phase shift in the frequency domain of the Fourier components of a line profile will provide a means of measuring a bulk line shift in real space. We therefore name our method \textbf{\textit{F}our\textit{ie}r \textit{phase} \textit{s}pec\textit{t}rum \textit{a}nalysis} ($\Phi$ESTA or FIESTA). 
 % More importantly,
 % it may provide a means of separating  an apparent radial velocity shift into the components due to bulk line shift, 
 % and line profile shape change.
@@ -561,14 +561,14 @@ The different linear responses of $RV_\text{FT,H}$ and $RV_\text{FT,L}$ enable u
 \label{\thesection}
 \label{sec:end-to-end}
 
-We run end-to-end simulations to test how well we could recover the planetary candidate's signal in the presence of jitter. Specifically, we aim to answer the following three questions:
+We run end-to-end simulations to test the performance of Fourier phase spectrum analysis on recovering the planetary candidate's signal in the presence of jitter. Specifically, we aim to answer the following three questions:
 \begin{enumerate}
-	\item In a system where the amplitude of jitter is comparable to that of the planetary radial velocities, can we recover the planet orbital parameters better with our Fourier phase spectrum analysis? 
-	\item In a system where the planetary radial velocities dominate and jitter is negligible, does the Fourier phase spectrum analysis give at least equally good results as the traditional methods? 
-	\item In a system where jitter is the only source of radial velocities, can it be identified by the Fourier phase spectrum analysis?
+	\item When the amplitude of jitter is comparable to that of planetary radial velocities, can we recover the planet orbital parameters better with our Fourier phase spectrum analysis? 
+	\item When planetary radial velocities dominate and jitter is negligible, does Fourier phase spectrum analysis give at least equally good results as the traditional methods, i.e. without jitter correction? 
+	\item When jitter is the only source of radial velocities, can it be identified with the help of Fourier phase spectrum analysis?
 \end{enumerate}
 
-The spectral line profile simulator setup is the same as previously. The jitter amplitude is fixed at roughly 2~m/s, so we will adjust the planetary orbital amplitude to satisfy the three categories of end-to-end simulations. For S/N, we choose two numbers to represent the simulations: (1) S/N = 10,000 for super bright stars, where we will show its ability to make significant improvement using the Fourier phase spectrum analysis on recovering the planetary signals when the star is active; (2) S/N = 2,000 where it starts to push the limit of the Fourier phase spectrum analysis. We will run 500 trails, each trail with 60 randomly selected samples clustered in 12 groups, out of a total of 400 equally spaced samples from four stellar rotation periods. 
+For all the following simulations, the spectral line profile simulator (SOAP 2.0) setup is the same as previously. The jitter amplitude is fixed at roughly 2~m/s, so we will adjust the planetary orbital amplitude to satisfy the three categories of end-to-end simulations. For S/N, we choose two numbers to represent the simulations: (1) S/N = 10,000 for super bright stars, where we will show its ability to make significant improvement using the Fourier phase spectrum analysis on recovering the planetary signals when the star is active; (2) S/N = 2,000 where it starts to push the limit of the Fourier phase spectrum analysis. We will run 500 trails, each trail with 60 randomly selected samples clustered in 12 groups, out of a total of 400 equally spaced samples from four stellar rotation periods. 
 
 The tests are divided into two main groups for comparison:
 \begin{enumerate}
@@ -602,60 +602,60 @@ The parameters for the fitting is obtained by Markov chain Monte Carlo (MCMC) sa
 %----------------------------------------------------------------------------------------
 \subsection{Stellar jitter as strong as planetary signal}
 
-The injected planet has the same parameter settings as in \S\ref{sec:check}, i.e. circular orbit with amplitude $A = 2$~m/s, orbital frequency ratio $\nu = \nu_\text{orb}/\nu_\text{rot}= 0.7$ and initial phase $\omega = 1$~rad. For demonstration, we present two snapshots of each of the 500 trails of end-to-end simulations, with one S/N = 10,000 (Fig.~\ref{fig:Planet_recovery_10000}) and the other S/N = 2,000 (Fig.~\ref{fig:Planet_recovery_2000}). These are two examples where the planetary orbital parameters are correctly recovered (within 10\% of the true values in this case). For S/N = 10,000, the discrepancy between the simulated radial velocities and the planet model is accounted for by the jitter model, and thus applying the jitter correction significantly reduces the rms of the residual. For S/N = 2,000, we can see that the fitting is only slightly improved with the introduction of jitter correction. The jitter model is not as accurate in the presence of moderate noise. 
+The injected planet has the same parameter settings as in \S\ref{sec:check}, i.e. circular orbit with amplitude $A = 2$~m/s, orbital frequency ratio $\nu = \nu_\text{orb}/\nu_\text{rot}= 0.7$ and initial phase $\omega = 1$~rad. For demonstration, we present two snapshots of each of the 500 trails of end-to-end simulations, with one S/N = 10,000 and the other S/N = 2,000 (Fig.~\ref{fig:Planet_recovery_p2}). These are two examples where the planetary orbital parameters are correctly recovered (within 10\% of the true values in this case). For S/N = 10,000, the discrepancy between the simulated radial velocities and the planet model is accounted for by the jitter model, and thus applying the jitter correction significantly reduces the rms of the residual. For S/N = 2,000, the fitting is only slightly improved introducing jitter correction. The jitter model is not as accurate in the presence of moderate noise. 
 
 %-------------
 \begin{figure}[tbp]	
 \centering
-\includegraphics[width = 0.99 \linewidth]
-{./Figures/Methods/Fitting_p2j2sn10000.png}
-\caption[Planet recovery ($A = 2$~m/s, S/N = 10,000)]
-{One of the 500 trails of radial velocity fitting for S/N = 10,000 and $A = 2$~m/s.}
-\label{fig:Planet_recovery_10000}
-\end{figure}    
-%-------------
-\begin{figure}[tbp]	
-    \begin{subfigure}[b]{0.49\textwidth}
-        \includegraphics[width=\textwidth]{./Figures/Methods/Fitting_5-Fit2.png}
+    \begin{subfigure}[b]{1.0\textwidth}
+		\includegraphics[width = 0.99 \linewidth]{./Figures/Methods/Fitting_p2j2sn10000.png}
+        \caption{S/N = 10,000}
     \end{subfigure}
-	~
-    \begin{subfigure}[b]{0.49\textwidth}
-        \includegraphics[width=\textwidth]{./Figures/Methods/Fitting_5-Fit1_XY.png}
-    \end{subfigure}	
-    \caption[Planet recovery ($A = 2$~m/s, S/N = 2,000)]
-    {One of the 500 trails of radial velocity fitting for S/N = 2,000 and $A = 2$~m/s.}
-\label{fig:Planet_recovery_2000}
+    \begin{subfigure}[b]{1.0\textwidth}
+    		\begin{subfigure}[b]{0.49\textwidth}
+        		\includegraphics[width=\textwidth]{./Figures/Methods/Fitting_5-Fit2.png}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.49\textwidth}        		
+        		\includegraphics[width=\textwidth]{./Figures/Methods/Fitting_5-Fit1_XY.png}
+        	\end{subfigure}
+        	\caption{S/N = 2,000}
+    \end{subfigure}	       
+    \caption[Planet recovery ($A = 2$~m/s)]
+    {One of the 500 trails of radial velocity fitting for $A = 2$~m/s for S/N = 10,000 and 2,000 respectively.}
+\label{fig:Planet_recovery_p2}
 \end{figure}    
 %-------------
 
 In the end, we obtain the histograms of the recovered orbital parameters for a total of 500 runs (Fig.~\ref{fig:Histogram}). To quantitatively describe their performances, we calculate the percentage of parameters successfully recovered within 5\% and 10\% of the true values as summarized in Table~\ref{table:a=2}. For example, for S/N = 10,000, 46\% of the 500 trails have both the amplitude ($A$) and orbital frequency ($\nu_\text{orb}/\nu_\text{rot}$) successfully recovered within 5\% of the true parameters with jitter correction applied, while only 8\% of them achieve such a precision without jitter correction. 
 
+
 %-------------
 \begin{figure}[tbp]	
-    \begin{subfigure}[b]{0.49\textwidth}
-        \includegraphics[width=\textwidth]{./Figures/Methods/Histogram_new1_p2_sn10000.png}
+    \begin{subfigure}[b]{1.0\textwidth}
+    		\begin{subfigure}[b]{0.49\textwidth}
+        		\includegraphics[width=\textwidth]{./Figures/Methods/Histogram_new1_p2_sn10000.png}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.49\textwidth}
+        		\includegraphics[width=\textwidth]{./Figures/Methods/Histogram_new2_p2_sn10000.png}
+        \end{subfigure}
+        \caption{S/N = 10,000}
     \end{subfigure}
-	~
-    \begin{subfigure}[b]{0.49\textwidth}
-        \includegraphics[width=\textwidth]{./Figures/Methods/Histogram_new2_p2_sn10000.png}
-    \end{subfigure}	
-    ~
-    \begin{subfigure}[b]{0.49\textwidth}
-        \includegraphics[width=\textwidth]{./Figures/Methods/Histogram_new1_p2_sn2000.png}
-    \end{subfigure}
-	~
-    \begin{subfigure}[b]{0.49\textwidth}
-        \includegraphics[width=\textwidth]{./Figures/Methods/Histogram_new2_p2_sn2000.png}
-    \end{subfigure}	
+    \begin{subfigure}[b]{1.0\textwidth}
+    		\begin{subfigure}[b]{0.49\textwidth}
+        		\includegraphics[width=\textwidth]{./Figures/Methods/Histogram_new1_p2_sn2000.png}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.49\textwidth}        		
+        		\includegraphics[width=\textwidth]{./Figures/Methods/Histogram_new2_p2_sn2000.png}
+        	\end{subfigure}
+        	\caption{S/N = 2,000}
+    \end{subfigure}	       
     \caption[Histograms of recovered orbital parameters ($A = 2$~m/s)]
-    {Histograms of recovered orbital parameters with a Gaussian profile fitted on top (where applicable). Upper two: S/N = 10,000; lower two: S/N = 2,000.}
+    {Histograms of recovered orbital parameters with a Gaussian profile fitted on top (where applicable).}
 \label{fig:Histogram}
 \end{figure}    
 %-------------
 
-
-% Please add the following required packages to your document preamble:
-% \usepackage{multirow}
+%%-------------
 \begin{table}[h!]
 \centering
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|ll}
@@ -670,71 +670,56 @@ both $A$ and $\nu_\text{orb}/\nu_\text{rot}$    & 8\%             & 46\%        
 \caption{Proportion of recovered parameters within 5\% and 10\% limit of $A = 2$~m/s and $\nu_\text{orb}/\nu_\text{rot} =0.7$. $\dagger$: no correction; $\ddagger$: jitter correction applied.}
 \label{table:a=2}
 \end{table}
-
-
-%%-------------
-%\begin{table}[h!]
-%\centering
-%\begin{tabular}{|c|c|c|c|c|}
-%\hline
-%\multirow{2}{*}{Percentage} 	& \multicolumn{2}{c|}{5\% limit}  & \multicolumn{2}{c|}{10\% limit}  \\ \cline{2-5} 
-%                  	& \multicolumn{1}{l|}{$\dagger$} & \multicolumn{1}{l|}{$\ddagger$} & \multicolumn{1}{l|}{$\dagger$} & \multicolumn{1}{l|}{$\ddagger$} \\ \hline
-%$A$  	 									& 16\% 		& 23\% 			& 32\% 			& 39\%             \\ \hline
-%$\nu_\text{orb}/\nu_\text{rot}$  			& 40\% 		& 58\%			& 67\%			& 89\%             \\ \hline
-%both $A$ and $\nu_\text{orb}/\nu_\text{rot}$ & 8\% 		& 15\%			& 23\%			& 37\%             \\ \hline
-%\end{tabular}
-%\caption{Proportion of recovered parameters within 5\% and 10\% limit of $A = 2$~m/s and $\nu_\text{orb}/\nu_\text{rot} =0.7$. $\dagger$: no correction; $\ddagger$: jitter correction applied.}
-%\label{table:a=2}
-%\end{table}
 %%-------------
 \FloatBarrier
 
 %----------------------------------------------------------------------------------------
 \subsection{Planetary signal dominates}
 
-In this case, we set the orbital amplitude roughly 10 times as strong as the jitter, i.e. $A = 20$~m/s (Fig.~\ref{fig:Planet_recovery_10000_p20} and \ref{fig:Planet_recovery_a20_p20}). Although both with and without the aid of jitter correction manage to recover the planetary orbital parameters accurately enough, implementing the Fourier phase spectrum analysis further improves the performance, especially in high S/N (Fig.~\ref{fig:Histogram20} and Table.~\ref{table:a=20}). 
+In this case, we set the orbital amplitude roughly 10 times as strong as the jitter, i.e. $A = 20$~m/s (Fig.~\ref{fig:Planet_recovery_p20}). Although both with and without the aid of jitter correction manage to recover the planetary orbital parameters accurately enough, implementing Fourier phase spectrum analysis further improves the performance, especially in high S/N (Fig.~\ref{fig:Histogram20} and Table.~\ref{table:a=20}). 
 
 %-------------
 \begin{figure}[tbp]	
 \centering
-\includegraphics[width = 0.99 \linewidth]
-{./Figures/Methods/Fitting_p20j2sn10000.png}
-\caption[Planet recovery ($A = 20$~m/s, S/N = 10,000)]
-{One of the 500 trails of radial velocity fitting for S/N = 10,000 and $A = 20$~m/s.}
-\label{fig:Planet_recovery_10000_p20}
-\end{figure}    
-%-------------
-%-------------
-\begin{figure}[htbp]	
-    \begin{subfigure}[b]{0.49\textwidth}
-        \includegraphics[width=\textwidth]{./Figures/Methods/Fitting_5-Fit2_a20.png}
+    \begin{subfigure}[b]{1.0\textwidth}
+		\includegraphics[width = 0.99 \linewidth]{./Figures/Methods/Fitting_p20j2sn10000.png}
+        \caption{S/N = 10,000}
     \end{subfigure}
-	~
-    \begin{subfigure}[b]{0.49\textwidth}
-        \includegraphics[width=\textwidth]{./Figures/Methods/Fitting_5-Fit1_XYZ_a20.png}
-    \end{subfigure}	
+    \begin{subfigure}[b]{1.0\textwidth}
+    		\begin{subfigure}[b]{0.49\textwidth}
+        		\includegraphics[width=\textwidth]{./Figures/Methods/Fitting_5-Fit2_a20.png}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.49\textwidth}        		
+        		\includegraphics[width=\textwidth]{./Figures/Methods/Fitting_5-Fit1_XYZ_a20.png}
+        	\end{subfigure}
+        	\caption{S/N = 2,000}
+    \end{subfigure}	       
     \caption[Planet recovery ($A = 20$~m/s)]
-    {One of the 500 trails of radial velocity fitting for S/N = 2,000 and $A = 20$~m/s.}
-\label{fig:Planet_recovery_a20_p20}
+    {Same with Fig.~\ref{fig:Planet_recovery_p2} but for $A = 20$~m/s.}
+\label{fig:Planet_recovery_p20}
 \end{figure}    
 %-------------
 
+
 %-------------
-\begin{figure}[htbp]	
-    \begin{subfigure}[b]{0.49\textwidth}
-        \includegraphics[width=\textwidth]{./Figures/Methods/Histogram_new1_p20_sn10000.png}
+\begin{figure}[tbp]	
+    \begin{subfigure}[b]{1.0\textwidth}
+    		\begin{subfigure}[b]{0.49\textwidth}
+        		\includegraphics[width=\textwidth]{./Figures/Methods/Histogram_new1_p20_sn10000.png}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.49\textwidth}
+        		\includegraphics[width=\textwidth]{./Figures/Methods/Histogram_new2_p20_sn10000.png}
+        \end{subfigure}
+        \caption{S/N = 10,000}
     \end{subfigure}
-	~
-    \begin{subfigure}[b]{0.49\textwidth}
-        \includegraphics[width=\textwidth]{./Figures/Methods/Histogram_new2_p20_sn10000.png}
-    \end{subfigure}	
-    ~
-    \begin{subfigure}[b]{0.49\textwidth}
-        \includegraphics[width=\textwidth]{./Figures/Methods/Histogram_new1_p20_sn2000.png}
-    \end{subfigure}
-	~
-    \begin{subfigure}[b]{0.49\textwidth}
-        \includegraphics[width=\textwidth]{./Figures/Methods/Histogram_new2_p20_sn2000.png}
+    \begin{subfigure}[b]{1.0\textwidth}
+    		\begin{subfigure}[b]{0.49\textwidth}
+        		\includegraphics[width=\textwidth]{./Figures/Methods/Histogram_new1_p20_sn2000.png}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.49\textwidth}        		
+        		\includegraphics[width=\textwidth]{./Figures/Methods/Histogram_new2_p20_sn2000.png}
+        	\end{subfigure}
+        	\caption{S/N = 2,000}
     \end{subfigure}	       
     \caption[Histogram of recovered orbital parameters ($A = 20$~m/s)]
     {Same with Fig.~\ref{fig:Histogram} but for $A = 20$~m/s.}
@@ -760,7 +745,6 @@ both $A$ and $\nu_\text{orb}/\nu_\text{rot}$    & 30\%             & 61\%       
 %-------------
 
 
-Conflict???
 
 %-------------
 %\begin{table}[h!]
@@ -784,22 +768,34 @@ Conflict???
 
 We set $A=0$~m/s so that the measured the radial velocity only comes from stellar variability. We implement the same approaches as above to see if the applying the jitter correction can return a null planet solution i.e. recovered amplitude smaller than the noise level.
 
-The spot configuration used in Table~\ref{table:spot_configurations} result in the presence of three starspots in turns (Fig.~\ref{fig:rv_recovery_deformed}), mimicking the radial velocities of orbiting exoplanets. This is indeed the case in the histogram of ``recovered" orbital parameters (Fig.~\ref{fig:Histogram_null}) -- three peaks occur at $\nu_\text{orb}/\nu_\text{rot} =$ 1, 2 and 3, with $\nu_\text{orb}/\nu_\text{rot} = 3$ being the most prominent. Applying the jitter correction reduces the amplitude of the candidate in general, making it less likely to be admitted as a true signal than without the use of jitter correction, but still fails to manage to rule out the possibility. 
+We remind ourselves that the spot configuration in Table~\ref{table:spot_configurations} is used. Three starspots appear and diasppear in turns (Fig.~\ref{fig:rv_recovery_deformed}), mimicking the radial velocities of orbiting exoplanets. This is indeed the case in the histogram of ``recovered" orbital parameters (Fig.~\ref{fig:Histogram_null}) -- three peaks occur at $\nu_\text{orb}/\nu_\text{rot} =$ 1, 2 and 3, with $\nu_\text{orb}/\nu_\text{rot} = 3$ being the most prominent. Applying the jitter correction, the amplitudes of the ``recovered" planet for S/N = 10,000 is effectively reduced, but its performance is only marginally better for S/N = 2,000, and neither of them reaches below the rms of photon noise level: $\sim 0.1$~m/s for S/N = 10,000 and $\sim 0.5$~m/s for S/N = 2,000. We still cannot completely rule out the possibility of a reduced amplitude being true. Therefore, we come up with the following two subsections to discuss how we can classify whether the planetary signal or the stellar jitter dominates the observed radial velocities. 
 
 %-------------
-\begin{figure}[htbp]	
-    \begin{subfigure}[b]{0.49\textwidth}
-        \includegraphics[width=\textwidth]{./Figures/Methods/Histogram_new1_null.png}
+\begin{figure}[tbp]	
+    \begin{subfigure}[b]{1.0\textwidth}
+    		\begin{subfigure}[b]{0.49\textwidth}
+        		\includegraphics[width=\textwidth]{./Figures/Methods/Histogram_new1_null_10000.png}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.49\textwidth}
+        		\includegraphics[width=\textwidth]{./Figures/Methods/Histogram_new2_null_10000.png}
+        \end{subfigure}
+        \caption{S/N = 10,000}
     \end{subfigure}
-	~
-    \begin{subfigure}[b]{0.49\textwidth}
-        \includegraphics[width=\textwidth]{./Figures/Methods/Histogram_new2_null.png}
-    \end{subfigure}	
+    \begin{subfigure}[b]{1.0\textwidth}
+    		\begin{subfigure}[b]{0.49\textwidth}
+        		\includegraphics[width=\textwidth]{./Figures/Methods/Histogram_new1_null_2000.png}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.49\textwidth}        		
+        		\includegraphics[width=\textwidth]{./Figures/Methods/Histogram_new2_null_2000.png}
+        	\end{subfigure}
+        	\caption{S/N = 2,000}
+    \end{subfigure}	       
     \caption[Histogram of recovered orbital parameters of null planets]
-    {Histogram of ``recovered" orbital parameters of null planets.}
+    {Histogram of ``recovered" orbital parameters in null planet end-to-end simulations.}
 \label{fig:Histogram_null}
 \end{figure}    
 %-------------
+
 %\FloatBarrier
 
 %----------------------------------------------------------------------------------------
