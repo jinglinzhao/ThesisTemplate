@@ -16,9 +16,7 @@
 %I think the folloing does a slightly better job of that.}
 
 This chapter introduces a new method for measuring radial velocities. Specifically, it uses the Fourier transform
-of a line profile (or cross-correlation profile) to try and distinguish between the effects of a bulk shift in that profile
-(i.e. a radial velocity shift of the profile), opposed to a change in the line profile shape which can produce an
-apparent radial velocity shift. We examine the impact on the Fourier transformed components of a line profile of both bulk line shifts, and line profile deformations, with the aim of developing tools to distinguish between these two cases.
+of a line profile (or cross-correlation profile) to distinguish between the effects of a bulk shift in that profile (i.e. a radial velocity shift of the profile), as opposed to a change in the line profile shape which can produce an apparent radial velocity shift. We examine the impact on the Fourier transformed components of a line profile of both bulk line shifts, and line profile deformations, with the aim of developing tools to distinguish between these two cases.
 
 %%----------------------------------------------------------------------------------------	
 %\pagebreak
@@ -31,12 +29,11 @@ apparent radial velocity shift. We examine the impact on the Fourier transformed
 The translation of a function (in our case a spectral line profile) can be examined in both its original real
 space, and in its Fourier transformed space. Because Fourier techniques are often used to handle time domain data,
 this shift in real space can be variously described as either time shifting or translation. In this chapter 
-we will use ``time shifting'', ``translation'' and ``velocity shifting'' interchangeably to refer to a shift of a function
-in real space. We will refer to Fourier transformed functions as being in the ``frequency domain'' regardless of whether they have actual dimensions of 1/time, 1/length or 1/velocity.
+we will use ``time shifting'', ``translation'' and ``velocity shifting'' interchangeably to refer to a shift of a function in real space. We will refer to Fourier transformed functions as being in the ``frequency domain'' regardless of whether they have actual dimensions of 1/time, 1/length or 1/velocity.
 
 \subsection{Translation property of Fourier transform}
 
-Let us consider a function $h(x)$ be a signal $f(x)$ delayed (or shifted) by an amount $x_0$:
+Let us consider a function $h(x)$ as a signal $f(x)$ delayed (or shifted) by an amount $x_0$:
 \begin{equation}
 	h(x) = f(x-x_0).
 \label{eq:FT1}
@@ -46,29 +43,28 @@ In the frequency domain, we will then have
 	\hat{h}(\xi) = e^{-2 \pi ix_0 \xi} \hat{f}(\xi),
 \label{eq:FT2}
 \end{equation}
-where the circumflex denotes the Fourier transform of a function, e.g.
+where the circumflex denotes the Fourier transform of a function, i.e.
 \begin{equation}
 	\hat{f}(\xi) = \int_{-\infty}^{\infty} f(x) e^{-2 \pi ix \xi} dx.
 \label{eq:FT3}
 \end{equation}
-This is saying (E.q.~\ref{eq:FT2}), $\hat{h}(\xi)$ and $\hat{f}(\xi)$ differ by a frequency dependent phase angle: 
+E.q.~\ref{eq:FT2} therefore means that while the power spectrum remains unchanged for shifted signals, i.e. $\mid \hat{h}(\xi)\mid ^2 = \mid\hat{f}(\xi)\mid^2$, an extra phase $\Delta \phi(\xi)$ is added because of the additional term $e^{-2 \pi ix_0 \xi}$: 
 \begin{equation}
-	\Delta \phi(\xi) = -2 \pi x_0 \xi,
+	\Delta \phi(\xi) = -2 \pi x_0 \xi.
 \label{eq:PhaseShift}
 \end{equation}
-while the power spectral density will remain unchanged, i.e. $\mid \hat{h}(\xi)\mid ^2 = \mid\hat{f}(\xi)\mid^2$ as $\mid e^{-2 \pi ix_0 \xi}\mid ^2 = 1$.
 
 \subsection{Intuitive explanation}
 
-The translation property of the Fourier transform can be derived easily by the interested reader. A (perhaps) more intuitive but equally quantitative way to see this is as follows: the Fourier transform decomposes the function $f(x)$ into a frequency representation $\hat{f}(\xi)$, each frequency component accompanied by the orthogonal basis $e^{2 \pi ix \xi}$, as in the form of inverse Fourier transform: 
+An intuitive, but equally quantitative way, to see how E.q.\ref{eq:PhaseShift} holds is as follows. The Fourier transform decomposes the function $f(x)$ into a frequency representation $\hat{f}(\xi)$, each frequency component accompanied by the orthogonal basis $e^{2 \pi ix \xi}$, as in the form of inverse Fourier transform: 
 \begin{equation}
 	f(x) = \int_{-\infty}^{\infty} \hat{f}(\xi) e^{2 \pi ix \xi} d\xi. 
 \end{equation}
 Shifting $f(x)$ by $x_0$ in the time domain is equivalent to shifting \textit{all} the orthogonal basis functions by $x_0$, which becomes $e^{2 \pi i(x-x_0) \xi} = e^{2 \pi i x \xi} \cdot e^{-2 \pi ix_0 \xi}$. This is how the $e^{-2 \pi ix_0 \xi}$ term in Eq.~\ref{eq:FT2} arises -- it quantifies the phase difference. 
 
-A (probably) even more intuitive but less quantitative way to vision the relation between a shift of the signal and a phase difference is to imagine any real continuous function is a sum of sines and cosines. Changing the phase angle in the sines and cosines results in shifts in the function. 
+An even more intuitive but less quantitative way to envision the relation between a shift of the signal and a phase difference is to imagine any real continuous function is a sum of sines and cosines. Changing the phase angle in the sines and cosines results in shifts in the function. 
 
-Moreover, the fact that the power spectrum density remains the same is because shifting the signal as a whole doesn't add or remove any frequency components. 
+The power spectrum of such a shifted function remains the same because shifting the signal as a whole doesn't add or remove any frequency components. 
 
 
 \subsection{Practical Use}
@@ -78,7 +74,7 @@ From Eq.~\ref{eq:PhaseShift}, we see that the phase shift $\Delta \phi(\xi)$ is 
 	\dv{(\Delta \phi)}{\xi} = -2 \pi x_0
 \label{eq:gradient}
 \end{equation}
-where we use $\Delta$ to refer to the phase difference between a shifted line profile and a unshifted~/~referenced line profile, while the derivative to refer to the response of $\Delta \phi$ to $\xi$. $\phi(\xi)$ can be obtained by extracting the phase information from the Fourier transform of line profiles. After that, a simple linear regression model fit to a plot of $\Delta \phi(\xi)$ versus $\xi$ (Fig.~\ref{fig:FT}) will enable us to measure the bulk shift between two line profiles $x_0$. 
+where $\Delta$ is used to refer to the phase difference between a shifted line profile and an unshifted~/~referenced line profile, while the derivative refers to the response of $\Delta \phi$ to $\xi$. $\phi(\xi)$ can be obtained by extracting the phase information from the Fourier transform of line profiles. After that, a simple linear regression model can be fit to a plot of $\Delta \phi(\xi)$ versus $\xi$ (Fig.~\ref{fig:FT}) to enable measurement of the bulk shift between two line profiles $x_0$. 
 
 %-------------
 \begin{figure}[tbp]
@@ -93,11 +89,7 @@ The model shows the phase difference between two shifted signals $\Delta \phi(\x
 \end{figure} 
 %-------------
 
-By analogy with the definition of power spectral density or power spectrum, we describe $\phi(\xi)$ the \textbf{phase spectral density} or \textbf{phase spectrum} and hence $\Delta \phi(\xi)$ the \textbf{differential phase spectral density} or \textbf{differential phase spectrum}. In this approach, an analysis of the phase shift in the frequency domain of the Fourier components of a line profile will provide a means of measuring a bulk line shift in real space. We therefore name our method \textbf{FourIEr \textit{phase} SpecTrum Analysis} ($\mathit{\Phi}$ESTA or FIESTA). 
-% More importantly,
-% it may provide a means of separating  an apparent radial velocity shift into the components due to bulk line shift, 
-% and line profile shape change.
-
+By analogy with the definition of power spectrum, we describe $\phi(\xi)$ as the \textbf{phase spectrum} and hence $\Delta \phi(\xi)$ as the \textbf{differential phase spectrum}. In this approach, an analysis of the phase shift in the frequency domain of the Fourier components of a line profile will provide a means of measuring a bulk line shift in real space. We therefore name our method \textbf{FourIEr \textit{phase} SpecTrum Analysis} ($\mathit{\Phi}$ESTA or FIESTA). 
 
 %----------------------------------------------------------------------------------------	
 
@@ -122,12 +114,12 @@ subjected to radial velocity shifts evenly spaced between 0 and 10\,m/s (Fig.~\r
         \label{fig:differential_line_profiles}
     \end{subfigure}	
     
-    \caption[100 shifted HARPS-like line profiles]{(a) the shifted line profiles plotted on top of each other, showing that the 0-10\,m/s shifts are very small compared to the line profile width. (b) the shifted line profiles with the unshifted line profile subtracted from each. Note that for the sake of clarity, the differential line profiles are plotted noise-free and only 10 out of 100 profiles are presented.}
+    \caption[100 shifted HARPS-like line profiles]{(a) the shifted line profiles plotted on top of each other, showing that the 0-10\,m/s shifts are very small compared to the line profile width. (b) the shifted line profiles with the unshifted line profile subtracted from each. Note that for the sake of clarity, the differential line profiles are plotted noise-free and only 10 out of 100 profiles are displayed.}
 \label{fig:line_profiles12}
 \end{figure}	
 %-------------
 
-The Fourier transform of these 100 spectral line profiles divides the information into two parts: (1) the power spectra (Fig.~\ref{fig:power_spectrum}) and (2) the phase spectra (shown in Fig.~\ref{fig:dps} as the differential phase spectra relative to the phase spectrum of the unshifted line profile). We see that most information is concentrated towards the centre of the power spectrum (i.e. the lower frequency range), and as expected, the differential phase spectra are mostly linear (consistent with the theory demonstrated in Fig.~\ref{fig:FT}). Its deviation from linearity comes from the noise that we injected, which will be discussed later. 
+The Fourier transform of these 100 spectral line profiles divides the information into two parts: (1) the power spectra (Fig.~\ref{fig:power_spectrum}) and (2) the phase spectra (shown in Fig.~\ref{fig:dps} as the differential phase spectra relative to the phase spectrum of the unshifted line profile). We see that most information is concentrated towards the centre of the power spectrum (i.e. the lower frequency range), and as expected, the differential phase spectra are mostly linear, consistent with the theory demonstrated in Fig.~\ref{fig:FT}. Deviations from linearity come from the noise that we injected, which will be discussed later. 
 
 %-------------
 \begin{figure}[tbp]	
@@ -143,16 +135,14 @@ The Fourier transform of these 100 spectral line profiles divides the informatio
         \label{fig:dps}
     \end{subfigure}	
     \caption[Fourier transform of 100 shifted line profiles]
-    {The Fourier transform of these shifted line profile divides the information in each into (a) their power spectra and (b) their phase spectra (here plotted differential compared to that of the unshifted profile). A line shift in the time domain produces an unchanged power spectrum in the frequency domain. It does, however, produce phase shifts which we see as linear trends in the differential phase spectra as a function of frequency. Note that for demonstration clarity, only 10 out of 100 differential phase spectra are presented.}
+    {The Fourier transform of these shifted line profile divides the information in each into (a) their power spectra and (b) their phase spectra (here plotted differential compared to that of the unshifted profile). A line shift in the time domain produces an unchanged power spectrum in the frequency domain. It does, however, produce phase shifts which we see as linear trends in the differential phase spectra as a function of frequency. Only 10 out of 100 differential phase spectra are displayed.}
 \label{fig:FT_process}
 \end{figure}    
 %-------------
 
-The slope of each differential phase spectrum indicates the shift of each line profile relative to the unshifted one. For a linear regression fitting, each frequency sample on the differential phase spectrum is weighted by the amplitude of the power, meaning the lower frequencies are more weighted. We calculate the radial velocity shift for each shifted line profile using two methods: (1) Fourier phase spectrum analysis that delivers $RV_\text{FT}$; (2) traditionally measuring the line centroid by fitting a Gaussian function to each line profile that delivers $RV_\text{Gaussian}$. 
+The slope of each differential phase spectrum indicates the shift of each line profile relative to the unshifted one. For a linear regression fitting, each frequency sample on the differential phase spectrum is weighted by the amplitude of the power, meaning the lower frequencies receive more weights. We calculate the radial velocity shift for each shifted line profile using two methods: (1) $\mathit{\Phi}$ESTA to determine $RV_\text{FT}$; (2) traditional measurement of the line centroid by fitting a Gaussian function to each line profile that delivers $RV_\text{Gaussian}$. 
 
-We then compare the both $RV_\text{FT}$ and $RV_\text{Gaussian}$ with the known input line shift. Fig.~\ref{fig:rv_recovery} sees the expected strong 1:1 correlation between the input radial velocity shift and the output -- the line of best fit of a linear regression model presents a slope of $1.003\pm0.006$ with 95\% confidence bounds for both $RV_\text{FT}$ and $RV_\text{Gaussian}$. 
-% The uncertainty of the slope is derived from the uncertainty of each measured $RV_\text{FT}$, which is further derived from the uncertainty of the phase measurement, described by the magnitude of the power spectrum.
-The root-mean-square (rms) of the residuals (or interchangeably used as standard deviation when the mean is zero) are both $\sigma_\text{FT} = \sigma_\text{Gaussian} = 0.08$ m/s, identical up to two decimal places, indicating the expected radial velocities are consistently obtained using both methods. In fact, the almost overlapping residual in Fig.~\ref{fig:rv_recovery} meaning that the two methods are so coherently different from the input radial velocity (by a small amount), leads us to conclude that such a deviation comes from the photon noise intrinsic to the line profile rather than the methods themselves. 
+We then compare both $RV_\text{FT}$ and $RV_\text{Gaussian}$ with the known input line shift. Fig.~\ref{fig:rv_recovery} reveals the expected 1:1 correlation between the input radial velocity shift and the output -- the line of best fit of a linear regression model presents a slope of $1.003\pm0.006$ with 95\% confidence bounds for both $RV_\text{FT}$ and $RV_\text{Gaussian}$. The root-mean-square (rms) of the residuals (or interchangeably used as standard deviation when the mean is zero) are both $\sigma_\text{FT} = \sigma_\text{Gaussian} = 0.08$ m/s, identical up to two decimal places, indicating the expected radial velocities are consistently obtained by both methods. In fact, the almost overlapping residuals in Fig.~\ref{fig:rv_recovery} means that the two methods are so coherently different from the input radial velocity (by small amounts). This deviation must come from the photon noise intrinsic to the simulated line profiles rather than the methods themselves. 
 
 %-------------
 \begin{figure}[tbp]
@@ -174,13 +164,13 @@ The root-mean-square (rms) of the residuals (or interchangeably used as standard
 \subsection{Further tests}
 \label{sec:Further_tests}
 
-Let's recall the justification of measuring a line shift in its Fourier space -- the shifting of a line (or a function), when viewed as shifting the sum of its Fourier basis functions (or any other basis functions), has equally the same amount of shift on every basis function, which can be measured as a phase shift in the Fourier phase spectrum. That is to say, utilising only part of the phase spectrum will also return the correct amount of shift of a line profile, although it is more likely to be affected by noise. The motivation of this practice will be discussed in \S\ref{sec:FT_ld} when it comes to line profile deformations, whereas we simply lay out the tests in this subsection. 
+Let's recall the justification of measuring a line shift in its Fourier space -- the shifting of a line (or a function), when viewed as shifting the sum of its Fourier basis functions (or any other basis functions), has equally the same amount of shift on every basis function, which can be measured as a phase shift in the Fourier phase spectrum. That is to say, utilising only part of the phase spectrum will also return the correct shift of a line profile, although it utilises less information. The motivation of this will be discussed in \S\ref{sec:FT_ld} when we look at line profile deformations, whereas we simply lay out the tests in this subsection. 
 
-We choose to divide the whole frequency range into two parts (Fig.~\ref{fig:low-high-pass}) -- the lower frequency range (i.e. apply a low-pass filter) and the higher frequency range (i.e. apply a high-pass filter). The dividing frequency $\xi_{HL}$ is chosen such that both the lower and higher frequency ranges take up half of the power spectrum $P(\xi)$:
+We divide the whole frequency range available into two parts (Fig.~\ref{fig:low-high-pass}) -- a lower frequency range (i.e. apply a low-pass filter) and a higher frequency range (i.e. apply a high-pass filter). The dividing frequency $\xi_{HL}$ is chosen such that both the lower and higher frequency ranges take up half of the power spectrum $P(\xi)$:
 \begin{equation}
 	\int_{\xi_{L}=0}^{\xi_{HL}} P(\xi) d\xi = \int_{\xi_{HL}}^{\xi_{H}} P(\xi) d\xi. 
 \end{equation}
-We assume the integration of power spectrum is a measurement of the amount of ``information", so that in a noise-free circumstance, we would put equal trust on the radial velocities obtained from the lower and higher frequencies (namely $RV_\text{FT,L}$ and $RV_\text{FT,H}$, or $RV_\text{FT,H/L}$ for both), though this does not necessarily deliver equal credibility between them in practice. In addition, a cut-off frequency $\xi_{H}$ applies to the upper boundary of the high-pass filter. Frequencies higher than $\xi_{H}$ hardly contributes to the shape of the line profile as $P(\xi)$ converges to zero, and they can be impacted by noise in a unpredictable way. $\xi_{H}$ is chosen empirically where $P(\xi)$ drops to $0.1\%$ of the highest $P(\xi)$.
+We assume here that the integration of the power spectrum is measures the amount of ``information" in the original line profile, so that in a noise-free circumstance, we would put equal trust on the radial velocities obtained from the lower and higher frequencies (namely $RV_\text{FT,L}$ and $RV_\text{FT,H}$, or $RV_\text{FT,H/L}$ for both). In addition, a cut-off frequency $\xi_{H}$ is applied to the upper boundary of the high-pass filter. Frequencies higher than $\xi_{H}$ hardly contributes to the shape of the line profile as $P(\xi)$ converges to zero, and they can be impacted by noise in a unpredictable way. $\xi_{H}$ is chosen empirically where $P(\xi)$ drops to $0.1\%$ of max$\{P(\xi)\}$.
 
 %-------------
 \begin{figure}[tbp]	
@@ -197,7 +187,7 @@ We assume the integration of power spectrum is a measurement of the amount of ``
 \label{fig:low-high-pass}
 \end{figure}    
 
-Fig.~\ref{fig:rv_recovery} presented an accurate recovery of the radial velocity shift given by $RV_\text{FT}$, for which we made use of the full range of frequencies; in Fig.~\ref{fig:rv_recovery_LH}, it still manages to deliver a good 1:1 alignment between $RV_\text{FT,H/L}$ and the input radial velocity. The line of best fit presents a slope of $1.002\pm0.007$ for $RV_\text{FT,L}$ and $0.977\pm0.029$ for $RV_\text{FT,H}$ respectively, with 95\% confidence bounds. The scatter of the residuals are $\sigma_\text{FT,L} = 0.11$ m/s and $\sigma_\text{FT,H} = 0.43$ m/s. Firstly, we note that $\sigma_\text{FT,H/L} > \sigma_\text{FT}$, this is because both $RV_\text{FT,H}$ and $RV_\text{FT,L}$ scarify part of frequency information in the Fourier space for the different response to line deformation. Secondly, we note that $RV_\text{FT,H} > RV_\text{FT,L}$, seemingly contradicting with the expectation that equal amount of ``information" from which they are derived should deliver the equivalent amount of scatter in the residuals. We think this may be because higher frequency modes are more likely to be subjected to stochastic behaviours other than the line deformation arising from stellar variability generated in the SOAP model. For example, the fluctuations of photon levels on the stellar spectrum are mainly described by high frequency modes. {\em jzhao: Have I made myself clear here?}
+We presented in Fig.~\ref{fig:rv_recovery} an accurate recovery of the radial velocity shift given by $RV_\text{FT}$, for which the full range of frequencies were used; For comparison in Fig.~\ref{fig:rv_recovery_LH}, it still delivers a good 1:1 alignment between $RV_\text{FT,H/L}$ and the input radial velocities. The line of best fit presents a slope of $1.002\pm0.007$ for $RV_\text{FT,L}$ and $0.977\pm0.029$ for $RV_\text{FT,H}$ respectively, with 95\% confidence bounds. The scatter of the residuals are $\sigma_\text{FT,L} = 0.11$ m/s and $\sigma_\text{FT,H} = 0.43$ m/s. First, we note that $\sigma_\text{FT,H/L} > \sigma_\text{FT}$, this is because both $RV_\text{FT,H}$ and $RV_\text{FT,L}$ are derived from part of information in the Fourier space. Second, we note that $\sigma_\text{FT,H} > \sigma_\text{FT,L}$, seemingly contradicting with the expectation that equal amount of ``information" from which they are derived should deliver the equivalent amount of scatter in the residuals. We think this may be because higher frequency modes are more likely to be subjected to stochastic behaviours other than the line deformation arising from stellar variability generated in the SOAP model. For example, the fluctuations of photon levels on the stellar spectrum are mainly described by high frequency modes. {\em jzhao: Have I made myself clear here?}
 
 %-------------
 \begin{figure}[tbp]
@@ -838,7 +828,7 @@ We demonstrate the use of the difference in the correlations among $RV_\text{Gau
 
 We would use the generalized Lomb-Scargle periodogram \cite{Zechmeister2009} in combination with the Fourier phase spectrum analysis to address the problem of stellar jitter mimicking planetary signals. The idea is to compare the periodogram of the measured radial velocity (i.e. $RV_\text{Gaussian}$) and that of the proto-jitter (i.e. $\mid RV_\text{FT,H/L} - RV_\text{Gaussian} \mid$). Peaks of the periodogram in the former are possible candidates whereas the latter would indicate jitter. 
 
-Fig.~\ref{fig:Periodogram} demonstrates the application of periogodgram together with the Fourier phase spectrum analysis, on the well sampled radial velocities (without sub-sampling) from the two end-to-end simulations in \S\ref{sec:end-to-end}: (1) stellar jitter as strong as planetary signal and (2) stellar jitter only. The S/N of the cross-correlated profile is 2000 and because we used a full range of sampling, no moving average was applied. In Fig.~\ref{fig:Periodogram1} the planetary orbital frequency $\nu_\text{orb}/\nu_\text{rot} = 0.7$ clearly stands out while the other peaks coincide with that of the proto-jitter. It effectively shows, the proto-jitter model generated by the Fourier phase spectrum analysis manages to disentangle jitter from the planetary component of the radial velocities (we recall that the planetary radial velocity was cancelled out to construct the jitter model). In the case of a null planet (Fig.~\ref{fig:Periodogram2}), all the possible candidates where the $RV_\text{Gaussian}$ peaks occur are negated by the same detected periodicity of the jitter. 
+Fig.~\ref{fig:Periodogram} demonstrates the application of periogodgram together with the Fourier phase spectrum analysis, on the well sampled radial velocities (without sub-sampling) from the two end-to-end simulations in \S\ref{sec:end-to-end}: (1) stellar jitter as strong as planetary signal and (2) stellar jitter only. The S/N of the cross-correlation profile is 2000 and because we used a full range of sampling, no moving average was applied. In Fig.~\ref{fig:Periodogram1} the planetary orbital frequency $\nu_\text{orb}/\nu_\text{rot} = 0.7$ clearly stands out while the other peaks coincide with that of the proto-jitter. It effectively shows, the proto-jitter model generated by the Fourier phase spectrum analysis manages to disentangle jitter from the planetary component of the radial velocities (we recall that the planetary radial velocity was cancelled out to construct the jitter model). In the case of a null planet (Fig.~\ref{fig:Periodogram2}), all the possible candidates where the $RV_\text{Gaussian}$ peaks occur are negated by the same detected periodicity of the jitter. 
 
 %-------------
 \begin{figure}[htbp]	
@@ -909,11 +899,11 @@ For this exercise, the scaled model is smoothed by the weighted moving average w
 
 \subsection{$\alpha$ Centauri B (HD128621)}
 
-We choose $\alpha$ Centauri B as our case study for its brightness (V$\sim$1.33), abundant HARPS observations, and its controversy of hosting an exoplanet due to the intrinsic stellar activity (\cite{Dumusque_Centauri_B}, \cite{Hatzes2013} and \cite{Rajpaul_Alpha_Cen_B}). In the following, we will focus on three phases of the $\alpha$ Centauri B data sets for activity analysis, each roughly one year apart, spanning within three months and harvested over 2000 observations. Phase 1: 15/02/2009 - 06/05/2009; Phase 2: 03/23/2010 - 12/06/2010; Phase 3: 18/02/2011 - 15/05/2011. Among them, Phase 2 is of particular interest as it has been used to study rotationally modulated stellar activities in K-dwarfs (\cite{Thompson2017MNRAS}, \cite{Wise2018}). 
+We chose $\alpha$ Centauri B as our case study for its brightness (V$\sim$1.33), abundant HARPS observations, and the controversy over whether it hosts an exoplanet due to its intrinsic stellar activity. Being potentially the (second) closest exoplanet to Earth, the candidate $\alpha$ Centauri B was first discovered by \cite{Dumusque_Centauri_B} in 2012, then further investigated by \cite{Hatzes2013} in 2013, and later questioned by \cite{Rajpaul_Alpha_Cen_B}, suggesting the ghost signal arised from the window function. We haven't gone as far as probing the spurious planetary candidate, but we could study is the stellar activity level of $\alpha$ Centauri B, presented by a scaled jitter correction $\mid RV_\text{HARPS} - RV_\text{FT,H/L}\mid$. In the following, we focus on three segments of the $\alpha$ Centauri B data sets for activity analysis, each roughly one year apart, spanning within three months and including over 2000 observations. Epoch 1: 15/02/2009 - 06/05/2009; Epoch 2: 03/23/2010 - 12/06/2010; Epoch 3: 18/02/2011 - 15/05/2011. Among them, Epoch 2 is of particular interest as it has been used to study rotationally modulated stellar activities in K-dwarfs (\cite{Thompson2017MNRAS}, \cite{Wise2018}). 
 
-We downloaded 2617 $\alpha$ Centauri B spectra for Phase 2 (2010 data) from the ESO archive, among which we selected the 2529 cross-correlated line profiles that were constructed with a K5 stellar template, so that the overall shape of the line profiles were consistent; the number of observations actually used was then further reduced to 2488 as we took out another 41 observations that presented large radial velocity offsets and visually different cross-correlated line profiles compared with the rest of the profiles. These removed observations presented features at ephemeral time-scales, i.e. their radial velocities stood out from the other observations of the same day in the $RV_\text{HARPS}$ or $\mid RV_\text{HARPS} - RV_\text{FT,H/L}\mid$ time-series and were also classified as outliers in the full width at half maximum (FWHM) indicator, which could be results of stellar flares. After getting rid of suspicious observations, we can better assure the shape of the 2488 cross-correlated line profiles differ themselves mainly for the intrinsic stellar behaviour, rather than unpredicted causes. As for Phase 1 (2009 data) and 3 (2011 data), they were pre-filtered in a similar way and the actual amount of observations used were 2220 and 3534 respectively.
+We downloaded 2617 $\alpha$ Centauri B spectra for Epoch 2 (2010) from the ESO archive, from which we selected the 2529 cross-correlation line profiles that were constructed with a K5 stellar template; the number of observations actually used was then further reduced to 2488 as we took out another 41 observations that presented large radial velocity offsets and visually different cross-correlation line profiles compared with the rest of the profiles. These removed observations had features at ephemeral time-scales, i.e. their radial velocities stood out from the other observations of the same day in the $RV_\text{HARPS}$ or $\mid RV_\text{HARPS} - RV_\text{FT,H/L}\mid$ time-series and they were also classified as outliers in the full width at half maximum (FWHM) indicator, suggesting the presence of stellar flares. Epoch 1 (2009) and 3 (2011) were pre-filtered in a similar manner, resulting in 2220 and 3534 observations used respectively.
 
-Fig.~\ref{fig:Alpha_Cen_B} presents the outcomes of $\mathit{\Phi}$ESTA: $\Delta RV_\text{L} = RV_\text{HARPS} - RV_\text{FT,L}$ debuted as the activity level across the three years ($\Delta RV_\text{H} = RV_\text{FT,H} - RV_\text{HARPS}$ is not demonstrated here as it is simply proportional to $\Delta RV_\text{L}$ and works the same way). Firstly, we fit $\Delta RV_\text{L}$ with a Gaussian process model described by a quasi-periodic kernel. A Gaussian process model has the advantage of interpreting stochastic processes with a set of flexible forms of functions, constrained by the physically motivated covariance kernels. In this case, a quasi-periodic kernel is chosen such that the quasi-periodicity can be explained by the rotationally modulated activity and the self-evolving disc features. Interested readers can refer the theoretical background of Gaussian processes to a textbook-like literature \cite{Rasmussen2006} or a hitchhiker's guide of Gaussian processes for time-series modelling \cite{Roberts_gaussianprocesses}. For the implementation of the Gaussian process model, we employed the python library george delveloped by Foreman-Mackey \cite{Ambikasaran2014}. 
+Fig.~\ref{fig:Alpha_Cen_B} presents the results of $\mathit{\Phi}$ESTA analysis of $\Delta RV_\text{L} = RV_\text{HARPS} - RV_\text{FT,L}$ for these 3 years. $\Delta RV_\text{H} = RV_\text{FT,H} - RV_\text{HARPS}$ is not shown here as it is simply proportional to $\Delta RV_\text{L}$ and works the same way. We fit $\Delta RV_\text{L}$ with a Gaussian process model described by a quasi-periodic kernel. A Gaussian process model has the advantage of interpreting stochastic processes with a set of flexible forms of functions, constrained by physically motivated covariance kernels. In this case, a quasi-periodic kernel was chosen such that the periodicity can be explained by the rotationally modulated activity and the deviation from periodicity explained by possibly self-evolving disc features (e.g. starspots and plage, differential rotation). Interested readers can refer the theoretical background of Gaussian processes to a textbook-like literature \cite{Rasmussen2006} or a hitchhiker's guide to Gaussian processes for time-series modelling \cite{Roberts_gaussianprocesses}. For the implementation of the Gaussian process model, we employed the python library \verb|george| delveloped by Foreman-Mackey \cite{Ambikasaran2014}. 
 
 %-------------
 \begin{figure}[tbp]
@@ -921,16 +911,16 @@ Fig.~\ref{fig:Alpha_Cen_B} presents the outcomes of $\mathit{\Phi}$ESTA: $\Delta
 \includegraphics[width = 1.0 \linewidth]
 {./Figures/Methods/Alpha_Cen_B.png}
 \caption[$\alpha$ Centauri B: stellar activity analysis]
-		{Stellar activity analysis of $\alpha$ Centauri B using $\mathit{\Phi}$ESTA. The scaling of the axes are exactly the same across the three subplots for straightforward comparisons. Black dots with errorbars are radial velocities $RV_\text{HARPS} - RV_\text{FT,L}$; the orange solid line is the best fit solution with a quasi-periodic kernel using Gaussian processes and the shaded area is its $1\sigma$ boundary.}
+		{Stellar activity analysis of $\alpha$ Centauri B using $\mathit{\Phi}$ESTA. The scaling of the corresponding axes on all subplots are identical. Black dots with errorbars are radial velocities $RV_\text{HARPS} - RV_\text{FT,L}$; the orange solid line is the best fit solution with a quasi-periodic kernel using Gaussian processes and the shaded area is its $1\sigma$ boundary.}
 \label{fig:Alpha_Cen_B}
 \end{figure} 
 %-------------
 
-Secondly, the figure shows the activity level increased dramatically from 2009 to 2010, and then declined in 2011. The middle panel indicates $\alpha$ Centauri B in 2010 was dominated by a simple global feature on the stellar surface that appeared at the rotation period of around 40 days, while the other two panels show in 2009 and 2011 that the star might be covered by various local features (e.g. starspots and plage), making the disc inhomogeneous in smaller scales. Various literatures have studied and even modelled the rotational activity in an attempt to pin down the exoplanet candidate $\alpha$ Centauri Bb. We note that the prominent periodicity shown in the middle panel are also found consistent with $\log (R'_{HK})$ in original discovery paper \cite{Dumusque_Centauri_B}, as well as the equivalent widths and core flux of activity-sensitive Fe and Mg lines reported in \cite{Thompson2017MNRAS} and \cite{Wise2018}. While our scaled jitter correction $\Delta RV_\text{L}$ in Phase 2 (2010) does not match with rotational activity fit from \cite{Dumusque_Centauri_B} and \cite{Hatzes2013}, we do find some similarities shared between our $\Delta RV_\text{L}$ in Phase 3 (2011) and the corresponding trunk of rotational activity fit presented in \cite{Dumusque_Centauri_B} and \cite{Hatzes2013}, which were obtained using completely different methods from ours. 
+The figure shows the star's activity level increased dramatically from 2009 (upper panel) to 2010 (middle panel), and then declined in 2011 (lower panel). It indicates in 2010, $\alpha$ Centauri B was dominated by a simple global feature on the stellar surface that appeared at a rotation period of around 40 days, while in 2009 and 2011 the star might be covered by various local features, making the disc inhomogeneous at smaller scales. A substantial literature have studied and even modelled the rotational activity in an attempt to pin down the exoplanet candidate $\alpha$ Centauri Bb, so that we can compare our results with them. The prominent periodicity in 2010 is found to be consistent with $\log (R'_{HK})$ in original discovery paper \cite{Dumusque_Centauri_B}, as well as the equivalent widths and core flux of activity-sensitive Fe and Mg lines reported in \cite{Thompson2017MNRAS} and \cite{Wise2018}. While our scaled jitter correction $\Delta RV_\text{L}$ in Epoch 2 (2010) does not match with rotational activity fit from \cite{Dumusque_Centauri_B} and \cite{Hatzes2013}, we do find some similarities shared between our $\Delta RV_\text{L}$ in Epoch 3 (2011) and the corresponding trunk of rotational activity fit presented in \cite{Dumusque_Centauri_B} and \cite{Hatzes2013}, which were obtained using completely different methods from ours. 
 
-Thirdly, we obtained the stellar rotation period from the best fit solution with a quasi-periodic kernel. For the three phases that we studied from 2009 to 2011, the rotation period is consequently estimated to be 37.05, 35.70 and 36.71 days, all within $1\sigma$ of the pre-claimed $36.2\pm1.4$ days \cite{DeWarf2010}; the rotation period of Phase 3 (2011) that we obtained is highly consistent with the one from \cite{Dumusque_Centauri_B}. Unsurprisingly, the other two periods are not, as our $\Delta RV_\text{L}$ model is  different from the activity model fit in \cite{Dumusque_Centauri_B}. 
+We obtained the stellar rotation period from the best fit solution with a quasi-periodic kernel. For the three phases that we studied from 2009 to 2011, the rotation period is estimated to be 37.05, 35.70 and 36.71 days, all within $1\sigma$ of the pre-claimed $36.2\pm1.4$ days \cite{DeWarf2010}; the rotation period of Epoch 3 (2011) that we obtained is highly consistent with the one from \cite{Dumusque_Centauri_B}. Unsurprisingly, the other two periods are not, as our $\Delta RV_\text{L}$ model is  different from the activity model fit in \cite{Dumusque_Centauri_B}. 
 
-While we haven't gone as far as probing the planetary candidate of $\alpha$ Centauri B, \S\ref{sec:Classification} has demonstrated $\mathit{\Phi}$ESTA does provide a quick assessment of whether a system hosts a planet / planets. 
+While , \S\ref{sec:Classification} has demonstrated $\mathit{\Phi}$ESTA does provide a quick assessment of whether a system hosts a planet / planets. 
 
 
 
