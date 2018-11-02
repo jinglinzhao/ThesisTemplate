@@ -47,7 +47,7 @@
 \contentsline {section}{\numberline {2.4}Fourier phase spectrum analysis on real observations}{35}{section.2.4}
 \contentsline {subsection}{\numberline {2.4.1}HD189733: Rossiter\IeC {\textendash }McLaughlin effect as jitter}{35}{subsection.2.4.1}
 \contentsline {subsection}{\numberline {2.4.2}$\alpha $ Centauri B (HD128621)}{37}{subsection.2.4.2}
-\contentsline {subsection}{\numberline {2.4.3}$\epsilon $ Eridani (HD22049)}{37}{subsection.2.4.3}
-\contentsline {subsection}{\numberline {2.4.4}$\tau $ Ceti (HD10700)}{37}{subsection.2.4.4}
-\contentsline {section}{\numberline {2.5}References}{37}{section.2.5}
+\contentsline {subsection}{\numberline {2.4.3}$\epsilon $ Eridani (HD22049)}{40}{subsection.2.4.3}
+\contentsline {subsection}{\numberline {2.4.4}$\tau $ Ceti (HD10700)}{40}{subsection.2.4.4}
+\contentsline {section}{\numberline {2.5}References}{41}{section.2.5}
 \gdef \the@ipfilectr {}

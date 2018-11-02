@@ -69,4 +69,60 @@ Gáspár~Á. Bakos, András Pál, David~W. Latham, Robert~W. Noyes, and
   extrasolar planet.
 \newblock {\em The Astrophysical Journal Letters}, 641(1):L57, 2006.
 
+\bibitem{Dumusque_Centauri_B}
+Xavier Dumusque, Francesco Pepe, Christophe Lovis, Damien S{\'e}gransan,
+  Johannes Sahlmann, Willy Benz, Fran{\c c}ois Bouchy, Michel Mayor, Didier
+  Queloz, Nuno Santos, and St{\'e}phane Udry.
+\newblock An earth-mass planet orbiting {$\alpha$} centauri b.
+\newblock {\em Nature}, 491:207 EP --, 10 2012.
+
+\bibitem{Hatzes2013}
+Artie~P. Hatzes.
+\newblock The radial velocity detection of earth-mass planets in the presence
+  of activity noise: The case of alpha centauri bb.
+\newblock {\em The Astrophysical Journal}, 770(2):133, 2013.
+
+\bibitem{Rajpaul_Alpha_Cen_B}
+V.~Rajpaul, S.~Aigrain, and S.~Roberts.
+\newblock Ghost in the time series: no planet for alpha cen b.
+\newblock {\em Monthly Notices of the Royal Astronomical Society: Letters},
+  456(1):L6--L10, 2016.
+
+\bibitem{Thompson2017MNRAS}
+A.~P.~G. Thompson, C.~A. Watson, E.~J.~W. de~Mooij, and D.~B. Jess.
+\newblock The changing face of {$\alpha$} centauri b: probing plage and stellar
+  activity in k dwarfs.
+\newblock {\em Monthly Notices of the Royal Astronomical Society: Letters},
+  468(1):L16--L20, 2017.
+
+\bibitem{Wise2018}
+A.~W. Wise, S.~E. Dodson-Robinson, K.~Bevenour, and A.~Provini.
+\newblock New methods for finding activity-sensitive spectral lines: Combined
+  visual identification and an automated pipeline find a set of 40 activity
+  indicators.
+\newblock {\em The Astronomical Journal}, 156(4):180, 2018.
+
+\bibitem{Rasmussen2006}
+CE~Rasmussen and CKI Williams.
+\newblock {\em Gaussian Processes for Machine Learning}.
+\newblock Adaptive Computation and Machine Learning. MIT Press, Cambridge, MA,
+  USA, 1 2006.
+
+\bibitem{Roberts_gaussianprocesses}
+S.~Roberts, M.~Osborne, M.~Ebden, S.~Reece, N.~Gibson, and S.~Aigrain.
+\newblock Gaussian processes for timeseries modelling.
+\newblock {\em Philosophical Transactions of the Royal Society (Part A)}.
+
+\bibitem{Ambikasaran2014}
+S.~{Ambikasaran}, D.~{Foreman-Mackey}, L.~{Greengard}, D.~W. {Hogg}, and
+  M.~{O'Neil}.
+\newblock {Fast Direct Methods for Gaussian Processes}.
+\newblock March 2014.
+
+\bibitem{DeWarf2010}
+L.~E. DeWarf, K.~M. Datin, and E.~F. Guinan.
+\newblock X-ray, fuv, and uv observations of alpha centauri b: Determination of
+  long-term magnetic activity cycle and rotation period.
+\newblock {\em The Astrophysical Journal}, 722(1):343, 2010.
+
 \end{thebibliography}

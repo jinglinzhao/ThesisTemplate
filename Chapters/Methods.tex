@@ -93,7 +93,7 @@ The model shows the phase difference between two shifted signals $\Delta \phi(\x
 \end{figure} 
 %-------------
 
-By analogy with the definition of power spectral density or power spectrum, we describe $\phi(\xi)$ the \textbf{phase spectral density} or \textbf{phase spectrum} and hence $\Delta \phi(\xi)$ the \textbf{differential phase spectral density} or \textbf{differential phase spectrum}. In this approach, an analysis of the phase shift in the frequency domain of the Fourier components of a line profile will provide a means of measuring a bulk line shift in real space. We therefore name our method \textbf{\textit{F}our\textit{ie}r \textit{phase} \textit{s}pec\textit{t}rum \textit{a}nalysis} ($\Phi$ESTA or FIESTA). 
+By analogy with the definition of power spectral density or power spectrum, we describe $\phi(\xi)$ the \textbf{phase spectral density} or \textbf{phase spectrum} and hence $\Delta \phi(\xi)$ the \textbf{differential phase spectral density} or \textbf{differential phase spectrum}. In this approach, an analysis of the phase shift in the frequency domain of the Fourier components of a line profile will provide a means of measuring a bulk line shift in real space. We therefore name our method \textbf{FourIEr \textit{phase} SpecTrum Analysis} ($\mathit{\Phi}$ESTA or FIESTA). 
 % More importantly,
 % it may provide a means of separating  an apparent radial velocity shift into the components due to bulk line shift, 
 % and line profile shape change.
@@ -800,6 +800,7 @@ We remind ourselves that the spot configuration in Table~\ref{table:spot_configu
 
 %----------------------------------------------------------------------------------------
 \subsection{Classification}
+\label{sec:Classification}
 
 We demonstrate the use of the difference in the correlations among $RV_\text{Gaussian}$, $RV_\text{FT,H,L}$ and their combinations as to classify the three scenarios of different relative sizes between the jitter and planetary signals. The discussions are within the captions of Fig.~\ref{fig:correlations}.
 
@@ -908,9 +909,31 @@ For this exercise, the scaled model is smoothed by the weighted moving average w
 
 \subsection{$\alpha$ Centauri B (HD128621)}
 
-We have downloaded 2617 $\alpha$ Centauri B spectra from 23/03/2010 to 12/06/2010 from the ESO archive, among which we selected the 2529 cross-correlated line profiles that were constructed with a K5 stellar template; the number of observations that were actually used was then further reduced to 2488 as we took out another 41 observations that presented large radial velocity offsets and visually different cross-correlated line profiles compared with the rest of the profiles. In this way, we can safely believe that the 2488 cross-correlated line profiles differ themselves mainly because of the intrinsic stellar behaviour as well as the presence of orbiting companions, rather than unpredicted causes.
+We choose $\alpha$ Centauri B as our case study for its brightness (V$\sim$1.33), abundant HARPS observations, and its controversy of hosting an exoplanet due to the intrinsic stellar activity (\cite{Dumusque_Centauri_B}, \cite{Hatzes2013} and \cite{Rajpaul_Alpha_Cen_B}). In the following, we will focus on three phases of the $\alpha$ Centauri B data sets for activity analysis, each roughly one year apart, spanning within three months and harvested over 2000 observations. Phase 1: 15/02/2009 - 06/05/2009; Phase 2: 03/23/2010 - 12/06/2010; Phase 3: 18/02/2011 - 15/05/2011. Among them, Phase 2 is of particular interest as it has been used to study rotationally modulated stellar activities in K-dwarfs (\cite{Thompson2017MNRAS}, \cite{Wise2018}). 
 
- 
+We downloaded 2617 $\alpha$ Centauri B spectra for Phase 2 (2010 data) from the ESO archive, among which we selected the 2529 cross-correlated line profiles that were constructed with a K5 stellar template, so that the overall shape of the line profiles were consistent; the number of observations actually used was then further reduced to 2488 as we took out another 41 observations that presented large radial velocity offsets and visually different cross-correlated line profiles compared with the rest of the profiles. These removed observations presented features at ephemeral time-scales, i.e. their radial velocities stood out from the other observations of the same day in the $RV_\text{HARPS}$ or $\mid RV_\text{HARPS} - RV_\text{FT,H/L}\mid$ time-series and were also classified as outliers in the full width at half maximum (FWHM) indicator, which could be results of stellar flares. After getting rid of suspicious observations, we can better assure the shape of the 2488 cross-correlated line profiles differ themselves mainly for the intrinsic stellar behaviour, rather than unpredicted causes. As for Phase 1 (2009 data) and 3 (2011 data), they were pre-filtered in a similar way and the actual amount of observations used were 2220 and 3534 respectively.
+
+Fig.~\ref{fig:Alpha_Cen_B} presents the outcomes of $\mathit{\Phi}$ESTA: $\Delta RV_\text{L} = RV_\text{HARPS} - RV_\text{FT,L}$ debuted as the activity level across the three years ($\Delta RV_\text{H} = RV_\text{FT,H} - RV_\text{HARPS}$ is not demonstrated here as it is simply proportional to $\Delta RV_\text{L}$ and works the same way). Firstly, we fit $\Delta RV_\text{L}$ with a Gaussian process model described by a quasi-periodic kernel. A Gaussian process model has the advantage of interpreting stochastic processes with a set of flexible forms of functions, constrained by the physically motivated covariance kernels. In this case, a quasi-periodic kernel is chosen such that the quasi-periodicity can be explained by the rotationally modulated activity and the self-evolving disc features. Interested readers can refer the theoretical background of Gaussian processes to a textbook-like literature \cite{Rasmussen2006} or a hitchhiker's guide of Gaussian processes for time-series modelling \cite{Roberts_gaussianprocesses}. For the implementation of the Gaussian process model, we employed the python library george delveloped by Foreman-Mackey \cite{Ambikasaran2014}. 
+
+%-------------
+\begin{figure}[tbp]
+\centering
+\includegraphics[width = 1.0 \linewidth]
+{./Figures/Methods/Alpha_Cen_B.png}
+\caption[$\alpha$ Centauri B: stellar activity analysis]
+		{Stellar activity analysis of $\alpha$ Centauri B using $\mathit{\Phi}$ESTA. The scaling of the axes are exactly the same across the three subplots for straightforward comparisons. Black dots with errorbars are radial velocities $RV_\text{HARPS} - RV_\text{FT,L}$; the orange solid line is the best fit solution with a quasi-periodic kernel using Gaussian processes and the shaded area is its $1\sigma$ boundary.}
+\label{fig:Alpha_Cen_B}
+\end{figure} 
+%-------------
+
+Secondly, the figure shows the activity level increased dramatically from 2009 to 2010, and then declined in 2011. The middle panel indicates $\alpha$ Centauri B in 2010 was dominated by a simple global feature on the stellar surface that appeared at the rotation period of around 40 days, while the other two panels show in 2009 and 2011 that the star might be covered by various local features (e.g. starspots and plage), making the disc inhomogeneous in smaller scales. Various literatures have studied and even modelled the rotational activity in an attempt to pin down the exoplanet candidate $\alpha$ Centauri Bb. We note that the prominent periodicity shown in the middle panel are also found consistent with $\log (R'_{HK})$ in original discovery paper \cite{Dumusque_Centauri_B}, as well as the equivalent widths and core flux of activity-sensitive Fe and Mg lines reported in \cite{Thompson2017MNRAS} and \cite{Wise2018}. While our scaled jitter correction $\Delta RV_\text{L}$ in Phase 2 (2010) does not match with rotational activity fit from \cite{Dumusque_Centauri_B} and \cite{Hatzes2013}, we do find some similarities shared between our $\Delta RV_\text{L}$ in Phase 3 (2011) and the corresponding trunk of rotational activity fit presented in \cite{Dumusque_Centauri_B} and \cite{Hatzes2013}, which were obtained using completely different methods from ours. 
+
+Thirdly, we obtained the stellar rotation period from the best fit solution with a quasi-periodic kernel. For the three phases that we studied from 2009 to 2011, the rotation period is consequently estimated to be 37.05, 35.70 and 36.71 days, all within $1\sigma$ of the pre-claimed $36.2\pm1.4$ days \cite{DeWarf2010}; the rotation period of Phase 3 (2011) that we obtained is highly consistent with the one from \cite{Dumusque_Centauri_B}. Unsurprisingly, the other two periods are not, as our $\Delta RV_\text{L}$ model is  different from the activity model fit in \cite{Dumusque_Centauri_B}. 
+
+While we haven't gone as far as probing the planetary candidate of $\alpha$ Centauri B, \S\ref{sec:Classification} has demonstrated $\mathit{\Phi}$ESTA does provide a quick assessment of whether a system hosts a planet / planets. 
+
+
+
 
 
 \subsection{$\epsilon$ Eridani (HD22049)}
