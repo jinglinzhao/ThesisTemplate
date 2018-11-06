@@ -89,7 +89,7 @@ From Eq.~\ref{eq:PhaseShift}, we see that the phase shift $\Delta \phi(\xi)$ is 
 	\dv{(\Delta \phi)}{\xi} = -2 \pi x_0
 \label{eq:gradient}
 \end{equation}
-where $\Delta$ is used to refer to the phase difference between a shifted line profile and an unshifted~/~referenced line profile, while the derivative refers to the response of $\Delta \phi(\xi)$ to $\xi$. $\Delta \phi(\xi)$ is measured as the change in phases $\operatorname{Arz}(\hat{h}(\xi)) - \operatorname{Arz}(\hat{f}(\xi))$. Then a linear regression model can be fit to a plot of $\Delta \phi(\xi)$ versus $\xi$ (Fig.~\ref{fig:FT}) to enable measurement of the bulk shift between two line profiles $x_0$. 
+where $\Delta$ is used to refer to the phase difference between a shifted line profile and an unshifted (referenced) line profile, while the derivative refers to the response of $\Delta \phi(\xi)$ to $\xi$. $\Delta \phi(\xi)$ is measured as the change in phases $\operatorname{Arz}(\hat{h}(\xi)) - \operatorname{Arz}(\hat{f}(\xi))$. Then a linear regression model can be fit to a plot of $\Delta \phi(\xi)$ versus $\xi$ (Fig.~\ref{fig:FT}) to enable measurement of the bulk shift between two line profiles $x_0$. 
 
 %-------------
 \begin{figure}[tbp]
@@ -207,29 +207,23 @@ We presented in Fig.~\ref{fig:rv_recovery} an accurate recovery of the radial ve
 \subsection{Cut-off frequency}
 \label{sec:noise}
 
-We mentioned in \S\ref{sec:Initial_tests} that deviation from linearity in the differential phase spectrum may arise from the photon noise injected in the simulated line profiles, and we also introduced a cut-off frequency $\xi_{H}$ in \S\ref{sec:Further_tests} to avoid dealing with frequencies higher than $\xi_{H}$. The motivation of these can be visually seen on the Fourier transformed line profile $\hat{h}(\xi)$ in a complex plane (also known as the Argand plane; Fig.~\ref{fig:FT_compelx_plane}). For each complex number $\hat{h}(\xi)$, the argument returns the phase angle and the square of the absolute value returns the power. For larger powers (i.e. $\hat{h}(\xi)$ far from the origin as viewed in Fig.~\ref{fig:FT_compelx_plane} left), the presence of noise (S/N = 10,000) barely alters the phase angle; for lower powers (i.e. $\hat{h}(\xi)$ distributed in the vicinity of the origin as viewed in Fig.~\ref{fig:FT_compelx_plane} right), a slight displacement of $\hat{h}(\xi)$ in the complex plane means a considerable change in the phase angle in the presence of even a small amount of noise (S/N = 10,000). It justifies using the Fourier transform spectral power to be the weight of each frequency, and introducing a cut-off frequency when making a linear fit of the differential phase spectrum. 
+We mentioned in \S\ref{sec:Initial_tests} that deviation from linearity in the differential phase spectrum may arise from the photon noise injected in the simulated line profiles, and we also introduced a cut-off frequency $\xi_{H}$ in \S\ref{sec:Further_tests} to avoid dealing with frequencies higher than $\xi_{H}$. The motivation of these becomes clear on the frequency representation $\hat{f}(\xi)$ of a line profile in a complex plane (a.k.a. the Argand plane; Fig.~\ref{fig:FT_compelx_plane}). For a direct comparison, $\hat{f}(\xi)$ of noise-free and S/N = 10,000 are plotted for the same frequencies.
 
-Another reason to introduce the cut-off frequency is the periodicity of the basis functions in a Fourier transform. The basis functions $e^{-2 \pi ix_0 \xi}$ repeat themselves at the periods of $1/\xi$, making measuring the shift in the time domain larger than the order of $1/\xi$ degenerate (i.e. the shifts of $x_0+k/\xi$ for $k\in\mathbb{Z}$ become indistinguishable). Nevertheless, this is very unlikely the case that we may encounter. In the test examples above, the cut-off frequency is $\xi = 0.15$ s/km, corresponding to the period of $1/\xi\sim6.7$ km/s, which is way larger than the radial velocities induced by planets that we normally study at scales of m/s amplitudes. 
+We see a scattered plot because the frequencies $\xi$ are discretely sampled. The argument of $\hat{f}(\xi)$ returns the phase angle and the square of the absolute value (or modulus) returns the power. $\hat{f}(\xi)$ with larger powers (i.e. those far from the origin as viewed in Fig.~\ref{fig:FT_compelx_plane} left) are barely affected in the presence of noise; $\hat{f}(\xi)$ with lower powers (i.e. those distributed in the vicinity of the origin as viewed in Fig.~\ref{fig:FT_compelx_plane} right) are relatively more affected by noise, as a slight displacement of $\hat{f}(\xi)$ in the complex plane means a considerable change in the phase angle. As a result, at S/N = 10,000, the distribution of $\hat{f}(\xi)$ in the zoomed-in complex plane is more scattered than a noise-free scenario, and the phase angle measurement is not as reliable as for $\hat{f}(\xi)$ with larger powers. It justifies using the Fourier transform spectral power (i.e. power spectrum) as the weight, and introducing a cut-off frequency for shift measurements. 
+
+Another potential reason to introduce the cut-off frequency is the periodicity of the basis functions in a Fourier transform. The basis functions $e^{-2 \pi ix_0 \xi}$ repeat themselves at the periods of $1/\xi$, making measuring the shift in the time domain (velocity domain for line profiles) larger than the order of $1/\xi$ degenerate (i.e. the shifts of $x_0+k/\xi$ for $k\in\mathbb{Z}$ become indistinguishable). Nevertheless for cut-off frequency $\xi \sim 0.15$ s/km, such a shift needs to be more than $1/\xi\sim6.7$~km/s to fail the measurement, while the radial velocities induced by planets are usually at m/s amplitudes and will not be a concern.
 
 %-------------
-\begin{figure}[tbp]	
-    \begin{subfigure}[b]{0.49\textwidth}
-        \includegraphics[width=\textwidth]{./Figures/Methods/7-Phase_angle_in_complex_plane_1.png}
-%        \caption{Power spectrum (stacked)}
-        \label{fig:FT_compelx_plane_1}
-    \end{subfigure}
-	~
-    \begin{subfigure}[b]{0.49\textwidth}
-        \includegraphics[width=\textwidth]{./Figures/Methods/7-Phase_angle_in_complex_plane_2.png}
-%        \caption{Differential phase spectrum}
-        \label{fig:FT_compelx_plane_2}
-    \end{subfigure}	
-    
-    \caption[Fourier transform of a line profile in a complex plane]
-    {The Fourier transform of a line profile in a complex plane. The right figure is a zoom-in of the left near the origin.}
+\begin{figure}[tbp]
+\centering
+\includegraphics[width = 0.99 \linewidth]
+{./Figures/Methods/7-complex_plane.png}
+\caption[The frequency representation $\hat{f}(\xi)$ of a line profile in a complex plane]
+{The frequency representation $\hat{f}(\xi)$ of a line profile in a complex plane. The right figure is a zoom-in of the left near the origin.}
 \label{fig:FT_compelx_plane}
-\end{figure}    
+\end{figure} 
 %-------------
+
 \FloatBarrier
 
 %This is because we only use part of the information from the original line profile -- both because we utilise a limited range of the differential phase spectra, and because we use only the phase spectra to measure this shift (ignoring the power spectra), while the total information in the original shifted line profile is contained in the combination of the power and phase spectra. 
@@ -245,9 +239,11 @@ Another reason to introduce the cut-off frequency is the periodicity of the basi
 %----------------------------------------------------------------------------------------	
 
 \subsection{Conclusion}
-In this section, we have introduced a new method for measuring radial velocities -- Fourier phase spectrum analysis (a.k.a $\mathit{\Phi}$ESTA or FIESTA). We tested this method on shifting a simulated line profile. It confirms that using the differential Fourier phase spectrum, it is possible to measure a radial velocity to similarly high precision as to fitting a line centroid by a Gaussian profile. This provides an alternative to the traditional means of obtaining the radial velocities via centroiding the line profile in real space. 
+In this section, we have introduced a new method for measuring radial velocities -- Fourier phase spectrum analysis (a.k.a $\mathit{\Phi}$ESTA or FIESTA). We tested this method on shifting a simulated line profile. It concludes that the newly proposed technique $\mathit{\Phi}$ESTA is able to measure a radial velocity shift at similarly high precision as fitting a line centroid by a Gaussian profile, and thus provides an alternative to the traditional means of obtaining the radial velocities. 
 
-In a broader context, this method will be applicable to measuring shifts of any pattern, and can be extended to higher dimensions. In this thesis, we primarily focus on its use to measure radial velocity shifts in spectral line profiles, and especially whether the Fourier transform phase velocity is more robust against the influence of changes in line deformation than traditional techniques.
+In a broader context, this method will be applicable to measuring shifts of any pattern, and can also be extended to higher dimensions. In this thesis, we primarily focus on its use to measure radial velocity shifts in spectral line profiles.
+
+%, and especially whether the Fourier transform phase velocity is more robust against the influence of changes in line deformation than traditional techniques.
 
 \pagebreak
 %----------------------------------------------------------------------------------------	
@@ -264,24 +260,25 @@ In \S~\ref{ch:FT_line_shift}, we showed that $\mathit{\Phi}$ESTA correctly measu
 \subsection{Theory}
 \label{sec:LD_Theory}
 
-For a line profile shifted by a small amount $x_0$, the same shift $x_0$ applies to \textit{all} of its basis functions. Where a line profile is changed or deformed (as opposed o simply shifted), $x_0$ becomes frequency dependent. That is to say, basis functions at different frequencies would be shifted by different amounts to produce shape changes (e.g. skewness, kurtosis and higher order terms) in the line profile. Therefore we modify the translation property of Fourier transform by rewriting $x_0$ as $x_0(\xi)$ in Eq.~\ref{eq:PhaseShift}:
+For a line profile shifted by a small amount $x_0$, the same shift $x_0$ applies to \textit{all} of its basis functions. Where a line profile is changed or deformed (as opposed to simply shifted), $x_0$ becomes frequency dependent. That is to say, basis functions at different frequencies would be shifted by different amounts to produce shape changes (e.g. skewness, kurtosis and higher order terms) in the line profile. Therefore we modify the translation property of Fourier transform by rewriting $x_0$ as $x_0(\xi)$ in Eq.~\ref{eq:PhaseShift}:
 \begin{equation}
 	\Delta \phi(\xi) = -2 \pi x_0(\xi) \xi.
 \label{eq:PhaseShift2_LPD}
 \end{equation}
-As a result, the local gradient of the differential phase spectrum, instead of $-2 \pi x_0$ in the case of no line profile deformation, becomes 
-\begin{equation}
-	\dv{(\Delta \phi)}{\xi} = -2 \pi (x_0 + \dv{x_0}{\xi}).
-\label{eq:PhaseShift3_LPD}
-\end{equation}
-Note that the dependency of $\xi$ has been taken out of $\Delta \phi(\xi)$ and 
-$x_0(\xi)$ in writing the differential equation above. 
-
-In principle, we could numerically solve the differential equation (either Eq.~\ref{eq:PhaseShift2_LPD} or Eq.~\ref{eq:PhaseShift3_LPD}) based on the measured $\Delta \phi$ or local gradient d$(\Delta \phi)$/d$\xi$ to obtain $x_0(\xi)$, to further seek to understand which frequency modes are related to stellar variability, as distinct from frequency modes responding to a bulk shift of a line profile. As a simplistic approach, we could use an \textit{averaged} shift $\overline{x_0(\xi)}$ to describe an overall shift of various frequency modes and rewrite Eq.~\ref{eq:PhaseShift2_LPD} as 
+%As a result, the local gradient of the differential phase spectrum, instead of $-2 \pi x_0$ in the case of no line profile deformation, becomes 
+%\begin{equation}
+%	\dv{(\Delta \phi)}{\xi} = -2 \pi (x_0 + \dv{x_0}{\xi}).
+%\label{eq:PhaseShift3_LPD}
+%\end{equation}
+%Note that the dependency of $\xi$ has been taken out of $\Delta \phi(\xi)$ and 
+%$x_0(\xi)$ in writing the differential equation above. 
+$x_0(\xi)$ contains all the information of how much a line is deformed (as well as shifted). In other words, $x_0(\xi)$ can parametrize the line deformation. In principle, we could derive $x_0(\xi)$ from the expression above to further seek to understand which frequency modes are related to stellar variability, as distinct from frequency modes responding to a bulk shift of a line profile. We opt for a simplistic approach instead -- use an \textit{averaged} shift $\overline{x_0(\xi)}$ to describe an overall shift of various frequency modes and rewrite Eq.~\ref{eq:PhaseShift2_LPD} as 
 \begin{equation}
 	\Delta \phi(\xi) = -2 \pi \overline{x_0(\xi)} \xi
 \end{equation}
-where $\overline{x_0(\xi)}$ is treated as a constant for the range of frequencies that we study. Then we can study the effective line shifts in the lower frequency range versus the higher frequency range (i.e. applying a low-pass and a high-pass filter). 
+where $\overline{x_0(\xi)}$ is treated as a constant for the range of frequencies of interest. Then we can study the effective line shifts in the lower frequency range versus the higher frequency range the same way as we did in the case of a pure line shift. 
+
+%numerically solve the differential equation (either Eq.~\ref{eq:PhaseShift2_LPD} or Eq.~\ref{eq:PhaseShift3_LPD}) based on the measured $\Delta \phi$ or local gradient d$(\Delta \phi)$/d$\xi$ to obtain $x_0(\xi)$, 
 
 %----------------------------------------------------------------------------------------	
 
@@ -290,7 +287,7 @@ where $\overline{x_0(\xi)}$ is treated as a constant for the range of frequencie
 
 In \S~\ref{ch:FT_line_shift}, we used the SOAP simulator to generate a line profile that resembles the HARPS observation to study a line shift in the Fourier space. In this section, we instead use SOAP~2.0 to study line deformations arising from starspots. 
 
-We injected three spots with different longitudes, latitudes and sizes (parameters specified in Table~\ref{table:spot_configurations}) to model an emitting star, and generated 100 cross-correlation functions for the resulting  deformed line profiles evenly sampled throughout the rotation period of the star (Fig.~\ref{fig:line_profiles_deformation}). A very small amount of noise (equivalent to a S/N = 10,000) was also added into the line profiles in the simulation. 
+We injected three spots with different longitudes, latitudes and sizes (parameters were arbitrarily chosen and specified in Table~\ref{table:spot_configurations}) to model an emitting star, and generated 100 cross-correlation functions for the resulting  deformed line profiles evenly sampled throughout one rotation period of the star (Fig.~\ref{fig:line_profiles_deformation}). A very small amount of noise (equivalent to a S/N = 10,000) was also added into the line profiles in the simulation. 
 
 %-------------
 \begin{table}[htbp]
@@ -334,7 +331,7 @@ Spot 3 & $51^\circ$  & $52^\circ$  & 0.50\% \\
 \subsection{Fourier phase spectrum analysis}
 
 \subsubsection{$RV_\text{FT}$}
-We then take the same approach as previously (\S~\ref{ch:FT_line_shift}) to obtain the power spectrum and the differential phase spectrum (Fig.~\ref{fig:FT_process_LPD}) to measure radial velocities $RV_\text{FT}$. It is immediately apparent that a line deformation contributes to a skewed differential phase spectrum, as the the shift $x_0(\xi)$, which is related to the local gradient of the differential phase spectrum, becomes frequency dependent. 
+We then took the same approach as previously (\S~\ref{ch:FT_line_shift}) to obtain the power spectrum and the differential phase spectrum (Fig.~\ref{fig:FT_process_LPD}) to measure radial velocities $RV_\text{FT}$. It is immediately apparent that a line deformation contributes to a skewed differential phase spectrum, as the the shift $x_0(\xi)$, which is proportional to the local gradient of the differential phase spectrum, becomes frequency dependent. 
 
 %-------------
 \begin{figure}[tbp]	

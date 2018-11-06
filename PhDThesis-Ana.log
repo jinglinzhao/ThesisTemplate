@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.10.18)  6 NOV 2018 16:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.10.18)  6 NOV 2018 18:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2154,204 +2154,194 @@ Package pdftex.def Info: ./Figures/Methods/5-LINE_SHIFT_ONLY-HL.png  used on in
 put line 198.
 (pdftex.def)             Requested size: 292.22987pt x 219.1109pt.
  [12 <./Figures/Methods/5-LINE_SHIFT_ONLY-HL.png (PNG copy)>]
-<./Figures/Methods/7-Phase_angle_in_complex_plane_1.png, id=630, 562.2606pt x 4
-21.575pt>
-File: ./Figures/Methods/7-Phase_angle_in_complex_plane_1.png Graphic file (type
- png)
-<use ./Figures/Methods/7-Phase_angle_in_complex_plane_1.png>
-Package pdftex.def Info: ./Figures/Methods/7-Phase_angle_in_complex_plane_1.png
-  used on input line 217.
-(pdftex.def)             Requested size: 204.56409pt x 153.38148pt.
-<./Figures/Methods/7-Phase_angle_in_complex_plane_2.png, id=631, 562.2606pt x 4
-21.575pt>
-File: ./Figures/Methods/7-Phase_angle_in_complex_plane_2.png Graphic file (type
- png)
-<use ./Figures/Methods/7-Phase_angle_in_complex_plane_2.png>
-Package pdftex.def Info: ./Figures/Methods/7-Phase_angle_in_complex_plane_2.png
-  used on input line 223.
-(pdftex.def)             Requested size: 204.56409pt x 153.38148pt.
- [13 <./Figures/Methods/7-Phase_angle_in_complex_plane_1.png (PNG copy)> <./Fig
-ures/Methods/7-Phase_angle_in_complex_plane_2.png (PNG copy)>] [14] [15]
-<./Figures/Methods/LPD1-Line_Profile.png, id=659, 562.2606pt x 421.575pt>
+<./Figures/Methods/7-complex_plane.png, id=630, 1905.1175pt x 709.65125pt>
+File: ./Figures/Methods/7-complex_plane.png Graphic file (type png)
+<use ./Figures/Methods/7-complex_plane.png>
+Package pdftex.def Info: ./Figures/Methods/7-complex_plane.png  used on input l
+ine 220.
+(pdftex.def)             Requested size: 413.30063pt x 153.94725pt.
+ [13 <./Figures/Methods/7-complex_plane.png>]
+[14] [15]
+<./Figures/Methods/LPD1-Line_Profile.png, id=656, 562.2606pt x 421.575pt>
 File: ./Figures/Methods/LPD1-Line_Profile.png Graphic file (type png)
 <use ./Figures/Methods/LPD1-Line_Profile.png>
 Package pdftex.def Info: ./Figures/Methods/LPD1-Line_Profile.png  used on input
- line 317.
+ line 314.
 (pdftex.def)             Requested size: 204.56409pt x 153.38148pt.
-<./Figures/Methods/LPD1-Differential_line_Profile.png, id=660, 562.2606pt x 421
+<./Figures/Methods/LPD1-Differential_line_Profile.png, id=657, 562.2606pt x 421
 .575pt>
 File: ./Figures/Methods/LPD1-Differential_line_Profile.png Graphic file (type p
 ng)
 <use ./Figures/Methods/LPD1-Differential_line_Profile.png>
 Package pdftex.def Info: ./Figures/Methods/LPD1-Differential_line_Profile.png  
-used on input line 322.
+used on input line 319.
 (pdftex.def)             Requested size: 204.56409pt x 153.38148pt.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 336.
+(hyperref)                removing `math shift' on input line 333.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 336.
+(hyperref)                removing `subscript' on input line 333.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 336.
+(hyperref)                removing `math shift' on input line 333.
 
-[16 <./Figures/Methods/LPD1-Line_Profile.png (PNG copy)> <./Figures/Methods/LPD
-1-Differential_line_Profile.png (PNG copy)>]
-<./Figures/Methods/LPD2-FT_power.png, id=669, 562.2606pt x 421.575pt>
+<./Figures/Methods/LPD2-FT_power.png, id=660, 562.2606pt x 421.575pt>
 File: ./Figures/Methods/LPD2-FT_power.png Graphic file (type png)
 <use ./Figures/Methods/LPD2-FT_power.png>
 Package pdftex.def Info: ./Figures/Methods/LPD2-FT_power.png  used on input lin
-e 342.
+e 339.
 (pdftex.def)             Requested size: 204.56409pt x 153.38148pt.
-<./Figures/Methods/LPD4-Relative_phase_angle.png, id=670, 562.2606pt x 421.575p
+<./Figures/Methods/LPD4-Relative_phase_angle.png, id=661, 562.2606pt x 421.575p
 t>
 File: ./Figures/Methods/LPD4-Relative_phase_angle.png Graphic file (type png)
 <use ./Figures/Methods/LPD4-Relative_phase_angle.png>
 Package pdftex.def Info: ./Figures/Methods/LPD4-Relative_phase_angle.png  used 
-on input line 347.
+on input line 344.
 (pdftex.def)             Requested size: 204.56409pt x 153.38148pt.
-<./Figures/Methods/5-JITTER_ONLY_3.png, id=674, 562.2606pt x 421.575pt>
+[16 <./Figures/Methods/LPD1-Line_Profile.png (PNG copy)> <./Figures/Methods/LPD
+1-Differential_line_Profile.png (PNG copy)>]
+<./Figures/Methods/5-JITTER_ONLY_3.png, id=671, 562.2606pt x 421.575pt>
 File: ./Figures/Methods/5-JITTER_ONLY_3.png Graphic file (type png)
 <use ./Figures/Methods/5-JITTER_ONLY_3.png>
 Package pdftex.def Info: ./Figures/Methods/5-JITTER_ONLY_3.png  used on input l
-ine 364.
+ine 361.
 (pdftex.def)             Requested size: 292.22987pt x 219.1109pt.
  [17 <./Figures/Methods/LPD2-FT_power.png (PNG copy)> <./Figures/Methods/LPD4-R
 elative_phase_angle.png (PNG copy)>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 373.
+(hyperref)                removing `math shift' on input line 370.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 373.
+(hyperref)                removing `subscript' on input line 370.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 373.
+(hyperref)                removing `math shift' on input line 370.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 373.
+(hyperref)                removing `math shift' on input line 370.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 373.
+(hyperref)                removing `subscript' on input line 370.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 373.
+(hyperref)                removing `math shift' on input line 370.
 
 [18 <./Figures/Methods/5-JITTER_ONLY_3.png (PNG copy)>]
-<./Figures/Methods/LPD4-Relative_phase_angle_L.png, id=690, 562.2606pt x 421.57
+<./Figures/Methods/LPD4-Relative_phase_angle_L.png, id=687, 562.2606pt x 421.57
 5pt>
 File: ./Figures/Methods/LPD4-Relative_phase_angle_L.png Graphic file (type png)
 
 <use ./Figures/Methods/LPD4-Relative_phase_angle_L.png>
 Package pdftex.def Info: ./Figures/Methods/LPD4-Relative_phase_angle_L.png  use
-d on input line 383.
+d on input line 380.
 (pdftex.def)             Requested size: 204.56409pt x 153.38148pt.
-<./Figures/Methods/LPD4-Relative_phase_angle_H.png, id=691, 562.2606pt x 421.57
+<./Figures/Methods/LPD4-Relative_phase_angle_H.png, id=688, 562.2606pt x 421.57
 5pt>
 File: ./Figures/Methods/LPD4-Relative_phase_angle_H.png Graphic file (type png)
 
 <use ./Figures/Methods/LPD4-Relative_phase_angle_H.png>
 Package pdftex.def Info: ./Figures/Methods/LPD4-Relative_phase_angle_H.png  use
-d on input line 388.
+d on input line 385.
 (pdftex.def)             Requested size: 204.56409pt x 153.38148pt.
-<./Figures/Methods/5-JITTER_ONLY_1.png, id=694, 562.2606pt x 421.575pt>
+<./Figures/Methods/5-JITTER_ONLY_1.png, id=691, 562.2606pt x 421.575pt>
 File: ./Figures/Methods/5-JITTER_ONLY_1.png Graphic file (type png)
 <use ./Figures/Methods/5-JITTER_ONLY_1.png>
 Package pdftex.def Info: ./Figures/Methods/5-JITTER_ONLY_1.png  used on input l
-ine 402.
+ine 399.
 (pdftex.def)             Requested size: 292.22987pt x 219.1109pt.
  [19 <./Figures/Methods/LPD4-Relative_phase_angle_L.png (PNG copy)> <./Figures/
 Methods/LPD4-Relative_phase_angle_H.png (PNG copy)> <./Figures/Methods/5-JITTER
 _ONLY_1.png (PNG copy)>]
-<./Figures/Methods/5-JITTER_ONLY_4.png, id=703, 562.2606pt x 421.575pt>
+<./Figures/Methods/5-JITTER_ONLY_4.png, id=700, 562.2606pt x 421.575pt>
 File: ./Figures/Methods/5-JITTER_ONLY_4.png Graphic file (type png)
 <use ./Figures/Methods/5-JITTER_ONLY_4.png>
 Package pdftex.def Info: ./Figures/Methods/5-JITTER_ONLY_4.png  used on input l
-ine 415.
+ine 412.
 (pdftex.def)             Requested size: 292.22987pt x 219.1109pt.
 [20 <./Figures/Methods/5-JITTER_ONLY_4.png (PNG copy)>] [21]
-<./Figures/Methods/5-PLANET_AND_JITTER2.png, id=734, 911.405pt x 885.3075pt>
+<./Figures/Methods/5-PLANET_AND_JITTER2.png, id=731, 911.405pt x 885.3075pt>
 File: ./Figures/Methods/5-PLANET_AND_JITTER2.png Graphic file (type png)
 <use ./Figures/Methods/5-PLANET_AND_JITTER2.png>
 Package pdftex.def Info: ./Figures/Methods/5-PLANET_AND_JITTER2.png  used on in
-put line 478.
+put line 475.
 (pdftex.def)             Requested size: 413.30063pt x 401.47818pt.
 
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 485.
+(hyperref)                than one, level fixed on input line 482.
 
 [22] [23 <./Figures/Methods/5-PLANET_AND_JITTER2.png (PNG copy)>] [24] [25]
 [26] [27]
-<./Figures/Methods/Fitting_3-MCMC2.png, id=794, 1708.3825pt x 1709.38625pt>
+<./Figures/Methods/Fitting_3-MCMC2.png, id=791, 1708.3825pt x 1709.38625pt>
 File: ./Figures/Methods/Fitting_3-MCMC2.png Graphic file (type png)
 <use ./Figures/Methods/Fitting_3-MCMC2.png>
 Package pdftex.def Info: ./Figures/Methods/Fitting_3-MCMC2.png  used on input l
-ine 580.
+ine 577.
 (pdftex.def)             Requested size: 204.56409pt x 204.67409pt.
-<./Figures/Methods/Fitting_3-MCMC1_XY.png, id=795, 1729.46124pt x 1727.45375pt>
+<./Figures/Methods/Fitting_3-MCMC1_XY.png, id=792, 1729.46124pt x 1727.45375pt>
 
 File: ./Figures/Methods/Fitting_3-MCMC1_XY.png Graphic file (type png)
 <use ./Figures/Methods/Fitting_3-MCMC1_XY.png>
 Package pdftex.def Info: ./Figures/Methods/Fitting_3-MCMC1_XY.png  used on inpu
-t line 585.
+t line 582.
 (pdftex.def)             Requested size: 204.56409pt x 204.30696pt.
  [28 <./Figures/Methods/Fitting_3-MCMC2.png> <./Figures/Methods/Fitting_3-MCMC1
 _XY.png>]
-<./Figures/Methods/Fitting_p2j2sn10000.png, id=805, 1996.45876pt x 732.7375pt>
+<./Figures/Methods/Fitting_p2j2sn10000.png, id=802, 1996.45876pt x 732.7375pt>
 File: ./Figures/Methods/Fitting_p2j2sn10000.png Graphic file (type png)
 <use ./Figures/Methods/Fitting_p2j2sn10000.png>
 Package pdftex.def Info: ./Figures/Methods/Fitting_p2j2sn10000.png  used on inp
-ut line 603.
+ut line 600.
 (pdftex.def)             Requested size: 413.30063pt x 151.688pt.
-<./Figures/Methods/Fitting_5-Fit2.png, id=806, 462.528pt x 346.896pt>
+<./Figures/Methods/Fitting_5-Fit2.png, id=803, 462.528pt x 346.896pt>
 File: ./Figures/Methods/Fitting_5-Fit2.png Graphic file (type png)
 <use ./Figures/Methods/Fitting_5-Fit2.png>
 Package pdftex.def Info: ./Figures/Methods/Fitting_5-Fit2.png  used on input li
-ne 608.
+ne 605.
 (pdftex.def)             Requested size: 204.56409pt x 153.42339pt.
-<./Figures/Methods/Fitting_5-Fit1_XY.png, id=807, 462.528pt x 346.896pt>
+<./Figures/Methods/Fitting_5-Fit1_XY.png, id=804, 462.528pt x 346.896pt>
 File: ./Figures/Methods/Fitting_5-Fit1_XY.png Graphic file (type png)
 <use ./Figures/Methods/Fitting_5-Fit1_XY.png>
 Package pdftex.def Info: ./Figures/Methods/Fitting_5-Fit1_XY.png  used on input
- line 611.
+ line 608.
 (pdftex.def)             Requested size: 204.56409pt x 153.42339pt.
-<./Figures/Methods/Histogram_new1_p2_sn10000.png, id=810, 462.528pt x 346.896pt
+<./Figures/Methods/Histogram_new1_p2_sn10000.png, id=807, 462.528pt x 346.896pt
 >
 File: ./Figures/Methods/Histogram_new1_p2_sn10000.png Graphic file (type png)
 <use ./Figures/Methods/Histogram_new1_p2_sn10000.png>
 Package pdftex.def Info: ./Figures/Methods/Histogram_new1_p2_sn10000.png  used 
-on input line 628.
+on input line 625.
 (pdftex.def)             Requested size: 204.56409pt x 153.42339pt.
-<./Figures/Methods/Histogram_new2_p2_sn10000.png, id=811, 462.528pt x 346.896pt
+<./Figures/Methods/Histogram_new2_p2_sn10000.png, id=808, 462.528pt x 346.896pt
 >
 File: ./Figures/Methods/Histogram_new2_p2_sn10000.png Graphic file (type png)
 <use ./Figures/Methods/Histogram_new2_p2_sn10000.png>
 Package pdftex.def Info: ./Figures/Methods/Histogram_new2_p2_sn10000.png  used 
-on input line 631.
+on input line 628.
 (pdftex.def)             Requested size: 204.56409pt x 153.42339pt.
-<./Figures/Methods/Histogram_new1_p2_sn2000.png, id=812, 462.528pt x 346.896pt>
+<./Figures/Methods/Histogram_new1_p2_sn2000.png, id=809, 462.528pt x 346.896pt>
 
 File: ./Figures/Methods/Histogram_new1_p2_sn2000.png Graphic file (type png)
 <use ./Figures/Methods/Histogram_new1_p2_sn2000.png>
 Package pdftex.def Info: ./Figures/Methods/Histogram_new1_p2_sn2000.png  used o
-n input line 637.
+n input line 634.
 (pdftex.def)             Requested size: 204.56409pt x 153.42339pt.
-<./Figures/Methods/Histogram_new2_p2_sn2000.png, id=813, 462.528pt x 346.896pt>
+<./Figures/Methods/Histogram_new2_p2_sn2000.png, id=810, 462.528pt x 346.896pt>
 
 File: ./Figures/Methods/Histogram_new2_p2_sn2000.png Graphic file (type png)
 <use ./Figures/Methods/Histogram_new2_p2_sn2000.png>
 Package pdftex.def Info: ./Figures/Methods/Histogram_new2_p2_sn2000.png  used o
-n input line 640.
+n input line 637.
 (pdftex.def)             Requested size: 204.56409pt x 153.42339pt.
 
 
@@ -2359,57 +2349,57 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [29 <./Figures/Methods/Fitting_p2j2sn10000.png> <./Figures/Methods/Fitting_5-Fi
 t2.png> <./Figures/Methods/Fitting_5-Fit1_XY.png>]
-<./Figures/Methods/Fitting_p20j2sn10000.png, id=826, 1943.26pt x 713.66624pt>
+<./Figures/Methods/Fitting_p20j2sn10000.png, id=823, 1943.26pt x 713.66624pt>
 File: ./Figures/Methods/Fitting_p20j2sn10000.png Graphic file (type png)
 <use ./Figures/Methods/Fitting_p20j2sn10000.png>
 Package pdftex.def Info: ./Figures/Methods/Fitting_p20j2sn10000.png  used on in
-put line 677.
+put line 674.
 (pdftex.def)             Requested size: 413.30063pt x 151.78001pt.
-<./Figures/Methods/Fitting_5-Fit2_a20.png, id=827, 462.528pt x 346.896pt>
+<./Figures/Methods/Fitting_5-Fit2_a20.png, id=824, 462.528pt x 346.896pt>
 File: ./Figures/Methods/Fitting_5-Fit2_a20.png Graphic file (type png)
 <use ./Figures/Methods/Fitting_5-Fit2_a20.png>
 Package pdftex.def Info: ./Figures/Methods/Fitting_5-Fit2_a20.png  used on inpu
-t line 682.
+t line 679.
 (pdftex.def)             Requested size: 204.56409pt x 153.42339pt.
-<./Figures/Methods/Fitting_5-Fit1_XYZ_a20.png, id=828, 462.528pt x 346.896pt>
+<./Figures/Methods/Fitting_5-Fit1_XYZ_a20.png, id=825, 462.528pt x 346.896pt>
 File: ./Figures/Methods/Fitting_5-Fit1_XYZ_a20.png Graphic file (type png)
 <use ./Figures/Methods/Fitting_5-Fit1_XYZ_a20.png>
 Package pdftex.def Info: ./Figures/Methods/Fitting_5-Fit1_XYZ_a20.png  used on 
-input line 685.
+input line 682.
 (pdftex.def)             Requested size: 204.56409pt x 153.42339pt.
  [30 <./Figures/Methods/Histogram_new1_p2_sn10000.png> <./Figures/Methods/Histo
 gram_new2_p2_sn10000.png> <./Figures/Methods/Histogram_new1_p2_sn2000.png> <./F
 igures/Methods/Histogram_new2_p2_sn2000.png>]
-<./Figures/Methods/Histogram_new1_p20_sn10000.png, id=841, 462.528pt x 346.896p
+<./Figures/Methods/Histogram_new1_p20_sn10000.png, id=837, 462.528pt x 346.896p
 t>
 File: ./Figures/Methods/Histogram_new1_p20_sn10000.png Graphic file (type png)
 <use ./Figures/Methods/Histogram_new1_p20_sn10000.png>
 Package pdftex.def Info: ./Figures/Methods/Histogram_new1_p20_sn10000.png  used
- on input line 700.
+ on input line 697.
 (pdftex.def)             Requested size: 204.56409pt x 153.42339pt.
-<./Figures/Methods/Histogram_new2_p20_sn10000.png, id=842, 462.528pt x 346.896p
+<./Figures/Methods/Histogram_new2_p20_sn10000.png, id=838, 462.528pt x 346.896p
 t>
 File: ./Figures/Methods/Histogram_new2_p20_sn10000.png Graphic file (type png)
 <use ./Figures/Methods/Histogram_new2_p20_sn10000.png>
 Package pdftex.def Info: ./Figures/Methods/Histogram_new2_p20_sn10000.png  used
- on input line 703.
+ on input line 700.
 (pdftex.def)             Requested size: 204.56409pt x 153.42339pt.
-<./Figures/Methods/Histogram_new1_p20_sn2000.png, id=843, 462.528pt x 346.896pt
+<./Figures/Methods/Histogram_new1_p20_sn2000.png, id=839, 462.528pt x 346.896pt
 >
 File: ./Figures/Methods/Histogram_new1_p20_sn2000.png Graphic file (type png)
 <use ./Figures/Methods/Histogram_new1_p20_sn2000.png>
 Package pdftex.def Info: ./Figures/Methods/Histogram_new1_p20_sn2000.png  used 
-on input line 709.
+on input line 706.
 (pdftex.def)             Requested size: 204.56409pt x 153.42339pt.
-<./Figures/Methods/Histogram_new2_p20_sn2000.png, id=844, 462.528pt x 346.896pt
+<./Figures/Methods/Histogram_new2_p20_sn2000.png, id=840, 462.528pt x 346.896pt
 >
 File: ./Figures/Methods/Histogram_new2_p20_sn2000.png Graphic file (type png)
 <use ./Figures/Methods/Histogram_new2_p20_sn2000.png>
 Package pdftex.def Info: ./Figures/Methods/Histogram_new2_p20_sn2000.png  used 
-on input line 712.
+on input line 709.
 (pdftex.def)             Requested size: 204.56409pt x 153.42339pt.
 
-Overfull \hbox (5.95683pt too wide) in paragraph at lines 725--734
+Overfull \hbox (5.95683pt too wide) in paragraph at lines 722--731
  [][] 
  []
 
@@ -2418,57 +2408,57 @@ it2_a20.png> <./Figures/Methods/Fitting_5-Fit1_XYZ_a20.png>] [32 <./Figures/Met
 hods/Histogram_new1_p20_sn10000.png> <./Figures/Methods/Histogram_new2_p20_sn10
 000.png> <./Figures/Methods/Histogram_new1_p20_sn2000.png> <./Figures/Methods/H
 istogram_new2_p20_sn2000.png>]
-<./Figures/Methods/Histogram_new1_null_10000.png, id=869, 462.528pt x 346.896pt
+<./Figures/Methods/Histogram_new1_null_10000.png, id=866, 462.528pt x 346.896pt
 >
 File: ./Figures/Methods/Histogram_new1_null_10000.png Graphic file (type png)
 <use ./Figures/Methods/Histogram_new1_null_10000.png>
 Package pdftex.def Info: ./Figures/Methods/Histogram_new1_null_10000.png  used 
-on input line 769.
+on input line 766.
 (pdftex.def)             Requested size: 204.56409pt x 153.42339pt.
-<./Figures/Methods/Histogram_new2_null_10000.png, id=870, 462.528pt x 346.896pt
+<./Figures/Methods/Histogram_new2_null_10000.png, id=867, 462.528pt x 346.896pt
 >
 File: ./Figures/Methods/Histogram_new2_null_10000.png Graphic file (type png)
 <use ./Figures/Methods/Histogram_new2_null_10000.png>
 Package pdftex.def Info: ./Figures/Methods/Histogram_new2_null_10000.png  used 
-on input line 772.
+on input line 769.
 (pdftex.def)             Requested size: 204.56409pt x 153.42339pt.
-<./Figures/Methods/Histogram_new1_null_2000.png, id=871, 462.528pt x 346.896pt>
+<./Figures/Methods/Histogram_new1_null_2000.png, id=868, 462.528pt x 346.896pt>
 
 File: ./Figures/Methods/Histogram_new1_null_2000.png Graphic file (type png)
 <use ./Figures/Methods/Histogram_new1_null_2000.png>
 Package pdftex.def Info: ./Figures/Methods/Histogram_new1_null_2000.png  used o
-n input line 778.
+n input line 775.
 (pdftex.def)             Requested size: 204.56409pt x 153.42339pt.
-<./Figures/Methods/Histogram_new2_null_2000.png, id=872, 462.528pt x 346.896pt>
+<./Figures/Methods/Histogram_new2_null_2000.png, id=869, 462.528pt x 346.896pt>
 
 File: ./Figures/Methods/Histogram_new2_null_2000.png Graphic file (type png)
 <use ./Figures/Methods/Histogram_new2_null_2000.png>
 Package pdftex.def Info: ./Figures/Methods/Histogram_new2_null_2000.png  used o
-n input line 781.
+n input line 778.
 (pdftex.def)             Requested size: 204.56409pt x 153.42339pt.
-<./Figures/Methods/Correlation_2pj.png, id=874, 1445.4pt x 361.35pt>
+<./Figures/Methods/Correlation_2pj.png, id=871, 1445.4pt x 361.35pt>
 File: ./Figures/Methods/Correlation_2pj.png Graphic file (type png)
 <use ./Figures/Methods/Correlation_2pj.png>
 Package pdftex.def Info: ./Figures/Methods/Correlation_2pj.png  used on input l
-ine 802.
+ine 799.
 (pdftex.def)             Requested size: 417.47307pt x 104.36977pt.
-<./Figures/Methods/Correlation_20pj.png, id=875, 1445.4pt x 361.35pt>
+<./Figures/Methods/Correlation_20pj.png, id=872, 1445.4pt x 361.35pt>
 File: ./Figures/Methods/Correlation_20pj.png Graphic file (type png)
 <use ./Figures/Methods/Correlation_20pj.png>
 Package pdftex.def Info: ./Figures/Methods/Correlation_20pj.png  used on input 
-line 807.
+line 804.
 (pdftex.def)             Requested size: 417.47307pt x 104.36977pt.
-<./Figures/Methods/Correlation_null.png, id=876, 1445.4pt x 361.35pt>
+<./Figures/Methods/Correlation_null.png, id=873, 1445.4pt x 361.35pt>
 File: ./Figures/Methods/Correlation_null.png Graphic file (type png)
 <use ./Figures/Methods/Correlation_null.png>
 Package pdftex.def Info: ./Figures/Methods/Correlation_null.png  used on input 
-line 812.
+line 809.
 (pdftex.def)             Requested size: 417.47307pt x 104.36977pt.
-<./Figures/Methods/Correlation_0jitter.png, id=877, 1445.4pt x 361.35pt>
+<./Figures/Methods/Correlation_0jitter.png, id=874, 1445.4pt x 361.35pt>
 File: ./Figures/Methods/Correlation_0jitter.png Graphic file (type png)
 <use ./Figures/Methods/Correlation_0jitter.png>
 Package pdftex.def Info: ./Figures/Methods/Correlation_0jitter.png  used on inp
-ut line 817.
+ut line 814.
 (pdftex.def)             Requested size: 417.47307pt x 104.36977pt.
  [33 <./Figures/Methods/Histogram_new1_null_10000.png> <./Figures/Methods/Histo
 gram_new2_null_10000.png> <./Figures/Methods/Histogram_new1_null_2000.png> <./F
@@ -2478,99 +2468,99 @@ igures/Methods/Histogram_new2_null_2000.png>]
 jitter.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 829.
+(hyperref)                removing `math shift' on input line 826.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\Phi' on input line 829.
+(hyperref)                removing `\Phi' on input line 826.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 829.
+(hyperref)                removing `math shift' on input line 826.
 
-<./Figures/Methods/0-Periodogram_1.png, id=901, 462.528pt x 346.896pt>
+<./Figures/Methods/0-Periodogram_1.png, id=898, 462.528pt x 346.896pt>
 File: ./Figures/Methods/0-Periodogram_1.png Graphic file (type png)
 <use ./Figures/Methods/0-Periodogram_1.png>
 Package pdftex.def Info: ./Figures/Methods/0-Periodogram_1.png  used on input l
-ine 838.
+ine 835.
 (pdftex.def)             Requested size: 204.56409pt x 153.42339pt.
-<./Figures/Methods/0-Periodogram_2.png, id=902, 462.528pt x 346.896pt>
+<./Figures/Methods/0-Periodogram_2.png, id=899, 462.528pt x 346.896pt>
 File: ./Figures/Methods/0-Periodogram_2.png Graphic file (type png)
 <use ./Figures/Methods/0-Periodogram_2.png>
 Package pdftex.def Info: ./Figures/Methods/0-Periodogram_2.png  used on input l
-ine 844.
+ine 841.
 (pdftex.def)             Requested size: 204.56409pt x 153.42339pt.
 [35 <./Figures/Methods/0-Periodogram_1.png> <./Figures/Methods/0-Periodogram_2.
 png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 859.
+(hyperref)                removing `math shift' on input line 856.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\Phi' on input line 859.
+(hyperref)                removing `\Phi' on input line 856.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 859.
+(hyperref)                removing `math shift' on input line 856.
 
-<./Figures/Methods/rmeffect.png, id=915, 1022.82124pt x 475.7775pt>
+<./Figures/Methods/rmeffect.png, id=912, 1022.82124pt x 475.7775pt>
 File: ./Figures/Methods/rmeffect.png Graphic file (type png)
 <use ./Figures/Methods/rmeffect.png>
-Package pdftex.def Info: ./Figures/Methods/rmeffect.png  used on input line 872
+Package pdftex.def Info: ./Figures/Methods/rmeffect.png  used on input line 869
 .
 (pdftex.def)             Requested size: 333.97972pt x 155.35182pt.
 [36 <./Figures/Methods/rmeffect.png>]
-<./Figures/Methods/HD189733.png, id=939, 2110.88625pt x 797.98125pt>
+<./Figures/Methods/HD189733.png, id=936, 2110.88625pt x 797.98125pt>
 File: ./Figures/Methods/HD189733.png Graphic file (type png)
 <use ./Figures/Methods/HD189733.png>
-Package pdftex.def Info: ./Figures/Methods/HD189733.png  used on input line 888
+Package pdftex.def Info: ./Figures/Methods/HD189733.png  used on input line 885
 .
 (pdftex.def)             Requested size: 417.47307pt x 157.81569pt.
  [37 <./Figures/Methods/HD189733.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 902.
+(hyperref)                removing `math shift' on input line 899.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\alpha' on input line 902.
+(hyperref)                removing `\alpha' on input line 899.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 902.
+(hyperref)                removing `math shift' on input line 899.
 
 [38]
-<./Figures/Methods/Alpha_Cen_B.png, id=967, 1011.78pt x 1011.78pt>
+<./Figures/Methods/Alpha_Cen_B.png, id=964, 1011.78pt x 1011.78pt>
 File: ./Figures/Methods/Alpha_Cen_B.png Graphic file (type png)
 <use ./Figures/Methods/Alpha_Cen_B.png>
 Package pdftex.def Info: ./Figures/Methods/Alpha_Cen_B.png  used on input line 
-914.
+911.
 (pdftex.def)             Requested size: 417.47307pt x 417.47247pt.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 931.
+(hyperref)                removing `math shift' on input line 928.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\epsilon' on input line 931.
+(hyperref)                removing `\epsilon' on input line 928.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 931.
+(hyperref)                removing `math shift' on input line 928.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 933.
+(hyperref)                removing `math shift' on input line 930.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\tau' on input line 933.
+(hyperref)                removing `\tau' on input line 930.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 933.
+(hyperref)                removing `math shift' on input line 930.
 
 [39] [40 <./Figures/Methods/Alpha_Cen_B.png>] [41] (./Chapters/Methods.bbl
 (./PhDThesis-Ana.brf)
@@ -2604,10 +2594,10 @@ Package rerunfilecheck Info: File `PhDThesis-Ana.brf' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 164.
  ) 
 Here is how much of TeX's memory you used:
- 25526 strings out of 492649
- 422187 string characters out of 6129621
- 496822 words of memory out of 5000000
- 28625 multiletter control sequences out of 15000+600000
+ 25515 strings out of 492649
+ 421692 string characters out of 6129621
+ 496524 words of memory out of 5000000
+ 28616 multiletter control sequences out of 15000+600000
  547339 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  49i,14n,50p,10457b,586s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2634,10 +2624,10 @@ xmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2018/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2018/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2018/texmf
 -dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on PhDThesis-Ana.pdf (62 pages, 5831063 bytes).
+Output written on PhDThesis-Ana.pdf (62 pages, 5834092 bytes).
 PDF statistics:
- 1160 PDF objects out of 1200 (max. 8388607)
- 937 compressed objects within 10 object streams
- 204 named destinations out of 1000 (max. 500000)
- 611 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1157 PDF objects out of 1200 (max. 8388607)
+ 934 compressed objects within 10 object streams
+ 203 named destinations out of 1000 (max. 500000)
+ 606 words of extra memory for PDF output out of 10000 (max. 10000000)
 
