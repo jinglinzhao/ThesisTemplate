@@ -134,7 +134,7 @@ subjected to radial velocity shifts evenly spaced between 0 and 10\,m/s (Fig.~\r
 \end{figure}	
 %-------------
 
-The Fourier transform of these 100 spectral line profiles divides the information into two parts: (1) the power spectra (Fig.~\ref{fig:power_spectrum}) and (2) the phase spectra (shown in Fig.~\ref{fig:dps} as the differential phase spectra relative to the phase spectrum of the unshifted line profile). We see that most information is concentrated towards the centre of the power spectrum (i.e. the lower frequency range), and as expected, the differential phase spectra are mostly linear, consistent with the theory demonstrated in Fig.~\ref{fig:FT}. Deviations from linearity come from the noise that we injected, which will be discussed later. 
+The Fourier transform of these 100 spectral line profiles divides the information into two parts: (1) the power spectra (Fig.~\ref{fig:power_spectrum}) and (2) the phase spectra (shown in Fig.~\ref{fig:dps} as the differential phase spectra -- the difference relative to the phase spectrum of the unshifted line profile rather than its own derivative). We see that most information is concentrated towards the centre of the power spectrum (i.e. the lower frequency range), and as expected, the differential phase spectra are mostly linear, consistent with the theory demonstrated in Fig.~\ref{fig:FT}. Deviations from linearity come from the noise that we injected, which will be discussed later. 
 
 %-------------
 \begin{figure}[tbp]	
@@ -185,7 +185,7 @@ We divide the whole frequency range available into two parts (Fig.~\ref{fig:FT_p
 \begin{equation}
 	\int_{\xi_{L}=0}^{\xi_{HL}} P(\xi) d\xi = \int_{\xi_{HL}}^{\xi_{H}} P(\xi) d\xi. 
 \end{equation}
-We assume here that the integration of the power spectrum measures the amount of ``information" in the original line profile, so that we would put equal trust on the radial velocities obtained from the lower and higher frequencies (namely $RV_\text{FT,L}$ and $RV_\text{FT,H}$, or $RV_\text{FT,H/L}$ for both). In addition, a cut-off frequency $\xi_{H}$ is applied to the upper boundary of the high-pass filter (so is $-\xi_{H}$ on the negative part; but since it can be easily proved that the phase spectrum $\phi(\xi)$ of any function $f(x)$ is antisymmetric, i.e. $\phi(\xi) = -\phi(-\xi)$, therefore the differential phase spectrum $\Delta \phi(\xi)$ is also antisymmetric and we can simply consider the non-negative part of the spectrum). Frequencies higher than $\xi_{H}$ hardly contributes to the shape of the line profile as the power $P(\xi)$ converges to zero and thus not used. $\xi_{H}$ is chosen empirically where $P(\xi)$ drops to $0.1\%$ of max$\{P(\xi)\}$.
+We assume here that the integration of the power spectrum measures the amount of ``information" in the original line profile, so that we would put equal trust on the radial velocities obtained from the lower and higher frequencies (namely $RV_\text{FT,L}$ and $RV_\text{FT,H}$, or $RV_\text{FT,H/L}$ for both). In addition, a cut-off frequency $\xi_{H}$ is applied to the upper boundary of the high-pass filter (so is $-\xi_{H}$ on the negative part; but since it can be easily proved that the phase spectrum $\phi(\xi)$ of any function $f(x)$ is antisymmetric, i.e. $\phi(\xi) = -\phi(-\xi)$, therefore the differential phase spectrum $\Delta \phi(\xi)$ is also antisymmetric and we can simply consider the non-negative part of the spectrum). Frequencies higher than $\xi_{H}$ hardly contributes to the shape of the line profile as the power $P(\xi)$ converges to zero and thus not used. It goes without problems in most cases that $\xi_{H}$ is chosen empirically where $P(\xi)$ drops to $0.1\%$ of max$\{P(\xi)\}$; for high S/N like this simulation, the cut-off frequency can be chosen at even higher values in order to extract more information from the power spectrum and phase spectrum. 
 
 We presented in Fig.~\ref{fig:rv_recovery} an accurate recovery of the radial velocity shifts given by $RV_\text{FT}$, for which the full range of frequencies were used; For exactly the same set of data but sub-divided into two frequency ranges, we plot $RV_\text{FT,H/L}$ against the input radial velocities (Fig.~\ref{fig:rv_recovery_LH}), which still delivers a good 1:1 relation. The line of best fit presents a slope of $0.991\pm0.011$ for $RV_\text{FT,L}$ and $0.989\pm0.011$ for $RV_\text{FT,H}$ respectively, with 95\% confidence bounds. The scatter of the residuals are $\sigma_\text{FT,L} = 0.20$ m/s and $\sigma_\text{FT,H} = 0.24$ m/s. First, we note that $\sigma_\text{FT,H/L} > \sigma_\text{FT}$~(=0.08~m/s), this is because both $RV_\text{FT,H}$ and $RV_\text{FT,L}$ are only derived from half ``information" in the Fourier space. Second, we note that $\sigma_\text{FT,H}$ and $\sigma_\text{FT,L}$ only differ by a small amount, because they are derived from roughly equal amount of ``information". The fact that $\sigma_\text{FT,H}$ is slightly larger may be because higher frequency modes are more likely to be subjected to stochastic behaviours such as shot noise, although they receive lower weights. See the following subsection for a related discussion of introducing a cut-off frequency.
 
@@ -207,9 +207,9 @@ We presented in Fig.~\ref{fig:rv_recovery} an accurate recovery of the radial ve
 \subsection{Cut-off frequency}
 \label{sec:noise}
 
-We mentioned in \S\ref{sec:Initial_tests} that deviation from linearity in the differential phase spectrum may arise from the photon noise injected in the simulated line profiles, and we also introduced a cut-off frequency $\xi_{H}$ in \S\ref{sec:Further_tests} to avoid dealing with frequencies higher than $\xi_{H}$. The motivation of these becomes clear on the frequency representation $\hat{f}(\xi)$ of a line profile in a complex plane (a.k.a. the Argand plane; Fig.~\ref{fig:FT_compelx_plane}). For a direct comparison, $\hat{f}(\xi)$ of noise-free and S/N = 10,000 are plotted for the same frequencies.
+We mentioned in \S\ref{sec:Initial_tests} that deviation from linearity in the differential phase spectrum may arise from the photon noise injected in the simulated line profiles, and we also introduced a cut-off frequency $\xi_{H}$ in \S\ref{sec:Further_tests} to avoid dealing with frequencies higher than $\xi_{H}$. The motivation of these becomes clear on the frequency representation $\hat{f}(\xi)$ of a line profile in a complex plane (a.k.a. the Argand plane; Fig.~\ref{fig:FT_compelx_plane}). 
 
-We see a scattered plot because the frequencies $\xi$ are discretely sampled. The argument of $\hat{f}(\xi)$ returns the phase angle and the square of the absolute value (or modulus) returns the power. $\hat{f}(\xi)$ with larger powers (i.e. those far from the origin as viewed in Fig.~\ref{fig:FT_compelx_plane} left) are barely affected in the presence of noise; $\hat{f}(\xi)$ with lower powers (i.e. those distributed in the vicinity of the origin as viewed in Fig.~\ref{fig:FT_compelx_plane} right) are relatively more affected by noise, as a slight displacement of $\hat{f}(\xi)$ in the complex plane means a considerable change in the phase angle. As a result, at S/N = 10,000, the distribution of $\hat{f}(\xi)$ in the zoomed-in complex plane is more scattered than a noise-free scenario, and the phase angle measurement is not as reliable as for $\hat{f}(\xi)$ with larger powers. It justifies using the Fourier transform spectral power (i.e. power spectrum) as the weight, and introducing a cut-off frequency for shift measurements. 
+We see a scattered plot because the frequencies $\xi$ are discretely sampled. $\hat{f}(\xi)$ of noise-free and S/N = 10,000 are plotted for the same sampling of frequencies. The argument of $\hat{f}(\xi)$ returns the phase angle and the square of its absolute value (or modulus) returns the power. $\hat{f}(\xi)$ with larger powers (i.e. those far from the origin as viewed in Fig.~\ref{fig:FT_compelx_plane} left) are barely affected in the presence of noise; $\hat{f}(\xi)$ with lower powers (i.e. those distributed in the vicinity of the origin as viewed in Fig.~\ref{fig:FT_compelx_plane} right) are relatively more affected by noise, as a slight displacement of $\hat{f}(\xi)$ in the complex plane means a considerable change in the phase angle. As a result, at S/N = 10,000, the distribution of $\hat{f}(\xi)$ in the zoomed-in complex plane is more scattered than a noise-free scenario, and the phase angle measurement is not as reliable as for $\hat{f}(\xi)$ with larger powers. It justifies using the Fourier transform spectral power (i.e. power spectrum) as the weight, and introducing a cut-off frequency for shift measurements. 
 
 Another potential reason to introduce the cut-off frequency is the periodicity of the basis functions in a Fourier transform. The basis functions $e^{-2 \pi ix_0 \xi}$ repeat themselves at the periods of $1/\xi$, making measuring the shift in the time domain (velocity domain for line profiles) larger than the order of $1/\xi$ degenerate (i.e. the shifts of $x_0+k/\xi$ for $k\in\mathbb{Z}$ become indistinguishable). Nevertheless for cut-off frequency $\xi \sim 0.15$ s/km, such a shift needs to be more than $1/\xi\sim6.7$~km/s to fail the measurement, while the radial velocities induced by planets are usually at m/s amplitudes and will not be a concern.
 
@@ -219,7 +219,7 @@ Another potential reason to introduce the cut-off frequency is the periodicity o
 \includegraphics[width = 0.99 \linewidth]
 {./Figures/Methods/7-complex_plane.png}
 \caption[The frequency representation $\hat{f}(\xi)$ of a line profile in a complex plane]
-{The frequency representation $\hat{f}(\xi)$ of a line profile in a complex plane. The right figure is a zoom-in of the left near the origin.}
+{The frequency representation $\hat{f}(\xi)$ of a line profile in a complex plane. The right figure is a zoom-in of the left near the origin, showing for the same sampling of frequencies, $\hat{f}(\xi)$ on the complex plane is more scattered in the presence of small amount of noise, and therefore for small amplitudes, the measurement of the phase angle can be far less reliable than measured without noise.}
 \label{fig:FT_compelx_plane}
 \end{figure} 
 %-------------
@@ -275,8 +275,11 @@ For a line profile shifted by a small amount $x_0$, the same shift $x_0$ applies
 $x_0(\xi)$ contains all the information of how much a line is deformed (as well as shifted). In other words, $x_0(\xi)$ can parametrize the line deformation. In principle, we could derive $x_0(\xi)$ from the expression above to further seek to understand which frequency modes are related to stellar variability, as distinct from frequency modes responding to a bulk shift of a line profile. We opt for a simplistic approach instead -- use an \textit{averaged} shift $\overline{x_0(\xi)}$ to describe an overall shift of various frequency modes and rewrite Eq.~\ref{eq:PhaseShift2_LPD} as 
 \begin{equation}
 	\Delta \phi(\xi) = -2 \pi \overline{x_0(\xi)} \xi
+\label{eq:PhaseShift2_LPD_ave}
 \end{equation}
-where $\overline{x_0(\xi)}$ is treated as a constant for the range of frequencies of interest. Then we can study the effective line shifts in the lower frequency range versus the higher frequency range the same way as we did in the case of a pure line shift. 
+where $\overline{x_0(\xi)}$ is treated as a constant for the range of frequencies of interest. 
+
+We may interpret E.q.~\ref{eq:PhaseShift2_LPD_ave} in two ways: (1) within a narrow frequency range, $x_0(\xi)$ is approximately a constant (hence labelled as $\overline{x_0(\xi)}$) and so the shift is proportional to the local gradient of the differential phase spectrum; (2) for a wide range of continuous frequencies, $\overline{x_0(\xi)}$ can be regarded as an effective line shift, and then we can study such shifts in the lower frequency range versus the higher frequency range the same way we dealt with a pure line shift in \S\ref{ch:FT_line_shift}. 
 
 %numerically solve the differential equation (either Eq.~\ref{eq:PhaseShift2_LPD} or Eq.~\ref{eq:PhaseShift3_LPD}) based on the measured $\Delta \phi$ or local gradient d$(\Delta \phi)$/d$\xi$ to obtain $x_0(\xi)$, 
 
@@ -331,7 +334,7 @@ Spot 3 & $51^\circ$  & $52^\circ$  & 0.50\% \\
 \subsection{Fourier phase spectrum analysis}
 
 \subsubsection{$RV_\text{FT}$}
-We then took the same approach as previously (\S~\ref{ch:FT_line_shift}) to obtain the power spectrum and the differential phase spectrum (Fig.~\ref{fig:FT_process_LPD}) to measure radial velocities $RV_\text{FT}$. It is immediately apparent that a line deformation contributes to a skewed differential phase spectrum, as the the shift $x_0(\xi)$, which is proportional to the local gradient of the differential phase spectrum, becomes frequency dependent. 
+We took the same approach as previously (\S~\ref{ch:FT_line_shift}) to obtain the power spectrum and the differential phase spectrum (Fig.~\ref{fig:FT_process_LPD}) and measured radial velocities $RV_\text{FT}$ for the full range of frequencies. It is immediately apparent that a line deformation contributes to a skewed differential phase spectrum. As mentioned above, the shift $x_0(\xi)$ becomes frequency dependent, and is proportional to the local gradient of the differential phase spectrum. 
 
 %-------------
 \begin{figure}[tbp]	
@@ -344,7 +347,7 @@ We then took the same approach as previously (\S~\ref{ch:FT_line_shift}) to obta
         \includegraphics[width=\textwidth]{./Figures/Methods/LPD4-Relative_phase_angle.png}
         \caption{Differential phase spectrum}
         \label{fig:dps_LPD}
-    \end{subfigure}	
+    \end{subfigure}
     
     \caption[Fourier transform of deformed line profiles]
     {Fourier transform of deformed line profiles. Only 10 out of 100 differential phase spectra are presented.}
@@ -352,7 +355,7 @@ We then took the same approach as previously (\S~\ref{ch:FT_line_shift}) to obta
 \end{figure}    
 %-------------
 
-In this case, the traditionally measured radial velocities would be solely the apparent radial velocities due to deformed line profiles (a.k.a. jitter). Both velocities $RV_\text{FT}$ and $RV_\text{Gaussian}$ are plotted against rotation phase (Fig.~\ref{fig:rv_recovery_deformed}). If we take $\sigma_\text{FT} = \sigma_\text{Gaussian} = 0.08$ m/s to be the intrinsic photon noise level corresponding to S/N = 10,000 as measured in \S~\ref{sec:Initial_tests}, and assume $RV_\text{FT}$ and $RV_\text{Gaussian}$ are independent measurements, the difference between $RV_\text{FT}$ and $RV_\text{Gaussian}$ would have an uncertainty of $\sqrt{\sigma_\text{FT}^2+\sigma_\text{Gaussian}^2}\approx0.11$ m/s. Fig.~\ref{fig:rv_recovery_deformed} presents $\mid \Delta RV \mid = \mid RV_\text{FT} - RV_\text{Gaussian}\mid < 0.03$ m/s. Therefore, we can see that $RV_\text{FT}$ and $RV_\text{Gaussian}$ are indistinguishably consistent in the measurement of the apparent radial velocities of a deformed line profile. 
+For deformed line profiles, the traditionally measured radial velocities would be solely the apparent radial velocities due to deformed line profiles (a.k.a. jitter). Both velocities $RV_\text{FT}$ and $RV_\text{Gaussian}$ are plotted against rotation phase (Fig.~\ref{fig:rv_recovery_deformed}). If we take $\sigma_\text{FT} = \sigma_\text{Gaussian} = 0.08$ m/s to be the intrinsic photon noise level corresponding to S/N = 10,000 as measured in \S~\ref{sec:Initial_tests}, and assume $RV_\text{FT}$ and $RV_\text{Gaussian}$ are independent measurements, the difference between $RV_\text{FT}$ and $RV_\text{Gaussian}$ would have an uncertainty of $\sqrt{\sigma_\text{FT}^2+\sigma_\text{Gaussian}^2}\approx0.11$ m/s. Fig.~\ref{fig:rv_recovery_deformed} presents $\mid \Delta RV \mid = \mid RV_\text{FT} - RV_\text{Gaussian}\mid < 0.01$ m/s. Therefore, we can see that $RV_\text{FT}$ and $RV_\text{Gaussian}$ are indistinguishably consistent in the measurement of the apparent radial velocities of a deformed line profile. 
 
 %-------------
 \begin{figure}[tbp]
@@ -372,25 +375,7 @@ In this case, the traditionally measured radial velocities would be solely the a
 
 Although an intrinsic line deformation (in the absence of any velocity shift in the host star) usually mimics a radial velocity shift, we note the shape differences in the differential phase spectrum between an actual line shift (Fig.~\ref{fig:dps}) and a line deformation (Fig.~\ref{fig:dps_LPD}) -- the latter presents slightly flatter features in lower frequencies and becomes more skewed towards higher frequencies. Such differences provide key information for differentiating the two situations.
 
-According to \S\ref{sec:LD_Theory} where we introduced $\overline{x_0(\xi)}$ -- an averaged shift for a particular frequency range -- we compute the equivalent radial velocity shift for each of the lower and higher frequency ranges (Fig.~\ref{fig:low-high-pass_lpd}). We present our results by plotting the obtained $RV_\text{FT,H/L}$ against the jitter (line centroid fitted by a Gaussian profile) in Fig.~\ref{fig:FT_vs_Gaussian}. The $RV_\text{FT,H}$ and $RV_\text{FT,L}$ are both linearly correlated with the jitter though with different slopes. Fitting with a linear regression model, it comes with a slope $k_\text{H} = 1.978\pm0.100~(\pm5.1\%)$ for $RV_\text{FT,H}$, meaning an apparent radial velocity shift of 1 m/s due to line deformation is detected as a $1.978\pm0.100$ m/s shift on average using \textit{this} high-pass filter; whereas the slope for applying a low-pass filter is $k_\text{L} = 0.847\pm0.015~(\pm1.8\%)$. $RV_\text{FT,L}$ is not as ``responsive" as $RV_\text{FT,H}$ to the line profile deformation, but returns a better constrained linearity. It's also worth noting that the combined effect of these two filters would have resulted in $RV_\text{FT}$, a consistent measurement of the radial velocity as with the fitting a line centroid as previously showed.
-
-%-------------
-\begin{figure}[tbp]	
-    \begin{subfigure}[b]{0.49\textwidth}
-        \includegraphics[width=\textwidth]{./Figures/Methods/LPD4-Relative_phase_angle_L.png}
-%        \caption{Power spectrum (stacked)}
-    \end{subfigure}
-	~
-    \begin{subfigure}[b]{0.49\textwidth}
-        \includegraphics[width=\textwidth]{./Figures/Methods/LPD4-Relative_phase_angle_H.png}
-%        \caption{Differential phase spectrum}
-    \end{subfigure}	
-    
-    \caption[Low-pass and high-pass filters]
-    {Differential phase spectrum as shown in Fig.~\ref{fig:dps_LPD} sub-divided into lower frequency range and higher frequency range. Only the non-negative ranges are plotted for clarity.}
-\label{fig:low-high-pass_lpd}
-\end{figure}    
-%-------------
+According to \S\ref{sec:LD_Theory} where we introduced $\overline{x_0(\xi)}$ -- an averaged shift for a particular frequency range -- we compute the equivalent radial velocity shift for each of the lower and higher frequency ranges. We present our results by plotting the obtained $RV_\text{FT,H/L}$ against the jitter (line centroid fitted by a Gaussian profile) in Fig.~\ref{fig:FT_vs_Gaussian}. The $RV_\text{FT,H}$ and $RV_\text{FT,L}$ are both linearly correlated with the jitter though with different slopes. Fitting with a linear regression model, it comes with a slope $k_\text{H} = 1.978\pm0.100~(\pm5.1\%)$ for $RV_\text{FT,H}$, meaning an apparent radial velocity shift of 1 m/s due to line deformation is detected as a $1.978\pm0.100$ m/s shift on average using \textit{this} high-pass filter; whereas the slope for applying a low-pass filter is $k_\text{L} = 0.847\pm0.015~(\pm1.8\%)$. $RV_\text{FT,L}$ is not as ``responsive" as $RV_\text{FT,H}$ to the line profile deformation, but returns a better constrained linearity. It's also worth noting that the combined effect of these two filters would have resulted in $RV_\text{FT}$, a consistent measurement of the radial velocity as with the fitting a line centroid as previously showed.
 
 %-------------
 \begin{figure}[tbp]

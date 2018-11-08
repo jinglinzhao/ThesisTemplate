@@ -17,19 +17,18 @@
 \contentsline {figure}{\numberline {2.8}{\ignorespaces Deformed line profile}}{16}{figure.caption.14}
 \contentsline {figure}{\numberline {2.9}{\ignorespaces Fourier transform of deformed line profiles}}{17}{figure.caption.15}
 \contentsline {figure}{\numberline {2.10}{\ignorespaces Apparent RV of deformed line profiles}}{18}{figure.caption.16}
-\contentsline {figure}{\numberline {2.11}{\ignorespaces Low-pass and high-pass filters}}{19}{figure.caption.17}
-\contentsline {figure}{\numberline {2.12}{\ignorespaces Fourier transform in response to line deformation}}{19}{figure.caption.18}
-\contentsline {figure}{\numberline {2.13}{\ignorespaces Scaling the low-pass and high-pass Fourier transformed radial velocities}}{20}{figure.caption.19}
-\contentsline {figure}{\numberline {2.14}{\ignorespaces Jitter model}}{23}{figure.caption.22}
-\contentsline {figure}{\numberline {2.15}{\ignorespaces Corner plots of MCMC}}{28}{figure.caption.25}
-\contentsline {figure}{\numberline {2.16}{\ignorespaces Planet recovery ($A = 2$\nobreakspace {}m/s)}}{29}{figure.caption.26}
-\contentsline {figure}{\numberline {2.17}{\ignorespaces Histograms of recovered orbital parameters ($A = 2$\nobreakspace {}m/s)}}{30}{figure.caption.27}
-\contentsline {figure}{\numberline {2.18}{\ignorespaces Planet recovery ($A = 20$\nobreakspace {}m/s)}}{31}{figure.caption.29}
-\contentsline {figure}{\numberline {2.19}{\ignorespaces Histogram of recovered orbital parameters ($A = 20$\nobreakspace {}m/s)}}{32}{figure.caption.30}
-\contentsline {figure}{\numberline {2.20}{\ignorespaces Histogram of recovered orbital parameters of null planets}}{33}{figure.caption.32}
-\contentsline {figure}{\numberline {2.21}{\ignorespaces Classification of jitter dominated or planetary signal dominated}}{34}{figure.caption.33}
-\contentsline {figure}{\numberline {2.22}{\ignorespaces Periodogram combined with $\mathit {\Phi }$ESTA}}{35}{figure.caption.34}
-\contentsline {figure}{\numberline {2.23}{\ignorespaces Demo: Rossiter\IeC {\textendash }McLaughlin effect}}{36}{figure.caption.35}
-\contentsline {figure}{\numberline {2.24}{\ignorespaces HD189733: modelling Rossiter\IeC {\textendash }McLaughlin effect as jitter}}{37}{figure.caption.36}
-\contentsline {figure}{\numberline {2.25}{\ignorespaces $\alpha $ Centauri B: stellar activity analysis}}{40}{figure.caption.37}
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Fourier transform in response to line deformation}}{19}{figure.caption.17}
+\contentsline {figure}{\numberline {2.12}{\ignorespaces Scaling the low-pass and high-pass Fourier transformed radial velocities}}{20}{figure.caption.18}
+\contentsline {figure}{\numberline {2.13}{\ignorespaces Jitter model}}{23}{figure.caption.21}
+\contentsline {figure}{\numberline {2.14}{\ignorespaces Corner plots of MCMC}}{28}{figure.caption.24}
+\contentsline {figure}{\numberline {2.15}{\ignorespaces Planet recovery ($A = 2$\nobreakspace {}m/s)}}{29}{figure.caption.25}
+\contentsline {figure}{\numberline {2.16}{\ignorespaces Histograms of recovered orbital parameters ($A = 2$\nobreakspace {}m/s)}}{30}{figure.caption.26}
+\contentsline {figure}{\numberline {2.17}{\ignorespaces Planet recovery ($A = 20$\nobreakspace {}m/s)}}{31}{figure.caption.28}
+\contentsline {figure}{\numberline {2.18}{\ignorespaces Histogram of recovered orbital parameters ($A = 20$\nobreakspace {}m/s)}}{32}{figure.caption.29}
+\contentsline {figure}{\numberline {2.19}{\ignorespaces Histogram of recovered orbital parameters of null planets}}{33}{figure.caption.31}
+\contentsline {figure}{\numberline {2.20}{\ignorespaces Classification of jitter dominated or planetary signal dominated}}{34}{figure.caption.32}
+\contentsline {figure}{\numberline {2.21}{\ignorespaces Periodogram combined with $\mathit {\Phi }$ESTA}}{35}{figure.caption.33}
+\contentsline {figure}{\numberline {2.22}{\ignorespaces Demo: Rossiter\IeC {\textendash }McLaughlin effect}}{36}{figure.caption.34}
+\contentsline {figure}{\numberline {2.23}{\ignorespaces HD189733: modelling Rossiter\IeC {\textendash }McLaughlin effect as jitter}}{37}{figure.caption.35}
+\contentsline {figure}{\numberline {2.24}{\ignorespaces $\alpha $ Centauri B: stellar activity analysis}}{40}{figure.caption.36}
 \gdef \the@ipfilectr {}
