@@ -5,16 +5,16 @@
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.1.4}Initial tests to obtain $RV_\text {FT}$}{\reset@font\mtcSSfont 8}{subsection.2.1.4}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.1.5}Further tests to obtain $RV_\text {FT,H}$ and $RV_\text {FT,L}$}{\reset@font\mtcSSfont 11}{subsection.2.1.5}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.1.6}Cut-off frequency}{\reset@font\mtcSSfont 12}{subsection.2.1.6}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.1.7}Conclusion}{\reset@font\mtcSSfont 13}{subsection.2.1.7}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.1.7}Conclusion}{\reset@font\mtcSSfont 14}{subsection.2.1.7}}
 {\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.2}Using the Fourier transform to probe line deformation}{\reset@font\mtcSfont 15}{section.2.2}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.1}Theory}{\reset@font\mtcSSfont 15}{subsection.2.2.1}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.2}SOAP simulations}{\reset@font\mtcSSfont 16}{subsection.2.2.2}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.3}Fourier phase spectrum analysis}{\reset@font\mtcSSfont 17}{subsection.2.2.3}}
 {\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {2.2.3.1}$RV_\text {FT}$}{\reset@font\mtcSSSfont 17}{subsubsection.2.2.3.1}}
 {\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {2.2.3.2}$RV_\text {FT,H}$ and $RV_\text {FT,L}$}{\reset@font\mtcSSSfont 18}{subsubsection.2.2.3.2}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.4}Jitter model}{\reset@font\mtcSSfont 20}{subsection.2.2.4}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.5}Testing the recovery of jitter}{\reset@font\mtcSSfont 22}{subsection.2.2.5}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Weighted moving average}{\reset@font\mtcPfont 22}{section*.23}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.4}Jitter model}{\reset@font\mtcSSfont 19}{subsection.2.2.4}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.5}Testing the recovery of jitter}{\reset@font\mtcSSfont 21}{subsection.2.2.5}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Weighted moving average}{\reset@font\mtcPfont 22}{section*.22}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.6}Planetary radial velocity recovery}{\reset@font\mtcSSfont 25}{subsection.2.2.6}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.7}Conclusion}{\reset@font\mtcSSfont 26}{subsection.2.2.7}}
 {\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.3}End-to-end simulations}{\reset@font\mtcSfont 27}{section.2.3}}
