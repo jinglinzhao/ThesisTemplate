@@ -461,7 +461,7 @@ We then obtain three sets of radial velocities for each simulated profile: $RV_\
 \includegraphics[width = 0.99 \linewidth]
 {./Figures/Methods/5-PLANET_AND_JITTER2.png}
 \caption[Jitter model]
-{Jitter recovery based on Eq.~\ref{eq:jitter_model_final} for the simulated data (S/N = 10,000). Top: time series of directly measured $RV_\text{Gaussian}$ and $RV_\text{FT,H/L}$. Middle: three forms of the jitter expressions scaled by their respective factor $\alpha$, smoothed by the weighted moving average (grey solid lines) with $\tau$ equal to the spacing of two samplings to show the trend of the recovered jitter. For comparison, the input jitter is labelled as the orange dashed line. Bottom: difference between the jitter model and the input jitter, smoothed by the weighted moving average (grey solid lines). Note the scaling across the three subplots are the same.}
+{Jitter recovery based on Eq.~\ref{eq:jitter_model_final} for the simulated data (S/N = 10,000). Top: time series of directly measured $RV_\text{Gaussian}$ and $RV_\text{FT,H/L}$. Middle: three forms of the jitter expressions scaled by their respective factor $\alpha$, smoothed by the weighted moving average (grey solid lines) with $\tau$ equal to the spacing of two samplings to show the trend of the recovered jitter. For comparison, the input jitter is labelled as the orange dashed line. Bottom: difference between the jitter model and the input jitter, smoothed by the weighted moving average (grey solid lines). It hardly shows visual differences among the three expressions of jitter in the smoothed trend. Note the scaling across the three subplots are the same.}
 \label{fig:PLANET_AND_JITTER}
 \end{figure} 
 %-------------
@@ -546,7 +546,7 @@ We run end-to-end simulations to test the performance of $\mathit{\Phi}$ESTA on 
 	\item When jitter is the only source of radial velocities, can it be identified with the help of $\mathit{\Phi}$ESTA?
 \end{enumerate}
 
-For all the following simulations, the spectral line profile simulator (SOAP 2.0) setup is the same as previously. The jitter amplitude is fixed at roughly 2~m/s, so we will adjust the planetary orbital amplitude to satisfy the three categories of end-to-end simulations. For S/N, we choose two numbers to represent the simulations: (1) S/N = 10,000 for super bright stars, where we will show its ability to make significant improvement using $\mathit{\Phi}$ESTA on recovering the planetary signals when the star is active; (2) S/N = 2,000 where it starts to push the limit of $\mathit{\Phi}$ESTA. We will run 500 trails, each trail with 60 randomly selected samples clustered in 12 groups, out of a total of 400 equally spaced samples from four stellar rotation periods. 
+For all the following simulations, the spectral line profile simulator (SOAP 2.0) setup is the same as previously. The jitter amplitude is fixed at roughly 2~m/s, so we will adjust the planetary orbital amplitude to satisfy the three categories of end-to-end simulations. For S/N, we choose two numbers to represent the simulations: (1) S/N = 10,000 where we show its ability of significantly improving the detection of planets orbiting bright and active stars; (2) S/N = 2,000 where it starts to push the limit of $\mathit{\Phi}$ESTA. We will run 500 trails, each trail with 60 randomly selected samples clustered in 12 groups, out of a total of 400 equally spaced samples from four stellar rotation periods. 
 
 The tests are divided into two main groups for comparison:
 \begin{enumerate}
@@ -572,7 +572,7 @@ The parameters for the fitting is obtained by Markov chain Monte Carlo (MCMC) sa
         \caption{Jitter correction applied}
     \end{subfigure}	
     \caption[Corner plots of MCMC]
-    {Examples of two corner plots showing the successfully recovered planetary orbital parameters (within 10\% of the true values) with MCMC sampling. The blue solid lines indicate the true values of the input orbital parameters. The three dashed lines of each histogram are the corresponding median and $1\sigma$ boundaries. $A, \nu, \omega, \alpha$ and $\beta$ are the orbital amplitude, orbital frequency ratio, initial phase, the scaling factor for the jitter term and a radial velocity offset respectively.}
+    {Examples of two corner plots showing the successfully recovered planetary orbital parameters (within 5\% of the true values for $A$ and $\nu$) with MCMC sampling. The blue solid lines indicate the true values of the input orbital parameters. The three dashed lines of each histogram are the corresponding median and $1\sigma$ boundaries. $A, \nu, \omega, \alpha$ and $\beta$ are the orbital amplitude, orbital frequency ratio, initial phase, the scaling factor for the jitter term and a radial velocity offset respectively.}
 \label{fig:Corner}
 \end{figure}    
 %-------------
@@ -586,9 +586,14 @@ The injected planet has the same parameter settings as in \S\ref{sec:check}, i.e
 \begin{figure}[tbp]	
 \centering
     \begin{subfigure}[b]{1.0\textwidth}
-		\includegraphics[width = 0.99 \linewidth]{./Figures/Methods/Fitting_p2j2sn10000.png}
-        \caption{S/N = 10,000}
-    \end{subfigure}
+    		\begin{subfigure}[b]{0.49\textwidth}
+        		\includegraphics[width=\textwidth]{./Figures/Methods/Fitting_5-Fit2_SN10000.png}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.49\textwidth}        		
+        		\includegraphics[width=\textwidth]{./Figures/Methods/Fitting_5-Fit1_XY_SN10000.png}
+        	\end{subfigure}
+        	\caption{S/N = 10,000}
+    \end{subfigure}	       
     \begin{subfigure}[b]{1.0\textwidth}
     		\begin{subfigure}[b]{0.49\textwidth}
         		\includegraphics[width=\textwidth]{./Figures/Methods/Fitting_5-Fit2.png}
@@ -660,9 +665,14 @@ In this case, we set the orbital amplitude roughly 10 times as strong as the jit
 \begin{figure}[tbp]	
 \centering
     \begin{subfigure}[b]{1.0\textwidth}
-		\includegraphics[width = 0.99 \linewidth]{./Figures/Methods/Fitting_p20j2sn10000.png}
-        \caption{S/N = 10,000}
-    \end{subfigure}
+    		\begin{subfigure}[b]{0.49\textwidth}
+        		\includegraphics[width=\textwidth]{./Figures/Methods/Fitting_5-Fit2_a20_SN10000.png}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.49\textwidth}        		
+        		\includegraphics[width=\textwidth]{./Figures/Methods/Fitting_5-FitZX_a20_SN10000.png}
+        	\end{subfigure}
+        	\caption{S/N = 10,000}
+    \end{subfigure}	       
     \begin{subfigure}[b]{1.0\textwidth}
     		\begin{subfigure}[b]{0.49\textwidth}
         		\includegraphics[width=\textwidth]{./Figures/Methods/Fitting_5-Fit2_a20.png}
