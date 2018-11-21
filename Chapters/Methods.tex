@@ -428,7 +428,7 @@ Rearranging yields two expressions for the jitter model
 	RV_\text{jitter} &= \frac{RV_\text{Gaussian} - RV_\text{FT,L}}{1-k_L} 	\label{eq:jitter_model1} \\
 	RV_\text{jitter} &= \frac{RV_\text{FT,H} - RV_\text{Gaussian}}{k_H-1}		\label{eq:jitter_model2} 
 \end{align}
-where $RV_\text{Gaussian}, RV_\text{FT,L}$ and $RV_\text{FT,H}$ are direct measurements, whereas $k_L$ and $k_H$ are unknowns. We could determine $k_L$ and $k_H$ in the previous simulations only because we knew there were no radial velocities, other than jitter, in the system. These two expressions for the jitter model will be frequently used throughout the rest of the chapter. We therefore simplify $(RV_\text{Gaussian} - RV_\text{FT,L})$ as $\Delta RV_\text{L}$ and $(RV_\text{FT,H} - RV_\text{Gaussian})$ as $\Delta RV_\text{H}$ and call them the jitter matrices. Dividing the two equations above further cancels $RV_\text{jitter}$ to give
+where $RV_\text{Gaussian}, RV_\text{FT,L}$ and $RV_\text{FT,H}$ are direct measurements, whereas $k_L$ and $k_H$ are unknowns. We could determine $k_L$ and $k_H$ in the previous simulations only because we knew there were no radial velocities, other than jitter, in the system. These two expressions for the jitter model will be frequently used throughout the rest of the chapter. We therefore simplify $(RV_\text{Gaussian} - RV_\text{FT,L})$ as $\Delta RV_\text{L}$ and $(RV_\text{FT,H} - RV_\text{Gaussian})$ as $\Delta RV_\text{H}$ and call them the jitter metrics. Dividing the two equations above further cancels $RV_\text{jitter}$ to give
 \begin{equation}
 	\frac{\Delta RV_\text{H}}{\Delta RV_\text{L}} = \frac{k_H-1}{1-k_L} \triangleq k_{H/L}.
 \label{eq:GHL} 
@@ -526,7 +526,9 @@ The number of unknowns is $(N+4)$, including $N$ from $P_i$, 2 from $k_y$ and $k
 	\sum_{i=1}^{N} \Bigg[w_{y,i}\Big(k_y \cdot X_i + (1-k_y)P_i - Y_i \Big)^2 + w_{z,i}\Big(k_z \cdot X_i + (1-k_z)P_i- Z_i \Big)^2 \Bigg]
 \label{eq:objective_function}
 \end{equation}
-where $w_{y,i}$ and $w_{z,i}$ are pre-determined weights (e.g. determined by the sizes of errorbars of the observed radial velocities). This approach becomes identical to constructing a jitter model (Eq.~\ref{eq:jitter_model_final}) in cases where (1) $w_{y,i}=1, w_{z,i}=0 (i=1,2,\ldots,N)$ and $w_1=1, w_2=0$; (2) $w_{y,i}=0, w_{z,i}=1 (i=1,2,\ldots,N)$ and $w_1=0, w_2=1$. 
+where $w_{y,i}$ and $w_{z,i}$ are pre-determined weights (e.g. determined by the sizes of errorbars of the observed radial velocities). Due to the intricacy of involving $(N+4)$ unknowns in the minimization, we have not yet managed to solve this problem in a timely manner, but it is worth investigating in the future, as it can return a best fit solution for $P_i$, from which we can further derive the planetary signals. 
+
+%This approach becomes identical to constructing a jitter model (Eq.~\ref{eq:jitter_model_final}) in cases where (1) $w_{y,i}=1, w_{z,i}=0 (i=1,2,\ldots,N)$ and $w_1=1, w_2=0$; (2) $w_{y,i}=0, w_{z,i}=1 (i=1,2,\ldots,N)$ and $w_1=0, w_2=1$.
 
 \subsection{Conclusion}
 
@@ -534,7 +536,7 @@ Fourier phase spectrum analysis ($\mathit{\Phi}$ESTA or FIESTA) can be used to c
 
 The frequency dependent $x_0(\xi)$ is the key asset in identifying line profile deformation and distinguishing it from a bulk line shift. We have investigated the apparent radial velocity shift (i.e. jitter) produced by deformed line profiles and shown it can be considered as the combination of two radial velocities -- $RV_\text{FT,H}$ in higher frequency modes and $RV_\text{FT,L}$ in lower frequency modes. They both correlate linearly with jitter (as obtained from the simulated spectral line profiles). 
 
-The different strengths of these correlations for $RV_\text{FT,H}$ and $RV_\text{FT,L}$ enable us to calculate the jitter matrices and construct a jitter model, which can recover simulated radial velocities data when combined with stellar variability, in both high-and-moderate S/N simulations. 
+The different strengths of these correlations for $RV_\text{FT,H}$ and $RV_\text{FT,L}$ enable us to calculate the jitter metrics and construct a jitter model, which can recover simulated radial velocities data when in the presence of stellar variability, in both high-and-moderate S/N simulations. 
 
 \pagebreak
 %----------------------------------------------------------------------------------------	
@@ -550,12 +552,23 @@ We ran end-to-end simulations to test the performance of $\mathit{\Phi}$ESTA for
 	\item When jitter is the only source of radial velocity variation, can it be identified with the help of $\mathit{\Phi}$ESTA?
 \end{enumerate}
 
-In the following simulations, the spectral line profile simulator (SOAP 2.0) is used as the same manner as previously. We will adjust the planetary orbital amplitude with respect to a $\sim 2$~m/s jitter amplitude to satisfy the three categories above. For S/N, we choose two numbers to represent in the simulations: (1) S/N = 10,000 where we examine $\mathit{\Phi}$ESTA for the detection of planets orbiting bright and active stars; and (2) S/N = 2,000 where noise in the data pushes the limit of $\mathit{\Phi}$ESTA's usefulness. We ran 500 trials, each trial with 60 randomly selected samples clustered in 12 groups, out of a total of 400 equally spaced samples from four stellar rotation periods. 
+In the following simulations, the spectral line profile simulator (SOAP 2.0) is used as the same manner as previously. We adjust the planetary orbital amplitude with respect to a $\sim 2$~m/s jitter amplitude to satisfy the three categories above. For S/N, we choose two numbers to represent in the simulations: (1) S/N = 10,000 where we examine $\mathit{\Phi}$ESTA for the detection of planets orbiting bright and active stars; and (2) S/N = 2,000 where noise in the data pushes the limit of $\mathit{\Phi}$ESTA's usefulness. We ran 500 trials, each trial with 60 randomly selected samples clustered in 12 groups, out of a total of 400 equally spaced samples from four stellar rotations (Fig.~\ref{fig:Sampling_demo}). 
+
+%-------------
+\begin{figure}[hbp]
+\centering
+\includegraphics[width = 0.99 \linewidth]
+{./Figures/Methods/Sampling_demo.png}
+\caption[How sampling is made]
+{Demonstration of how time sampling is made. Whist the sampling of each trial is randomized, we keep a total of 60 samplings within 12 groups.}
+\label{fig:Sampling_demo}
+\end{figure} 
+%-------------
 
 The tests are divided into two main groups for comparison:
 \begin{enumerate}
-	\item Fit $RV_\text{Gaussian}$ by Keplerian orbit alone;
-	\item Fit $RV_\text{Gaussian}$ by Keplerian orbit with jitter model correction. The following three variations of model fitting have been tested:
+	\item fit $RV_\text{Gaussian}$ by Keplerian orbit alone; and
+	\item fit $RV_\text{Gaussian}$ by Keplerian orbit with jitter model correction. The following three variations of model fitting were tested:
    \begin{enumerate}
      \item Jitter model constructed with $RV_\text{Gaussian}$ and $RV_\text{FT,L}$ only, i.e. $w_1=1$ and $w_2=0$;
      \item Jitter model constructed with $RV_\text{Gaussian}$ and $RV_\text{FT,H}$ only, i.e. $w_1=0$ and $w_2=1$;
@@ -563,7 +576,7 @@ The tests are divided into two main groups for comparison:
    \end{enumerate}
 \end{enumerate}
 
-The parameters for the fitting is obtained by Markov chain Monte Carlo (MCMC) sampling (such as shown in Fig.~\ref{fig:Corner}). Each radial velocity data is equally weighted as they have the same S/N in our simulation. We find that among the three variations of jitter correction treatments, the one left with the least residual (i.e. smallest rms) empirically returns the best fitting parameters, which we would use to represent the fitting from Group~2. 
+The parameters for each fit were obtained by Markov chain Monte Carlo (MCMC) optimization of an object function that minimizes the differences between simulated radial velocities and the models mentioned above. Fig.~\ref{fig:Corner} shows an output of the MCMC samplings in the parameter space, composed of an orbital amplitude $A$, an orbital frequency $\nu$ (defined as the ratio over known stellar rotation frequency), an initial phase $\omega$, an offset $\beta$, and additional for the jitter model a scaling factor $\alpha$. All the radial velocity data were equally weighted, as they have the same S/N in each simulation. From each set of 3 fits in Group~2 we selected the one with the smallest residuals (i.e. smallest rms) as our preferred solution. 
 
 %-------------
 \begin{figure}[tbp]	
@@ -577,17 +590,17 @@ The parameters for the fitting is obtained by Markov chain Monte Carlo (MCMC) sa
         \caption{Jitter correction applied}
     \end{subfigure}	
     \caption[Corner plots of MCMC]
-    {Examples of two corner plots showing the successfully recovered planetary orbital parameters (within 5\% of the true values for $A$ and $\nu$) with MCMC sampling. The blue solid lines indicate the true values of the input orbital parameters. The three dashed lines of each histogram are the corresponding median and $1\sigma$ boundaries. $A, \nu, \omega, \alpha$ and $\beta$ are the orbital amplitude, orbital frequency ratio, initial phase, the scaling factor for the jitter term and a radial velocity offset respectively.}
+    {Examples of two corner plots showing the successfully recovered planetary orbital parameters (to within 5\% of the true values for $A$ and $\nu$) with MCMC sampling. The blue solid lines indicate the true values of the input orbital parameters. The three dashed lines of each histogram are the corresponding median and $1\sigma$ boundaries. $A, \nu, \omega, \alpha$ and $\beta$ are the orbital amplitude, orbital frequency ratio, initial phase, the scaling factor for the jitter term and a radial velocity offset respectively.}
 \label{fig:Corner}
 \end{figure}    
 %-------------
 
-We have done some test end-to-end simulations to investigate if the choice of the dividing frequency $\xi_{HL}$, or if having an overlapping frequency range such that $RV_\text{FT,L}$ is contributed by [0, $\xi_{HL1}$] and $RV_\text{FT,H}$ by [$\xi_{HL2}$, $\xi_H$] in which $\xi_{HL1} > \xi_{HL2}$, would make a difference in the overall performance of planet recoveries. Instead of equally dividing the power spectrum into the higher and lower frequencies as in the previous demonstrations, $\xi_{HL}$ chosen roughly one third of the cut-off frequency (resulting in about 85\% of power goes to $RV_\text{FT,L}$ and the other 15\% goes to $RV_\text{FT,H}$) tends to improve the successful recovery rate better than the other cases that we have tested and thus is used in the end-to-end simulations presented in this subsection. However, we have not drawn solid conclusions on a sweet spot for $\xi_{HL}$. 
+We did some test end-to-end simulations to investigate if the choice of the dividing frequency $\xi_{HL}$, or if having an overlapping frequency range such that $RV_\text{FT,L}$ is contributed by [0, $\xi_{HL1}$] and $RV_\text{FT,H}$ by [$\xi_{HL2}$, $\xi_H$] in which $\xi_{HL1} > \xi_{HL2}$, would make a difference in the overall performance of planet recoveries. Instead of equally dividing the power spectrum into the higher and lower frequencies as in the previous demonstrations, $\xi_{HL}$ chosen roughly one third of the cut-off frequency (resulting in about 85\% of power goes to $RV_\text{FT,L}$ and the other 15\% goes to $RV_\text{FT,H}$) tends to improve the successful recovery rate better than the other cases that we have tested and thus is used in the end-to-end simulations presented in this subsection. However, we have not drawn solid conclusions on a sweet spot for $\xi_{HL}$. 
 
 %----------------------------------------------------------------------------------------
 \subsection{Stellar jitter amplitude $\approx$ planetary amplitude}
 
-The injected planet has the same parameter settings as in \S\ref{sec:check}, i.e. circular orbit with amplitude $A = 2$~m/s, orbital frequency ratio $\nu = \nu_\text{orb}/\nu_\text{rot}= 0.7$ and initial phase $\omega = 1$~rad. For demonstration, we present two snapshots of each of the 500 trials of end-to-end simulations, with one S/N = 10,000 and the other S/N = 2,000 (Fig.~\ref{fig:Planet_recovery_p2}). These are two examples where the planetary orbital parameters are correctly recovered (within 10\% of the true values in this case). For S/N = 10,000, the discrepancy between the simulated radial velocities and the planet model is accounted for by the jitter model, and thus applying the jitter correction significantly reduces the rms of the residual. For S/N = 2,000, the fitting is only slightly improved introducing jitter correction. The jitter model is not as accurate in the presence of moderate noise. 
+The injected planet had the same parameter settings as in \S\ref{sec:check} (i.e. a circular orbit with amplitude $A = 2$~m/s, orbital frequency ratio $\nu = \nu_\text{orb}/\nu_\text{rot}= 0.7$ and initial phase $\omega = 1$~rad). For demonstration, we present two snapshots of each of the 500 trials of simulations with S/N = 10,000 and S/N = 2,000 (Fig.~\ref{fig:Planet_recovery_p2}). These are two examples where the planetary orbital parameters are correctly recovered (to within 10\% of the true values in each case). For S/N = 10,000, the discrepancy between the simulated radial velocities and the planet model is accounted for by the jitter model, and thus applying the jitter correction significantly reduces the rms of the residual. For S/N = 2,000, the fits are only slightly improved by introducing a jitter correction. The jitter model is not as accurate in the presence of moderate noise. 
 
 %-------------
 \begin{figure}[tbp]	
@@ -611,12 +624,12 @@ The injected planet has the same parameter settings as in \S\ref{sec:check}, i.e
         	\caption{S/N = 2,000}
     \end{subfigure}	       
     \caption[Planet recovery ($A = 2$~m/s)]
-    {One of the 500 trials of radial velocity fitting for $A = 2$~m/s for S/N = 10,000 and 2,000 respectively.}
+    {One of the 500 trials of radial velocity fitting for $A = 2$~m/s. Top: S/N = 10,000; bottom: S/N = 2,000.}
 \label{fig:Planet_recovery_p2}
 \end{figure}    
 %-------------
 
-In the end, we obtain the histograms of the recovered orbital parameters for a total of 500 runs (Fig.~\ref{fig:Histogram}). To quantitatively describe their performances, we calculate the percentage of parameters successfully recovered within 5\% and 10\% of the true values as summarized in Table~\ref{table:a=2}. For example, for S/N = 10,000, 46\% of the 500 trials have both the amplitude ($A$) and orbital frequency ($\nu_\text{orb}/\nu_\text{rot}$) successfully recovered within 5\% of the true parameters with jitter correction applied, while only 8\% of them achieve such a precision without jitter correction. 
+We show in Fig.~\ref{fig:Histogram} the histograms of the recovered orbital parameters for all 500 runs. To quantitatively describe this performance, we calculate the percentage of parameters successfully recovered within 5\% and 10\% of the true values as summarized in Table~\ref{table:a=2}. For example, for S/N = 10,000, 46\% of the 500 trials have both the amplitude ($A$) and orbital frequency ($\nu_\text{orb}/\nu_\text{rot}$) successfully recovered to within 5\% of the true parameters with jitter correction applied, while only 8\% achieve such a precision without jitter correction. 
 
 
 %-------------
@@ -666,7 +679,7 @@ both $A$ and $\nu_\text{orb}/\nu_\text{rot}$    & 8\%             & 46\%        
 %----------------------------------------------------------------------------------------
 \subsection{Planetary signal dominates}
 
-In this case, we set the orbital amplitude roughly 10 times as strong as the jitter, i.e. $A = 20$~m/s (Fig.~\ref{fig:Planet_recovery_p20}). Although both with and without the aid of jitter correction manage to recover the planetary orbital parameters accurately enough, implementing $\mathit{\Phi}$ESTA further improves the performance, especially in high S/N (Fig.~\ref{fig:Histogram20} and Table.~\ref{table:a=20}). 
+In this case, we set the orbital amplitude to be $A = 20$~m/s (Fig.~\ref{fig:Planet_recovery_p20}). Both fits with, and without, the aid of jitter correction manage to recover almost all the planetary orbital parameters to within 5\% accuracy (Fig.~\ref{fig:Histogram20} and Table.~\ref{table:a=20}). Implementing jitter correction with $\mathit{\Phi}$ESTA further improves the performance, especially in high S/N (=~10,000) showing 61\% of the orbital parameters are recovered up to 1\% accuracy, compared with a mere 30\% without jitter correction. 
 
 %-------------
 \begin{figure}[tbp]	
@@ -739,31 +752,14 @@ both $A$ and $\nu_\text{orb}/\nu_\text{rot}$    & 30\%             & 61\%       
 \end{table}
 %-------------
 
-
-
-%-------------
-%\begin{table}[h!]
-%\centering
-%\begin{tabular}{|c|c|c|c|c|}
-%\hline
-%\multirow{2}{*}{Percentage} 	& \multicolumn{2}{c|}{1\% limit}  & \multicolumn{2}{c|}{5\% limit}  \\ \cline{2-5} 
-%                  	& \multicolumn{1}{l|}{$\dagger$} & \multicolumn{1}{l|}{$\ddagger$} & \multicolumn{1}{l|}{$\dagger$} & \multicolumn{1}{l|}{$\ddagger$} \\ \hline
-%$A$  	 									& 41\% 		& 51\% 			& 98\% 			& 99\%             \\ \hline
-%$\nu_\text{orb}/\nu_\text{rot}$  			& 91\% 		& 97\%			& 100\%			& 100\%             \\ \hline
-%both $A$ and $\nu_\text{orb}/\nu_\text{rot}$ & 37\% 		& 49\%			& 98\%			& 99\%             \\ \hline
-%\end{tabular}
-%\caption{Proportion of recovered parameters within 1\% and 5\% limit of $A = 20$~m/s and $\nu_\text{orb}/\nu_\text{rot} =0.7$. $\dagger$: no correction; $\ddagger$: jitter correction applied.}
-%\label{table:a=20}
-%\end{table}
-%%-------------
 \FloatBarrier
 
 %----------------------------------------------------------------------------------------
 \subsection{Stellar jitter only}
 
-We set $A=0$~m/s so that the measured the radial velocity only comes from stellar variability. We implement the same approaches as above to see if the applying the jitter correction can return a null planet solution i.e. recovered amplitude smaller than the noise level.
+We set $A=0$~m/s so that the measured the radial velocity only comes from stellar variability. We fit the data by the sum of a Keplerian orbit and a jitter correction model to see if a null planet solution can be returned, i.e. a recovered planetary amplitude lying at or being smaller than the noise level of the data.
 
-We remind ourselves that the spot configuration in Table~\ref{table:spot_configurations} is used. Three starspots appear and diasppear in turns (Fig.~\ref{fig:rv_recovery_deformed}), mimicking the radial velocities of orbiting exoplanets. This is indeed the case in the histogram of ``recovered" orbital parameters (Fig.~\ref{fig:Histogram_null}) -- three peaks occur at $\nu_\text{orb}/\nu_\text{rot} =$ 1, 2 and 3, with $\nu_\text{orb}/\nu_\text{rot} = 3$ being the most prominent. Applying the jitter correction, the amplitudes of the ``recovered" planet for S/N = 10,000 is effectively reduced, but its performance is only marginally better for S/N = 2,000, and neither of them reaches below the rms of photon noise level: $\sim 0.1$~m/s for S/N = 10,000 and $\sim 0.5$~m/s for S/N = 2,000. We still cannot completely rule out the possibility of a reduced amplitude being true. Therefore, we come up with the following two subsections to discuss how we can classify whether the planetary signal or the stellar jitter dominates the observed radial velocities. 
+We remind ourselves that the spot configuration in Table~\ref{table:spot_configurations} is used. Three starspots appear and disappear in turns (Fig.~\ref{fig:rv_recovery_deformed}), mimicking the radial velocities of orbiting exoplanets. This is seen in the histogram of ``recovered" orbital parameters (Fig.~\ref{fig:Histogram_null}), where three peaks occur at $\nu_\text{orb}/\nu_\text{rot} =$ 1, 2 and 3, with $\nu_\text{orb}/\nu_\text{rot} = 3$ being the most prominent. Applying the jitter correction, the overall amplitudes (calculated from the centre of a Gaussian fit on the distribution of amplitudes) of the ``recovered" planet is effectively reduced from 1.32~m/s to 0.54~m/s for S/N = 10,000, but only marginally decreased from 1.33~m/s to 1.14~m/s for S/N = 2,000, and neither of them reaches below the rms of photon noise level: $\sim 0.1$~m/s for S/N = 10,000 and $\sim 0.5$~m/s for S/N = 2,000. As a result, we still cannot negate such a signal with a reduced amplitude with this approach alone. 
 
 %-------------
 \begin{figure}[tbp]	
@@ -797,54 +793,84 @@ We remind ourselves that the spot configuration in Table~\ref{table:spot_configu
 \subsection{Classification}
 \label{sec:Classification}
 
-We demonstrate the use of the relations among $RV_\text{Gaussian}$, $RV_\text{FT,H/L}$ and $\Delta RV_\text{H/L}$ to classify if a system is dominated by jitter and planetary signals (Fig.~\ref{fig:correlations}). The common feature in (a), (b) and (c), where stellar jitter is present, is a well defined linear correlation between $\Delta RV_\text{H}$ and $\Delta RV_\text{L}$. Both $\Delta RV_\text{H}$ and $\Delta RV_\text{L}$ are used as jitter indicators. They are linearly correlated with jitter and thus proportional to each other as well. The different features in each of the four panels are:
+We can demonstrate the use of the relations among $RV_\text{Gaussian}$, $RV_\text{FT,H/L}$ and $\Delta RV_\text{H/L}$ to classify the relative magnitudes of jitter and planetary signals. 
 
-\begin{enumerate}[label=(\alph*)]
-	\item Stellar jitter as strong as planetary signals --
-	\item another item
-\end{enumerate}
+In Fig.~\ref{fig:correlations}, 4 combinations of relative sizes between jitter and planetary signal are displayed. In (a), (b) and (c) where stellar jitter is present, a well defined linear correlation can be seen between $\Delta RV_\text{H}$ and $\Delta RV_\text{L}$. Both $\Delta RV_\text{H}$ and $\Delta RV_\text{L}$ are used as jitter metrics. They are linearly correlated with jitter and thus proportional to each other as well. 
 
 %-------------
 \begin{figure}[htbp]	
     \begin{subfigure}[b]{1.0\textwidth}
         \includegraphics[width=\textwidth]{./Figures/Methods/Correlation_2pj.png}
-        \caption{Stellar jitter as strong as planetary signal: featured by (1) a decent correlation between $RV_\text{Gaussian}$ and $RV_\text{FT,L}$ and (2) no correlation between $RV_\text{Gaussian} - RV_\text{FT,H/L}$.}
+        \caption{Stellar jitter amplitude $\approx$ planetary amplitude.}
     \end{subfigure}
 	~
     \begin{subfigure}[b]{1.0\textwidth}
         \includegraphics[width=\textwidth]{./Figures/Methods/Correlation_20pj.png}
-        \caption{Planetary signal dominating: featured by (1) a tight correlation between $RV_\text{FT,L}$ and $RV_\text{Gaussian}$ and (2) no correlation between $RV_\text{Gaussian} - RV_\text{FT,H/L}$.}
+        \caption{Planetary signal dominating.}
     \end{subfigure}	
 	~
     \begin{subfigure}[b]{1.0\textwidth}
         \includegraphics[width=\textwidth]{./Figures/Methods/Correlation_null.png}
-        \caption{Jitter only; no planet: featured by linear correlations in all the subplots, on which $\mathit{\Phi}$ESTA are based.}
+        \caption{Jitter only; no planet.}
     \end{subfigure}	    
 	~
     \begin{subfigure}[b]{1.0\textwidth}
         \includegraphics[width=\textwidth]{./Figures/Methods/Correlation_0jitter.png}
-        \caption{Planet only; ``no" jitter. No apparent difference from (a) at first sight. This is because $\mathit{\Phi}$ESTA cannot tell whether the difference between line profiles are due to what we define as stellar jitter or the fluctuation from photon noise, but notice the scales of $RV_\text{FT,H,L}$ in (d) are different from (a), because $RV_\text{FT,H} \approx RV_\text{FT,L} \approx RV_\text{Gaussian}$ without the presence of jitter. }
+        \caption{Planet only; ``no" jitter.}
     \end{subfigure}	    
     \caption[Classification of jitter dominated or planetary signal dominated]        
-    {Classification of a system whether it's jitter dominated or planetary signal dominated.}
+    {Classifications for the relative magnitudes of jitter and planetary radial velocity signals. The green trends show the linear correlations that are expected from each configuration.}
 \label{fig:correlations}
 \end{figure}    
 %-------------
-\FloatBarrier
+
+The respective features that distinguish each from the others in the four panels are follows.
+\begin{enumerate}[label=(\alph*)]
+	\item Stellar jitter amplitude $\approx$ planetary amplitude:
+	\begin{itemize}
+		\item a decent linear relation between $RV_\text{FT,L}$ and $RV_\text{Gaussian}$, as they only differ by $\Delta RV_\text{L}$, some 20\% of the jitter, a small amount compared to $RV_\text{FT,L}$ and $RV_\text{Gaussian}$;
+		\item a weakly related trend between $RV_\text{FT,H}$ and $RV_\text{Gaussian}$, as they differ by $\Delta RV_\text{H}$, which is at the magnitude of jitter;
+		\item weakly related trends in $\Delta RV_\text{L}$ or $\Delta RV_\text{H}$ verses $RV_\text{Gaussian}$, which can be seen as a well correlated $\Delta RV_\text{H}$ or $\Delta RV_\text{L}$ versus the jitter with the planetary radial velocity on top of jitter adding x-dispersion;
+	\end{itemize}
+	
+	\item Planetary signal dominating:
+	\begin{itemize}
+		\item a tight linear correlation between $RV_\text{FT,L}$ and $RV_\text{Gaussian}$ (same reasoning as above but the difference between the two axes -- some 20\% of the jitter -- is even relatively smaller compared to the size of $RV_\text{FT,L}$ and $RV_\text{Gaussian}$);
+		\item a somewhat tight linear correlation between $\Delta RV_\text{H}$ and $RV_\text{Gaussian}$ (same reasoning as above but the difference between the two axes is at the magnitude of jitter);
+		\item no correlation between $\Delta RV_\text{H}$ or $\Delta RV_\text{L}$ verses $RV_\text{Gaussian}$, as the x-axes are dominated by the planetary signal, while the y-axes are solely the jitter metrics;
+	\end{itemize}
+	
+	\item Only jitter and no planet:
+	\begin{itemize}
+		\item all panels show linear correlations, as $RV_\text{Gaussian}$ directly measures jitter when no planet is present, and it is linearly correlated with $RV_\text{FT,L}$, $RV_\text{FT,H}$, $\Delta RV_\text{L}$ and $\Delta RV_\text{H}$. 
+	\end{itemize}
+
+	\item Only planet and ``no" jitter:
+	\begin{itemize}
+		\item 1:1 linear correlations between $RV_\text{FT,L}$ or $RV_\text{FT,H}$ and $RV_\text{Gaussian}$, as they all measure the planetary radial velocities when jitter is absent;
+		\item no correlation between $\Delta RV_\text{H}$ or $\Delta RV_\text{L}$ verses $RV_\text{Gaussian}$, as the jitter metrics $\Delta RV_\text{L}$ and $\Delta RV_\text{H}$ fluctuate as a result of photon noise; in other words, there is no intrinsic difference among the line profile shapes, but photon noise is interpreted as a ``deformation" in the jitter metrics;
+		\item no expected correlation between $\Delta RV_\text{H}$ and $\Delta RV_\text{L}$, as both are simply a measurement of photon noise, but in lower S/N circumstances or imperfect cross-correlations of line profiles, a linear correlation may be seen, as the ``deformation" becomes more detectable.  
+	\end{itemize}	
+
+\end{enumerate}
+
+We note that these features are based on a high S/N (=~10,000) simulation. In lower S/N circumstances, such correlations will be less obvious as the data becomes more scattered. However, a simulation at a corresponding S/N can be reproduced and used as a reference. 
 
 
 %----------------------------------------------------------------------------------------
-\subsection{Periogodgram combined with the $\mathit{\Phi}$ESTA}
+\subsection{Periodogram analysis with $\mathit{\Phi}$ESTA}
 
-We would use the generalized Lomb-Scargle periodogram \cite{Zechmeister2009} in combination with $\mathit{\Phi}$ESTA to address the problem of stellar jitter mimicking planetary signals. The idea is to compare the periodogram of the measured radial velocity (i.e. $RV_\text{Gaussian}$) and that of the proto-jitter (i.e. $\mid RV_\text{FT,H/L} - RV_\text{Gaussian} \mid$). Peaks of the periodogram in the former are possible candidates whereas the latter would indicate jitter. 
+We can use the Lomb-Scargle periodogram (tool available in \verb|astropy|) in combination with $\mathit{\Phi}$ESTA to address the problem of stellar jitter mimicking planetary signals. The idea is to compare the periodogram of the measured radial velocities (i.e. $RV_\text{Gaussian}$) and that of the jitter metrics (i.e. $\Delta RV_\text{H}$ and $\Delta RV_\text{L}$) that correlate with jitter. Peaks of the jitter metrics periodogram are likely to indicate periodicities associated with jitter. 
 
-Fig.~\ref{fig:Periodogram} demonstrates the application of periogodgram together with $\mathit{\Phi}$ESTA, on the well sampled radial velocities (without sub-sampling) from the two end-to-end simulations in \S\ref{sec:end-to-end}: (1) stellar jitter as strong as planetary signal and (2) stellar jitter only. The S/N of the cross-correlation profile is 2000 and because we used a full range of sampling, no moving average was applied. In Fig.~\ref{fig:Periodogram1} the planetary orbital frequency $\nu_\text{orb}/\nu_\text{rot} = 0.7$ clearly stands out while the other peaks coincide with that of the proto-jitter. It effectively shows, the proto-jitter model generated by $\mathit{\Phi}$ESTA manages to disentangle jitter from the planetary component of the radial velocities (we recall that the planetary radial velocity was cancelled out to construct the jitter model). In the case of a null planet (Fig.~\ref{fig:Periodogram2}), all the possible candidates where the $RV_\text{Gaussian}$ peaks occur are negated by the same detected periodicity of the jitter. 
+We generated 400 radial velocities samples in four stellar rotations (i.e. no sub-sampling) from the two sets of data: (1) stellar jitter amplitude $\approx$ planetary amplitude and (2) stellar jitter only, that had the same spot and orbital configuration as the previous end-to-end simulations. We chose a moderate S/N = 2,000 for cross-correlation profiles and no smoothing of radial velocity data was applied. 
+
+Fig.~\ref{fig:Periodogram} shows an example of the application of periodogram analysis with the $\mathit{\Phi}$ESTA jitter metrics. In Fig.~\ref{fig:Periodogram1} the planetary orbital frequency $\nu_\text{orb}/\nu_\text{rot} = 0.7$ stands out clearly while the other prominent peaks coincide with those of the jitter metrics. This shows that the $\mathit{\Phi}$ESTA jitter metrics can disentangle jitter from planetary components in the radial velocities. In the case of a null planet (Fig.~\ref{fig:Periodogram2}), all the possible candidates where the $RV_\text{Gaussian}$ peaks occur are also indicated to be sources of periodicity due to the jitter. 
 
 %-------------
-\begin{figure}[htbp]	
+\begin{figure}[tbp]	
     \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{./Figures/Methods/0-Periodogram_1.png}
-        \caption{Stellar jitter as strong as planetary signal}
+        \caption{Jitter amplitude $\approx$ planetary amplitude}
         \label{fig:Periodogram1}
     \end{subfigure}
 	~
@@ -854,7 +880,7 @@ Fig.~\ref{fig:Periodogram} demonstrates the application of periogodgram together
         \label{fig:Periodogram2}
     \end{subfigure}	
     \caption[Periodogram combined with $\mathit{\Phi}$ESTA]
-    {Periodogram of $RV_\text{Gaussian}$ and $\mid RV_\text{FT,H/L} - RV_\text{Gaussian} \mid$. The single prominent peak in (a) indicates the orbital frequency (or period) of the injected planet. The true orbital frequency is labelled as the blue vertical line; the suspicious frequencies are labelled in red vertical lines at $\nu_\text{orb}/\nu_\text{rot} =$ 1, 2 and 3.}
+    {Periodogram of $RV_\text{Gaussian}$ and the jitter metrics $\Delta RV_\text{H}$ and $\Delta RV_\text{L}$. The single prominent peak in (a) indicates the orbital frequency (or period) of the injected planet. The true orbital frequency is labelled as the blue vertical line $\nu_\text{orb}/\nu_\text{rot} = 0.7$; the suspicious frequencies are labelled in red vertical lines at $\nu_\text{orb}/\nu_\text{rot} =$ 1, 2 and 3. The normalization mode of periodogram is standard as default.}
 \label{fig:Periodogram}
 \end{figure}    
 %-------------
@@ -868,26 +894,25 @@ Fig.~\ref{fig:Periodogram} demonstrates the application of periogodgram together
 \label{\thesection}
 \label{sec:observation}
 
-\subsection{HD189733: Rossiter–McLaughlin effect as jitter}
+\subsection{HD189733: the Rossiter–McLaughlin effect as jitter}
 \label{sec:HD189733}
 
-HD189733 is a well studied binary star system. The main star HD189733~A is known to host a gas giant exoplanet HD189733~b, first detected by transits and followed by Doppler spectroscopy conformation \cite{Bouchy2005ELODIE}. Its Rossiter–McLaughlin effect (Fig.~\ref{fig:rm-effect}), as a change in radial velocities when the planet passes in front of its parent star, was studied by \cite{Cochran2006} and \cite{Triaud2009}. During the eclipse, the planet breaks the observed flux symmetry of the stellar photosphere, resulting in imbalanced redshift and blueshift, producing an asymmetric spectral line profile and apparent radial velocity shifts.
+HD189733 is a well studied binary star system. The main star HD189733~A is known to host a gas giant exoplanet HD189733~b, first detected by transits and subsequently confirmed by Doppler spectroscopy \cite{Bouchy2005ELODIE}. The Rossiter–McLaughlin effect (Fig.~\ref{fig:rm-effect}), is an apparent change in radial velocity produced when the planet passes in front of its parent star, and has been studied in \cite{Cochran2006} and \cite{Triaud2009}. During the eclipse, the planet breaks the observed flux symmetry of the stellar photosphere and produce an asymmetric spectral line profile and apparent radial velocity shift.
 
 %-------------
 \begin{figure}[htbp]
 \centering
 \includegraphics[width = 0.80 \linewidth]
 {./Figures/Methods/rmeffect.png}
-\caption[Demo: Rossiter–McLaughlin effect]
-{Demo: Rossiter–McLaughlin effect (figure taken from \cite{Gaudi2007}). It is an apparent radial velocity change of the parent star due to an eclipsing binary (whether star or planet) in front of the stellar photosphere. It shows in this plot three different star-planet alignments that cause three corresponding different forms of Rossiter–McLaughlin curves. Solid line is the model with limb darkening as opposed to dotted line without limb darkening.}
+\caption[The Rossiter–McLaughlin effect]
+{The Rossiter–McLaughlin effect (figure taken from \cite{Gaudi2007}) is an apparent radial velocity change of the parent star due to an eclipsing companion (either a star or a planet). This plot shows three different star-planet alignments and the corresponding different forms of Rossiter–McLaughlin curves for each. The solid line is the model including limb darkening, and the dotted line without limb darkening.}
 \label{fig:rm-effect}
 \end{figure} 
 %-------------
 
-We aim to test if our jitter model generateed by $\mathit{\Phi}$ESTA can account for the apparent radial velocity shift as a result of Rossiter–McLaughlin effect. We choose this target as a case study for the following reasons: (1) HD189733~b is a confirmed transiting exoplanet, so that we know what to expect from the radial velocity shift during the eclipse. (2) The gas giant exoplanet causes a prominent apparent radial velocity shift while it transits (amplitude up to $\sim 40$~m/s) arising from Rossiter–McLaughlin effect, making it the dominant factor of the radial velocity shift, although the star itself exhibits signs of activity (\cite{Boisse189733}, \cite{Cauley2017}). (3) The system HD189733 has a visual magnitude of $V\sim7.65$ \cite{SIMBAD189733} (or $G=7.41$ from the Gaia archive), dominated by the primary host star HD189733~A, with a relatively high S/N in the HARPS cross-correlation profile, enabling decently good performance of $\mathit{\Phi}$ESTA in recovering radial velocities.
+We aim to test if jitter estimates generateed by $\mathit{\Phi}$ESTA can account for the apparent radial velocity shift of the Rossiter–McLaughlin effect. We choose this target as a case study for the following reasons: (1) HD189733~b is a confirmed transiting exoplanet, so that we know what to expect from the radial velocity shift during the eclipse. (2) The gas giant exoplanet causes a prominent apparent radial velocity shift as it transits (amplitude up to $\sim 40$~m/s), making it the dominant radial velocity shift (although the star itself exhibits signs of activity \cite{Boisse189733}, \cite{Cauley2017}). (3) The system HD189733 has a visual magnitude of $V\sim7.65$ \cite{SIMBAD189733} (or $G=7.41$ from the Gaia archive), dominated by the primary host star HD189733~A, and therefore a moderate S/N (2000-4000) in the HARPS cross-correlation profile, which is required for $\mathit{\Phi}$ESTA in recovering radial velocities.
 
-Here we briefly recap the procedure of obtaining the ``jitter" model by $\mathit{\Phi}$ESTA. Both $RV_\text{Gaussian}$, $RV_\text{FT,H}$ and $RV_\text{FT,L}$) are calculated from the HARPS cross-correlation of the spectral lines. Note that $RV_\text{Gaussian}$, $RV_\text{HARPS}$ and $RV_\text{FT}$ deliver consistent radial velocities, and thus in practice, it barely makes difference to adopt any of them as the radial velocity shift of the line profile. We calculate $\Delta RV = \mid RV_\text{Gaussian} - RV_\text{FT,H/L} \mid$ as the raw proto-jitter (Fig.~\ref{fig:HD189733} bottom left).
-We know that during transit, the orbital phase of the planet HD189733~b is zero and thus contributes no radial velocity, however, the inclined trend of the radial velocity curve is attributed to the exoplanet whose orbital period is estimated 11 days \cite{Bouchy2005ELODIE}, as well as the other star HD189733~B in the binary star system of which the orbital period is estimated around 3,200 years \cite{Bakos2006}, both being reasonably long enough as opposed to the time-scale of the planetary transit of hours, therefore a local linear approximation can be applied by fitting a linear trend onto the non-transiting part of the radial velocities as the orbital radial velocities, which is then removed and left with the Rossiter–McLaughlin curve (Fig.~\ref{fig:HD189733} top right). It can be now treated as ``jitter" and modelled by the raw proto-jitter multiplied by a scaling factor (Fig.~\ref{fig:HD189733} right). 
+Here we briefly recap the procedure for obtaining the ``jitter" model by $\mathit{\Phi}$ESTA. $RV_\text{Gaussian}$ were obtained from the HARPS spectra headers; $RV_\text{FT,H}$ and $RV_\text{FT,L}$ were calculated from the HARPS cross-correlation of the spectral lines (Fig.~\ref{fig:HD189733} upper left). We could then obtain the raw jitter metrics $\Delta RV_\text{H} = RV_\text{FT,H} - RV_\text{HARPS}$ and $\Delta RV_\text{L} = RV_\text{HARPS} - RV_\text{FT,L}$ (Fig.~\ref{fig:HD189733} lower left). We show only the processes from $\Delta RV_\text{L}$ as the jitter model built from $\Delta RV_\text{H}$ can be obtained in the same procedure and presents similar results. The inclined trend of the radial velocity curve is attributed to the exoplanet (with an orbital period is estimated 2.219 days \cite{Bouchy2005ELODIE}) as well as the companion binary star HD189733~B (with an orbital period $\approx$ 3,200 years \cite{Bakos2006}) -- both orbiting time-scales are long enough compared to the $\sim$ 2 hour planetary transit. Therefore a local approximation can be applied by fitting a linear trend onto the non-transiting part of the radial velocities. This is then removed to leave the residual Rossiter–McLaughlin curve (Fig.~\ref{fig:HD189733} upper right). This can then be treated as ``jitter" and modelled by the raw jitter metric multiplied by a scaling factors. 
 
 %-------------
 \begin{figure}[tbp]
@@ -895,12 +920,14 @@ We know that during transit, the orbital phase of the planet HD189733~b is zero 
 \includegraphics[width = 1.0 \linewidth]
 {./Figures/Methods/HD189733.png}
 \caption[HD189733: modelling Rossiter–McLaughlin effect as jitter]
-		{Flowchart of modelling Rossiter–McLaughlin effect as jitter using $\mathit{\Phi}$ESTA on HD189733. Note that the errorbars related to the radial velocities from $\mathit{\Phi}$ESTA (e.g. the scaled raw jitter in the top right panel) are correct in scale relative to each other (as derived from the photon noise) but not evaluated in the absolute value.}
+		{Flowchart of modelling the Rossiter–McLaughlin effect as jitter using $\mathit{\Phi}$ESTA on HD189733. Note that $RV_\text{FT,L}$ is offset by 5~m/s to avoid visual overlap with $RV_\text{HARPS}$ in the upper left panel. The errorbars related to the radial velocities from $\mathit{\Phi}$ESTA (e.g. $\Delta RV_\text{L}$) are only correct relative to each other (as derived from the photon noise) but not evaluated in the absolute scale.}
 \label{fig:HD189733}
 \end{figure} 
 %-------------
 
-For this exercise, the scaled model is smoothed by the weighted moving average with $\tau~\sim0.2$ hour, twice of the spacing of two consecutive observations. Despite mitigating against additional noise brought by $\mathit{\Phi}$ESTA, it smears the drastic velocity change when the planet ingresses and egresses the stellar disk. Applying a correct Rossiter–McLaughlin curve model is expected to improve the fitting, we still adopt the smoothing approach the way we would normally (intend to) deal with stellar variability induced radial velocities instead, to demonstrate the sufficiently recovered radial velocities as a result of line profile deformation -- a $75\%$ removal of the ``jitter" from $\sim 40$~m/s to $\sim 10$~m/s. 
+The scaled model is then smoothed using a weighted moving average (WMA) with $\tau~\sim0.2$ hour (twice of the spacing of two consecutive observations). Although required to mitigate against the phase noise sensitivity of $\mathit{\Phi}$ESTA, this does smear the drastic velocity change seen when the planet enters and departs the stellar disk. Nevertheless we see that $\mathit{\Phi}$ESTA results in a 75\% removal of the ``jitter" impact of the planetary transit, from $\sim 40$~m/s to $\sim 10$~m/s (Fig.~\ref{fig:HD189733} right). Fitting a parameterized Rossiter–McLaughlin curve model to the jitter metric instead of smoothing the jitter metric is expected to improve the result.
+
+%, we still adopt the smoothing approach the way we would normally (intend to) deal with stellar variability induced radial velocities instead, to demonstrate the sufficiently recovered radial velocities as a result of line profile deformation -- a $75\%$ removal of the ``jitter"  
 
 %The effective length of the smoothing kernel should be carefully chosen. In most cases, it can be chosen roughly the same as the spacing between two consecutive exposures. It can be very useful in mitigating the effect of noise (especially for relatively lower S/N data, to which $\mathit{\Phi}$ESTA is sensitive, but in this particular Rossiter–McLaughlin effect during the transit, In the future, an adaptive (e.g. S/N dependent) effective length of the smoothing kernel may be implemented to resolve this problem. 
 %
@@ -909,11 +936,11 @@ For this exercise, the scaled model is smoothed by the weighted moving average w
 
 \subsection{$\alpha$ Centauri B (HD128621)}
 
-We chose $\alpha$ Centauri B as our case study for its brightness (V$\sim$1.33), abundant HARPS observations, and the controversy over whether it hosts an exoplanet due to its intrinsic stellar activity. Being potentially the (second) closest exoplanet to Earth, the candidate $\alpha$ Centauri B was first discovered by \cite{Dumusque_Centauri_B} in 2012, then further investigated by \cite{Hatzes2013} in 2013, and later questioned by \cite{Rajpaul_Alpha_Cen_B}, suggesting it was a detection of a ghost signal arised from the window function. We haven't gone as far as probing the spurious planetary candidate, but we could study is the stellar activity level of $\alpha$ Centauri B, presented by a scaled jitter correction $\Delta RV_\text{H/L} = \mid RV_\text{HARPS} - RV_\text{FT,H/L}\mid$. In the following, we focus on three segments of the $\alpha$ Centauri B data sets for activity analysis, each roughly one year apart, spanning within three months and including over 2000 observations. Epoch 1: 15/02/2009 - 06/05/2009; Epoch 2: 03/23/2010 - 12/06/2010; Epoch 3: 18/02/2011 - 15/05/2011. Among them, Epoch 2 is of particular interest as it has been used to study rotationally modulated stellar activities in K-dwarfs (\cite{Thompson2017MNRAS}, \cite{Wise2018}). 
+$\alpha$ Centauri B is a good case study for $\mathit{\Phi}$ESTA due to its brightness (V$\sim$1.33), abundant HARPS observations and the intrinsic stellar activity that brings controversy over whether it hosts an exoplanet. Potentially the (second) closest exoplanet to Earth -- the planet candidate $\alpha$ Centauri Bb was first discovered by \cite{Dumusque_Centauri_B} in 2012, then further investigated by \cite{Hatzes2013} in 2013, and later questioned by \cite{Rajpaul_Alpha_Cen_B} who suggested it was the detection of a ghost signal aliased from the window function. We do not yet seek to address the reality of the planetary candidate, but can study the stellar activity level of $\alpha$ Centauri B, ?? the jitter metrics $\Delta RV_\text{L}$ and $\Delta RV_\text{H}$. In the following, we focus on three segments of the $\alpha$ Centauri B data for activity analysis. Each is roughly one year apart, spans three months and includs over 2000 observations. The specific epochs are -- Epoch 1: 15/02/2009 - 06/05/2009; Epoch 2: 03/23/2010 - 12/06/2010; Epoch 3: 18/02/2011 - 15/05/2011. Among them, Epoch 2 is of particular interest as it has been used to study rotationally modulated stellar activities in K-dwarfs (\cite{Thompson2017MNRAS}, \cite{Wise2018}). 
 
-We downloaded 2617 $\alpha$ Centauri B spectra for Epoch 2 (2010) from the ESO archive, from which we selected the 2529 cross-correlation line profiles that were constructed with a K5 stellar template; the number of observations actually used was then further reduced to 2488 as we took out another 41 observations that presented large radial velocity offsets and visually different cross-correlation line profiles from the rest of the profiles. These removed observations had features at ephemeral time-scales, i.e. their radial velocities stood out from the other observations of the same day in the $RV_\text{HARPS}$ or $\Delta RV_\text{H/L}$ time-series and they were also classified as outliers in the full width at half maximum (FWHM) indicator, suggesting the presence of stellar flares. Epoch 1 (2009) and 3 (2011) were pre-filtered in a similar manner, resulting in 2220 and 3534 observations used respectively.
+We downloaded 2617 $\alpha$ Centauri B spectra for Epoch 2 (2010) from the ESO archive, from which we selected the 2529 cross-correlation line profiles that were constructed with a K5 stellar template; the number of observations actually used was then further reduced to 2488 as we took out another 41 observations that presented large radial velocity offsets and visually different cross-correlation line profiles from the rest of the profiles. These removed observations had features at ephemeral time-scales, i.e. their radial velocities stood out from the other observations of the same day in the $RV_\text{HARPS}$ or $\Delta RV_\text{H/L}$ time-series and they were also classified as outliers in the full width at half maximum (FWHM) indicator, suggesting the presence of stellar flares. Epoch 1 (2009) and 3 (2011) were pre-filtered in a similar manner, resulting in 2220 and 3534 observations used in this analysis.
 
-Fig.~\ref{fig:Alpha_Cen_B} presents the results of $\mathit{\Phi}$ESTA analysis of $\Delta RV_\text{L} = RV_\text{HARPS} - RV_\text{FT,L}$ for these 3 years. $\Delta RV_\text{H} = RV_\text{FT,H} - RV_\text{HARPS}$ is not shown here as it is simply proportional to $\Delta RV_\text{L}$ and works the same way. We fit $\Delta RV_\text{L}$ with a Gaussian process model described by a quasi-periodic kernel. A Gaussian process model has the advantage of interpreting stochastic processes with a set of flexible forms of functions, constrained by physically motivated covariance kernels. In this case, a quasi-periodic kernel was chosen such that the periodicity can be explained by the rotationally modulated activity and the deviation from periodicity explained by possibly self-evolving disc features (e.g. starspots and plage, differential rotation). Interested readers can refer the theoretical background of Gaussian processes to a textbook-like literature \cite{Rasmussen2006} or a hitchhiker's guide to Gaussian processes for time-series modelling \cite{Roberts_gaussianprocesses}. For the implementation of the Gaussian process model, we employed the python library \verb|george| delveloped by Foreman-Mackey \cite{Ambikasaran2014}. 
+Fig.~\ref{fig:Alpha_Cen_B} presents the results of $\mathit{\Phi}$ESTA analysis of $\Delta RV_\text{L}$ for these 3 years ($\Delta RV_\text{H}$ is not shown -- it is simply proportional to $\Delta RV_\text{L}$ and works in the same way). We fit the obtained $\Delta RV_\text{L}$ time series with a Gaussian process model described by a quasi-periodic kernel. A Gaussian process model has the advantage of interpreting stochastic processes with a set of flexible forms of functions, constrained by physically motivated covariance kernels. In this case, a quasi-periodic kernel was chosen such that the periodicity can be explained by the rotationally modulated activity and the deviation from periodicity explained by possibly self-evolving disc features (e.g. starspots and plage, differential rotation). Interested readers can refer to the theoretical background on Gaussian processes in a textbook-like literature \cite{Rasmussen2006} or a ``hitchhiker's guide" to Gaussian processes for time-series modelling \cite{Roberts_gaussianprocesses}. For our implementation of the Gaussian process model, we employed the python library \verb|george| delveloped by Foreman-Mackey \cite{Ambikasaran2014}. 
 
 %-------------
 \begin{figure}[tbp]
@@ -926,9 +953,9 @@ Fig.~\ref{fig:Alpha_Cen_B} presents the results of $\mathit{\Phi}$ESTA analysis 
 \end{figure} 
 %-------------
 
-The figure shows the star's activity level increased dramatically from 2009 (upper panel) to 2010 (middle panel), and then declined in 2011 (lower panel). It indicates in 2010, $\alpha$ Centauri B was dominated by a simple global feature on the stellar surface that appeared at a rotation period of around 40 days, while in 2009 and 2011 the star might be covered by various local features, making the disc inhomogeneous at smaller scales. A substantial literature have studied and even modelled the rotational activity in an attempt to pin down the exoplanet candidate $\alpha$ Centauri Bb, so that we can compare our results with them. The prominent periodicity in 2010 is found to be consistent with $\log (R'_{HK})$ in original discovery paper \cite{Dumusque_Centauri_B}, as well as the equivalent widths and core flux of activity-sensitive Fe and Mg lines reported in \cite{Thompson2017MNRAS} and \cite{Wise2018}. While our scaled jitter correction $\Delta RV_\text{L}$ in Epoch 2 (2010) does not match with rotational activity fit from \cite{Dumusque_Centauri_B} and \cite{Hatzes2013}, we do find some similarities shared between our $\Delta RV_\text{L}$ in Epoch 3 (2011) and the corresponding trunk of rotational activity fit presented in \cite{Dumusque_Centauri_B} and \cite{Hatzes2013}, which were obtained using completely different methods from ours. 
+Fig.~\ref{fig:Alpha_Cen_B} shows that $\alpha$ Centauri B's activity level increased dramatically between 2009 (upper panel) and 2010 (middle panel), and then declined in 2011 (lower panel). In 2010, $\alpha$ Centauri B was dominated by a simple global feature on the stellar surface that appeared with a rotation period of around 40 days, while in 2009 and 2011 the star appears more likely to have been covered by various local features, producing disc inhomogeneity at smaller scales. A substantial literature has studied and modelled the rotational activity of $\alpha$ Centauri B in an attempt to confirm or deny the exoplanet candidate $\alpha$ Centauri Bb. The prominent periodicity in 2010 that we present is found to be consistent with $\log (R'_{HK})$ in original $\alpha$ Centauri Bb discovery paper \cite{Dumusque_Centauri_B}, as well as the equivalent widths and core flux of activity-sensitive Fe and Mg lines reported in \cite{Thompson2017MNRAS} and \cite{Wise2018}. While our scaled jitter correction $\Delta RV_\text{L}$ in Epoch 2 (2010) does not match with the rotational activity fit of \cite{Dumusque_Centauri_B} and \cite{Hatzes2013}, we do find some shared similarities between our $\Delta RV_\text{L}$ in Epoch 3 (2011) and the corresponding trunk of rotational activity fit presented in \cite{Dumusque_Centauri_B} and \cite{Hatzes2013}, which were obtained using completely different methods from ours. 
 
-We obtained the stellar rotation period from the best fit solution with a quasi-periodic kernel. For the three phases that we studied from 2009 to 2011, the rotation period is estimated to be 37.05, 35.70 and 36.71 days, all within $1\sigma$ of the pre-claimed $36.2\pm1.4$ days \cite{DeWarf2010}; the rotation period of Epoch 3 (2011) that we obtained is highly consistent with the one from \cite{Dumusque_Centauri_B}. Unsurprisingly, the other two periods are not, as our $\Delta RV_\text{L}$ model is  different from the activity model fit in \cite{Dumusque_Centauri_B}. 
+We could obtain the stellar rotation period from our best fit solution with a quasi-periodic kernel. For the three epochs that we studied from 2009 to 2011, the rotation period is estimated to be 37.05, 35.70 and 36.71 days, all within $1\sigma$ of the pre-claimed $36.2\pm1.4$ days \cite{DeWarf2010}; the rotation period of Epoch 3 (2011) that we obtained is highly consistent with the one from \cite{Dumusque_Centauri_B}. Unsurprisingly, the other two periods are not, as our $\Delta RV_\text{L}$ model is  different from the activity model fit in \cite{Dumusque_Centauri_B}. 
 
 While , \S\ref{sec:Classification} has demonstrated $\mathit{\Phi}$ESTA does provide a quick assessment of whether a system hosts a planet / planets. 
 
