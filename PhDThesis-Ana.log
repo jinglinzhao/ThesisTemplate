@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.10.18)  28 NOV 2018 17:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.10.18)  30 NOV 2018 13:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2577,24 +2577,22 @@ Package pdftex.def Info: ./Figures/Methods/Alpha_Cen_B.png  used on input line
 951.
 (pdftex.def)             Requested size: 417.47307pt x 417.47247pt.
  [42] [43 <./Figures/Methods/Alpha_Cen_B.png>]
-<./Figures/Methods/Correlogram_indicator.png, id=1021, 1011.78pt x 1011.78pt>
-File: ./Figures/Methods/Correlogram_indicator.png Graphic file (type png)
-<use ./Figures/Methods/Correlogram_indicator.png>
-Package pdftex.def Info: ./Figures/Methods/Correlogram_indicator.png  used on i
-nput line 970.
+<./Figures/Methods/Correlogram2_indicator_2010.png, id=1021, 1011.78pt x 1011.7
+8pt>
+File: ./Figures/Methods/Correlogram2_indicator_2010.png Graphic file (type png)
+
+<use ./Figures/Methods/Correlogram2_indicator_2010.png>
+Package pdftex.def Info: ./Figures/Methods/Correlogram2_indicator_2010.png  use
+d on input line 970.
 (pdftex.def)             Requested size: 417.47307pt x 417.47247pt.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 987.
+(hyperref)                removing `math shift' on input line 989.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\epsilon' on input line 987.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 987.
+(hyperref)                removing `\epsilon' on input line 989.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
@@ -2602,17 +2600,22 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\tau' on input line 989.
+(hyperref)                removing `math shift' on input line 991.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 989.
+(hyperref)                removing `\tau' on input line 991.
 
-[44] (./Chapters/Methods.bbl (./PhDThesis-Ana.brf)
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 991.
+
+[44] [45 <./Figures/Methods/Correlogram2_indicator_2010.png>]
+(./Chapters/Methods.bbl (./PhDThesis-Ana.brf)
 \tf@brf=\write8
 \openout8 = `PhDThesis-Ana.brf'.
 
- [45 <./Figures/Methods/Correlogram_indicator.png>] [46])) [47] [48
+ [46])) [47] [48
 
 
 ]
@@ -2635,12 +2638,12 @@ Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 166.
 Package rerunfilecheck Info: File `PhDThesis-Ana.out' has not changed.
 (rerunfilecheck)             Checksum: 1CF8959FC524DC10C0DB1C88D09BB8EE;8751.
 Package rerunfilecheck Info: File `PhDThesis-Ana.brf' has not changed.
-(rerunfilecheck)             Checksum: FC3A177ED2811C6E736A3179374F7D62;1600.
+(rerunfilecheck)             Checksum: 76826E2D73A1DE46C88597954D9F32A5;1722.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 166.
  ) 
 Here is how much of TeX's memory you used:
  25822 strings out of 492649
- 427028 string characters out of 6129621
+ 427058 string characters out of 6129621
  504829 words of memory out of 5000000
  28902 multiletter control sequences out of 15000+600000
  549229 words of font info for 91 fonts, out of 8000000 for 9000
@@ -2673,10 +2676,10 @@ t/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2018/texmf-dist
 fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2018/texmf-dist/f
 onts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2018/texmf-di
 st/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on PhDThesis-Ana.pdf (66 pages, 4781691 bytes).
+Output written on PhDThesis-Ana.pdf (66 pages, 4832133 bytes).
 PDF statistics:
- 1206 PDF objects out of 1440 (max. 8388607)
- 970 compressed objects within 10 object streams
+ 1209 PDF objects out of 1440 (max. 8388607)
+ 972 compressed objects within 10 object streams
  213 named destinations out of 1000 (max. 500000)
  608 words of extra memory for PDF output out of 10000 (max. 10000000)
 
