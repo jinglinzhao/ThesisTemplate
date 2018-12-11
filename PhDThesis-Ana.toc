@@ -43,10 +43,17 @@
 \contentsline {subsection}{\numberline {2.3.3}Stellar jitter only}{33}{subsection.2.3.3}
 \contentsline {subsection}{\numberline {2.3.4}Classification}{35}{subsection.2.3.4}
 \contentsline {subsection}{\numberline {2.3.5}Periodogram analysis with $\mathit {\Phi }$ESTA}{37}{subsection.2.3.5}
-\contentsline {section}{\numberline {2.4}Applying $\mathit {\Phi }$ESTA on real observations}{39}{section.2.4}
-\contentsline {subsection}{\numberline {2.4.1}HD189733: the Rossiter\IeC {\textendash }McLaughlin effect as jitter}{39}{subsection.2.4.1}
-\contentsline {subsection}{\numberline {2.4.2}$\alpha $ Centauri B (HD128621)}{41}{subsection.2.4.2}
-\contentsline {subsection}{\numberline {2.4.3}$\epsilon $ Eridani (HD22049)}{44}{subsection.2.4.3}
-\contentsline {subsection}{\numberline {2.4.4}$\tau $ Ceti (HD10700)}{44}{subsection.2.4.4}
-\contentsline {section}{\numberline {2.5}References}{46}{section.2.5}
+\contentsline {subsection}{\numberline {2.3.6}Conclusion}{38}{subsection.2.3.6}
+\contentsline {section}{\numberline {2.4}References}{39}{section.2.4}
+\gdef \the@ipfilectr {}
+\gdef \the@ipfilectr {@-3}
+\contentsline {chapter}{\numberline {3}Applying $\mathit {\Phi }$ESTA on real observations}{41}{chapter.3}
+\contentsline {section}{\numberline {3.1}HD189733: the Rossiter\IeC {\textendash }McLaughlin effect as jitter}{42}{section.3.1}
+\contentsline {section}{\numberline {3.2}$\alpha $ Centauri B (HD128621)}{44}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Obtain data}{44}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}$\mathit {\Phi }$ESTA analysis on $\alpha $ Centauri B's activity}{45}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}Correlations among activity indicators and the radial velocities}{47}{subsection.3.2.3}
+\contentsline {section}{\numberline {3.3}$\epsilon $ Eridani (HD22049)}{48}{section.3.3}
+\contentsline {section}{\numberline {3.4}$\tau $ Ceti (HD10700)}{48}{section.3.4}
+\contentsline {section}{\numberline {3.5}References}{50}{section.3.5}
 \gdef \the@ipfilectr {}

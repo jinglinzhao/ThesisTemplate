@@ -1,0 +1,129 @@
+\begin{thebibliography}{10}
+
+\bibitem{Bouchy2005ELODIE}
+{Bouchy, F.}, {Udry, S.}, {Mayor, M.}, {Moutou, C.}, {Pont, F.}, {Iribarne,
+  N.}, {Da Silva, R.}, {Ilovaisky, S.}, {Queloz, D.}, {Santos, N. C.},
+  {S\'egransan, D.}, and {Zucker, S.}
+\newblock Elodie metallicity-biased search for transiting hot jupiters - ii. a
+  very hot jupiter transiting the bright k star hd189733.
+\newblock {\em A\&A}, 444(1):L15--L19, 2005.
+
+\bibitem{Cochran2006}
+W.~D. {Cochran}, M.~{Endl}, R.~A. {Wittenmyer}, and A.~P. {Hatzes}.
+\newblock {The Rossiter-McLaughlin Effect In Transits Of The Planet Hd189733b}.
+\newblock In {\em AAS/Division for Planetary Sciences Meeting Abstracts \#38},
+  volume~38 of {\em Bulletin of the American Astronomical Society}, page 481,
+  September 2006.
+
+\bibitem{Triaud2009}
+{Triaud, A. H. M. J.}, {Queloz, D.}, {Bouchy, F.}, {Moutou, C.}, {Cameron, A.
+  C.}, {Claret, A.}, {Barge, P.}, {Benz, W.}, {Deleuil, M.}, {Guillot, T.},
+  {H\'ebrard, G.}, {Lecavelier des \'Etangs, A.}, {Lovis, C.}, {Mayor, M.},
+  {Pepe, F.}, and {Udry, S.}
+\newblock The rossiter-mclaughlin effect of~corot-3b and hd189733b.
+\newblock {\em A\&A}, 506(1):377--384, 2009.
+
+\bibitem{Gaudi2007}
+B.~Scott Gaudi and Joshua~N. Winn.
+\newblock Prospects for the characterization and confirmation of transiting
+  exoplanets via the rossiter-mclaughlin effect.
+\newblock {\em The Astrophysical Journal}, 655(1):550, 2007.
+
+\bibitem{Boisse189733}
+{Boisse, I.}, {Moutou, C.}, {Vidal-Madjar, A.}, {Bouchy, F.}, {Pont, F.},
+  {H\'ebrard, G.}, {Bonfils, X.}, {Croll, B.}, {Delfosse, X.}, {Desort, M.},
+  {Forveille, T.}, {Lagrange, A.-M.}, {Loeillet, B.}, {Lovis, C.}, {Matthews,
+  J. M.}, {Mayor, M.}, {Pepe, F.}, {Perrier, C.}, {Queloz, D.}, {Rowe, J. F.},
+  {Santos, N. C.}, {S\'egransan, D.}, and {Udry, S.}
+\newblock Stellar activity of planetary host star hd~189733.
+\newblock {\em A\&A}, 495(3):959--966, 2009.
+
+\bibitem{Cauley2017}
+P.~Wilson Cauley, Seth Redfield, and Adam~G. Jensen.
+\newblock A decade of h alpha transits for hd 189733 b: Stellar activity versus
+  absorption in the extended atmosphere.
+\newblock {\em The Astronomical Journal}, 153(5):217, 2017.
+
+\bibitem{SIMBAD189733}
+C.~Koen, D.~Kilkenny, F.~van Wyk, and F.~Marang.
+\newblock Ubv(ri)cjhk observations of hipparcos-selected nearby stars.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  403(4):1949--1968, 2010.
+
+\bibitem{Bakos2006}
+Gáspár~Á. Bakos, András Pál, David~W. Latham, Robert~W. Noyes, and
+  Robert~P. Stefanik.
+\newblock A stellar companion in the hd 189733 system with a known transiting
+  extrasolar planet.
+\newblock {\em The Astrophysical Journal Letters}, 641(1):L57, 2006.
+
+\bibitem{Dumusque_Centauri_B}
+Xavier Dumusque, Francesco Pepe, Christophe Lovis, Damien S{\'e}gransan,
+  Johannes Sahlmann, Willy Benz, Fran{\c c}ois Bouchy, Michel Mayor, Didier
+  Queloz, Nuno Santos, and St{\'e}phane Udry.
+\newblock An earth-mass planet orbiting {$\alpha$} centauri b.
+\newblock {\em Nature}, 491:207 EP --, 10 2012.
+
+\bibitem{Hatzes2013}
+Artie~P. Hatzes.
+\newblock The radial velocity detection of earth-mass planets in the presence
+  of activity noise: The case of alpha centauri bb.
+\newblock {\em The Astrophysical Journal}, 770(2):133, 2013.
+
+\bibitem{Rajpaul_Alpha_Cen_B}
+V.~Rajpaul, S.~Aigrain, and S.~Roberts.
+\newblock Ghost in the time series: no planet for alpha cen b.
+\newblock {\em Monthly Notices of the Royal Astronomical Society: Letters},
+  456(1):L6--L10, 2016.
+
+\bibitem{Thompson2017MNRAS}
+A.~P.~G. Thompson, C.~A. Watson, E.~J.~W. de~Mooij, and D.~B. Jess.
+\newblock The changing face of {$\alpha$} centauri b: probing plage and stellar
+  activity in k dwarfs.
+\newblock {\em Monthly Notices of the Royal Astronomical Society: Letters},
+  468(1):L16--L20, 2017.
+
+\bibitem{Wise2018}
+A.~W. Wise, S.~E. Dodson-Robinson, K.~Bevenour, and A.~Provini.
+\newblock New methods for finding activity-sensitive spectral lines: Combined
+  visual identification and an automated pipeline find a set of 40 activity
+  indicators.
+\newblock {\em The Astronomical Journal}, 156(4):180, 2018.
+
+\bibitem{Rasmussen2006}
+CE~Rasmussen and CKI Williams.
+\newblock {\em Gaussian Processes for Machine Learning}.
+\newblock Adaptive Computation and Machine Learning. MIT Press, Cambridge, MA,
+  USA, 1 2006.
+
+\bibitem{Roberts_gaussianprocesses}
+S.~Roberts, M.~Osborne, M.~Ebden, S.~Reece, N.~Gibson, and S.~Aigrain.
+\newblock Gaussian processes for time-series modelling.
+\newblock {\em Philosophical Transactions of the Royal Society of London A:
+  Mathematical, Physical and Engineering Sciences}, 371(1984), 2013.
+
+\bibitem{Ambikasaran2014}
+S.~{Ambikasaran}, D.~{Foreman-Mackey}, L.~{Greengard}, D.~W. {Hogg}, and
+  M.~{O'Neil}.
+\newblock {Fast Direct Methods for Gaussian Processes}.
+\newblock March 2014.
+
+\bibitem{DeWarf2010}
+L.~E. DeWarf, K.~M. Datin, and E.~F. Guinan.
+\newblock X-ray, fuv, and uv observations of alpha centauri b: Determination of
+  long-term magnetic activity cycle and rotation period.
+\newblock {\em The Astrophysical Journal}, 722(1):343, 2010.
+
+\bibitem{Queloz2001Bis}
+{Queloz, D.}, {Henry, G. W.}, {Sivan, J. P.}, {Baliunas, S. L.}, {Beuzit, J.
+  L.}, {Donahue, R. A.}, {Mayor, M.}, {Naef, D.}, {Perrier, C.}, and {Udry, S.}
+\newblock No planet for hd 166435.
+\newblock {\em A\&A}, 379(1):279--287, 2001.
+
+\bibitem{Figueira2013Bis}
+{Figueira, P.}, {Santos, N. C.}, {Pepe, F.}, {Lovis, C.}, and {Nardetto, N.}
+\newblock Line-profile variations in radial-velocity measurements - two
+  alternative indicators for planetary searches.
+\newblock {\em A\&A}, 557:A93, 2013.
+
+\end{thebibliography}

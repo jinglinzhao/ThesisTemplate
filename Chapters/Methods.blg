@@ -3,47 +3,44 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: Methods.aux
 The style file: unsrt.bst
 Database file #1: Bibliography.bib
-Warning--empty year in Roberts_gaussianprocesses
-Warning--empty journal in Ambikasaran2014
-You've used 19 entries,
+You've used 1 entry,
             1791 wiz_defined-function locations,
-            583 strings with 8332 characters,
-and the built_in function-call counts, 4941 in all, are:
-= -- 344
-> -- 376
-< -- 2
-+ -- 132
-- -- 113
-* -- 451
-:= -- 866
-add.period$ -- 58
-call.type$ -- 19
-change.case$ -- 18
+            453 strings with 3744 characters,
+and the built_in function-call counts, 224 in all, are:
+= -- 16
+> -- 11
+< -- 0
++ -- 4
+- -- 3
+* -- 19
+:= -- 44
+add.period$ -- 3
+call.type$ -- 1
+change.case$ -- 1
 chr.to.int$ -- 0
-cite$ -- 21
-duplicate$ -- 181
-empty$ -- 411
-format.name$ -- 113
-if$ -- 1038
+cite$ -- 1
+duplicate$ -- 9
+empty$ -- 21
+format.name$ -- 3
+if$ -- 45
 int.to.chr$ -- 0
-int.to.str$ -- 19
-missing$ -- 20
-newline$ -- 98
-num.names$ -- 19
-pop$ -- 34
+int.to.str$ -- 1
+missing$ -- 1
+newline$ -- 8
+num.names$ -- 1
+pop$ -- 1
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 67
+skip$ -- 3
 stack$ -- 0
-substring$ -- 243
-swap$ -- 28
-text.length$ -- 2
+substring$ -- 9
+swap$ -- 1
+text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 2
-while$ -- 35
-width$ -- 21
-write$ -- 209
-(There were 2 warnings)
+warning$ -- 0
+while$ -- 2
+width$ -- 2
+write$ -- 13
