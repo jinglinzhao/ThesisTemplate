@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2019/dev/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2018)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: PhDThesis-Ana.aux
 A level-1 auxiliary file: Chapters/Introduction.aux
@@ -9,17 +9,25 @@ I couldn't open database file Bibliography.bib
  :                      }
 I'm skipping whatever remains of this command
 A level-1 auxiliary file: Chapters/Methods.aux
-Illegal, another \bibstyle command---line 175 of file Chapters/Methods.aux
+Illegal, another \bibstyle command---line 142 of file Chapters/Methods.aux
  : \bibstyle
  :          {unsrt}
 I'm skipping whatever remains of this command
-Illegal, another \bibdata command---line 176 of file Chapters/Methods.aux
+Illegal, another \bibdata command---line 143 of file Chapters/Methods.aux
+ : \bibdata
+ :         {Bibliography}
+I'm skipping whatever remains of this command
+A level-1 auxiliary file: Chapters/Observations.aux
+Illegal, another \bibstyle command---line 63 of file Chapters/Observations.aux
+ : \bibstyle
+ :          {unsrt}
+I'm skipping whatever remains of this command
+Illegal, another \bibdata command---line 64 of file Chapters/Observations.aux
  : \bibdata
  :         {Bibliography}
 I'm skipping whatever remains of this command
 I found no database files---while reading file PhDThesis-Ana.aux
 Warning--I didn't find a database entry for "Dumusque2014SOAP"
-Warning--I didn't find a database entry for "Zechmeister2009"
 Warning--I didn't find a database entry for "Bouchy2005ELODIE"
 Warning--I didn't find a database entry for "Cochran2006"
 Warning--I didn't find a database entry for "Triaud2009"
@@ -28,9 +36,20 @@ Warning--I didn't find a database entry for "Boisse189733"
 Warning--I didn't find a database entry for "Cauley2017"
 Warning--I didn't find a database entry for "SIMBAD189733"
 Warning--I didn't find a database entry for "Bakos2006"
+Warning--I didn't find a database entry for "Dumusque_Centauri_B"
+Warning--I didn't find a database entry for "Hatzes2013"
+Warning--I didn't find a database entry for "Rajpaul_Alpha_Cen_B"
+Warning--I didn't find a database entry for "Thompson2017MNRAS"
+Warning--I didn't find a database entry for "Wise2018"
+Warning--I didn't find a database entry for "Rasmussen2006"
+Warning--I didn't find a database entry for "Roberts_gaussianprocesses"
+Warning--I didn't find a database entry for "Ambikasaran2014"
+Warning--I didn't find a database entry for "DeWarf2010"
+Warning--I didn't find a database entry for "Queloz2001Bis"
+Warning--I didn't find a database entry for "Figueira2013Bis"
 You've used 0 entries,
             1791 wiz_defined-function locations,
-            467 strings with 3821 characters,
+            488 strings with 4144 characters,
 and the built_in function-call counts, 18 in all, are:
 = -- 0
 > -- 0
@@ -69,4 +88,4 @@ warning$ -- 0
 while$ -- 0
 width$ -- 0
 write$ -- 2
-(There were 4 error messages)
+(There were 6 error messages)
